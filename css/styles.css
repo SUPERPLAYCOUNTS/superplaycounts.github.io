@@ -1,0 +1,24 @@
+html.light {
+	--color-bg: #ffffff;
+	--color-text: #000000;
+}
+
+html.dark {
+	--color-bg: #000000;
+	--color-text: #ffffff;
+}
+
+body {
+	background-color: var(--color-bg);
+	color: var(--color-text);
+}
+.logo-soon {
+	position: absolute;
+	top: 66%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+.links {
+	position: absolute;
+	top: 90%;
+}
