@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <link rel="icon" type="image/png" sizes="250x250" href="https://mgcounts.com/img/MGCountsV2.png">
+    <link rel=stylesheet href="https://mgcounts.com/css/odometer.css">
+    <script src="https://mgcounts.com/js/odometer.js"></script>
+    <title>MGCounts</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        #input,#button,#input2,#input3 {
+            font-size: 100px;
+        }
+    </style>
+</head>
+
+<center>
+    <br>
+<input id="input" placeholder="Shoutout Wall Name.">
+<br>
+<button id="button" onclick="search()">Search.</button>
+<br>
+<h1 style="font-size: 100px;">Create A New Wall!</h1>
+<br>
+<br>
+        <br>
+    <h1>If you don't already have a wall.</h1>
+    <br>
+<input id="input2" placeholder="Wall Name.">
+<br>
+    <input id="input3" type="nunber" min="1" max="50" placeholder="Max Users, 1-50">
+<br>
+<button id="button" onclick="create()">Create.</button>
+    <br>
+    <h1>Wall cannot have "/","?","&" in it</h1>
+       <br>
+<h1 id="error"></h1>
+</center>
+
+
+<script>
+    function search() {
+        fetch('https://api.mgcounts.com/create/'+document.getElementById('input2').value+'')
+        .then(response => response.text())
+  .then(data => {
+    if (data === "already") {
+        location.href = "/wall?id="+document.getElementById('input').value
+    } else {
+        alert("Create a wall first!")
+    }
+  })
+    }
+//https://api.mgcounts.com/wall/
+    function create() {
+        if (parseFloat(document.getElementById('input3').value) > 50) {
+            alert("Max number must be less than 50")
+        } else {
+        fetch('https://api.mgcounts.com/create/'+document.getElementById('input2').value+'/'+parseFloat(document.getElementById('input3').value)+'')
+  .then(response => response.text())
+  .then(data => {
+      if (data === "already") {
+          alert("Use another name!")
+      } else {
+        location.href = "/wall?id="+document.getElementById('input2').value
+      }
+  });
+        }
+    }
+    
+    </script>
+</html>
