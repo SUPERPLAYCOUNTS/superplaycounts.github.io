@@ -1,1 +1,21 @@
-
+*
+{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+body {
+	background-color: #fff;
+	color: #000;
+}
+.sonning
+{
+    position: relative;
+    width: 200px;
+    display: block;
+    margin: 0 auto;
+}
+a
+{
+    display: flex;
+}
