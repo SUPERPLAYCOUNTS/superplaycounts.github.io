@@ -1,0 +1,45 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+  }
+  
+  body {
+    height:100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: "Raleway Thin", sans-serif;
+    background:#eee;
+  }
+  .container
+  {
+    height:100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: "Raleway Thin", sans-serif;
+    background:#eee;
+  }
+  
+  .subs-odometer {
+    font-size:50px;
+    background:red;
+    color:white;
+    font-family: "Raleway", sans-serif;
+    font-weight:bold;
+    border-radius: 50px;
+    min-width: 100px;
+    text-align: center;
+    padding: 20px;
+    letter-spacing: 0px;
+  }
+  
+  h2 {
+    font-size: 32px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 24px;
+  }
