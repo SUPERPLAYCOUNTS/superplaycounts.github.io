@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fake subs test code</title>
+    <meta name="image" content="//superplaycounts.github.io/favicon.ico">
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="icon" href="../img/icon-sites.png">
+    <link rel="stylesheet" href="../css/odometer.css">
+    <link rel="stylesheet" href="../css/stylefakeweb.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1131093589390960"
+         crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+</head>
+<body>
+    <select class="change-lang">
+        <option value="ua">UA</option>
+        <option value="ru">RU</option>
+        <option value="en" selected>EN</option>
+    </select>
+    
+    <div align="left" style="margin-top: 50% font-size 36px">
+        <input type="text" id="channelSubmitName" name="channelSubmitName" placeholder="Channel Name"><br>
+        <input type="number" id="countSubmit" name="countSubmit" placeholder="Channel subs"><br>
+        <input type="number" id="subsPerMinute" name="subsPerMinute" placeholder="Subs per minute (optional)"><br>
+        <input type="submit" value="Set Values" ONCLICK="submit(); updateSubs()"><br>
+    </div>
+    
+    <div class="container">
+      <a id="channelName" class="lng-names" style="font-size: 32px; text-transform: uppercase; letter-spacing: 2px; margin: 24px;">Channel name</a>
+      <div class="subs-odometer" id="channelSubs">0</div>
+      <h2 class="lng-subsib">Subscribers</h2>
+    </div>
+    
+    <script src="../js/odometer.js"></script>
+    
+    <script>
+    
+    const subsOdometer = document.querySelector(".subs-odometer");
+    
+    const odometer = new Odometer({
+      el: subsOdometer,
+    })
+    
+    // odometer.update(1426);
+    subsOdometer.innerHTML = 0;
+    </script>
+    <script src="../js/odometerfake.js"></script>
+    <script src="../js/lang.js"></script>
+    <script src="../js/app.js"></script>
+</body>
+</html>
