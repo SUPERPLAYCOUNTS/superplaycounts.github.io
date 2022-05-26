@@ -2,20 +2,129 @@
 {
     margin: 0;
     padding: 0;
-    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Oswald', sans-serif;
 }
-body {
-	background-color: #fff;
-	color: #000;
-}
-.sonning
-{
-    position: relative;
-    width: 200px;
-    display: block;
-    margin: 0 auto;
-}
-a
+.flex-div
 {
     display: flex;
+    align-items: center;
+}
+nav
+{
+    padding: 10px 2%;
+    justify-content: space-between;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.nav-left .logo
+{
+    width: 60px;
+    cursor: pointer;
+}
+.flex-div h1
+{
+    cursor: pointer;
+}
+.header__burger {
+    display: block;
+}
+.header__list {
+    display: flex;
+    position: relative;
+    z-index: 1;
+}
+.header__list li{
+    list-style: none;
+    margin: 0px 0px 0px 20px;
+}
+.header__link {
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+    font-size: 18px;
+    text-decoration: none;
+}
+h2
+{
+    color: #000;
+    position: relative;
+    font-size: 100px;
+    text-align: center;
+}
+@media (max-width:767px){
+    .header__burger {
+        display: block;
+        position: relative;
+        width: 30px;
+        height: 20px;
+        position: relative;
+        z-index: 3;
+    }
+    .header__burger span{
+        position: absolute;
+        background-color: rgb(0, 0, 0);
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        top: 9px;
+        transition: all 0.3s ease 0s;
+    }
+    .header__burger:before,
+    .header__burger:after{
+        content: '';
+        background-color: rgb(0, 0, 0);
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        left: 0;
+        transition: all 0.3s ease 0s;
+    }
+    .header__burger:before{
+        top: 0;
+    }
+    .header__burger:after{
+        bottom: 0;
+    }
+
+    .header__burger.active span{
+        transform: scale(0);
+    }
+
+    .header__burger.active:before{
+        transform:rotate(45deg);
+        top: 9px;
+    }
+    .header__burger.active:after{
+        transform:rotate(-45deg);
+        bottom: 9px;
+    }
+    .header__menu{
+        position: absolute;
+        top: -500%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        transition: all 0.3s ease 0s;
+        background-color: #ffffffd4;
+        padding: 130px 49px 33px 31px;
+        z-index: 1;
+    }
+    .header__menu.active{
+        top: 0;
+    }
+
+    .header__list {
+        display: block;
+    }
+    .header__list li{
+        margin: 0px 0px 20px 0px;
+    }
+    .header__link {
+        font-size: 24px;
+    }
 }
