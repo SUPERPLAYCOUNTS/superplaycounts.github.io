@@ -1,0 +1,27 @@
+{
+    "background_color": "#ffffff",
+    "description": "With this site you can see various counters, subscribers, viewers in real time!",
+    "dir": "ltr",
+    "display": "standalone",
+    "name": "SUPERPLAYCOUNTS",
+    "orientation": "any",
+    "scope": "/",
+    "short_name": "SUPERPLAYCOUNTS",
+    "start_url": "https://superplaycounts.github.io/",
+    "theme_color": "#ffffff",
+    "categories": [],
+    "screenshots": [],
+    "icons": [
+      {
+        "src": "img/icon-sites.png"
+      },
+      {
+        "src": "favicon.ico"
+      },
+      {
+        "src": "/favicon.ico",
+        "type": "image/x-icon"
+      }
+    ],
+    "shortcuts": []
+  }
