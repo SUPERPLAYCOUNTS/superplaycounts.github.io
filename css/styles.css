@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Bebas Neue', cursive;
 }
 .flex-div
 {
@@ -96,7 +96,7 @@ nav
 }
 h2
 {
-    font-size: 3vw;
+    font-size: 3ex;
     margin-top: 0px;
     margin-bottom: 0px;
 }
@@ -105,7 +105,7 @@ h2
     margin-top: 0px;
     display: block;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 30px;
     color: rgb(14, 14, 14);
 }
 @media (max-width:767px){
@@ -181,4 +181,5 @@ h2
     .header__link {
         font-size: 24px;
     }
+
 }
