@@ -56,12 +56,12 @@
 }
 .subs-odometer
 {
-  height: 140px;
+  height: 120px;
   font-style: normal;
   font-weight: normal;
   font-size: 123px;
   line-height: 125px;
-  color: #272E39
+  color: #000;
 }
 .card h2 
 {
@@ -78,10 +78,14 @@
   width: 90%;
   display: block;
 }
+#channelName
+{
+  color: #000;
+}
 
 @media (max-width: 900px) {
 .card {
-    margin-top: 100px;
+    margin-top: 52px;
   }
   .card .subs-odometer
   {
