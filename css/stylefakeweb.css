@@ -26,6 +26,7 @@
   object-fit: cover;
   border-top-right-radius: calc(0.25rem - 1px);
   border-top-left-radius: calc(0.25rem - 1px);
+  backdrop-filter:blur(8px);
 }
 .profile-picture
 {
