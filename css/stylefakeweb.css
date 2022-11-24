@@ -57,7 +57,7 @@
 }
 .subs-odometer
 {
-  height: 120px;
+  height: 136px;
   font-style: normal;
   font-weight: normal;
   font-size: 123px;
@@ -70,7 +70,7 @@
   font-size: 32px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin: 24px;
+  margin: 0px;
 }
 .main__fakesubs input {
   height: 50px;
