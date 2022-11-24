@@ -5,10 +5,18 @@
     box-sizing: border-box;
     font-family: 'Bebas Neue', cursive;
 }
+body
+{
+    background: #fff;
+}
 .flex-div
 {
     display: flex;
     align-items: center;
+}
+.theme {
+    cursor: pointer;
+    left: 10px;
 }
 nav
 {
@@ -67,7 +75,7 @@ nav
     width: 185px;
     height: 185px;
 }
-.main__content hr
+.main__content .grops
 {
     width: 235px;
     border: 14px;
@@ -107,6 +115,24 @@ h2
     text-decoration: none;
     font-size: 30px;
     color: rgb(14, 14, 14);
+}
+.cr-1
+{
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    max-width: 72rem;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    margin: auto;
+}
+.textleftcr
+{
+    text-align: left;
+}
+.textrightcr
+{
+    text-align: right;
+    margin-top: -1.5rem;
 }
 @media (max-width:767px){
     .header__burger {
@@ -165,7 +191,7 @@ h2
         overflow: auto;
         transition: all 0.3s ease 0s;
         background-color: #ffffffd4;
-        padding: 130px 49px 33px 31px;
+        padding: 31px 92px 144px 19px;
         z-index: 1;
     }
     .header__menu.active{
