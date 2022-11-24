@@ -13,9 +13,11 @@
     <link rel="stylesheet" href="../css/stylefakeweb.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1131093589390960"
      crossorigin="anonymous"></script>
+     <script async src="https://arc.io/widget.min.js#HRejLsfT"></script>
 </head>
 <body>
     <nav class="flex-div">
@@ -25,14 +27,9 @@
         </div>
         <div class="header__burger">
           <span></span>
-          <span></span>
-          <span></span>
         </div>
         <div class="header__menu">
           <ul class="header__list">
-            <li>
-                <a href="https://superplaycounts.github.io/menu/" class="header__link">Secret Menu</a>
-              </li>
               <li>
                   <a href="https://superplaycounts.github.io/timer/" class="header__link">Timer</a>
               </li>
@@ -48,8 +45,8 @@
     <div class="main__fakesubs">
         <div class="card">
             <div class="card__banner">
-                <img class="banner-top" id="chosen-banner" src="../img/123.png">
-                <img class="profile-picture" id="chosen-image" src="../img/123.png">
+                <img class="banner-top" id="chosen-banner" src="">
+                <img class="profile-picture" id="chosen-image" src="">
             </div>
             <div class="card__title">
                 <h1 id="channelName">Channel name</h1>
@@ -58,6 +55,9 @@
                 <div class="subs-odometer" id="channelSubs">0</div>
             </center>
             <h2>Subscribers</h2>
+            <center>
+              <div class="chart card-mid" id="chart"></div>
+          </center>
         </div>
         <br>
         <br>
@@ -75,6 +75,8 @@
         <br>
         <input type="number" id="subsPerMinute" name="subsPerMinute" placeholder="Subs per minute (optional)"><br>
         <br>
+        <input type="checkbox" id="abbreviated">
+                <label for="abbreviated">Abbreviate counts</label><br><br>
         <br>
         <br>
         <br>
@@ -83,6 +85,20 @@
         <br>
         <input type="submit" value="Set values" ONCLICK="submit(); updateSubs()">
         </center>
+        <br>
+      <div class="cr-1">
+          <hr style="height:0;color:inherit;border-top-width:1px;">
+          <div>
+            <div class="textleftcr"> </div>
+            <p class="textrightcr">
+              &#169;
+              <!--  -->
+              2022
+              <!--  -->
+              superplaycounts.github.io
+            </p>
+          </div>
+      </div>
     </div>
 
 
@@ -100,5 +116,13 @@ subsOdometer.innerHTML = 0;
 </script>
 <script src="../js/scripts.js"></script>
 <script src="../js/odometerfake.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B5TEVSVZ74"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B5TEVSVZ74');
+</script>
 </body>
 </html>
