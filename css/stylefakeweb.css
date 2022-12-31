@@ -26,7 +26,7 @@
   object-fit: cover;
   border-top-right-radius: calc(0.25rem - 1px);
   border-top-left-radius: calc(0.25rem - 1px);
-  filter: blur(8px);
+  filter: blur(5px);
 }
 .profile-picture
 {
@@ -91,7 +91,7 @@
   .card .subs-odometer
   {
     font-size: 50px;
-    height: 50px;
+    height: 55px;
   }
   .card h2
   {
