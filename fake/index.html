@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,30 +17,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1131093589390960"
-     crossorigin="anonymous"></script>
-     <script async src="https://arc.io/widget.min.js#HRejLsfT"></script>
+        crossorigin="anonymous"></script>
+    <script async src="https://arc.io/widget.min.js#HRejLsfT"></script>
 </head>
+
 <body>
     <nav class="flex-div">
         <div class="nav-left flex-div">
-          <img src="../img/icon-sites.png" class="logo" onclick="locate_assign()">
-          <h1 onclick="locate_assign()">SUPERPLAYCOUNTS</h1>
+            <img src="../img/icon-sites.png" class="logo" onclick="locate_assign()">
+            <h1 onclick="locate_assign()">SUPERPLAYCOUNTS</h1>
         </div>
         <div class="header__burger">
-          <span></span>
+            <span></span>
         </div>
         <div class="header__menu">
-          <ul class="header__list">
-              <li>
-                  <a href="https://superplaycounts.github.io/timer/" class="header__link">Timer</a>
-              </li>
-              <li>
-                <a href="https://twitter.com/@superplaycounts" class="header__link">Twitter</a>
-              </li>
-              <li>
-                  <a href="../update/" class="header__link">Update</a>
-              </li>
-          </ul>
+            <ul class="header__list">
+                <li>
+                    <a href="https://superplaycounts.github.io/timer/" class="header__link">Timer</a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/@superplaycounts" class="header__link">Twitter</a>
+                </li>
+                <li>
+                    <a href="../update/" class="header__link">Update</a>
+                </li>
+            </ul>
         </div>
     </nav>
     <div class="main__fakesubs">
@@ -56,73 +58,72 @@
             </center>
             <h2>Subscribers</h2>
             <center>
-              <div class="chart card-mid" id="chart"></div>
-          </center>
+                <div id="container" class="container"></div>
+                <div id="chart" style="height: 45%;"></div>
+            </center>
         </div>
         <br>
         <br>
         <br>
         <center>
-        <input type="text" id="channelSubmitName" name="channelSubmitName" placeholder="Channel Name">
-        <br>
-        <input type="number" id="countSubmit" name="countSubmit" placeholder="Channel subs">
-        <br>
-        <label for="">Channel Image</label>
-        <input type="file" id="upload-button" accept="image/*">
-        <br>
-        <label for="">Channel Banner</label>
-        <input type="file" id="upload-banner" accept="image/*">
-        <br>
-        <input type="number" id="subsPerMinute" name="subsPerMinute" placeholder="Subs per minute (optional)"><br>
-        <br>
-        <input type="checkbox" id="abbreviated">
-                <label for="abbreviated">Abbreviate counts</label><br><br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <input type="submit" value="Set values" ONCLICK="submit(); updateSubs()">
+            <div id="settings">
+                <input type="text" id="channelSubmitName" name="channelSubmitName" placeholder="Channel Name">
+                    <br>
+                <input type="number" id="countSubmit" name="countSubmit" placeholder="Channel subs">
+                <br>
+                <label for="">Channel Image</label>
+                <input type="file" id="upload-button" accept="image/*">
+                <br>
+                <label for="">Channel Banner</label for="options.counter.banner.url">
+                <input type="file" id="upload-banner" accept="image/*">
+                <br>
+                <input type="number" id="subsPerMinute" name="subsPerMinute" placeholder="Subs per minute (optional)"><br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <input type="submit" value="Set values" ONCLICK="submit(); updateSubs()">
+            </div>
         </center>
         <br>
-      <div class="cr-1">
-          <hr style="height:0;color:inherit;border-top-width:1px;">
-          <div>
-            <div class="textleftcr"> </div>
-            <p class="textrightcr">
-              &#169;
-              <!--  -->
-              2022
-              <!--  -->
-              superplaycounts.github.io
-            </p>
-          </div>
-      </div>
+        <div class="cr-1">
+            <hr style="height:0;color:inherit;border-top-width:1px;">
+            <div>
+                <div class="textleftcr"> </div>
+                <p class="textrightcr">
+                    &#169;
+                    <!--  -->
+                    2023
+                    <!--  -->
+                    superplaycounts.github.io
+                </p>
+            </div>
+        </div>
     </div>
 
 
-<script src="../js/odometer.js"></script>
-<script>
-const subsOdometer = document.querySelector(".subs-odometer");
-const odometer = new Odometer({
-  el: subsOdometer,
-})
-// odometer.update(1426);
-subsOdometer.innerHTML = 0;
-</script>
-<script>
-    
-</script>
-<script src="../js/scripts.js"></script>
-<script src="../js/odometerfake.js"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-B5TEVSVZ74"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script src="../js/odometer.js"></script>
+    <script>
+        const subsOdometer = document.querySelector(".subs-odometer");
+        const odometer = new Odometer({
+            el: subsOdometer,
+        })
+        // odometer.update(1426);
+        subsOdometer.innerHTML = 0;
+    </script>
+    <script src="../js/scripts.js"></script>
+    <script src="../js/odometerfake.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B5TEVSVZ74"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'G-B5TEVSVZ74');
-</script>
+        gtag('config', 'G-B5TEVSVZ74');
+    </script>
 </body>
+
 </html>
