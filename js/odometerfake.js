@@ -25,7 +25,7 @@ function updateSubs() {
     if (rate > 1e9 || rate < -1e9) return;
     subsOdometer.innerHTML = Math.floor(count + rate / 80);
     count = count + rate / 80;
-} setInterval(updateSubs, 2500);
+} setInterval(updateSubs, 2000); 
 
 let uploadbutton = document.getElementById("upload-button");
 let chosenImage = document.getElementById("chosen-image");
