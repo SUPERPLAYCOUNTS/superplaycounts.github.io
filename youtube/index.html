@@ -10,7 +10,6 @@
     <link rel="icon" href="../img/icon-sites.png">
     <link rel="stylesheet" href="../css/odometer.css">
     <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/stylefakeweb.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
@@ -19,46 +18,83 @@
      crossorigin="anonymous"></script>
      <script async src="https://arc.io/widget.min.js#HRejLsfT"></script>
      <style>
-      #odo1a,#odo2a,#odo3a,#odo4a,#odo5a,#odo6a,#odo7a,#odo8a,#odo9a{
-    color: black;
-    font-size: 150px;
-    display: inline-block;
-}
-.subsyttxt
-{
-    margin: 0;
-}
-#comma1a, #comma2a{
-    color: black;
-    font-size: 126px;
-    display: inline-block;
-    vertical-align: bottom;
-}
-@media (max-width: 900px) {
-.card {
-    margin-top: 52px;
-  }
-  .card .subs-odometerYT
-  {
-    font-size: 50px;
-    height: 50px;
-  }
-  .card h2
-  {
-    padding: 0px 0px;
-  }
-    #odo1a,#odo2a,#odo3a,#odo4a,#odo5a,#odo6a,#odo7a,#odo8a,#odo9a{
-        color: black;
-        font-size: 42px;
-        display: inline-block;
-    }
-    #comma1a, #comma2a{
-        color: black;
-        font-size: 49px;
-        display: inline-block;
-        vertical-align: bottom;
-    }
-}
+      .main__subs{
+        max-width: 1020px;
+        margin: 0 auto;
+        padding: 10px;
+      }
+      .card{
+        width: 100%;
+        background: #ffffff;
+        border: 1px solid #D7DFE3;
+        box-sizing: border-box;
+        border-radius: 4px;
+        margin-top: 50px;
+        max-height: 553px;
+      }
+      .card__banner{
+        width: 100%;
+        position: relative;
+      }
+      #ban{
+        width: 100%;
+        max-height: 197px;
+        object-fit: cover;
+        border-top-right-radius: calc(0.25rem - 1px);
+        border-top-left-radius: calc(0.25rem - 1px);
+        filter: blur(5px);
+      }
+      #pfp{
+        position: absolute;
+        width: 128px;
+        height: 128px;
+        background: url(https://superplaycounts.github.io/img/123.png);
+        box-shadow: 0px 0px 6px rgb(0 0 0 / 20%);
+        border-radius: 347px;
+        left: 50%;
+        margin-left: -64px;
+        top: 100%;
+        margin-top: -64px;
+        object-fit: cover;
+      }
+      .card__title{
+        text-align: center;
+        margin-top: 75px;
+      }
+      .card__title #ChanName{
+        font-style: normal;
+        font-weight: normal;
+        font-size: 36px;
+        line-height: 44px;
+        color: #000000;
+      }
+      .odometer{
+        height: 136px;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 123px;
+        line-height: 125px;
+        color: #000;
+      }
+      .card h2 {
+        text-align: center;
+        font-size: 32px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin: 0px;
+      }
+      @media (max-width: 900px) {
+        .card {
+          margin-top: 52px;
+        }
+        .card .odometer{
+          font-size: 50px;
+          height: 55px;
+        }
+        .card h2{
+          padding: 0px 0px;
+        }
+      }
      </style>
 </head>
 <body>
@@ -84,34 +120,20 @@
           </ul>
         </div>
     </nav>
-    <div class="main__fakesubs">
+    <div class="main__subs">
         <div class="card">
-            <div class="card__banner">
-                <img class="banner-top" id="chosen-banner" src="/img/bg404.jpg">
-                <img class="profile-picture" id="chosen-image" src="/img/icon-sites.png">
-            </div>
-            <div class="card__title">
-                <h1 id="channelName">Loading</h1>
-            </div>
-            <center>
-                <div id=main class="subs-odometerYT" id="channelSubsYT">
-                  <div id=odo1a class=odometer>0</div>
-                  <div id=odo2a class=odometer>0</div>
-                  <div id=odo3a class=odometer>0</div>
-                  <div id=comma1a>,</div>
-                  <div id=odo4a class=odometer>0</div>
-                  <div id=odo5a class=odometer>0</div>
-                  <div id=odo6a class=odometer>0</div>
-                  <div id=comma2a>,</div>
-                  <div id=odo7a class=odometer>0</div>
-                  <div id=odo8a class=odometer>0</div>
-                  <div id=odo9a class=odometer>0</div>
-              </div>
-            </center>
-            <h2 class="subsyttxt">Subscribers</h2>
-            <center>
-              <div class="chart card-mid" id="chart"></div>
+          <div class="card__banner">
+            <img src="" alt="" id="ban">
+            <img src="" alt="" id="pfp">
+          </div>
+          <div class="card__title">
+            <div id="ChanName">Loading</div>
+          </div>
+          <center>
+            <div id="count" class="odometer">0</div>
           </center>
+          
+          <h2>Subscribers</h2>
         </div>
         <br>
         <br>
@@ -124,7 +146,7 @@
             <p class="textrightcr">
               &#169;
               <!--  -->
-              2022
+              2023
               <!--  -->
               superplaycounts.github.io
             </p>
@@ -132,242 +154,27 @@
       </div>
     </div>
 
-
-<script src="../js/odometer.js"></script>
 <script>
-var cmm = '12345678';
-var raw = 0;
-var m = '100m';
-var id = window.location.href.split('?')[1] || 'UCq-Fj5jknLsUf-MWSy4_brA'
-var url = 'https://mixerno.space/api/youtube-channel-counter/user/'
-var path = 'data.counts[0].count'
-function spl(n) {
-    n = ''+n+''   
-    return n.split('', 9)
-}
+var channel = window.location.href.split('?')[1] || 'UCq-Fj5jknLsUf-MWSy4_brA'
 
+function getData() {
+    fetch('https://mixerno.space/api/youtube-channel-counter/user/' + channel + '')
+    .then(blob => blob.json())
+    .then(data => {
+        sub = Math.round(data.counts[0].count);
+        ChanName.textContent = data.user[0].count;
+        ban.src = data.user[2].count;
+        pfp.src = data.user[1].count;
 
-
-function settype(n) {
-    if (n < 1000000000) {
-        m = '100m'
-        document.querySelector("#odo1a").style.display = "inline-block"
-        document.querySelector("#odo2a").style.display = "inline-block"
-        document.querySelector("#odo3a").style.display = "inline-block"
-        document.querySelector("#odo4a").style.display = "inline-block"
-        document.querySelector("#odo5a").style.display = "inline-block"
-        document.querySelector("#odo6a").style.display = "inline-block"
-        document.querySelector("#odo7a").style.display = "inline-block"
-        document.querySelector("#odo8a").style.display = "inline-block"
-        document.querySelector("#odo9a").style.display = "inline-block"
-        document.querySelector("#comma1a").style.display = "inline-block"
-        document.querySelector("#comma2a").style.display = "inline-block"
-    }
-    if (n < 100000000) {
-        m = '10m'
-        document.querySelector("#odo1a").style.display = "none"
-        document.querySelector("#odo2a").style.display = "inline-block"
-        document.querySelector("#odo3a").style.display = "inline-block"
-        document.querySelector("#odo4a").style.display = "inline-block"
-        document.querySelector("#odo5a").style.display = "inline-block"
-        document.querySelector("#odo6a").style.display = "inline-block"
-        document.querySelector("#odo7a").style.display = "inline-block"
-        document.querySelector("#odo8a").style.display = "inline-block"
-        document.querySelector("#odo9a").style.display = "inline-block"
-        document.querySelector("#comma1a").style.display = "inline-block"
-        document.querySelector("#comma2a").style.display = "inline-block"
-    } 
-    if (n < 10000000) {
-        m = '1m'
-        document.querySelector("#odo1a").style.display = "none"
-        document.querySelector("#odo2a").style.display = "none"
-        document.querySelector("#odo3a").style.display = "inline-block"
-        document.querySelector("#odo4a").style.display = "inline-block"
-        document.querySelector("#odo5a").style.display = "inline-block"
-        document.querySelector("#odo6a").style.display = "inline-block"
-        document.querySelector("#odo7a").style.display = "inline-block"
-        document.querySelector("#odo8a").style.display = "inline-block"
-        document.querySelector("#odo9a").style.display = "inline-block"
-        document.querySelector("#comma1a").style.display = "inline-block"
-        document.querySelector("#comma2a").style.display = "inline-block"
-    }
-    if (n < 1000000) {
-        m = '100k'
-        document.querySelector("#odo1a").style.display = "none"
-        document.querySelector("#odo2a").style.display = "none"
-        document.querySelector("#odo3a").style.display = "none"
-        document.querySelector("#odo4a").style.display = "inline-block"
-        document.querySelector("#odo5a").style.display = "inline-block"
-        document.querySelector("#odo6a").style.display = "inline-block"
-        document.querySelector("#odo7a").style.display = "inline-block"
-        document.querySelector("#odo8a").style.display = "inline-block"
-        document.querySelector("#odo9a").style.display = "inline-block"
-        document.querySelector("#comma1a").style.display = "none"
-        document.querySelector("#comma2a").style.display = "inline-block"
-    }
-    if (n < 100000) {
-        m = '10k'
-        document.querySelector("#odo1a").style.display = "none"
-        document.querySelector("#odo2a").style.display = "none"
-        document.querySelector("#odo3a").style.display = "none"
-        document.querySelector("#odo4a").style.display = "none"
-        document.querySelector("#odo5a").style.display = "inline-block"
-        document.querySelector("#odo6a").style.display = "inline-block"
-        document.querySelector("#odo7a").style.display = "inline-block"
-        document.querySelector("#odo8a").style.display = "inline-block"
-        document.querySelector("#odo9a").style.display = "inline-block"
-        document.querySelector("#comma1a").style.display = "none"
-        document.querySelector("#comma2a").style.display = "inline-block"
-    }
-    if (n < 10000) {
-        m = '1k'
-        document.querySelector("#odo1a").style.display = "none"
-        document.querySelector("#odo2a").style.display = "none"
-        document.querySelector("#odo3a").style.display = "none"
-        document.querySelector("#odo4a").style.display = "none"
-        document.querySelector("#odo5a").style.display = "none"
-        document.querySelector("#odo6a").style.display = "inline-block"
-        document.querySelector("#odo7a").style.display = "inline-block"
-        document.querySelector("#odo8a").style.display = "inline-block"
-        document.querySelector("#odo9a").style.display = "inline-block"
-        document.querySelector("#comma1a").style.display = "none"
-        document.querySelector("#comma2a").style.display = "inline-block"
-    }
-    if (n < 1000) {
-        m = '100'
-        document.querySelector("#odo1a").style.display = "none"
-        document.querySelector("#odo2a").style.display = "none"
-        document.querySelector("#odo3a").style.display = "none"
-        document.querySelector("#odo4a").style.display = "none"
-        document.querySelector("#odo5a").style.display = "none"
-        document.querySelector("#odo6a").style.display = "none"
-        document.querySelector("#odo7a").style.display = "inline-block"
-        document.querySelector("#odo8a").style.display = "inline-block"
-        document.querySelector("#odo9a").style.display = "inline-block"
-        document.querySelector("#comma1a").style.display = "none"
-        document.querySelector("#comma2a").style.display = "none"
-    }
-    if (n < 100) {
-        m = '10'
-        document.querySelector("#odo1a").style.display = "none"
-        document.querySelector("#odo2a").style.display = "none"
-        document.querySelector("#odo3a").style.display = "none"
-        document.querySelector("#odo4a").style.display = "none"
-        document.querySelector("#odo5a").style.display = "none"
-        document.querySelector("#odo6a").style.display = "none"
-        document.querySelector("#odo7a").style.display = "none"
-        document.querySelector("#odo8a").style.display = "inline-block"
-        document.querySelector("#odo9a").style.display = "inline-block"
-        document.querySelector("#comma1a").style.display = "none"
-        document.querySelector("#comma2a").style.display = "none"
-    }
-    if (n < 10) {
-        m = '1'
-        document.querySelector("#odo1a").style.display = "none"
-        document.querySelector("#odo2a").style.display = "none"
-        document.querySelector("#odo3a").style.display = "none"
-        document.querySelector("#odo4a").style.display = "none"
-        document.querySelector("#odo5a").style.display = "none"
-        document.querySelector("#odo6a").style.display = "none"
-        document.querySelector("#odo7a").style.display = "none"
-        document.querySelector("#odo8a").style.display = "none"
-        document.querySelector("#odo9a").style.display = "inline-block"
-        document.querySelector("#comma1a").style.display = "none"
-        document.querySelector("#comma2a").style.display = "none"
-    }
-    return m
-}
-
-
-function getdata(a) {
-    fetch(url + a).then(res => res.json()).then(data => {
-        cmm = spl(data.counts[0].count)
-        raw = data.counts[0].count
-        return cmm
+        count.innerHTML = sub;
     })
 }
 
-function render() {
-    settype(raw)
-    if (m == '100m') {
-          odo1a.innerHTML = cmm[0]
-    odo2a.innerHTML = cmm[1]
-    odo3a.innerHTML = cmm[2]
-    odo4a.innerHTML = cmm[3]
-    odo5a.innerHTML = cmm[4]
-    odo6a.innerHTML = cmm[5]
-    odo7a.innerHTML = cmm[6]
-    odo8a.innerHTML = cmm[7]
-    odo9a.innerHTML = cmm[8]
-    }
-    if (m == '10m') {
-        odo2a.innerHTML = cmm[0]
-        odo3a.innerHTML = cmm[1]
-        odo4a.innerHTML = cmm[2]
-        odo5a.innerHTML = cmm[3]
-        odo6a.innerHTML = cmm[4]
-        odo7a.innerHTML = cmm[5]
-        odo8a.innerHTML = cmm[6]
-        odo9a.innerHTML = cmm[7]
-    }
-    if (m == '1m') {
-        odo3a.innerHTML = cmm[0]
-        odo4a.innerHTML = cmm[1]
-        odo5a.innerHTML = cmm[2]
-        odo6a.innerHTML = cmm[3]
-        odo7a.innerHTML = cmm[4]
-        odo8a.innerHTML = cmm[5]
-        odo9a.innerHTML = cmm[6]
-    }
-    if (m == '100k') {
-        odo4a.innerHTML = cmm[0]
-        odo5a.innerHTML = cmm[1]
-        odo6a.innerHTML = cmm[2]
-        odo7a.innerHTML = cmm[3]
-        odo8a.innerHTML = cmm[4]
-        odo9a.innerHTML = cmm[5]
-    }
-    if (m == '10k') {
-        odo5a.innerHTML = cmm[0]
-        odo6a.innerHTML = cmm[1]
-        odo7a.innerHTML = cmm[2]
-        odo8a.innerHTML = cmm[3]
-        odo9a.innerHTML = cmm[4]
-    }
-    if (m == '1k') {
-        odo6a.innerHTML = cmm[0]
-        odo7a.innerHTML = cmm[1]
-        odo8a.innerHTML = cmm[2]
-        odo9a.innerHTML = cmm[3]
-    }
-    if (m == '100') {
-        odo7a.innerHTML = cmm[0]
-        odo8a.innerHTML = cmm[1]
-        odo9a.innerHTML = cmm[2]
-    }
-    if (m == '10') {
-        odo8a.innerHTML = cmm[0]
-        odo9a.innerHTML = cmm[1]
-    }
-    if (m == '1') {
-        odo9a.innerHTML = cmm[0]
-    }
-}
-setTimeout(() => {
-    getdata(id)
-render()
-}, 100);
-setTimeout(() => {
-    getdata(id)
-render()
-}, 500);
-setInterval(() => {
-    getdata(id)
-    render()
-}, 2000);
+getData()
+setInterval(getData, 5000)
 </script>
+<script src="../js/odometer.js"></script>
 <script src="../js/scripts.js"></script>
-<script src="../js/odometerfake.js"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-B5TEVSVZ74"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
