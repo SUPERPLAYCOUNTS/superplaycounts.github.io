@@ -42,7 +42,7 @@
         object-fit: cover;
         border-top-right-radius: calc(0.25rem - 1px);
         border-top-left-radius: calc(0.25rem - 1px);
-        filter: blur(5px);
+        filter: blur(2px);
       }
       #pfp{
         position: absolute;
@@ -175,6 +175,17 @@ setInterval(getData, 5000)
 </script>
 <script src="../js/odometer.js"></script>
 <script src="../js/scripts.js"></script>
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+      navigator.serviceWorker
+      .register("/serviceWorker.js")
+      .then((registration) => {
+        console.log("SM registration successful");
+      });
+    });
+  }
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-B5TEVSVZ74"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
