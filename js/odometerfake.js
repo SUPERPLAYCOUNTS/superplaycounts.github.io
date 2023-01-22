@@ -49,3 +49,27 @@ uploadbanner.onchange = () => {
         chosenBanner.setAttribute("src",reader.result);
     }
 }
+
+
+var knopka = document.getElementById ('push');
+knopka.addEventListener('click',func1);
+ 
+function func1() {
+  var shadow = document.getElementById ('settings');
+  if (shadow.style.display !== 'none'){
+  	shadow.style.display="none";
+  }else{
+  	shadow.style.display="block";
+  }
+};
+
+document.onkeyup = function(e) {
+    if (e.which == 81) {
+        var shadow = document.getElementById ('settings');
+        if (shadow.style.display !== 'none'){
+            shadow.style.display="none";
+        }else{
+            shadow.style.display="block";
+        }
+    }
+}
