@@ -1,13 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SUPERPLAYCOUNTS</title>
+  <meta name="description" content="With this site you can see various counters, subscribers, viewers in real time!" />
+  <meta name="theme-color" content="#c8c8c8" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
   <meta name="image" content="//superplaycounts.github.io/favicon.ico">
   <link rel="shortcut icon" href="favicon.ico">
   <link rel="icon" href="img/icon-sites.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@superplaycounts" />
+  <meta name="twitter:url" content="https://superplaycounts.github.io/" />
+  <meta name="twitter:title" content="Title" />
+  <meta name="twitter:description" content="With this site you can see various counters, subscribers, viewers in real time!" />
+  <meta name="twitter:image" content="https://superplaycounts.github.io//icon.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Title" />
+  <meta property="og:description" content="With this site you can see various counters, subscribers, viewers in real time!" />
+  <meta property="og:site_name" content="My App" />
+  <meta property="og:url" content="https://superplaycounts.github.io/" />
+  <meta property="og:image" content="https://superplaycounts.github.io//icon.png" />
+
+  <link rel="manifest" href="/manifest.json" />
   <link rel="stylesheet" href="./css/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,8 +37,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1131093589390960"
      crossorigin="anonymous"></script>
-     <script async src="https://arc.io/widget.min.js#HRejLsfT"></script>
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script async src="https://arc.io/widget.min.js#HRejLsfT"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script async src="https://unpkg.com/pwacompat" crossOrigin="anonymous"></script>
+
+  <!-- Apple touch icon -->
+  <link rel="apple-touch-icon" sizes="120x120" href="icons/apple-touch-icon_120.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="icons/apple-touch-icon_152.png" />
+  <link rel="apple-touch-icon" sizes="167x167" href="icons/apple-touch-icon_167.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon_180.png" />
 </head>
 <body>
   <nav class="flex-div">
@@ -50,7 +79,7 @@
         <p>With this site you can see various counters, subscribers, viewers in real time!</p>
         <ul>
           <li>
-            <a href="/youtube/" style="color:#ff0000"><i class="fa-brands fa-youtube"></i></a>
+            <a href="/youtube/search.html" style="color:#ff0000"><i class="fa-brands fa-youtube"></i></a>
           </li>
         </ul>
       </div>
@@ -63,9 +92,9 @@
           </div>
         </div>
         <div class="grid-item">
-          <h2>YouTube (Test)</h2>
+          <h2>YouTube (Beta)</h2>
           <div class="items__links">
-            <a href="/youtube">Subscriber Count</a>
+            <a href="/youtube/search.html">Subscriber Count</a>
           </div>
         </div>
       </div>
@@ -125,6 +154,17 @@
     </div>
   </div>
   <script src="js/scripts.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker
+        .register("/serviceWorker.js")
+        .then((registration) => {
+          console.log("SM registration successful");
+        });
+      });
+    }
+  </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-B5TEVSVZ74"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
