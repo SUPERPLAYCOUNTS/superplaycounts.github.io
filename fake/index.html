@@ -19,15 +19,15 @@
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@superplaycounts" />
     <meta name="twitter:url" content="https://superplaycounts.github.io/" />
-    <meta name="twitter:title" content="Title" />
+    <meta name="twitter:title" content="SUPERPLAYCOUNTS" />
     <meta name="twitter:description" content="With this site you can see various counters, subscribers, viewers in real time!" />
     <meta name="twitter:image" content="https://superplaycounts.github.io//icon.png" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Title" />
+    <meta property="og:title" content="SUPERPLAYCOUNTS" />
     <meta property="og:description" content="With this site you can see various counters, subscribers, viewers in real time!" />
-    <meta property="og:site_name" content="My App" />
+    <meta property="og:site_name" content="SUPERPLAYCOUNTS" />
     <meta property="og:url" content="https://superplaycounts.github.io/" />
     <meta property="og:image" content="https://superplaycounts.github.io//icon.png" />
 
@@ -55,10 +55,10 @@
     <script async src="https://unpkg.com/pwacompat" crossOrigin="anonymous"></script>
 
     <!-- Apple touch icon -->
-    <link rel="apple-touch-icon" sizes="120x120" href="icons/apple-touch-icon_120.png" />
-    <link rel="apple-touch-icon" sizes="152x152" href="icons/apple-touch-icon_152.png" />
-    <link rel="apple-touch-icon" sizes="167x167" href="icons/apple-touch-icon_167.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon_180.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-touch-icon_120.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-touch-icon_152.png" />
+    <link rel="apple-touch-icon" sizes="167x167" href="/icons/apple-touch-icon_167.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon_180.png" />
 </head>
 
 <body>
@@ -98,10 +98,6 @@
                 <div class="subs-odometer" id="channelSubs">0</div>
             </center>
             <h2>Subscribers</h2>
-            <center>
-                <div id="container" class="container"></div>
-                <div id="chart" style="height: 45%;"></div>
-            </center>
         </div>
         <br>
         <br>
@@ -109,7 +105,7 @@
         <center>
             <div id="settings">
                 <input type="text" id="channelSubmitName" name="channelSubmitName" placeholder="Channel Name">
-                    <br>
+                <br>
                 <input type="number" id="countSubmit" name="countSubmit" placeholder="Channel subs">
                 <br>
                 <label for="">Channel Image</label>
@@ -120,6 +116,8 @@
                 <br>
                 <input type="number" id="subsPerMinute" name="subsPerMinute" placeholder="Subs per minute (optional)"><br>
                 <br>
+                <h1>Global Settings:</h1><br>
+                <input type="checkbox" id="abbreviate" disabled><label>Abbreviate Counts</label>
                 <h1>Note</h1>
                 <p>To hide settings press 'q' key</p>
                 <br>
