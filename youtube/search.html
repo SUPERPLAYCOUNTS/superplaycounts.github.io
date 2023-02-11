@@ -17,15 +17,15 @@
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@superplaycounts" />
     <meta name="twitter:url" content="https://superplaycounts.github.io/" />
-    <meta name="twitter:title" content="Title" />
+    <meta name="twitter:title" content="SUPERPLAYCOUNTS" />
     <meta name="twitter:description" content="With this site you can see various counters, subscribers, viewers in real time!" />
     <meta name="twitter:image" content="https://superplaycounts.github.io//icon.png" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Title" />
+    <meta property="og:title" content="SUPERPLAYCOUNTS" />
     <meta property="og:description" content="With this site you can see various counters, subscribers, viewers in real time!" />
-    <meta property="og:site_name" content="My App" />
+    <meta property="og:site_name" content="SUPERPLAYCOUNTS" />
     <meta property="og:url" content="https://superplaycounts.github.io/" />
     <meta property="og:image" content="https://superplaycounts.github.io//icon.png" />
 
@@ -130,6 +130,21 @@ svg:not(:root).svg-inline--fa {
         .paketti:hover {
             transform: scale(1.025, 1.025);
         }
+        .loader{
+            width: 5rem;
+            height: 5rem;
+            background: transparent;
+            box-sizing: border-box;
+            border: solid 0.5rem #eee3;
+            border-radius: 50%;
+            border-top-color: #7a7a7a;
+            animation: rot 1.2s infinite ease-in-out;
+}
+@keyframes rot{
+  100%{
+    transform: rotate(360deg);
+  }
+}
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -193,6 +208,7 @@ svg:not(:root).svg-inline--fa {
                         <br>
                         <br>
                         <br>
+                        <div id="load" class=""></div>
                         <div class="grid gap-1 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4" id="box"></div>
                             <!-- <div class="paketti">
                                 <a href="/youtube/?UC-lHJZR3Gqxm24_Vd_AJ5Yw"
@@ -270,6 +286,9 @@ svg:not(:root).svg-inline--fa {
     <script src="/js/scripts.js"></script>
     <script>
         var input = document.getElementById("inp");
+        document.querySelector(".button").addEventListener("click", () => {
+            document.querySelector("#load").classList.add("loader");
+        })
 input.addEventListener("keyup", function(event) {
  
   if (event.keyCode === 13) {
@@ -291,7 +310,7 @@ async function search(q) {
                 box.innerHTML = "Loading..."
                 const searchResult = await fetch('https://mixerno.space/api/youtube-channel-counter/search/' + q).then(searchR => searchR.json());
                 
-              
+                document.querySelector("#load").classList.remove("loader");
                 box.innerHTML = ""
                 for (var i = 0; i < searchResult.list.length; i++) {
                     box.innerHTML += `<div class="paketti">
