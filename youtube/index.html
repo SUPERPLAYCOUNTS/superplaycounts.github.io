@@ -5,9 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Youtube - Subscriber Count</title>
+    <meta name="description" content="With this site you can see various counters, subscribers, viewers in real time!" />
+    <meta name="theme-color" content="#c8c8c8" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+
     <meta name="image" content="//superplaycounts.github.io/favicon.ico">
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="icon" href="../img/icon-sites.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@superplaycounts" />
+    <meta name="twitter:url" content="https://superplaycounts.github.io/" />
+    <meta name="twitter:title" content="SUPERPLAYCOUNTS" />
+    <meta name="twitter:description" content="With this site you can see various counters, subscribers, viewers in real time!" />
+    <meta name="twitter:image" content="https://superplaycounts.github.io//icon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="SUPERPLAYCOUNTS" />
+    <meta property="og:description" content="With this site you can see various counters, subscribers, viewers in real time!" />
+    <meta property="og:site_name" content="SUPERPLAYCOUNTS" />
+    <meta property="og:url" content="https://superplaycounts.github.io/" />
+    <meta property="og:image" content="https://superplaycounts.github.io//icon.png" />
+
+
+    <link rel="manifest" href="/manifest.json" />
     <link rel="stylesheet" href="../css/odometer.css">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,6 +67,10 @@
         border-top-right-radius: calc(0.25rem - 1px);
         border-top-left-radius: calc(0.25rem - 1px);
         filter: blur(2px);
+        transition: 0.3s;
+      }
+      #ban:hover{
+        filter: blur(0px);
       }
       #pfp{
         position: absolute;
@@ -56,6 +84,10 @@
         top: 100%;
         margin-top: -64px;
         object-fit: cover;
+        transition: 0.3s;
+      }
+      #pfp:hover{
+        border-radius: 40% !important;
       }
       .card__title{
         text-align: center;
@@ -69,7 +101,7 @@
         color: #000000;
       }
       .odometer{
-        height: 136px;
+        /* height: 136px; */
         font-style: normal;
         font-weight: normal;
         font-size: 123px;
@@ -83,6 +115,13 @@
         letter-spacing: 1px;
         margin: 0px;
       }
+      .wrapper{
+        text-align: center;
+        font-size: 3em;
+      }
+      #api{
+        font-size: 4vw;
+      }
       @media (max-width: 900px) {
         .card {
           margin-top: 52px;
@@ -94,8 +133,18 @@
         .card h2{
           padding: 0px 0px;
         }
+        #api{
+          font-size: 8vw;
+        }
       }
      </style>
+    <script async src="https://unpkg.com/pwacompat" crossOrigin="anonymous"></script>
+
+    <!-- Apple touch icon -->
+    <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-touch-icon_120.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-touch-icon_152.png" />
+    <link rel="apple-touch-icon" sizes="167x167" href="/icons/apple-touch-icon_167.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon_180.png" />
 </head>
 <body>
     <nav class="flex-div">
@@ -132,8 +181,15 @@
           <center>
             <div id="count" class="odometer">0</div>
           </center>
-          
           <h2>Subscribers</h2>
+        </div>
+        <br>
+        <div class="wrapper">
+          <div class="grid-item">
+            <span style="font-size: 0.8em;">Api</span>
+            <br>
+            <div id="api" class="odometer">0</div>
+          </div>
         </div>
         <br>
         <br>
@@ -162,11 +218,13 @@ function getData() {
     .then(blob => blob.json())
     .then(data => {
         sub = Math.round(data.counts[0].count);
+        apie = Math.round(data.counts[2].count);
         ChanName.textContent = data.user[0].count;
         ban.src = data.user[2].count;
         pfp.src = data.user[1].count;
 
         count.innerHTML = sub;
+        api.innerHTML = apie;
     })
 }
 
