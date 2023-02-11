@@ -26,7 +26,11 @@
   object-fit: cover;
   border-top-right-radius: calc(0.25rem - 1px);
   border-top-left-radius: calc(0.25rem - 1px);
-  filter: blur(5px);
+  filter: blur(2px);
+  transition: 0.3s;
+}
+.banner-top:hover{
+  filter: blur(0px);
 }
 .profile-picture
 {
@@ -41,6 +45,10 @@
   top: 100%;
   margin-top: -64px;
   object-fit: cover;
+  transition: 0.3s;
+}
+.profile-picture:hover{
+  border-radius: 40% !important;
 }
 .card__title
 {
