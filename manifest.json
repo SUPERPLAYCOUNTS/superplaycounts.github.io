@@ -2,6 +2,7 @@
     "name": "SUPERPLAYCOUNTS",
     "short_name": "SUPERPLAYCOUNTS",
     "description": "With this site you can see various counters, subscribers, viewers in real time!",
+    "version": "1.4",
     "theme_color": "#c8c8c8",
     "background_color": "#2e2e2e",
     "display": "fullscreen",
