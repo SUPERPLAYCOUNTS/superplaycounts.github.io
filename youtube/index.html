@@ -255,7 +255,7 @@ var credits = document.querySelector('.highcharts-credits');
 var channel = window.location.href.split('?')[1] || 'UCq-Fj5jknLsUf-MWSy4_brA';
 
 function getData() {
-  fetch('https://api.superplaycounts.repl.co/api/youtube-channel-counter/user/' + channel)
+  fetch('https://mixerno.space/api/youtube-channel-counter/user/' + channel)
     .then(blob => blob.json())
     .then(data => {
       const sub = Math.round(data.counts[0].count);
