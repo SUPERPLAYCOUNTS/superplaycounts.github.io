@@ -21,11 +21,24 @@ function submit() {
         return alert("Rate must be between -1 000 000 000 and 1 000 000 000.");
     }
 }
+function abb(count) {
+    if (count < 1000) {
+      return count.toString();
+    }
+    var exp = Math.floor(Math.log(count) / Math.log(1000));
+    var base = Math.floor(count / Math.pow(1000, exp));
+    var suffix = "";
+    for (let i = 0; i < exp; i++) {
+      suffix += "0";
+    }
+    return base + "," + suffix;
+  }
+
 function updateSubs() {
     if (rate > 1e9 || rate < -1e9) return;
     subsOdometer.innerHTML = Math.floor(count + rate / 80);
     count = count + rate / 80;
-} setInterval(updateSubs, 2000); 
+} setInterval(updateSubs, 5000); 
 
 let uploadbutton = document.getElementById("upload-button");
 let chosenImage = document.getElementById("chosen-image");
@@ -33,14 +46,23 @@ let chosenBanner = document.getElementById("chosen-banner");
 let uploadbanner = document.getElementById("upload-banner");
 
 uploadbutton.onchange = () => {
-    let reader = new FileReader();
-    reader.readAsDataURL(uploadbutton.files[0]);
-    console.log(uploadbutton.files[0]);
-    reader.onload = () => {
-        chosenImage.setAttribute("src",reader.result);
-    }
+     let reader = new FileReader();
+     reader.readAsDataURL(uploadbutton.files[0]);
+     console.log(uploadbutton.files[0]);
+     reader.onload = () => {
+         chosenImage.setAttribute("src",reader.result);
+     }
 }
-
+function setImage() {
+    let imageUrl = document.getElementById("upload-img-url").value;
+    let bannerUrl = document.getElementById("upload-banner-url").value;
+    
+    let chosenImage = document.getElementById("chosen-image");
+    let chosenBanner = document.getElementById("chosen-banner");
+    
+    chosenImage.src = imageUrl;
+    chosenBanner.src = bannerUrl;
+}
 uploadbanner.onchange = () => {
     let reader = new FileReader();
     reader.readAsDataURL(uploadbanner.files[0]);
