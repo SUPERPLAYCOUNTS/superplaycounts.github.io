@@ -118,10 +118,21 @@
       .wrapper{
         text-align: center;
         font-size: 3em;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-column-gap: 16px;
+        grid-row-gap: 30px;
+        margin-top: 15px;
       }
-      #api{
+      #api, #viewscounts, #videoscounts{
         font-size: 4vw;
       }
+      .highcharts-no-tooltip,
+.highcharts-button,
+.highcharts-contextbutton,
+.highcharts-button-normal {
+  display: none !important;
+}
       @media (max-width: 900px) {
         .card {
           margin-top: 52px;
@@ -133,12 +144,16 @@
         .card h2{
           padding: 0px 0px;
         }
-        #api{
+        #api, #viewscounts, #videoscounts{
           font-size: 8vw;
         }
       }
      </style>
     <script async src="https://unpkg.com/pwacompat" crossOrigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
 
     <!-- Apple touch icon -->
     <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-touch-icon_120.png" />
@@ -177,11 +192,13 @@
           </div>
           <div class="card__title">
             <div id="ChanName">Loading</div>
+<!--             <i style="color:#ff0000" class="fa-brands fa-youtube"></i> -->
           </div>
           <center>
             <div id="count" class="odometer">0</div>
           </center>
           <h2>Subscribers</h2>
+<!--           <p style="display: flex; justify-content: flex-end; padding: 5px 15px;">Powered by superplaycounts.github.io</p> -->
         </div>
         <br>
         <div class="wrapper">
@@ -190,48 +207,110 @@
             <br>
             <div id="api" class="odometer">0</div>
           </div>
-        </div>
-        <br>
-        <br>
-        <br>
-        <br>
-      <div class="cr-1">
-          <hr style="height:0;color:inherit;border-top-width:1px;">
-          <div>
-            <div class="textleftcr"> </div>
-            <p class="textrightcr">
-              &#169;
-              <!--  -->
-              2023
-              <!--  -->
-              superplaycounts.github.io
-            </p>
+          <div class="grid-item">
+            <span style="font-size: 0.8em;">Views</span>
+            <br>
+            <div id="viewscounts" class="odometer">0</div>
           </div>
-      </div>
+        </div>
+        <!-- <div class="grid-item">
+          <span style="font-size: 0.8em;">Videos</span>
+          <br>
+          <div id="videoscounts" class="odometer">0</div>
+        </div> -->
+        <br>
+<!--         <div id="container"></div> -->
+        <br>
+        <br>
+        <br>
+        <footer>
+          <div class="cookie-block" id="cookie-banner">
+            We use cookies to personalize the site and analyze site traffic. 🍪
+        
+            <button class="ok" onclick="acceptCookies()">Accept</button>
+          </div>
+          <div class="cr-1">
+          <!-- <h1>This site has been visited <span id="visits" id="count" class="odometer"></span> times.</h1> -->
+            <hr style="height:0;color:inherit;border-top-width:1px;">
+            <div>
+              <div class="textleftcr">
+                <a href="/privacy-policy.html" style="color: gray; text-decoration: none; text-align: center;">Primary Policy</a>
+              </div>
+              <p class="textrightcr">
+                &#169;
+                <!--  -->
+                <span class="year">2020</span>
+                <!--  -->
+                superplaycounts.github.io
+              </p>
+            </div>
+          </div>
+        </footer>
     </div>
 
 <script>
-var channel = window.location.href.split('?')[1] || 'UCq-Fj5jknLsUf-MWSy4_brA'
+var apiData = [];
+var chart = null;
+var credits = document.querySelector('.highcharts-credits');
+var channel = window.location.href.split('?')[1] || 'UCq-Fj5jknLsUf-MWSy4_brA';
 
 function getData() {
-    fetch('https://api.superplaycounts.repl.co/api/youtube-channel-counter/user/' + channel + '')
+  fetch('https://api.superplaycounts.repl.co/api/youtube-channel-counter/user/' + channel)
     .then(blob => blob.json())
     .then(data => {
-        sub = Math.round(data.counts[0].count);
-        apie = Math.round(data.counts[2].count);
-        ChanName.textContent = data.user[0].count;
-        ban.src = data.user[2].count;
-        pfp.src = data.user[1].count;
+      const sub = Math.round(data.counts[0].count);
+      const apie = Math.round(data.counts[2].count);
+      const view = Math.round(data.counts[3].count);
+      ChanName.textContent = data.user[0].count;
+      ban.src = data.user[2].count;
+      pfp.src = data.user[1].count;
+      apiData.push([Date.now(), sub]);
 
-        count.innerHTML = sub;
-        api.innerHTML = apie;
+      if (chart) {
+        chart.series[0].setData(apiData);
+      }
+
+      count.innerHTML = sub;
+      api.innerHTML = apie;
+      viewscounts.innerHTML = view;
     })
 }
 
 getData()
 setInterval(getData, 5000)
+
+Highcharts.chart('container', {
+  chart: {
+    type: 'line'
+  },
+  title: {
+    text: ''
+  },
+  xAxis: {
+    type: 'datetime'
+  },
+  yAxis: {
+    title: {
+      text: ''
+    },
+    type: 'linear'
+  },
+  credits: {
+    text: 'superplaycounts.github.io',
+    href: 'https://superplaycounts.github.io/',
+  },
+  series: [{
+    name: 'Subscribers',
+    data: apiData,
+    color: 'red'
+  }]
+}, function (ch) {
+  chart = ch;
+});
+
 </script>
 <script src="../js/odometer.js"></script>
+<script src="../js/cookie.js"></script>
 <script src="../js/scripts.js"></script>
 <script>
   if ("serviceWorker" in navigator) {
