@@ -1,13 +1,17 @@
+@font-face{
+    font-family: Fontsite;
+    src: url('/fonts/Bebas-Neue.ttf');
+}
 *
 {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Bebas Neue', cursive;
+    font-family: 'Fontsite', cursive;
 }
 body
 {
-    background: #fff;
+    background-color: #fff;
 }
 .flex-div
 {
@@ -100,7 +104,9 @@ nav
 }
 .grid-item {
     border: solid #000;
-    width: 100%;
+    width: 90%;
+    margin: auto;
+    background-color: #f0f0f0;
 }
 h2
 {
@@ -115,6 +121,10 @@ h2
     text-decoration: none;
     font-size: 30px;
     color: rgb(14, 14, 14);
+}
+#disqus_thread{
+    max-width: 90vw;
+    margin: auto;
 }
 .cr-1
 {
@@ -132,7 +142,7 @@ h2
 .textrightcr
 {
     text-align: right;
-    margin-top: -1.5rem;
+    margin-top: -1.1rem;
 }
 .cookie-block {
     position: fixed;
@@ -142,8 +152,8 @@ h2
     text-align: center;
     padding: 1rem 2rem;
     background: rgb(200, 200, 200);
-    display: none;
-    z-index: 1000;
+    /* display: none; */
+    z-index: 100000;
 }
 .cookie-block .ok {
     appearance: none;
@@ -234,6 +244,13 @@ h2
     }
     .header__link {
         font-size: 24px;
+    }
+    .textleftcr{
+        text-align: center;
+    }
+    .textrightcr{
+        text-align: center;
+        margin-top: -0.25rem;
     }
 
 }
