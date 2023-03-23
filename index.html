@@ -12,6 +12,37 @@
   <meta name="image" content="//superplaycounts.github.io/favicon.ico">
   <link rel="shortcut icon" href="favicon.ico">
   <link rel="icon" href="img/icon-sites.png">
+  <style>
+    .notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  display: none;
+}
+
+.notification.show {
+  display: block;
+}
+
+.notification .close-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 16px;
+  color: #ccc;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+
+
+  </style>
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
@@ -31,7 +62,6 @@
 
   <link rel="manifest" href="/manifest.json" />
   <link rel="stylesheet" href="./css/styles.css">
-<meta name="verify-admitad" content="7d13e1a8fc" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
@@ -48,8 +78,6 @@
   <link rel="apple-touch-icon" sizes="152x152" href="icons/apple-touch-icon_152.png" />
   <link rel="apple-touch-icon" sizes="167x167" href="icons/apple-touch-icon_167.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon_180.png" />
-  <script src="js/cookie.min.js"></script>
-  <script src="js/cookie.js"></script>
 </head>
 <body>
   <nav class="flex-div">
@@ -75,15 +103,15 @@
       </ul>
     </div>
   </nav>
-  <div class="cookie-block">
-    We use cookies to personalize the site and analyze site traffic. 🍪
-
-    <button class="ok">Accept</button>
-  </div>
   <div class="main__content">
     <div class="main__container">
       <div class="main__menu">
         <img src="img/icon-sites.png">
+        <div class="notification">
+          <p class="message">Update v1.4.6!</p>
+          <p class="message"><a href="/update/" style="text-decoration: none; color: black; text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC;">click to read</a></p>
+          <button class="close-btn">×</button>
+        </div>               
         <h1>SUPERPLAYCOUNTS</h1>
         <p>With this site you can see various counters, subscribers, viewers in real time!</p>
         <ul>
@@ -97,7 +125,7 @@
         <div class="grid-item">
           <h2>Fake</h2>
           <div class="items__links">
-            <a href="fake/">Subscriber Count</a>
+            <a href="/fake">Subscriber Count</a>
           </div>
         </div>
         <div class="grid-item">
@@ -106,17 +134,20 @@
             <a href="/youtube/search.html">Subscriber Count</a>
           </div>
         </div>
+        <div class="grid-item">
+          <h2>Twitter</h2>
+          <div class="items__links">
+            <a href="">Soon</a>
+          </div>
+        </div>
       </div>
       <br>
       <br>
       <br>
       <br>
       <br>
-      <br>
-      <br>
-      <br>
       <div class="Counter shadow-xl w-full lg:w-[90%]" id="bbvbktriejkjn">
-        <div id="disqus_thread"><button class="ms-button" style="width: 100% !important;
+        <div id="disqus_thread"><button class="ms-button" style="width: 80% !important;
           max-width: 100%;padding:20px !important;" onclick="loadDisqus()">Load Comments</button></div>
         <script>
           if(location.pathname != "/" && location.pathname != "" && location.pathname.split('/').length == 2) {
@@ -143,30 +174,38 @@
       </div>
       <br>
       <br>
-<!-- admitad.banner: 6bek0vdhig7d13e1a8fc16525dc3e8 AliExpress WW -->
-<a target="_blank" rel="nofollow" href="https://alitems.co/g/6bek0vdhig7d13e1a8fc16525dc3e8/?i=4"><img width="314" height="40" border="1" src="https://ad.admitad.com/b/6bek0vdhig7d13e1a8fc16525dc3e8/" alt="AliExpress WW"/></a>
-<!-- /admitad.banner -->
       <br>
       <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'B0B6E1LN3');kofiwidget2.draw();</script> 
       <br>
       <br>
       <br>
-      <div class="cr-1">
+      <footer>
+        <div class="cookie-block" id="cookie-banner">
+          We use cookies to personalize the site and analyze site traffic. 🍪
+      
+          <button class="ok" onclick="acceptCookies()">Accept</button>
+        </div>
+        <div class="cr-1">
         <!-- <h1>This site has been visited <span id="visits" id="count" class="odometer"></span> times.</h1> -->
           <hr style="height:0;color:inherit;border-top-width:1px;">
           <div>
-            <div class="textleftcr"> </div>
+            <div class="textleftcr">
+              <a href="privacy-policy.html" style="color: gray; text-decoration: none; text-align: center;">Primary Policy</a>
+            </div>
             <p class="textrightcr">
               &#169;
               <!--  -->
-              2023
+              <span class="year">2020</span>
               <!--  -->
               superplaycounts.github.io
             </p>
-       </div>
+          </div>
+        </div>
+      </footer>
     </div>
   </div>
   <script src="js/scripts.js"></script>
+  <script src="js/cookie.js"></script>
   <script src="/js/odometer.js"></script>
   <script>
     if ("serviceWorker" in navigator) {
@@ -178,6 +217,31 @@
         });
       });
     }
+  </script>
+  <script>
+    var notification = document.querySelector('.notification');
+var closeBtn = document.querySelector('.close-btn');
+var showNotification = true;
+
+if (localStorage.getItem('showNotification') !== null) {
+  showNotification = JSON.parse(localStorage.getItem('showNotification'));
+}
+
+if (showNotification) {
+  notification.classList.add('show');
+}
+
+closeBtn.addEventListener('click', function() {
+  notification.classList.remove('show');
+  showNotification = false; 
+  localStorage.setItem('showNotification', JSON.stringify(showNotification));
+});
+
+setTimeout(function() {
+  showNotification = true;
+  localStorage.setItem('showNotification', JSON.stringify(showNotification));
+}, 7 * 24 * 60 * 60 * 1000);
+
   </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-B5TEVSVZ74"></script>
 <script>
