@@ -89,7 +89,7 @@
         <div class="card">
             <div class="card__banner">
                 <img class="banner-top" id="chosen-banner" src="">
-                <img class="profile-picture" id="chosen-image" src="">
+                <img class="profile-picture" id="chosen-image" id="chosen-img" src="">
             </div>
             <div class="card__title">
                 <h1 id="channelName">Channel name</h1>
@@ -109,9 +109,11 @@
                 <input type="number" id="countSubmit" name="countSubmit" placeholder="Channel subs">
                 <br>
                 <label for="">Channel Image</label>
+                <input type="text" id="upload-img-url" placeholder="Url Image"><p>or</p>
                 <input type="file" id="upload-button" accept="image/*">
                 <br>
                 <label for="">Channel Banner</label for="options.counter.banner.url">
+                <input type="text" id="upload-banner-url" placeholder="Url Banner"><p>or</p>
                 <input type="file" id="upload-banner" accept="image/*">
                 <br>
                 <input type="number" id="subsPerMinute" name="subsPerMinute" placeholder="Subs per minute (optional)"><br>
@@ -128,23 +130,33 @@
                 <br>
                 <br>
                 <br>
-                <input type="submit" value="Set values" ONCLICK="submit(); updateSubs()">
+                <input type="submit" value="Set values" ONCLICK="submit(); updateSubs(); setImage()">
             </div>
         </center>
         <br>
-        <div class="cr-1">
-            <hr style="height:0;color:inherit;border-top-width:1px;">
-            <div>
-                <div class="textleftcr"> </div>
-                <p class="textrightcr">
-                    &#169;
-                    <!--  -->
-                    2023
-                    <!--  -->
-                    superplaycounts.github.io
-                </p>
+        <footer>
+            <div class="cookie-block" id="cookie-banner">
+              We use cookies to personalize the site and analyze site traffic. 🍪
+          
+              <button class="ok" onclick="acceptCookies()">Accept</button>
             </div>
-        </div>
+            <div class="cr-1">
+            <!-- <h1>This site has been visited <span id="visits" id="count" class="odometer"></span> times.</h1> -->
+              <hr style="height:0;color:inherit;border-top-width:1px;">
+              <div>
+                <div class="textleftcr">
+                  <a href="/privacy-policy.html" style="color: gray; text-decoration: none; text-align: center;">Primary Policy</a>
+                </div>
+                <p class="textrightcr">
+                  &#169;
+                  <!--  -->
+                  <span class="year">2020</span>
+                  <!--  -->
+                  superplaycounts.github.io
+                </p>
+              </div>
+            </div>
+          </footer>
     </div>
 
 
@@ -158,6 +170,7 @@
         subsOdometer.innerHTML = 0;
     </script>
     <script src="../js/scripts.js"></script>
+    <script src="../js/cookie.js"></script>
     <script>
         if ("serviceWorker" in navigator) {
           window.addEventListener("load", function () {
