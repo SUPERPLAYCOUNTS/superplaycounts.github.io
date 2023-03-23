@@ -1,21 +1,29 @@
-const cookieEl = document.querySelector('.cookie-block');
-const okEl = document.querySelector('.ok');
-
-okEl.addEventListener('click', () => {
-    cookieEl.style.display = 'none';
-});
-
-let cookies = () => {
-    if (!Cookies.get('hide-cookie')) {
-        setTimeout(() => {
-            cookieEl.style.display = 'block';
-        }, 1000);
+function setCookie(name, value, days) {
+    var expires = "";
+    if (days) {
+      var date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = "; expires=" + date.toUTCString();
     }
-
-    Cookies.set('hide-cookie', 'true', {
-        expires: 30
-    });
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
 }
-
-
-cookies();
+  
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+}
+  
+function acceptCookies() {
+    setCookie("cookieConsent", "accepted", 30);
+    document.getElementById("cookie-banner").style.display = "none";
+}
+  
+    if (getCookie("cookieConsent") == "accepted") {
+    document.getElementById("cookie-banner").style.display = "none";
+  }
