@@ -71,74 +71,75 @@ svg:not(:root).svg-inline--fa {
     vertical-align: -0.125em;
 }
 .btna {
-            display: block !important;
-            width: 115px !important;
-            height: 25px !important;
-            background: #4E9CAF !important;
-            padding: 10px !important;
-            text-align: center !important;
-            border-radius: 5px !important;
-            color: white;
-            font-weight: bold !important;
-            line-height: 25px !important;
+    display: block !important;
+    width: 115px !important;
+    height: 25px !important;
+    background: #4E9CAF !important;
+    padding: 10px !important;
+    text-align: center !important;
+    border-radius: 5px !important;
+    color: white;
+    font-weight: bold !important;
+    line-height: 25px !important;
+}
+
+.topbartext {
+    display: grid;
+    vertical-align: middle;
+    height: 30px;
+    width: 100%;
+}
+
+.counterlink1 {
+    color: white;
+    transition: 0.3s;
+    text-decoration: none;
+    line-height: 2em;
         }
 
-        .topbartext {
-            display: grid;
-            vertical-align: middle;
-            height: 30px;
-            width: 100%;
-        }
+.counterlink1:visited {
+    color: white;
+    text-decoration: none;
+}
 
-        .counterlink1 {
-            color: white;
-            transition: 0.3s;
-            text-decoration: none;
-            line-height: 2em;
-        }
+.counterlink1:hover {
+    font-size: 100%;
+    color: royalblue;
+    text-decoration: none;
+    cursor: pointer;
+}
 
-        .counterlink1:visited {
-            color: white;
-            text-decoration: none;
-        }
+.spam {
+    float: left;
+    width: 100px !important;
+}
 
-        .counterlink1:hover {
-            font-size: 100%;
-            color: royalblue;
-            text-decoration: none;
-            cursor: pointer;
-        }
+.paketti {
+    opacity: 1;
+    transition: 0.3s;
+    background-color: rgb(228, 228, 228);
+    padding: 5px;
+    border: 1px solid rgb(227, 227, 227);
+    border-radius: 0.5em;
+    transform: scale(1, 1);
+    overflow:hidden;
+    white-space: nowrap;
+text-overflow: ellipsis;
+}
 
-        .spam {
-            float: left;
-            width: 100px !important;
-        }
-
-        .paketti {
-            opacity: 1;
-            transition: 0.3s;
-            background-color: rgb(228, 228, 228);
-            padding: 5px;
-            border: 1px solid rgb(227, 227, 227);
-            border-radius: 0.5em;
-            transform: scale(1, 1);
-      overflow:hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-        }
-
-        .paketti:hover {
-            transform: scale(1.025, 1.025);
-        }
-        .loader{
-            width: 5rem;
-            height: 5rem;
-            background: transparent;
-            box-sizing: border-box;
-            border: solid 0.5rem #eee3;
-            border-radius: 50%;
-            border-top-color: #7a7a7a;
-            animation: rot 1.2s infinite ease-in-out;
+.paketti:hover {
+    transform: scale(1.015, 1.015);
+}
+.loader{
+    width: 4rem;
+    height: 4rem;
+    margin: auto;
+    background: transparent;
+    box-sizing: border-box;
+    border: solid 0.5rem #eee3;
+    border-radius: 50%;
+    border-top-color: #7a7a7a;
+    animation: rot 1.2s infinite ease-in-out;
 }
 @keyframes rot{
   100%{
@@ -199,10 +200,10 @@ svg:not(:root).svg-inline--fa {
                         transition-timing-function: cubic-bezier(.4,0,.2,1);
                         transition-duration: .15s; --tw-text-opacity: 1;
                         color: rgb(156 163 175/var(--tw-text-opacity)); font-size: 1.25rem;
-                        line-height: 1.75rem; text-align: center; width: 1.75rem; height: 1.75rem; display: block; right: 0.5rem; top: 0.5rem; position: absolute; cursor: pointer; -webkit-appearance: button;
+                        line-height: 1.75rem; text-align: center; width: 1.75rem; height: 1.75rem; display: block; right: 0.5rem; top: 0.35rem; position: absolute; cursor: pointer; -webkit-appearance: button;
                         background-color: transparent;
                         background-image: none; text-transform: none; font-family: inherit; font-weight: inherit; margin: 0;
-                        padding: 0; " onclick="search(inp.value)" type="button" class="button">
+                        padding: 0; border: none;" onclick="search(inp.value)" type="button" class="button">
                             <svg style="overflow: visible; " aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16 w-5 text-xl" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg>
                         </button>
                         <br>
@@ -237,7 +238,7 @@ svg:not(:root).svg-inline--fa {
             <br>
             <br>
             <div class="Counter shadow-xl w-full lg:w-[90%]" id="bbvbktriejkjn">
-                <div id="disqus_thread"><button class="ms-button" style="width: 100% !important;
+                <div id="disqus_thread"><button class="ms-button" style="width: 80% !important;
                   max-width: 100%;padding:20px !important;" onclick="loadDisqus()">Load Comments</button></div>
                 <script>
                   if(location.pathname != "/" && location.pathname != "" && location.pathname.split('/').length == 2) {
@@ -269,21 +270,33 @@ svg:not(:root).svg-inline--fa {
             <br>
             <br>
             <br>
-            <div class="cr-1">
-                <hr style="height:0;color:inherit;border-top-width:1px;">
-                <div>
-                  <div class="textleftcr"> </div>
-                  <p class="textrightcr">
-                    &#169;
-                    <!--  -->
-                    2023
-                    <!--  -->
-                    superplaycounts.github.io
-                  </p>
-             </div>
+            <footer>
+                <div class="cookie-block" id="cookie-banner">
+                  We use cookies to personalize the site and analyze site traffic. 🍪
+              
+                  <button class="ok" onclick="acceptCookies()">Accept</button>
+                </div>
+                <div class="cr-1">
+                <!-- <h1>This site has been visited <span id="visits" id="count" class="odometer"></span> times.</h1> -->
+                  <hr style="height:0;color:inherit;border-top-width:1px;">
+                  <div>
+                    <div class="textleftcr">
+                      <a href="/privacy-policy.html" style="color: gray; text-decoration: none; text-align: center;">Primary Policy</a>
+                    </div>
+                    <p class="textrightcr">
+                      &#169;
+                      <!--  -->
+                      2023
+                      <!--  -->
+                      superplaycounts.github.io
+                    </p>
+                  </div>
+                </div>
+              </footer>
         </div>
     </div>
     <script src="/js/scripts.js"></script>
+    <script src="/js/cookie.js"></script>
     <script>
         var input = document.getElementById("inp");
         document.querySelector(".button").addEventListener("click", () => {
@@ -314,7 +327,7 @@ async function search(q) {
                 box.innerHTML = ""
                 for (var i = 0; i < searchResult.list.length; i++) {
                     box.innerHTML += `<div class="paketti">
-                <a href="https://superplaycounts.github.io/youtube/?${searchResult.list[i][2]}" style="width:100%;height:100%;text-decoration: none; color: #000;">
+                <a href="/youtube/?${searchResult.list[i][2]}" style="width:100%;height:100%;text-decoration: none; color: #000;">
                     <img alt="${searchResult.list[i][0]}'s BANNER" src="${searchResult.list[i][1]}" style="width:100%;height:125px;filter:blur(2px)" height="125">
                     
                     <img alt="${searchResult.list[i][0]}'s IMAGE" src="${searchResult.list[i][1]}" style="margin-top:-125px !important; margin:auto; height:125px; width:125px; display: flex; border:solid 0px red; border-radius: 50%; position:relative; z-index: 20;">
