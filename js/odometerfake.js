@@ -1,44 +1,66 @@
 const channel = channelSubmitName.value;
 let count = 0;
 let rate = 0;
+
 function submit() {
-    const channel = channelSubmitName.value;
-    count = parseInt(countSubmit.value, 10);
-    if (!channel) {
-        return alert("Invalid channel name.");
-    } if (typeof count === "undefined") {
-        return alert("Count must be a number.");
-    } if (count < -1e12 || count > 1e12) {
-        return alert( "Count must be between -1 000 000 000 000 and 1 000 000 000 000." );
-    }
-    channelSubs.innerHTML = count;
-    channelName.innerHTML = channel;
-    if (parseInt(subsPerMinute.value, 10)) {
-        rate = parseInt(subsPerMinute.value, 10);
-    } else {
-        rate = 0;
-    } if (rate > 1e9 || rate < -1e9) {
-        return alert("Rate must be between -1 000 000 000 and 1 000 000 000.");
-    }
-}
-function abb(count) {
-    if (count < 1000) {
-      return count.toString();
-    }
-    var exp = Math.floor(Math.log(count) / Math.log(1000));
-    var base = Math.floor(count / Math.pow(1000, exp));
-    var suffix = "";
-    for (let i = 0; i < exp; i++) {
-      suffix += "0";
-    }
-    return base + "," + suffix;
+  const channel = channelSubmitName.value;
+  count = parseInt(countSubmit.value, 10);
+
+  if (!channel) {
+    return alert("Invalid channel name.");
+  }
+  if (typeof count === "undefined") {
+    return alert("Count must be a number.");
+  }
+  if (count < -1e12 || count > 1e12) {
+    return alert("Count must be between -1 000 000 000 000 and 1 000 000 000 000.");
   }
 
+  channelSubs.innerHTML = count;
+  channelName.innerHTML = channel;
+
+  rate = parseInt(subsPerMinute.value, 10);
+
+  if (rateOption.value == "mins") {
+    rate = rate / 60; // convert rate from subs/minute to subs/second
+  } else if (rateOption.value == "hrs") {
+    rate = rate / 3600; // convert rate from subs/hour to subs/second
+  }
+
+  if (rate > 1e12 || rate < -1e12) {
+    return alert("Rate must be between -1 000 000 000 000 and 1 000 000 000 000.");
+  }
+
+  if (rateOption.value == "mins" && (rate > 1e9 / 60 || rate < -1e9 / 60)) {
+    return alert("Rate must be between -1 000 000 000 and 1 000 000 000 subscribers per minute.");
+  }
+
+  if (rateOption.value == "secs" && (rate > 1e9 || rate < -1e9)) {
+    return alert("Rate must be between -1 000 000 000 and 1 000 000 000 subscribers per second.");
+  }
+
+  if (rateOption.value == "hrs" && (rate > 1e9 / 3600 || rate < -1e9 / 3600)) {
+    return alert("Rate must be between -1 000 000 000 and 1 000 000 000 subscribers per hour.");
+  }
+}
+
 function updateSubs() {
-    if (rate > 1e9 || rate < -1e9) return;
-    subsOdometer.innerHTML = Math.floor(count + rate / 80);
-    count = count + rate / 80;
-} setInterval(updateSubs, 5000); 
+  let updateInterval = 5000; // default update interval in milliseconds
+
+  if (rateOption.value == "mins") {
+    updateInterval = 30000; // update every 30 seconds
+  } else if (rateOption.value == "hrs") {
+    updateInterval = 1800000; // update every 30 minutes
+  }
+
+  if (rate > 1e9 || rate < -1e9) return;
+
+  count += rate * (updateInterval / 1000);
+  channelSubs.innerHTML = Math.floor(count);
+}
+
+setInterval(updateSubs, 5000); // default update interval in milliseconds
+
 
 let uploadbutton = document.getElementById("upload-button");
 let chosenImage = document.getElementById("chosen-image");
@@ -94,4 +116,16 @@ document.onkeyup = function(e) {
             shadow.style.display="block";
         }
     }
+}
+function abb(count) {
+    if (count < 1000) {
+      return count.toString();
+    }
+    var exp = Math.floor(Math.log(count) / Math.log(1000));
+    var base = Math.floor(count / Math.pow(1000, exp));
+    var suffix = "";
+    for (let i = 0; i < exp; i++) {
+      suffix += "0";
+    }
+    return base + "," + suffix;
 }

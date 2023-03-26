@@ -48,7 +48,7 @@
   transition: 0.3s;
 }
 .profile-picture:hover{
-  border-radius: 40% !important;
+  border-radius: 40px;
 }
 .card__title
 {
@@ -99,7 +99,7 @@
   .card .subs-odometer
   {
     font-size: 50px;
-    height: 55px;
+    height: 60px;
   }
   .card h2
   {

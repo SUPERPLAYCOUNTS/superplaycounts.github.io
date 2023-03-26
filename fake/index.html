@@ -39,6 +39,22 @@
             #push {
                 display: none;
             }
+            .optionrate{
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                font-size: 20px;
+                color: #333;
+                background-color: #fff;
+            }
+            .optirate{
+                font-size: 20px;
+                color: #333;
+                background-color: #fff;
+            }
+            .optionrate:checked {
+                background-color: #f1f1f1;
+            }
             @media (max-width: 900px) {
                 #push {
                     display: block;
@@ -79,6 +95,9 @@
                     <a href="https://twitter.com/@superplaycounts" class="header__link">Twitter</a>
                 </li>
                 <li>
+                    <a href="/api/docs.html" class="header__link">Api</a>
+                </li>
+                <li>
                     <a href="../update/" class="header__link">Update</a>
                 </li>
                 <input id="push" type="button" value="hide setting">
@@ -116,10 +135,20 @@
                 <input type="text" id="upload-banner-url" placeholder="Url Banner"><p>or</p>
                 <input type="file" id="upload-banner" accept="image/*">
                 <br>
-                <input type="number" id="subsPerMinute" name="subsPerMinute" placeholder="Subs per minute (optional)"><br>
+                <input type="number" id="subsPerMinute" name="subsPerMinute" placeholder="Subs gain rate (optional)"><br>
                 <br>
                 <h1>Global Settings:</h1><br>
-                <input type="checkbox" id="abbreviate" disabled><label>Abbreviate Counts</label>
+                <input type="checkbox" id="abbreviate" disabled><label>Abbreviate Counts - in developing</label>
+                <br>
+                <br>
+                <br>
+                <select class="optionrate" id="rateOption">
+                    <option class="optirate" value="secs">Rate in subs/second</option>
+                    <option class="optirate" value="mins">Rate in subs/minute</option>
+                    <option class="optirate" value="hrs">Rate in subs/hour</option>
+                </select>
+                <br>
+                <br>
                 <h1>Note</h1>
                 <p>To hide settings press 'q' key</p>
                 <br>

@@ -100,26 +100,44 @@ nav
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-column-gap: 16px;
     grid-row-gap: 30px;
-    margin-top: 15px;
-}
-.grid-item {
-    border: solid #000;
     width: 90%;
     margin: auto;
-    background-color: #f0f0f0;
+    text-align: center;
+    gap: 10px;
+}
+.grid-item {
+    opacity: 1;
+    transition: 0.3s;
+    border: 1px solid rgb(27, 27, 27);
+    width: 90%;
+    margin: auto;
+    background-color: rgb(233, 233, 233);
+    padding: 5px;
+    transform: scale(1, 1);
+    border-radius: 0.5em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.grid-item:hover{
+    transform: scale(1.015, 1.015);
 }
 h2
 {
     font-size: 3ex;
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+.grid-item h2 {
+    margin: auto;
+    font-size: 3.5ex;
 }
 .items__links a
 {
-    margin-top: 0px;
     display: block;
     text-decoration: none;
     font-size: 30px;
+    line-height: 1.5em;
     color: rgb(14, 14, 14);
 }
 #disqus_thread{

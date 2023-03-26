@@ -17,4 +17,4 @@ const updateYear = () => {
 	}
 }
 
-setInterval(updateYear, 0);
+setInterval(updateYear, 1);
