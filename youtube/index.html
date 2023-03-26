@@ -87,7 +87,7 @@
         transition: 0.3s;
       }
       #pfp:hover{
-        border-radius: 40% !important;
+        border-radius: 40px;
       }
       .card__title{
         text-align: center;
@@ -125,7 +125,7 @@
         margin-top: 15px;
       }
       #api, #viewscounts, #videoscounts{
-        font-size: 4vw;
+        font-size: 100%;
       }
       .highcharts-no-tooltip,
 .highcharts-button,
@@ -139,7 +139,7 @@
         }
         .card .odometer{
           font-size: 50px;
-          height: 55px;
+          height: 60px;
         }
         .card h2{
           padding: 0px 0px;
@@ -179,6 +179,9 @@
                 <a href="https://twitter.com/@superplaycounts" class="header__link">Twitter</a>
               </li>
               <li>
+                <a href="/api/docs.html" class="header__link">Api</a>
+              </li>
+              <li>
                   <a href="../update/" class="header__link">Update</a>
               </li>
           </ul>
@@ -192,13 +195,13 @@
           </div>
           <div class="card__title">
             <div id="ChanName">Loading</div>
-<!--             <i style="color:#ff0000" class="fa-brands fa-youtube"></i> -->
+            <i style="color:#ff0000" class="fa-brands fa-youtube"></i>
           </div>
           <center>
             <div id="count" class="odometer">0</div>
           </center>
           <h2>Subscribers</h2>
-<!--           <p style="display: flex; justify-content: flex-end; padding: 5px 15px;">Powered by superplaycounts.github.io</p> -->
+          <p style="display: flex; justify-content: flex-end; padding: 5px 15px; color: grey; cursor: default;">Powered by superplaycounts.github.io</p>
         </div>
         <br>
         <div class="wrapper">
@@ -219,7 +222,7 @@
           <div id="videoscounts" class="odometer">0</div>
         </div> -->
         <br>
-<!--         <div id="container"></div> -->
+        <div id="container"></div>
         <br>
         <br>
         <br>
@@ -255,15 +258,17 @@ var credits = document.querySelector('.highcharts-credits');
 var channel = window.location.href.split('?')[1] || 'UCq-Fj5jknLsUf-MWSy4_brA';
 
 function getData() {
-  fetch('https://mixerno.space/api/youtube-channel-counter/user/' + channel)
+  fetch('https://api.superplaycounts.repl.co/api/youtube-channel-counter/user/' + channel)
     .then(blob => blob.json())
     .then(data => {
       const sub = Math.round(data.counts[0].count);
       const apie = Math.round(data.counts[2].count);
       const view = Math.round(data.counts[3].count);
+      const videos = Math.round(data.counts[5].count);
       ChanName.textContent = data.user[0].count;
       ban.src = data.user[2].count;
       pfp.src = data.user[1].count;
+      document.title = `${data.user[0].count} - Subscriber Count`;
       apiData.push([Date.now(), sub]);
 
       if (chart) {
@@ -273,6 +278,7 @@ function getData() {
       count.innerHTML = sub;
       api.innerHTML = apie;
       viewscounts.innerHTML = view;
+      videoscounts.innerHTML = videos;
     })
 }
 
