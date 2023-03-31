@@ -113,6 +113,17 @@
       </div>
       <div class="questions">
         <div>
+          <button type="button" class="question">April Fools Update v1.5.8.6</button>
+          <div class="answer">
+            <audio id="fart" src="fartaudio.mp3"></audio>
+            <p>Happy April Fools Day! This is ONLY meant to be an April Fools update and should NOT be taken seriously.</p>
+            <p>&bull; New counters have been added: TikTok, Twitter, Reddit, Roblox, Instagram, Likee, and Spotify.</p>
+            <p>&bull; For the YouTube subscribers counter, a game has been added.</p>
+            <p>&bull; When clicking on the April Fools Update v1.5.8.6 button located in the Update section, a funny sound is played.</p>
+            <p>&bull; In the fake subscriber counter, a message from the police appears.</p>
+          </div>
+        </div>
+        <div>
           <button type="button" class="question">Update v1.5.3</button>
           <div class="answer">
             <p>v1.5 Updates and corrections.</p>
@@ -242,6 +253,14 @@
                 }
             });
         }
+  </script>
+  <script>
+    const button = document.getElementsByClassName("question")[0];
+    const fartSound = document.getElementById("fart");
+
+    button.addEventListener("click", () => {
+      fartSound.play();
+    });
   </script>
   <script>
     if ("serviceWorker" in navigator) {

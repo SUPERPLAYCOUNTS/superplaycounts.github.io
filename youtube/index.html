@@ -148,6 +148,28 @@
           font-size: 8vw;
         }
       }
+      /* april fools */
+      .gameapril{
+        background-color: #f1c40f;
+	      text-align: center;
+      }
+      .text-game{
+        font-size: 36px;
+	      color: #2c3e50;
+      }
+      #start-game{
+        background-color: #e74c3c;
+	      color: #fff;
+	      border: none;
+	      padding: 10px 20px;
+	      border-radius: 5px;
+	      font-size: 18px;
+	      cursor: pointer;
+	      transition: background-color 0.2s;
+      }
+      #start-game:hover {
+	      background-color: #c0392b;
+      }
      </style>
     <script async src="https://unpkg.com/pwacompat" crossOrigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -225,6 +247,12 @@
         <div id="container"></div>
         <br>
         <br>
+        <!-- April Fools -->
+        <div class="gameapril">
+          <h1 class="text-game">Hello, this is a game for SUBSCRIBERS counter!</h1>
+	        <p>Click the button to start the game:</p>
+	        <button id="start-game">Start game</button>
+        </div>
         <br>
         <footer>
           <div class="cookie-block" id="cookie-banner">
@@ -312,6 +340,14 @@ Highcharts.chart('container', {
   }]
 }, function (ch) {
   chart = ch;
+});
+
+</script>
+<script>
+const startBtn = document.getElementById('start-game');
+
+startBtn.addEventListener('click', () => {
+	alert('Thank you for participating in our game! Unfortunately, it does not exist. It was an April Fools joke :)');
 });
 
 </script>

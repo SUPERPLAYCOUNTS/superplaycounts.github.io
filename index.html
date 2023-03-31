@@ -12,37 +12,6 @@
   <meta name="image" content="//superplaycounts.github.io/favicon.ico">
   <link rel="shortcut icon" href="favicon.ico">
   <link rel="icon" href="img/icon-sites.png">
-  <style>
-    .notification {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 300px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  padding: 10px;
-  display: none;
-}
-
-.notification.show {
-  display: block;
-}
-
-.notification .close-btn {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  font-size: 16px;
-  color: #ccc;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-}
-
-
-
-  </style>
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
@@ -61,6 +30,46 @@
   <meta property="og:image" content="https://superplaycounts.github.io//icon.png" />
 
   <link rel="manifest" href="/manifest.json" />
+  <style>
+    #banner {
+  position: fixed;
+  top: -200px;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background-color: #ff9900;
+  text-align: center;
+  transition: top 0.5s ease-in-out;
+  z-index: 100000;
+}
+
+#banner.show {
+  top: 191px;
+}
+
+.banner-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.banner-content h2 {
+  color: white;
+  font-size: 24px;
+}
+
+.banner-content button {
+  background-color: white;
+  border: none;
+  color: #ff9900;
+  font-size: 18px;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+  </style>
   <link rel="stylesheet" href="./css/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -110,6 +119,11 @@
     <div class="main__container">
       <div class="main__menu">
         <img src="img/icon-sites.png">
+        <!-- <div class="notification">
+          <p class="message">Update v1.5.3!</p>
+          <p class="message"><a href="/update/" style="text-decoration: none; color: black; text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC;">click to read</a></p>
+          <button class="close-btn">×</button>
+        </div> -->
         <h1>SUPERPLAYCOUNTS</h1>
         <p>With this site you can see various counters, subscribers, viewers in real time!</p>
         <ul>
@@ -117,6 +131,12 @@
             <a href="/youtube/search.html" style="color:#ff0000"><i class="fa-brands fa-youtube"></i></a>
           </li>
         </ul>
+      </div>
+      <div id="banner">
+        <div class="banner-content">
+          <h2>Happy April Fools Day!</h2>
+          <button onclick="closeBanner()">Lol</button>
+        </div>
       </div>
       <hr class="grops">
       <div id="grid">
@@ -135,7 +155,50 @@
         <div class="grid-item">
           <h2>Twitter</h2>
           <div class="items__links">
-            <a href="">Soon</a>
+            <a onclick="showBanner()">Followers count</a>
+          </div>
+        </div>
+        <!-- April Fools -->
+        <div class="grid-item">
+          <h2>Tiktok</h2>
+          <div class="items__links">
+            <a onclick="showBanner()">Followers count</a>
+          </div>
+        </div>
+        <div class="grid-item">
+          <h2>Reddit</h2>
+          <div class="items__links">
+            <a onclick="showBanner()">Member Count</a>
+          </div>
+        </div>
+        <div class="grid-item">
+          <h2>Pornhub</h2>
+          <div class="items__links">
+            <a onclick="showBanner()">Subscriber Count</a>
+          </div>
+        </div>
+        <div class="grid-item">
+          <h2>Roblox</h2>
+          <div class="items__links">
+            <a onclick="showBanner()">Visit Count</a>
+          </div>
+        </div>
+        <div class="grid-item">
+          <h2>Instagram</h2>
+          <div class="items__links">
+            <a onclick="showBanner()">Followers count</a>
+          </div>
+        </div>
+        <div class="grid-item">
+          <h2>Likee</h2>
+          <div class="items__links">
+            <a onclick="showBanner()">Followers count</a>
+          </div>
+        </div>
+        <div class="grid-item">
+          <h2>Spotify</h2>
+          <div class="items__links">
+            <a onclick="showBanner()">Artist subscriber count</a>
           </div>
         </div>
       </div>
@@ -203,6 +266,16 @@
     </div>
   </div>
   <script src="js/scripts.js"></script>
+  <script>
+    function showBanner() {
+  document.getElementById("banner").classList.add("show");
+}
+
+function closeBanner() {
+  document.getElementById("banner").classList.remove("show");
+}
+
+  </script>
   <script src="js/cookie.js"></script>
   <script src="/js/odometer.js"></script>
   <script>
@@ -216,6 +289,34 @@
       });
     }
   </script>
+  <!-- <script>
+    var notification = document.querySelector('.notification');
+var closeBtn = document.querySelector('.close-btn');
+var showNotification = true;
+
+// Проверяем, нужно ли показывать уведомление
+if (localStorage.getItem('showNotification') !== null) {
+  showNotification = JSON.parse(localStorage.getItem('showNotification'));
+}
+
+if (showNotification) {
+  notification.classList.add('show');
+}
+
+// Обработчик клика на кнопку закрытия
+closeBtn.addEventListener('click', function() {
+  notification.classList.remove('show'); // убираем класс show
+  showNotification = false; // устанавливаем флаг, что уведомление скрыто
+  localStorage.setItem('showNotification', JSON.stringify(showNotification)); // сохраняем состояние в localStorage
+});
+
+// Сброс флага скрытия уведомления после недели
+setTimeout(function() {
+  showNotification = true;
+  localStorage.setItem('showNotification', JSON.stringify(showNotification));
+}, 7 * 24 * 60 * 60 * 1000);
+
+  </script> -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-B5TEVSVZ74"></script>
 <script>
   window.dataLayer = window.dataLayer || [];

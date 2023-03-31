@@ -60,6 +60,35 @@
                     display: block;
                 }
             }
+
+            .container {
+  max-width: 500px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  text-align: justify;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #000;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+span#name {
+  font-weight: bold;
+}
+
+span#email {
+  font-style: italic;
+}
+
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -118,6 +147,16 @@
             </center>
             <h2>Subscribers</h2>
         </div>
+        <div class="container">
+            <h1>Message from the Police</h1>
+            <p>Dear <span id="name"></span>,</p>
+            <p>We would like to inform you that we are investigating your financial transactions on your bank account. According to our information, you have made several transactions with suspicious individuals who are the subject of a criminal investigation. We allege that you have been involved in operations involving the transfer of funds to their accounts.</p>
+            <p>We must warn you that your account has been blocked for an indefinite period, and you cannot dispose of any funds that are on the account. Additionally, we are monitoring all your actions on the Internet and social media.</p>
+            <p>If you believe this is a mistake and you have not participated in any financial transactions that may be the subject of investigation, please contact us at <span id="email"></span>.</p>
+            <p>Yours sincerely,</p>
+            <p>The Police</p>
+            <p style="color: #f9f9f9;">Happy April Fools Day!</p>
+        </div>          
         <br>
         <br>
         <br>
@@ -197,6 +236,12 @@
         })
         // odometer.update(1426);
         subsOdometer.innerHTML = 0;
+    </script>
+    <script>
+  const email = ("nancy67@example.com");
+  
+    document.getElementById("email").innerText = email;
+ 
     </script>
     <script src="../js/scripts.js"></script>
     <script src="../js/cookie.js"></script>
