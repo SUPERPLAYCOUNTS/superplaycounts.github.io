@@ -37,6 +37,13 @@ nav
     width: 60px;
     cursor: pointer;
 }
+.nav-left a{
+    cursor: pointer;
+    text-decoration: none;
+    align-items: center;
+    display: flex; 
+    color: black;
+}
 .flex-div h1
 {
     cursor: pointer;
@@ -100,7 +107,7 @@ nav
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-column-gap: 16px;
     grid-row-gap: 30px;
-    max-width: 1000px;
+    width: 90%;
     margin: auto;
     text-align: center;
     gap: 10px;

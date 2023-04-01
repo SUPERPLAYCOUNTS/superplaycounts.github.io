@@ -83,8 +83,10 @@
 <body>
   <nav class="flex-div">
     <div class="nav-left flex-div">
-      <img src="/img/icon-sites.png" class="logo" onclick="locate_assign()">
-      <h1 onclick="locate_assign()">SUPERPLAYCOUNTS</h1>
+      <a href="/">
+        <img src="/img/icon-sites.png" class="logo">
+        <h1>SUPERPLAYCOUNTS</h1>
+      </a>
     </div>
     <div class="header__burger">
       <span></span>
@@ -113,9 +115,21 @@
       </div>
       <div class="questions">
         <div>
+          <button type="button" class="question">Update v1.6.5</button>
+          <div class="answer">
+            <p>v1.6, Modification, alteration, and deletion.</p>
+            <p>&bull; April Fools update has been completely removed from the website.</p>
+            <p>&bull; The page with the <a href="https://superplaycounts.github.io/timer/" style="color: #fff;">timer</a> has been slightly improved, now the style is closer to the familiar website.</p>
+            <p>&bull; Fixed the issue with the 404 page, which was sometimes displaying without any styling.</p>
+            <p>&bull; Nav bar has been slightly fixed.</p>
+            <p>&bull; For developers, API documentation will be ready soon, despite the fact that the YouTube, Twitter, and TikTok counters are not working correctly, but this will be fixed. I will provide complete information in the near future.</p>
+            <p>&bull; Added the ability to hide the graphics.</p>
+            <p>&bull; Added the ability for the fake subscriber counter to change the hotkey for hiding settings.</p>
+          </div>
+        </div>
+        <div>
           <button type="button" class="question">April Fools Update v1.5.8.6</button>
           <div class="answer">
-            <audio id="fart" src="fartaudio.mp3"></audio>
             <p>Happy April Fools Day! This is ONLY meant to be an April Fools update and should NOT be taken seriously.</p>
             <p>&bull; New counters have been added: TikTok, Twitter, Reddit, Roblox, Instagram, Likee, and Spotify.</p>
             <p>&bull; For the YouTube subscribers counter, a game has been added.</p>
@@ -253,14 +267,6 @@
                 }
             });
         }
-  </script>
-  <script>
-    const button = document.getElementsByClassName("question")[0];
-    const fartSound = document.getElementById("fart");
-
-    button.addEventListener("click", () => {
-      fartSound.play();
-    });
   </script>
   <script>
     if ("serviceWorker" in navigator) {

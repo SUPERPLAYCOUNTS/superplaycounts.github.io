@@ -51,8 +51,10 @@
 <body>
   <nav class="flex-div">
     <div class="nav-left flex-div">
-      <img src="/img/icon-sites.png" class="logo" onclick="locate_assign()">
-      <h1 onclick="locate_assign()">SUPERPLAYCOUNTS</h1>
+      <a href="/">
+        <img src="/img/icon-sites.png" class="logo">
+        <h1>SUPERPLAYCOUNTS</h1>
+      </a>
     </div>
     <div class="header__burger">
       <span></span>
@@ -159,6 +161,34 @@
         });
       });
     }
+  </script>
+  <script>
+    var notification = document.querySelector('.notification');
+var closeBtn = document.querySelector('.close-btn');
+var showNotification = true;
+
+// Проверяем, нужно ли показывать уведомление
+if (localStorage.getItem('showNotification') !== null) {
+  showNotification = JSON.parse(localStorage.getItem('showNotification'));
+}
+
+if (showNotification) {
+  notification.classList.add('show');
+}
+
+// Обработчик клика на кнопку закрытия
+closeBtn.addEventListener('click', function() {
+  notification.classList.remove('show'); // убираем класс show
+  showNotification = false; // устанавливаем флаг, что уведомление скрыто
+  localStorage.setItem('showNotification', JSON.stringify(showNotification)); // сохраняем состояние в localStorage
+});
+
+// Сброс флага скрытия уведомления после недели
+setTimeout(function() {
+  showNotification = true;
+  localStorage.setItem('showNotification', JSON.stringify(showNotification));
+}, 7 * 24 * 60 * 60 * 1000);
+
   </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-B5TEVSVZ74"></script>
 <script>

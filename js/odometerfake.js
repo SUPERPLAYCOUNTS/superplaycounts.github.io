@@ -1,6 +1,7 @@
 const channel = channelSubmitName.value;
 let count = 0;
 let rate = 0;
+let hotkey = 'KeyQ';
 
 function submit() {
   const channel = channelSubmitName.value;
@@ -107,16 +108,27 @@ function func1() {
   }
 };
 
-document.onkeyup = function(e) {
-    if (e.which == 81) {
-        var shadow = document.getElementById ('settings');
-        if (shadow.style.display !== 'none'){
-            shadow.style.display="none";
-        }else{
-            shadow.style.display="block";
-        }
-    }
+function changeHotkey() {
+  alert('Click what key you want.');
+  document.addEventListener('keydown', function(e) {
+    alert('Key set to ' + e.key);
+    hotkey = e.code;
+    document.getElementById('setting').innerText = 'Current: ' + e.key;
+  }, {once: true});
 }
+
+document.addEventListener('keydown', function(event) {
+  if (event.code === hotkey) {
+    var shadow = document.getElementById('settings');
+    if (shadow.style.display !== 'none') {
+      shadow.style.display = 'none';
+    } else {
+      shadow.style.display = 'block';
+    }
+  }
+});
+
+
 function abb(count) {
     if (count < 1000) {
       return count.toString();

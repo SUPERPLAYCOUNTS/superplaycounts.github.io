@@ -127,12 +127,11 @@
       #api, #viewscounts, #videoscounts{
         font-size: 100%;
       }
-      .highcharts-no-tooltip,
-.highcharts-button,
-.highcharts-contextbutton,
-.highcharts-button-normal {
-  display: none !important;
-}
+      .highcharts-button,
+      .highcharts-contextbutton,
+      .highcharts-button-normal {
+        display: none !important;
+      }
       @media (max-width: 900px) {
         .card {
           margin-top: 52px;
@@ -147,28 +146,6 @@
         #api, #viewscounts, #videoscounts{
           font-size: 8vw;
         }
-      }
-      /* april fools */
-      .gameapril{
-        background-color: #f1c40f;
-	      text-align: center;
-      }
-      .text-game{
-        font-size: 36px;
-	      color: #2c3e50;
-      }
-      #start-game{
-        background-color: #e74c3c;
-	      color: #fff;
-	      border: none;
-	      padding: 10px 20px;
-	      border-radius: 5px;
-	      font-size: 18px;
-	      cursor: pointer;
-	      transition: background-color 0.2s;
-      }
-      #start-game:hover {
-	      background-color: #c0392b;
       }
      </style>
     <script async src="https://unpkg.com/pwacompat" crossOrigin="anonymous"></script>
@@ -185,10 +162,12 @@
 </head>
 <body>
     <nav class="flex-div">
-        <div class="nav-left flex-div">
-          <img src="../img/icon-sites.png" class="logo" onclick="locate_assign()">
-          <h1 onclick="locate_assign()">SUPERPLAYCOUNTS</h1>
-        </div>
+      <div class="nav-left flex-div">
+        <a href="/">
+          <img src="/img/icon-sites.png" class="logo">
+          <h1>SUPERPLAYCOUNTS</h1>
+        </a>
+      </div>
         <div class="header__burger">
           <span></span>
         </div>
@@ -247,12 +226,6 @@
         <div id="container"></div>
         <br>
         <br>
-        <!-- April Fools -->
-        <div class="gameapril">
-          <h1 class="text-game">Hello, this is a game for SUBSCRIBERS counter!</h1>
-	        <p>Click the button to start the game:</p>
-	        <button id="start-game">Start game</button>
-        </div>
         <br>
         <footer>
           <div class="cookie-block" id="cookie-banner">
@@ -289,14 +262,14 @@ function getData() {
   fetch('https://api.superplaycounts.repl.co/api/youtube-channel-counter/user/' + channel)
     .then(blob => blob.json())
     .then(data => {
-      const sub = Math.round(data.counts[0].count);
-      const apie = Math.round(data.counts[2].count);
-      const view = Math.round(data.counts[3].count);
-      const videos = Math.round(data.counts[5].count);
-      ChanName.textContent = data.user[0].count;
-      ban.src = data.user[2].count;
-      pfp.src = data.user[1].count;
-      document.title = `${data.user[0].count} - Subscriber Count`;
+      const sub = Math.round(data.statistics[0].counts[0].count);
+      const apie = Math.round(data.statistics[0].counts[2].count);
+      const view = Math.round(data.statistics[0].counts[3].count);
+      const videos = Math.round(data.statistics[0].counts[5].count);
+      ChanName.textContent = data.statistics[0].user[0].count;
+      ban.src = data.statistics[0].user[2].count;
+      pfp.src = data.statistics[0].user[1].count;
+      document.title = `${data.statistics[0].user[0].count} - Subscriber Count`;
       apiData.push([Date.now(), sub]);
 
       if (chart) {
@@ -340,14 +313,6 @@ Highcharts.chart('container', {
   }]
 }, function (ch) {
   chart = ch;
-});
-
-</script>
-<script>
-const startBtn = document.getElementById('start-game');
-
-startBtn.addEventListener('click', () => {
-	alert('Thank you for participating in our game! Unfortunately, it does not exist. It was an April Fools joke :)');
 });
 
 </script>

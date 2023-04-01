@@ -1,6 +1,3 @@
-function locate_assign() {
-document.location.assign("/");
-}
 let header__burger = document.querySelector('.header__burger');
 let header__menu = document.querySelector('.header__menu');
 
@@ -17,4 +14,4 @@ const updateYear = () => {
 	}
 }
 
-setInterval(updateYear, 1);
+setInterval(updateYear, 2);
