@@ -31,6 +31,32 @@
 
   <link rel="manifest" href="/manifest.json" />
   <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" id="theme-stylesheet" href="/css/light.css">
+  <style>
+    .main__content{
+      text-align: left;
+    }
+    .header__list li{
+      text-align: left;
+    }
+    .main__menu{
+      text-align: center;
+    }
+    p, li{
+      list-style: none;
+      text-align: center;
+    }
+    #bbvbktriejkjn{
+      text-align: center;
+    }
+    .menu-documentation{
+      max-width: 70%;
+      display: block;
+      align-items: center;
+      justify-content: center;
+      margin: auto;
+    }
+  </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
@@ -41,6 +67,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script async src="https://unpkg.com/pwacompat" crossOrigin="anonymous"></script>
   <link rel="stylesheet" href="/css/odometer.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/vs2015.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
 
   <!-- Apple touch icon -->
   <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-touch-icon_120.png" />
@@ -74,6 +103,10 @@
         <li>
             <a href="/update/" class="header__link">Update</a>
         </li>
+        <li>
+          <i class="fa-solid fa-moon" onclick="setTheme('dark')" id="moon-icon" style="color: #000;"></i>
+          <i class="fa-solid fa-sun" onclick="setTheme('light')" id="sun-icon" style="color: #fff; display: none;"></i>
+        </li>
       </ul>
     </div>
   </nav>
@@ -82,9 +115,140 @@
       <div class="main__menu">
         <img src="/img/icon-sites.png">              
         <h1>SUPERPLAYCOUNTS Api</h1>
-        <p>The documentation for Api will be ready soon.</p>
+        <p>API documentation.</p>
       </div>
       <hr class="grops">
+      <div class="menu-documentation">
+        <p>Documentation for API <a href="https://api.superplaycounts.repl.co/">https://api.superplaycounts.repl.co/</a>:</p>
+        <br>
+        <li>
+          <p><strong>GET /api/youtube-channel-counter/user/:id</strong> - this request returns data about the number of subscribers, views, number of videos, and information about a YouTube channel using its ID. The response contains two objects: "ytstudio" and "statistics".</p>
+          <p>"ytstudio" contains an object with keys "count" (number of subscribers) and "verified" (YouTube profile verification).</p>
+          <p>"statistics" contains an array of objects. Each object contains a key "t" with Unix time of the last data update and an array "counts", which contains various values: "subscribers" (number of subscribers), "goal" (subscription goal), "apisubscribers" (number of subscribers from the API), "views" (number of views), "apiviews" (number of views from the API), and "videos" (number of videos). In addition, the object contains an array "user" which contains information about the YouTube channel: "name" (channel name), "pfp" (channel avatar URL), and "banner" (channel banner URL).</p>
+          <p>This request allows you to get updated information about a YouTube channel using its ID.</p>
+        </li>
+        <br>
+        <li>
+          <p><strong>GET /api/youtube-channel-counter/search/:id</strong> - This returns a list of channels based on a keyword search for :id.</p>
+          <p>The response contains an array called "list" consisting of arrays that contain information about each channel. Each array contains the name of the channel, the URL to its profile, and the unique channel ID.</p>
+        </li>
+        <br>
+        <li>
+          <p><strong>GET /api/requests</strong> - This request returns the number of API requests made since the server was started. The response is a JSON object with the property "totalapirequests" - the total number of requests made.</p>
+        </li>
+        <br>
+        <strong style="text-align: center; display: block;">Examples of usage:</strong>
+        <p>1. Getting subscriber statistics for a channel with the identifier "UC-lHJZR3Gqxm24_Vd_AJ5Yw":</p><br>
+        <pre><code class="html">https://api.superplaycounts.repl.co/api/youtube-channel-counter/user/UC-lHJZR3Gqxm24_Vd_AJ5Yw</code></pre>
+        <br>
+        <p>Returned JSON object:</p>
+        <br>
+        <pre><code class="json">
+          {
+            "ytstudio": [
+              {
+                "count": 111909171,
+                "verified": false
+              }
+            ],
+            "statistics": [
+              {
+                "t": 1681500575323,
+                "counts": [
+                  {
+                    "value": "subscribers",
+                    "count": 111863295
+                  },
+                  {
+                    "value": "goal",
+                    "count": 136705
+                  },
+                  {
+                    "value": "apisubscribers",
+                    "count": 111000000
+                  },
+                  {
+                    "value": "views",
+                    "count": 28981260443
+                  },
+                  {
+                    "value": "apiviews",
+                    "count": 28980864847
+                  },
+                  {
+                    "value": "videos",
+                    "count": 4707
+                  }
+                ],
+                "user": [
+                  {
+                    "value": "name",
+                    "count": "PewDiePie"
+                  },
+                  {
+                    "value": "pfp",
+                    "count": "https://yt3.ggpht.com/5oUY3tashyxfqsjO5SGhjT4dus8FkN9CsAHwXWISFrdPYii1FudD4ICtLfuCw6-THJsJbgoY=s200-c-k-c0x00ffffff-no-rj"
+                  },
+                  {
+                    "value": "banner",
+                    "count": "https://www.banner.yt/UC-lHJZR3Gqxm24_Vd_AJ5Yw"
+                  }
+                ]
+              }
+            ]
+          }
+          </code></pre>
+          <br>
+          <p>2. Searching for channels that match the query "T-series":</p><br>
+          <pre><code class="html">https://api.superplaycounts.repl.co/api/youtube-channel-counter/search/T-series</code></pre>
+          <br>
+          <p>Returned JSON object:</p>
+          <br>
+          <pre><code class="json">
+            {
+              "t": 1681502039006,
+              "list": [
+                [
+                  "The T Series",
+                  "https://yt3.ggpht.com/-Cpm1iNFqhqi-HXw4bDg5VluA_lfS9UHPzA-rIGuikWefbKM_uMGJOSJ0F9495WhF1KiNSBvZA=s240-c-k-c0xffffffff-no-rj-mo",
+                  "UCVGf7mGAwXHg4CBqjG9E9Aw"
+                ],
+                [
+                  "T-Series",
+                  "https://yt3.ggpht.com/v_PwNTRdcmpaEU6zh9wytm0ERtq2BOAmBQvr1QyZstphlpcPUqjbX3wqIvSRR9bWIgSjmRUJcwE=s240-c-k-c0xffffffff-no-rj-mo",
+                  "UCq-Fj5jknLsUf-MWSy4_brA"
+                ],
+                [
+                  "T-Series Kids Hut",
+                  "https://yt3.ggpht.com/ytc/AGIKgqO4yrHxyTaCzEhutAfCI2V0-fDcpR9w5EIng9WhSw=s240-c-k-c0xffffffff-no-rj-mo",
+                  "UChz5aEi3dfrDVC8-YJsMUDA"
+                ],
+                [
+                  "T-Series Apna Punjab",
+                  "https://yt3.ggpht.com/_Pe9G6H-G3iM24nf6f3F72ML-IymtVQ74y2ipl0ln8bssp3_kWEcbpFf4UhvaHqcC8ehdZNnDA=s240-c-k-c0xffffffff-no-rj-mo",
+                  "UCcvNYxWXR_5TjVK7cSCdW-g"
+                ],
+                [
+                  "T-Series Classical",
+                  "https://yt3.ggpht.com/E6fhYxXuPC2QmaOQKamZnFVKiMQIK-5qOA4_zQ_dOjVnLzTqwuI1hKFelnb_4qw61KYtYBZc=s240-c-k-c0xffffffff-no-rj-mo",
+                  "UCH_dFsLe_I0ftAFP8XzJkTQ"
+                ]
+              ]
+            }
+          </code></pre>
+          <br>
+          <p>3. Getting the number of API requests made:</p><br>
+          <pre><code class="html">https://api.superplaycounts.repl.co/api/requests</code></pre>
+          <br>
+          <p>Returned JSON object:</p>
+          <br>
+          <pre><code class="json">
+            {
+              "totalapirequests": 8727
+            }
+          </code></pre>
+      </div>
+      <br>
       <br>
       <br>
       <br>
@@ -119,7 +283,7 @@
       <br>
       <br>
       <br>
-      <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'B0B6E1LN3');kofiwidget2.draw();</script> 
+      <div style="text-align: center;"><script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'B0B6E1LN3');kofiwidget2.draw();</script></div> 
       <br>
       <br>
       <br>
@@ -167,7 +331,6 @@
 var closeBtn = document.querySelector('.close-btn');
 var showNotification = true;
 
-// Проверяем, нужно ли показывать уведомление
 if (localStorage.getItem('showNotification') !== null) {
   showNotification = JSON.parse(localStorage.getItem('showNotification'));
 }
@@ -176,14 +339,12 @@ if (showNotification) {
   notification.classList.add('show');
 }
 
-// Обработчик клика на кнопку закрытия
 closeBtn.addEventListener('click', function() {
-  notification.classList.remove('show'); // убираем класс show
-  showNotification = false; // устанавливаем флаг, что уведомление скрыто
-  localStorage.setItem('showNotification', JSON.stringify(showNotification)); // сохраняем состояние в localStorage
+  notification.classList.remove('show'); 
+  showNotification = false;
+  localStorage.setItem('showNotification', JSON.stringify(showNotification));
 });
 
-// Сброс флага скрытия уведомления после недели
 setTimeout(function() {
   showNotification = true;
   localStorage.setItem('showNotification', JSON.stringify(showNotification));
