@@ -15,18 +15,18 @@
   <style>
     .notification {
   position: fixed;
-  bottom: 20px; /* изменить top на bottom */
-  right: 20px; /* добавить right */
+  bottom: 20px; 
+  right: 20px; 
   width: 300px;
   background-color: #fff;
   border: 1px solid #ccc;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   padding: 10px;
-  display: none; /* скрыть уведомление по умолчанию */
+  display: none;
 }
 
 .notification.show {
-  display: block; /* показать уведомление при добавлении класса show */
+  display: block;
 }
 
 .notification .close-btn {
@@ -39,9 +39,6 @@
   background-color: transparent;
   cursor: pointer;
 }
-
-
-
   </style>
 
   <!-- Twitter Card -->
@@ -62,6 +59,7 @@
 
   <link rel="manifest" href="/manifest.json" />
   <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" id="theme-stylesheet" href="/css/light.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
@@ -104,6 +102,10 @@
         </li>
         <li>
             <a href="update/" class="header__link">Update</a>
+        </li>
+        <li>
+          <i class="fa-solid fa-moon" onclick="setTheme('dark')" id="moon-icon" style="color: #000;"></i>
+          <i class="fa-solid fa-sun" onclick="setTheme('light')" id="sun-icon" style="color: #fff; display: none;"></i>
         </li>
       </ul>
     </div>
@@ -228,7 +230,6 @@
 var closeBtn = document.querySelector('.close-btn');
 var showNotification = true;
 
-// Проверяем, нужно ли показывать уведомление
 if (localStorage.getItem('showNotification') !== null) {
   showNotification = JSON.parse(localStorage.getItem('showNotification'));
 }
@@ -237,14 +238,12 @@ if (showNotification) {
   notification.classList.add('show');
 }
 
-// Обработчик клика на кнопку закрытия
 closeBtn.addEventListener('click', function() {
-  notification.classList.remove('show'); // убираем класс show
-  showNotification = false; // устанавливаем флаг, что уведомление скрыто
-  localStorage.setItem('showNotification', JSON.stringify(showNotification)); // сохраняем состояние в localStorage
+  notification.classList.remove('show');
+  showNotification = false;
+  localStorage.setItem('showNotification', JSON.stringify(showNotification));
 });
 
-// Сброс флага скрытия уведомления после недели
 setTimeout(function() {
   showNotification = true;
   localStorage.setItem('showNotification', JSON.stringify(showNotification));
