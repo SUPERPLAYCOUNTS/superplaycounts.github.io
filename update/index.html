@@ -31,10 +31,12 @@
 
   <link rel="manifest" href="/manifest.json" />
   <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" id="theme-stylesheet" href="/css/light.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script async src="https://arc.io/widget.min.js#HRejLsfT"></script>
   <script async src="https://unpkg.com/pwacompat" crossOrigin="anonymous"></script>
   <style>
@@ -105,6 +107,10 @@
         <li>
             <a href="../update/" class="header__link">Update</a>
         </li>
+        <li>
+          <i class="fa-solid fa-moon" onclick="setTheme('dark')" id="moon-icon" style="color: #000;"></i>
+          <i class="fa-solid fa-sun" onclick="setTheme('light')" id="sun-icon" style="color: #fff; display: none;"></i>
+        </li>
       </ul>
     </div>
   </nav>
@@ -114,6 +120,19 @@
         <h1>Update</h1>
       </div>
       <div class="questions">
+        <div>
+          <button type="button" class="question">Update v1.7.2</button>
+          <div class="answer">
+            <p>v1.7, Correction, new, documentation.</p>
+            <p>&bull; Abbreviate Counts fake subscriber counter works correctly.</p>
+            <p>&bull; Fixed a bug in the fake subscriber counter where selecting an image file and then pressing "set value" would cause the image to disappear.</p>
+            <p>&bull; For the fake subscriber counter, the ability to change the text in SUBSCRIBERS or followers or other text has been added.</p>
+            <p>&bull; For the fake subscriber counter, it is now possible to change the icon to, for example, YouTube, Twitter, or completely remove the icon.</p>
+            <p>&bull; Fixed graphics, now the graphics will be cleared when there are too many data points about subscribers.</p>
+            <p>&bull; Now you can change the theme to dark on the website.</p>
+            <p>&bull; API documentation is ready, but there is only one caveat - all GET requests work correctly, but, for example, Twitter is still in development.</p>
+          </div>
+        </div>
         <div>
           <button type="button" class="question">Update v1.6.5</button>
           <div class="answer">
