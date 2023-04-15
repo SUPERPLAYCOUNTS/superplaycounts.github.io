@@ -35,6 +35,7 @@
     <link rel="stylesheet" href="../css/odometer.css">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/stylefakeweb.css">
+    <link rel="stylesheet" id="theme-stylesheet" href="/css/light.css">
     <style>
             #push {
                 display: none;
@@ -68,6 +69,7 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1131093589390960"
         crossorigin="anonymous"></script>
     <script async src="https://arc.io/widget.min.js#HRejLsfT"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script async src="https://unpkg.com/pwacompat" crossOrigin="anonymous"></script>
 
     <!-- Apple touch icon -->
@@ -102,6 +104,10 @@
                 <li>
                     <a href="../update/" class="header__link">Update</a>
                 </li>
+                <li>
+                    <i class="fa-solid fa-moon" onclick="setTheme('dark')" id="moon-icon" style="color: #000;"></i>
+                    <i class="fa-solid fa-sun" onclick="setTheme('light')" id="sun-icon" style="color: #fff; display: none;"></i>
+                </li>
                 <input id="push" type="button" value="hide setting">
             </ul>
         </div>
@@ -114,11 +120,13 @@
             </div>
             <div class="card__title">
                 <h1 id="channelName">Channel name</h1>
+                <i id="icon" style="color:#ff0000" class="fa-brands fa-youtube"></i>
             </div>
             <center>
                 <div class="subs-odometer" id="channelSubs">0</div>
             </center>
-            <h2>Subscribers</h2>
+            <h2 id="footertext">Subscribers</h2>
+            <p style="display: flex; justify-content: flex-end; padding: 5px 15px; color: grey; cursor: default;">Powered by superplaycounts.github.io</p>
         </div>
         <br>
         <br>
@@ -138,9 +146,10 @@
                 <input type="file" id="upload-banner" accept="image/*">
                 <br>
                 <input type="number" id="subsPerMinute" name="subsPerMinute" placeholder="Subs gain rate (optional)"><br>
+                <input type="text" id="footerSubmittext" name="footerSubmittext" value="SUBSCRIBERS" placeholder="Followers, Subscribers, etc"><br>
                 <br>
                 <h1>Global Settings:</h1><br>
-                <input type="checkbox" id="abbreviate" disabled><label>Abbreviate Counts - in developing</label>
+                <input type="checkbox" id="abbreviate"><label>Abbreviate Counts</label>
                 <br>
                 <br>
                 <br>
@@ -148,6 +157,13 @@
                     <option class="optirate" value="secs">Rate in subs/second</option>
                     <option class="optirate" value="mins">Rate in subs/minute</option>
                     <option class="optirate" value="hrs">Rate in subs/hour</option>
+                </select>
+                <br>
+                <br>
+                <select class="optionrate" id="icon-select">
+                    <option class="optirate" value="youtube-icon" selected>Youtube icon</option>
+                    <option class="optirate" value="twitter-icon">Twitter icon</option>
+                    <option class="optirate" value="none-icon">none icon</option>
                 </select>
                 <br>
                 <br>
