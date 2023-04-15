@@ -36,6 +36,17 @@ registerRoute(
     })
 );
 
+registerRoute(
+    ({ url }) =>
+        (url.origin === "https://fonts.googleapis.com" ||
+        url.origin === "https://fonts.gstatic.com") ||
+        (url.origin === self.location.origin && url.pathname === "/fonts/Bebas-Neue.ttf"), // <-- Update this line to match the font file path
+    new CacheFirst({
+        cacheName: "pwa-google-fonts-and-bebas-neue",
+        plugins: [new ExpirationPlugin({ maxEntries: 20 })],
+    })
+);
+
 // Cache Images
 registerRoute(
     ({ request }) => request.destination === "image",
