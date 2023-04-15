@@ -31,6 +31,7 @@
 
     <link rel="manifest" href="/manifest.json" />
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" id="theme-stylesheet" href="/css/light.css">
     <style>
 .main__menu img{
   width: 7rem;
@@ -189,6 +190,10 @@ text-overflow: ellipsis;
                 </li>
                 <li>
                     <a href="/update/" class="header__link">Update</a>
+                </li>
+                <li>
+                    <i class="fa-solid fa-moon" onclick="setTheme('dark')" id="moon-icon" style="color: #000;"></i>
+                    <i class="fa-solid fa-sun" onclick="setTheme('light')" id="sun-icon" style="color: #fff; display: none;"></i>
                 </li>
             </ul>
         </div>
