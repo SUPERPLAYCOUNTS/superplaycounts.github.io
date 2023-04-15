@@ -1,0 +1,216 @@
+body{
+    background-color: rgb(22, 22, 22);
+}
+nav{
+    padding: 10px 2%;
+    justify-content: space-between;
+    box-shadow: 0 0 10px rgba(77, 77, 77, 0.2);
+    background: #000000;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.nav-left a{
+    cursor: pointer;
+    text-decoration: none;
+    align-items: center;
+    display: flex; 
+    color: rgb(255, 255, 255);
+}
+.header__link {
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    font-size: 18px;
+    text-decoration: none;
+}
+.main__menu, h1, p{
+    color: #fff;
+}
+.grid-item {
+    opacity: 1;
+    transition: 0.3s;
+    border: 1px solid rgb(227, 227, 227);
+    width: 90%;
+    margin: auto;
+    background-color: rgb(22, 22, 22);
+    padding: 5px;
+    transform: scale(1, 1);
+    border-radius: 0.5em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.grid-item h2{
+    color: #fff;
+}
+.items__links a
+{
+    display: block;
+    text-decoration: none;
+    font-size: 30px;
+    line-height: 1.5em;
+    color: rgb(232, 232, 232);
+}
+.ms-button{
+    background-color: #343434;
+    color: #ffffff;
+}
+.cr-1
+{
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    max-width: 72rem;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    margin: auto;
+}
+.textleftcr
+{
+    text-align: left;
+}
+.textrightcr
+{
+    text-align: right;
+    margin-top: -1.1rem;
+}
+.main__menu .primary-policy__form_color{
+    background-color: rgb(40 40 40);
+}
+.search__stats input{
+    background-color: #343434;
+}
+.search__stats button{
+    color: #fff;
+}
+.paketti {
+    opacity: 1;
+    transition: 0.3s;
+    background-color: rgb(43, 43, 43);
+    padding: 5px;
+    border: 1px solid rgb(75, 75, 75);
+    border-radius: 0.5em;
+    transform: scale(1, 1);
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.card{
+    width: 100%;
+    background: #2a2a2a;
+    border: 1px solid #5a5d5f;
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin-top: 50px;
+    max-height: 553px;
+}
+.card__title #ChanName{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 44px;
+    color: #ffffff;
+}
+.odometer{
+    color: white;
+}
+.card h2{
+    color: white;
+}
+.grid-item span{
+    color: white;
+}
+.highcharts-container {
+    background-color: black;
+    color: white;
+}
+#channelName{
+    color: #fff;
+}
+label{
+    color: #fff;
+}
+strong{
+    color: #fff;
+}
+@media (max-width:767px){
+    .header__burger {
+        display: block;
+        position: relative;
+        width: 30px;
+        height: 20px;
+        position: relative;
+        z-index: 3;
+    }
+    .header__burger span{
+        position: absolute;
+        background-color: rgb(255, 255, 255);
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        top: 9px;
+        transition: all 0.3s ease 0s;
+    }
+    .header__burger:before,
+    .header__burger:after{
+        content: '';
+        background-color: rgb(255, 255, 255);
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        left: 0;
+        transition: all 0.3s ease 0s;
+    }
+    .header__burger:before{
+        top: 0;
+    }
+    .header__burger:after{
+        bottom: 0;
+    }
+
+    .header__burger.active span{
+        transform: scale(0);
+    }
+
+    .header__burger.active:before{
+        transform:rotate(45deg);
+        top: 9px;
+    }
+    .header__burger.active:after{
+        transform:rotate(-45deg);
+        bottom: 9px;
+    }
+    .header__menu{
+        position: absolute;
+        top: -500%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        transition: all 0.3s ease 0s;
+        background-color: #1e1e1ed4;
+        padding: 31px 92px 144px 19px;
+        z-index: 1;
+    }
+    .header__menu.active{
+        top: 0;
+    }
+
+    .header__list {
+        display: block;
+    }
+    .header__list li{
+        margin: 0px 0px 20px 0px;
+    }
+    .header__link {
+        font-size: 24px;
+    }
+    .textleftcr{
+        text-align: center;
+    }
+    .textrightcr{
+        text-align: center;
+        margin-top: -0.25rem;
+    }
+
+}
