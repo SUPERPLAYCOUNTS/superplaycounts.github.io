@@ -1,0 +1,11 @@
+{
+  "name": "superplaycounts",
+  "version": "1.0.0",
+  "description": "api",
+  "main": "arc-sw.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "superplaycounts",
+  "license": "ISC"
+}

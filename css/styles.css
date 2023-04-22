@@ -107,7 +107,7 @@ nav
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-column-gap: 16px;
     grid-row-gap: 30px;
-    width: 90%;
+    max-width: 1000px;
     margin: auto;
     text-align: center;
     gap: 10px;
@@ -150,6 +150,8 @@ h2
 #disqus_thread{
     max-width: 90vw;
     margin: auto;
+    display: block;
+    text-align: center;
 }
 .cr-1
 {
@@ -196,6 +198,47 @@ h2
 	cursor: pointer;
 	margin: 0;
     color: #fff;
+}
+.fa-moon, .fa-sun{
+    cursor: pointer;
+}
+
+/* description counter */
+.desc-block{
+    position: relative;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 30px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 2px 2px 2px #ccc;
+    transition: 0.5s;
+}
+.desc-block h1{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.desc-block p{
+    font-size: 16px;
+    line-height: 1.5;
+}
+/* card search */
+.paketti {
+    opacity: 1;
+    transition: 0.3s;
+    background-color: rgb(228, 228, 228);
+    padding: 5px;
+    border: 1px solid rgb(227, 227, 227);
+    border-radius: 0.5em;
+    transform: scale(1, 1);
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.paketti:hover {
+    transform: scale(1.015, 1.015);
 }
 @media (max-width:767px){
     .header__burger {

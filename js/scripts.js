@@ -21,7 +21,7 @@ function setTheme(theme) {
     var moonIcon = document.getElementById("moon-icon");
     var sunIcon = document.getElementById("sun-icon");
     var link = document.getElementById("theme-stylesheet");
-    var chartBackgroundColor = theme === 'dark' ? '#161616' : '#fff';
+    var chartBackgroundColor = theme === 'dark' ? '#161616' : '#fff'; // визначаємо колір фону відповідно до встановленої теми
     
     if (theme === "dark") {
         moonIcon.style.display = "none";
@@ -35,6 +35,7 @@ function setTheme(theme) {
         localStorage.setItem('theme', 'light');
     }
 
+    // змінюємо колір фону графіка Highcharts
     Highcharts.chart('container', {
 		chart: {
 		  type: 'line',
@@ -66,6 +67,7 @@ function setTheme(theme) {
 	  });
 }
   
+  // Перевіряємо значення теми з localStorage
   let theme = localStorage.getItem('theme');
   if (theme === 'dark') {
 	setTheme('dark');

@@ -16,6 +16,7 @@ function submit() {
   const channel = channelSubmitName.value;
   const footertxt = footerSubmittext.value;
   count = parseInt(countSubmit.value, 10);
+  document.title = `${channel} - Subscriber Count`;
 
   if (!channel) {
     return alert("Invalid channel name.");

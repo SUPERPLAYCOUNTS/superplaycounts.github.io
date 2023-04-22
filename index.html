@@ -132,7 +132,7 @@
         <div class="grid-item">
           <h2>Fake</h2>
           <div class="items__links">
-            <a href="/fake">Subscriber Count</a>
+            <a href="/fake/">Subscriber Count</a>
           </div>
         </div>
         <div class="grid-item">
@@ -145,6 +145,48 @@
           <h2>Twitter</h2>
           <div class="items__links">
             <a href="">Soon</a>
+          </div>
+        </div>
+        <div class="grid-item" id="tiktok-grid-item">
+          <h2>Tiktok</h2>
+          <div class="items__links">
+            <a>Followers count</a>
+          </div>
+        </div>
+        <div class="grid-item" id="walls-grid-item">
+          <h2>Shoutout wall</h2>
+          <div class="items__links">
+            <a>Shoutout wall Maker</a>
+          </div>
+        </div>
+        <div class="grid-item" id="reddit-grid-item">
+          <h2>Reddit</h2>
+          <div class="items__links">
+            <a>Member Count</a>
+          </div>
+        </div>
+        <div class="grid-item" id="roblox-grid-item">
+          <h2>Roblox</h2>
+          <div class="items__links">
+            <a>Visit Count</a>
+          </div>
+        </div>
+        <div class="grid-item" id="instagram-grid-item">
+          <h2>Instagram</h2>
+          <div class="items__links">
+            <a>Followers count</a>
+          </div>
+        </div>
+        <div class="grid-item" id="likee-grid-item">
+          <h2>Likee</h2>
+          <div class="items__links">
+            <a>Followers count</a>
+          </div>
+        </div>
+        <div class="grid-item" id="spotify-grid-item">
+          <h2>Spotify</h2>
+          <div class="items__links">
+            <a>Artist subscriber count</a>
           </div>
         </div>
       </div>
@@ -250,6 +292,44 @@ setTimeout(function() {
 }, 7 * 24 * 60 * 60 * 1000);
 
   </script> -->
+  <script>
+    let tiktok = false;
+    let reddit = false;
+    let roblox = false;
+    let instagram = false;
+    let Likee = false;
+    let spotify = false;
+    let wall = false;
+    let tiktokGridItem = document.getElementById("tiktok-grid-item");
+    let redditgriditem = document.getElementById("reddit-grid-item");
+    let robloxgriditem = document.getElementById("roblox-grid-item");
+    let instagramgriditem = document.getElementById("instagram-grid-item");
+    let likeegriditem = document.getElementById("likee-grid-item");
+    let spotifygriditem = document.getElementById("spotify-grid-item");
+    let wallsgriditem = document.getElementById("walls-grid-item");
+  
+    if (tiktok === false) {
+	    tiktokGridItem.style.display = "none";
+    }
+    if (reddit === false) {
+	    redditgriditem.style.display = "none";
+    }
+    if (roblox === false) {
+	    robloxgriditem.style.display = "none";
+    }
+    if (instagram === false) {
+	    instagramgriditem.style.display = "none";
+    }
+    if (Likee === false) {
+	    likeegriditem.style.display = "none";
+    }
+    if (spotify === false) {
+	    spotifygriditem.style.display = "none";
+    }
+    if (wall === false) {
+      wallsgriditem.style.display = "none";
+    }
+  </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-B5TEVSVZ74"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
