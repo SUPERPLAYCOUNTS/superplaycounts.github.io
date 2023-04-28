@@ -83,10 +83,8 @@
   #api, #viewscounts, #videoscounts{
     font-size: 100%;
   }
-  .highcharts-button,
-  .highcharts-contextbutton,
-  .highcharts-button-normal {
-    display: none !important;
+  .highcharts-exporting-group{
+    display: none;
   }
   @media (max-width: 900px) {
     .card {

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Youtube - Subscriber Count</title>
+    <title>Youtube - Videos Count</title>
     <meta name="description" content="With this site you can see various counters, subscribers, viewers in real time!" />
     <meta name="theme-color" content="#c8c8c8" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -100,7 +100,7 @@
           <center>
             <div id="count" class="odometer">0</div>
           </center>
-          <h2>Subscribers</h2>
+          <h2>Videos</h2>
           <p style="display: flex; justify-content: flex-end; padding: 5px 15px; color: grey; cursor: default;">Powered by superplaycounts.github.io</p>
         </div>
         <br>
@@ -112,16 +112,16 @@
               <div id="api" class="odometer">0</div>
             </div>
           </a>
-          <a id="views-link" href="/youtube/views/" style="text-decoration: none; color: #000;">
+          <a id="api-link" href="/youtube/api/" style="text-decoration: none; color: #000;">
             <div style="cursor: pointer;" class="grid-item">
-            <span style="font-size: 0.8em;">Views</span>
+            <span style="font-size: 0.8em;">Api</span>
             <br>
             <div id="viewscounts" class="odometer">0</div>
           </div>
           </a>
-          <a id="videos-link" href="/youtube/videos/" style="text-decoration: none; color: #000;">
+          <a id="views-link" href="/youtube/views/" style="text-decoration: none; color: #000;">
             <div style="cursor: pointer;" class="grid-item">
-            <span style="font-size: 0.8em;">Videos</span>
+            <span style="font-size: 0.8em;">Views</span>
             <br>
             <div id="videoscounts" class="odometer">0</div>
           </div>
@@ -208,10 +208,10 @@ const iconEl = document.querySelector('.fa-check-circle');
 
 var subsLink = document.getElementById('subs-link');
 subsLink.href = `/youtube/?${channel}`;
+var apiLink = document.getElementById('api-link');
+apiLink.href = `/youtube/api/?${channel}`;
 var viewslink = document.getElementById('views-link');
 viewslink.href = `/youtube/views/?${channel}`;
-var videoslink = document.getElementById('videos-link');
-videoslink.href = `/youtube/videos/?${channel}`;
 
 subsLink.addEventListener('click', function(event) {
   event.preventDefault();
@@ -222,21 +222,14 @@ function getData() {
   fetch('https://api.superplaycounts.repl.co/api/youtube-channel-counter/user/' + channel)
     .then(blob => blob.json())
     .then(data => {
-      let sub;
-      if (data.ytstudio[0].verified) {
-        sub = Math.round(data.ytstudio[0].count);
-        iconEl.style.display = 'inline-block';
-      } else {
-        sub = Math.round(data.statistics[0].counts[2].count);
-        iconEl.style.display = 'none';
-      }
+      const sub = Math.round(data.statistics[0].counts[5].count);
       const apie = Math.round(data.statistics[0].counts[0].count);
-      const view = Math.round(data.statistics[0].counts[3].count);
-      const videos = Math.round(data.statistics[0].counts[5].count);
+      const view = Math.round(data.statistics[0].counts[2].count);
+      const videos = Math.round(data.statistics[0].counts[3].count);
       ChanName.querySelector('span').textContent = data.statistics[0].user[0].count;
       ban.src = data.statistics[0].user[2].count;
       pfp.src = data.statistics[0].user[1].count;
-      document.title = `${data.statistics[0].user[0].count} - Subscriber Count`;
+      document.title = `${data.statistics[0].user[0].count} - Videos Count`;
       apiData.push([Date.now(), sub]);
 
 

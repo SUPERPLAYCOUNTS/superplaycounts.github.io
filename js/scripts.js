@@ -21,7 +21,6 @@ function setTheme(theme) {
     var moonIcon = document.getElementById("moon-icon");
     var sunIcon = document.getElementById("sun-icon");
     var link = document.getElementById("theme-stylesheet");
-    var chartBackgroundColor = theme === 'dark' ? '#161616' : '#fff'; // визначаємо колір фону відповідно до встановленої теми
     
     if (theme === "dark") {
         moonIcon.style.display = "none";
@@ -34,37 +33,6 @@ function setTheme(theme) {
         link.href = "/css/light.css";
         localStorage.setItem('theme', 'light');
     }
-
-    // змінюємо колір фону графіка Highcharts
-    Highcharts.chart('container', {
-		chart: {
-		  type: 'line',
-		  backgroundColor: chartBackgroundColor
-		},
-		title: {
-		  text: ''
-		},
-		xAxis: {
-		  type: 'datetime'
-		},
-		yAxis: {
-		  title: {
-			text: ''
-		  },
-		  type: 'linear'
-		},
-		credits: {
-		  text: 'superplaycounts.github.io',
-		  href: 'https://superplaycounts.github.io/',
-		},
-		series: [{
-		  name: 'Subscribers',
-		  data: apiData,
-		  color: 'red'
-		}]
-	  }, function (ch) {
-		chart = ch;
-	  });
 }
   
   // Перевіряємо значення теми з localStorage

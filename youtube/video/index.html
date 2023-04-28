@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Youtube - Subscriber Count</title>
+    <title>Youtube - Video Count</title>
     <meta name="description" content="With this site you can see various counters, subscribers, viewers in real time!" />
     <meta name="theme-color" content="#c8c8c8" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -105,26 +105,26 @@
         </div>
         <br>
         <div class="wrapper">
-          <a id="subs-link" href="/youtube/" style="text-decoration: none; color: #000;">
+          <a id="api-link" href="api/" style="text-decoration: none; color: #000;">
             <div style="cursor: pointer;" class="grid-item">
-              <span style="font-size: 0.8em;">Subscribers</span>
+              <span style="font-size: 0.8em;">Api</span>
               <br>
               <div id="api" class="odometer">0</div>
             </div>
           </a>
-          <a id="views-link" href="/youtube/views/" style="text-decoration: none; color: #000;">
+          <a id="views-link" href="views/" style="text-decoration: none; color: #000;">
             <div style="cursor: pointer;" class="grid-item">
             <span style="font-size: 0.8em;">Views</span>
             <br>
             <div id="viewscounts" class="odometer">0</div>
           </div>
           </a>
-          <a id="videos-link" href="/youtube/videos/" style="text-decoration: none; color: #000;">
+          <a id="videos-link" href="videos/" style="text-decoration: none; color: #000;">
             <div style="cursor: pointer;" class="grid-item">
-            <span style="font-size: 0.8em;">Videos</span>
-            <br>
-            <div id="videoscounts" class="odometer">0</div>
-          </div>
+              <span style="font-size: 0.8em;">Videos</span>
+              <br>
+              <div id="videoscounts" class="odometer">0</div>
+            </div>
           </a>
         </div>
         <br>
@@ -203,52 +203,33 @@
 var apiData = [];
 var chart = null;
 var credits = document.querySelector('.highcharts-credits');
-var channel = window.location.href.split('?')[1] || 'UCq-Fj5jknLsUf-MWSy4_brA';
+var channel = window.location.href.split('?')[1] || '0e3GPea1Tyg';
 const iconEl = document.querySelector('.fa-check-circle');
 
-var subsLink = document.getElementById('subs-link');
-subsLink.href = `/youtube/?${channel}`;
+var apiLink = document.getElementById('api-link');
+apiLink.href = `api/?${channel}`;
 var viewslink = document.getElementById('views-link');
-viewslink.href = `/youtube/views/?${channel}`;
+viewslink.href = `views/?${channel}`;
 var videoslink = document.getElementById('videos-link');
-videoslink.href = `/youtube/videos/?${channel}`;
+videoslink.href = `videos/?${channel}`;
 
-subsLink.addEventListener('click', function(event) {
+apiLink.addEventListener('click', function(event) {
   event.preventDefault();
-  window.location.href = subsLink.href;
+  window.location.href = apiLink.href;
 });
 
+
 function getData() {
-  fetch('https://api.superplaycounts.repl.co/api/youtube-channel-counter/user/' + channel)
+  fetch('https://api.superplaycounts.repl.co/api/youtube-video-counter/user/' + channel)
     .then(blob => blob.json())
     .then(data => {
-      let sub;
-      if (data.ytstudio[0].verified) {
-        sub = Math.round(data.ytstudio[0].count);
-        iconEl.style.display = 'inline-block';
-      } else {
-        sub = Math.round(data.statistics[0].counts[2].count);
-        iconEl.style.display = 'none';
-      }
-      const apie = Math.round(data.statistics[0].counts[0].count);
-      const view = Math.round(data.statistics[0].counts[3].count);
-      const videos = Math.round(data.statistics[0].counts[5].count);
-      ChanName.querySelector('span').textContent = data.statistics[0].user[0].count;
-      ban.src = data.statistics[0].user[2].count;
-      pfp.src = data.statistics[0].user[1].count;
-      document.title = `${data.statistics[0].user[0].count} - Subscriber Count`;
+      const sub = Math.round(data.counts[0].count);
       apiData.push([Date.now(), sub]);
-
 
       if (chart) {
         chart.series[0].setData(apiData);
       }
-      if (apiData.length > 8) {
-        apiData.shift();
-        chart.series[0].setData(apiData);
-      } else {
-        chart.series[0].addPoint([Date.now(), sub]);
-      }
+
 
       count.innerHTML = sub;
       api.innerHTML = apie;
@@ -300,6 +281,7 @@ Highcharts.chart('container', {
 }, function (ch) {
   chart = ch;
 });
+
 </script>
 <script src="/js/odometer.js"></script>
 <script src="/js/cookie.js"></script>

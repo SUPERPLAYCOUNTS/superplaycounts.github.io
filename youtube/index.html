@@ -69,7 +69,7 @@
         <div class="header__menu">
           <ul class="header__list">
               <li>
-                  <a href="https://superplaycounts.github.io/timer/" class="header__link">Timer</a>
+                  <a href="/timer/" class="header__link">Timer</a>
               </li>
               <li>
                 <a href="https://twitter.com/@superplaycounts" class="header__link">Twitter</a>
@@ -78,7 +78,7 @@
                 <a href="/api/docs.html" class="header__link">Api</a>
               </li>
               <li>
-                  <a href="../update/" class="header__link">Update</a>
+                  <a href="/update/" class="header__link">Update</a>
               </li>
               <li>
                 <i class="fa-solid fa-moon" onclick="setTheme('dark')" id="moon-icon" style="color: #000;"></i>
@@ -112,20 +112,33 @@
               <div id="api" class="odometer">0</div>
             </div>
           </a>
-          <div style="cursor: pointer;" class="grid-item">
+          <a id="views-link" href="views/" style="text-decoration: none; color: #000;">
+            <div style="cursor: pointer;" class="grid-item">
             <span style="font-size: 0.8em;">Views</span>
             <br>
             <div id="viewscounts" class="odometer">0</div>
           </div>
-          <div style="cursor: pointer;" class="grid-item">
-            <span style="font-size: 0.8em;">Videos</span>
-            <br>
-            <div id="videoscounts" class="odometer">0</div>
-          </div>
+          </a>
+          <a id="videos-link" href="videos/" style="text-decoration: none; color: #000;">
+            <div style="cursor: pointer;" class="grid-item">
+              <span style="font-size: 0.8em;">Videos</span>
+              <br>
+              <div id="videoscounts" class="odometer">0</div>
+            </div>
+          </a>
         </div>
         <br>
         <div id="container"></div>
         <br>
+        <div>
+          <div class="grid-button-yt">
+            <div>
+              <a href="/youtube/search.html">
+                <button id="change-user-btn">Change User <i class="fa-solid fa-magnifying-glass"></i></button>
+              </a>
+            </div>
+          </div>
+        </div>
         <br>
         <br>
         <div class="Counter shadow-xl w-full lg:w-[90%]" id="bbvbktriejkjn">
@@ -195,6 +208,10 @@ const iconEl = document.querySelector('.fa-check-circle');
 
 var apiLink = document.getElementById('api-link');
 apiLink.href = `api/?${channel}`;
+var viewslink = document.getElementById('views-link');
+viewslink.href = `views/?${channel}`;
+var videoslink = document.getElementById('videos-link');
+videoslink.href = `videos/?${channel}`;
 
 apiLink.addEventListener('click', function(event) {
   event.preventDefault();
@@ -246,14 +263,16 @@ setInterval(getData, 5000)
 
 Highcharts.chart('container', {
   chart: {
+    backgroundColor: 'transparent',
     type: 'line',
-    backgroundColor: '#161616'
+    zoomType: 'x'
   },
   title: {
     text: ''
   },
   xAxis: {
-    type: 'datetime'
+    type: 'datetime',
+    tickPixelInterval: 25
   },
   yAxis: {
     title: {
@@ -261,9 +280,18 @@ Highcharts.chart('container', {
     },
     type: 'linear'
   },
+  plotOptions: {
+    series: {
+        threshold: null,
+        fillOpacity: 0.25
+    },
+    area: {
+        fillOpacity: 0.25
+    }
+  },
   credits: {
     text: 'superplaycounts.github.io',
-    href: 'https://superplaycounts.github.io/',
+    href: 'https://web.archive.org/web/20230401081239/https://superplaycounts.github.io/',
   },
   series: [{
     name: 'Subscribers',
@@ -273,7 +301,6 @@ Highcharts.chart('container', {
 }, function (ch) {
   chart = ch;
 });
-
 </script>
 <script src="../js/odometer.js"></script>
 <script src="../js/cookie.js"></script>

@@ -1,6 +1,9 @@
 body{
     background-color: rgb(22, 22, 22);
 }
+#container{
+    background-color: rgba(22, 22, 22);
+}
 nav{
     padding: 10px 2%;
     justify-content: space-between;
@@ -132,6 +135,7 @@ label{
 strong{
     color: #fff;
 }
+/* description counter */
 .desc-block{
     position: relative;
     border: 1px solid #ccc;
@@ -140,6 +144,28 @@ strong{
     border-radius: 5px;
     background-color: #2e2e2e;
     box-shadow: 2px 2px 2px #3b3b3b;
+}
+.desc-block p{
+    font-size: 16px;
+    line-height: 1.5;
+    color: #cdcdcd;
+}
+.grid-button-yt #change-user-btn{
+    background: #2a2a2a;
+    color: white;
+    cursor: pointer;
+    border: 2px solid #58a514;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-width: 2px;
+    border-radius: 0.375rem;
+    width: 100%;
+    font-size: 100%;
+    font-weight: inherit;
+    line-height: inherit;
+    margin: 0;
 }
 @media (max-width:767px){
     .header__burger {

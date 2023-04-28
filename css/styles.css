@@ -101,6 +101,31 @@ nav
     border-style: inset;
     border-width: 1px;
 }
+.grid-button-yt{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-column-gap: 16px;
+    grid-row-gap: 30px;
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
+    gap: 10px;
+}
+.grid-button-yt #change-user-btn{
+    cursor: pointer;
+    border: 2px solid #58a514;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-width: 2px;
+    border-radius: 0.375rem;
+    width: 100%;
+    font-size: 100%;
+    font-weight: inherit;
+    line-height: inherit;
+    margin: 0;
+}
 #grid
 {
     display: grid;
@@ -117,7 +142,7 @@ nav
     transition: 0.3s;
     border: 1px solid rgb(27, 27, 27);
     width: 90%;
-    margin: auto;
+    margin: 0 auto;
     background-color: rgb(233, 233, 233);
     padding: 5px;
     transform: scale(1, 1);
@@ -215,13 +240,14 @@ h2
     transition: 0.5s;
 }
 .desc-block h1{
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold;
     margin-bottom: 10px;
 }
 .desc-block p{
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.5;
+    color: #555555;
 }
 /* card search */
 .paketti {
@@ -239,6 +265,31 @@ h2
 
 .paketti:hover {
     transform: scale(1.015, 1.015);
+}
+/* timer */
+.countdown{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-size: 2rem;
+}  
+.countdown-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+@media (max-width:767px){
+    .countdown {
+      font-size: 1.2rem;
+      padding: 20px;
+    }
+    .countdown-item {
+      margin: 0 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
 }
 @media (max-width:767px){
     .header__burger {

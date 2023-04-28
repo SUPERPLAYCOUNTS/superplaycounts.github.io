@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Youtube - Subscriber Count</title>
+    <title>Birthday super play - Timer</title>
     <meta name="description" content="With this site you can see various counters, subscribers, viewers in real time!" />
     <meta name="theme-color" content="#c8c8c8" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -32,7 +32,7 @@
 
 
     <link rel="manifest" href="/manifest.json" />
-    <link rel="stylesheet" href="/css/odometer.css">
+    <link rel="stylesheet" href="/css/odometer-timer.css">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/statastyle.css">
     <link rel="stylesheet" id="theme-stylesheet" href="/css/light.css">
@@ -45,9 +45,6 @@
      <script async src="https://arc.io/widget.min.js#HRejLsfT"></script>
     <script async src="https://unpkg.com/pwacompat" crossOrigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
 
     <!-- Apple touch icon -->
     <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-touch-icon_120.png" />
@@ -89,56 +86,22 @@
     </nav>
     <div class="main__subs">
         <div class="card">
-          <div class="card__banner">
-            <img src="" alt="" id="ban">
-            <img src="" alt="" id="pfp">
-          </div>
           <div class="card__title">
-            <div id="ChanName"><span>Loading</span><i class="fa fa-check-circle" aria-hidden="true" style="display: none; padding: 4px; font-size: 21px; vertical-align: text-top;"></i></div>
-            <i style="color:#ff0000" class="fa-brands fa-youtube"></i>
+            <div id="ChanName"><span>Until the birthday of Super Play left</span></div>
           </div>
           <center>
-            <div id="count" class="odometer">0</div>
+            <div class="countdown">
+                <div id="days" class="countdown-item odometer"></div>
+                <div id="hours" class="countdown-item odometer"></div>
+                <div id="minutes" class="countdown-item odometer"></div>
+                <div id="seconds" class="countdown-item odometer"></div>
+              </div>
           </center>
-          <h2>Subscribers</h2>
           <p style="display: flex; justify-content: flex-end; padding: 5px 15px; color: grey; cursor: default;">Powered by superplaycounts.github.io</p>
         </div>
         <br>
-        <div class="wrapper">
-          <a id="subs-link" href="/youtube/" style="text-decoration: none; color: #000;">
-            <div style="cursor: pointer;" class="grid-item">
-              <span style="font-size: 0.8em;">Subscribers</span>
-              <br>
-              <div id="api" class="odometer">0</div>
-            </div>
-          </a>
-          <a id="views-link" href="/youtube/views/" style="text-decoration: none; color: #000;">
-            <div style="cursor: pointer;" class="grid-item">
-            <span style="font-size: 0.8em;">Views</span>
-            <br>
-            <div id="viewscounts" class="odometer">0</div>
-          </div>
-          </a>
-          <a id="videos-link" href="/youtube/videos/" style="text-decoration: none; color: #000;">
-            <div style="cursor: pointer;" class="grid-item">
-            <span style="font-size: 0.8em;">Videos</span>
-            <br>
-            <div id="videoscounts" class="odometer">0</div>
-          </div>
-          </a>
-        </div>
         <br>
-        <div id="container"></div>
         <br>
-        <div>
-          <div class="grid-button-yt">
-            <div>
-              <a href="/youtube/search.html">
-                <button id="change-user-btn">Change User <i class="fa-solid fa-magnifying-glass"></i></button>
-              </a>
-            </div>
-          </div>
-        </div>
         <br>
         <br>
         <div class="Counter shadow-xl w-full lg:w-[90%]" id="bbvbktriejkjn">
@@ -200,110 +163,30 @@
     </div>
 
 <script>
-var apiData = [];
-var chart = null;
-var credits = document.querySelector('.highcharts-credits');
-var channel = window.location.href.split('?')[1] || 'UCq-Fj5jknLsUf-MWSy4_brA';
-const iconEl = document.querySelector('.fa-check-circle');
+const countdownItems = document.querySelectorAll('.countdown-item');
 
-var subsLink = document.getElementById('subs-link');
-subsLink.href = `/youtube/?${channel}`;
-var viewslink = document.getElementById('views-link');
-viewslink.href = `/youtube/views/?${channel}`;
-var videoslink = document.getElementById('videos-link');
-videoslink.href = `/youtube/videos/?${channel}`;
-
-subsLink.addEventListener('click', function(event) {
-  event.preventDefault();
-  window.location.href = subsLink.href;
-});
-
-function getData() {
-  fetch('https://api.superplaycounts.repl.co/api/youtube-channel-counter/user/' + channel)
-    .then(blob => blob.json())
-    .then(data => {
-      let sub;
-      if (data.ytstudio[0].verified) {
-        sub = Math.round(data.ytstudio[0].count);
-        iconEl.style.display = 'inline-block';
-      } else {
-        sub = Math.round(data.statistics[0].counts[2].count);
-        iconEl.style.display = 'none';
-      }
-      const apie = Math.round(data.statistics[0].counts[0].count);
-      const view = Math.round(data.statistics[0].counts[3].count);
-      const videos = Math.round(data.statistics[0].counts[5].count);
-      ChanName.querySelector('span').textContent = data.statistics[0].user[0].count;
-      ban.src = data.statistics[0].user[2].count;
-      pfp.src = data.statistics[0].user[1].count;
-      document.title = `${data.statistics[0].user[0].count} - Subscriber Count`;
-      apiData.push([Date.now(), sub]);
-
-
-      if (chart) {
-        chart.series[0].setData(apiData);
-      }
-      if (apiData.length > 8) {
-        apiData.shift();
-        chart.series[0].setData(apiData);
-      } else {
-        chart.series[0].addPoint([Date.now(), sub]);
-      }
-
-      count.innerHTML = sub;
-      api.innerHTML = apie;
-      viewscounts.innerHTML = view;
-      videoscounts.innerHTML = videos;
-    })
+function countdown() {
+  const endDate = new Date('2023-12-18 00:00:00');
+  const currentDate = new Date();
+  const totalSeconds = (endDate - currentDate) / 1000;
+  
+  const days = Math.floor(totalSeconds / 3600 / 24);
+  const hours = Math.floor(totalSeconds / 3600) % 24;
+  const minutes = Math.floor(totalSeconds / 60) % 60;
+  const seconds = Math.floor(totalSeconds) % 60;
+  
+  countdownItems[0].innerHTML = days;
+  countdownItems[1].innerHTML = hours;
+  countdownItems[2].innerHTML = minutes;
+  countdownItems[3].innerHTML = seconds;
 }
 
-getData()
-setInterval(getData, 5000)
+setInterval(countdown, 1000);
 
-Highcharts.chart('container', {
-  chart: {
-    backgroundColor: 'transparent',
-    type: 'line',
-    zoomType: 'x'
-  },
-  title: {
-    text: ''
-  },
-  xAxis: {
-    type: 'datetime',
-    tickPixelInterval: 25
-  },
-  yAxis: {
-    title: {
-      text: ''
-    },
-    type: 'linear'
-  },
-  plotOptions: {
-    series: {
-        threshold: null,
-        fillOpacity: 0.25
-    },
-    area: {
-        fillOpacity: 0.25
-    }
-  },
-  credits: {
-    text: 'superplaycounts.github.io',
-    href: 'https://web.archive.org/web/20230401081239/https://superplaycounts.github.io/',
-  },
-  series: [{
-    name: 'Subscribers',
-    data: apiData,
-    color: 'red'
-  }]
-}, function (ch) {
-  chart = ch;
-});
 </script>
-<script src="/js/odometer.js"></script>
-<script src="/js/cookie.js"></script>
-<script src="/js/scripts.js"></script>
+<script src="../js/odometer.js"></script>
+<script src="../js/cookie.js"></script>
+<script src="../js/scripts.js"></script>
 <script>
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", function () {
