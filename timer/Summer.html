@@ -87,13 +87,16 @@
     <div class="main__subs">
         <div class="card">
           <div class="card__title">
-            <div id="ChanName"><span>To summer, there is left</span></div>
+            <div id="ChanName"><span>How many days are left until the end of summer</span></div>
           </div>
           <center>
             <div class="countdown">
                 <div id="days" class="countdown-item odometer"></div>
+                <span>:</span>
                 <div id="hours" class="countdown-item odometer"></div>
+                <span>:</span>
                 <div id="minutes" class="countdown-item odometer"></div>
+                <span>:</span>
                 <div id="seconds" class="countdown-item odometer"></div>
               </div>
           </center>
@@ -167,7 +170,7 @@ const countdownItems = document.querySelectorAll('.countdown-item');
 let timerInterval;
 
 function countdown() {
-  const endDate = new Date('2023-06-01 09:47:00');
+  const endDate = new Date('2023-09-01 00:00:00');
   const currentDate = new Date();
   const totalSeconds = (endDate - currentDate) / 1000;
   
@@ -193,6 +196,7 @@ function countdown() {
 }
 
 timerInterval = setInterval(countdown, 1000);
+
 </script>
 <script src="../js/odometer.js"></script>
 <script src="../js/cookie.js"></script>
