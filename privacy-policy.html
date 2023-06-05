@@ -163,7 +163,7 @@
           >
             <div class="primary-policy__form_color">
               <h1>Privacy Policy for SUPERPLAYCOUNTS</h1>
-              <p>Last updated: February 18, 2023</p>
+              <p id="last-updated">Last updated: <span id="date"></span></p>
               <p>
                 This Privacy Policy describes Our policies and procedures on the
                 collection, use and disclosure of Your information when You use
@@ -399,16 +399,6 @@
               <p>
                 The Company may use Personal Data for the following purposes:
               </p>
-              <!-- ads blocks -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1131093589390960"
-     data-ad-slot="1803052511"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
               <ul>
                 <li>
                   <p>
@@ -743,6 +733,18 @@
             });
         });
       }
+    </script>
+    <script>
+      const dateElement = document.getElementById('date');
+      function getCurrentDate() {
+        const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        const currentDate = new Date();
+        const month = months[currentDate.getMonth()];
+        const day = currentDate.getDate();
+        const year = currentDate.getFullYear();
+        return month + ' ' + day + ', ' + year;
+      }
+      dateElement.textContent = getCurrentDate();
     </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-B5TEVSVZ74"></script>
     <script>

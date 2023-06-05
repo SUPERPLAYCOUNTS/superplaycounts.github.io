@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Youtube - Videos Count</title>
+    <title>SUPERPLAYCOUNTS API - Requests Count</title>
     <meta name="description" content="With this site you can see various counters, subscribers, viewers in real time!" />
     <meta name="theme-color" content="#c8c8c8" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -36,7 +36,6 @@
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/statastyle.css">
     <link rel="stylesheet" id="theme-stylesheet" href="/css/light.css">
-    <script src="/js/blocked.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
@@ -95,51 +94,18 @@
             <img src="" alt="" id="pfp">
           </div>
           <div class="card__title">
-            <div id="ChanName"><span>Loading</span><i class="fa fa-check-circle" aria-hidden="true" style="display: none; padding: 4px; font-size: 21px; vertical-align: text-top;"></i></div>
-            <i style="color:#ff0000" class="fa-brands fa-youtube"></i>
+            <div id="ChanName"><span>Loading</span></div>
           </div>
           <center>
             <div id="count" class="odometer">0</div>
           </center>
-          <h2>Videos</h2>
+          <h2>Requests</h2>
           <p style="display: flex; justify-content: flex-end; padding: 5px 15px; color: grey; cursor: default;">Powered by superplaycounts.github.io</p>
         </div>
         <br>
-        <div class="wrapper">
-          <a id="subs-link" href="/youtube/" style="text-decoration: none; color: #000;">
-            <div style="cursor: pointer;" class="grid-item">
-              <span style="font-size: 0.8em;">Subscribers</span>
-              <br>
-              <div id="api" class="odometer">0</div>
-            </div>
-          </a>
-          <a id="api-link" href="/youtube/api/" style="text-decoration: none; color: #000;">
-            <div style="cursor: pointer;" class="grid-item">
-            <span style="font-size: 0.8em;">Api</span>
-            <br>
-            <div id="viewscounts" class="odometer">0</div>
-          </div>
-          </a>
-          <a id="views-link" href="/youtube/views/" style="text-decoration: none; color: #000;">
-            <div style="cursor: pointer;" class="grid-item">
-            <span style="font-size: 0.8em;">Views</span>
-            <br>
-            <div id="videoscounts" class="odometer">0</div>
-          </div>
-          </a>
-        </div>
         <br>
         <div id="container"></div>
         <br>
-        <div>
-          <div class="grid-button-yt">
-            <div>
-              <a href="/youtube/search.html">
-                <button id="change-user-btn">Change User <i class="fa-solid fa-magnifying-glass"></i></button>
-              </a>
-            </div>
-          </div>
-        </div>
         <br>
         <br>
         <div class="Counter shadow-xl w-full lg:w-[90%]" id="bbvbktriejkjn">
@@ -204,34 +170,15 @@
 var apiData = [];
 var chart = null;
 var credits = document.querySelector('.highcharts-credits');
-var channel = window.location.href.split('?')[1] || 'UCq-Fj5jknLsUf-MWSy4_brA';
-const iconEl = document.querySelector('.fa-check-circle');
 
-var subsLink = document.getElementById('subs-link');
-subsLink.href = `/youtube/?${channel}`;
-var apiLink = document.getElementById('api-link');
-apiLink.href = `/youtube/api/?${channel}`;
-var viewslink = document.getElementById('views-link');
-viewslink.href = `/youtube/views/?${channel}`;
-
-subsLink.addEventListener('click', function(event) {
-  event.preventDefault();
-  window.location.href = subsLink.href;
-});
 
 function getData() {
-  fetch('https://api.superplaycounts.repl.co/api/youtube-channel-counter/user/' + channel)
+  fetch('https://api.superplaycounts.repl.co/api/requests')
     .then(blob => blob.json())
     .then(data => {
-      const sub = Math.round(data.statistics[0].counts[5].count);
-      const apie = Math.round(data.statistics[0].counts[0].count);
-      const view = Math.round(data.statistics[0].counts[2].count);
-      const videos = Math.round(data.statistics[0].counts[3].count);
-      ChanName.querySelector('span').textContent = data.statistics[0].user[0].count;
-      ban.src = data.statistics[0].user[2].count;
-      pfp.src = data.statistics[0].user[1].count;
-      document.title = `${data.statistics[0].user[0].count} - Videos Count`;
-      apiData.push([Date.now(), sub]);
+      const api = Math.round(data.totalapirequests);
+      document.title = `SUPERPLAYCOUNTS API - Requests Count`;
+      apiData.push([Date.now(), api]);
 
 
       if (chart) {
@@ -241,13 +188,10 @@ function getData() {
         apiData.shift();
         chart.series[0].setData(apiData);
       } else {
-        chart.series[0].addPoint([Date.now(), sub]);
+        chart.series[0].addPoint([Date.now(), api]);
       }
 
-      count.innerHTML = sub;
-      api.innerHTML = apie;
-      viewscounts.innerHTML = view;
-      videoscounts.innerHTML = videos;
+      count.innerHTML = api;
     })
 }
 
@@ -287,9 +231,9 @@ Highcharts.chart('container', {
     href: 'https://superplaycounts.github.io/',
   },
   series: [{
-    name: 'Videos',
+    name: 'Requests',
     data: apiData,
-    color: 'red'
+    color: 'yellow'
   }]
 }, function (ch) {
   chart = ch;

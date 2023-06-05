@@ -62,6 +62,7 @@
                 }
             }
     </style>
+    <script src="/js/blocked.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
@@ -133,6 +134,10 @@
         <br>
         <center>
             <div id="settings">
+                <input type="submit" value="Set values" ONCLICK="submit(); updateSubs(); setImage()">
+                <br>
+                <br>
+                <br>
                 <input type="text" id="channelSubmitName" name="channelSubmitName" placeholder="Channel Name">
                 <br>
                 <input type="number" id="countSubmit" name="countSubmit" placeholder="Channel subs">
@@ -176,11 +181,6 @@
                 <p>To hide via mobile device, click on the three bars, scroll down a little and you will see the 'hide settings' button</p>
                 <br>
                 <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <input type="submit" value="Set values" ONCLICK="submit(); updateSubs(); setImage()">
                 <h6 style="color: #fff; display: none;">fake v3.1.1</h6>
             </div>
         </center>
