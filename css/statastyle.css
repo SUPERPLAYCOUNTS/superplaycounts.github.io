@@ -83,6 +83,9 @@
   #api, #viewscounts, #videoscounts{
     font-size: 100%;
   }
+  #likescounts, #dislikescounts, #commentscounts {
+    font-size: 100%;
+  }
   .highcharts-exporting-group{
     display: none;
   }
@@ -98,6 +101,9 @@
       padding: 0px 0px;
     }
     #api, #viewscounts, #videoscounts{
+      font-size: 8vw;
+    }
+    #likescounts, #dislikescounts, #commentscounts {
       font-size: 8vw;
     }
   }
