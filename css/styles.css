@@ -282,6 +282,38 @@ h2
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
+.boxcreate input {
+    height: 50px;
+    background-color: #494949;
+    color: #FFFFFF;
+    width: 90%;
+    display: block;
+}
+.boxcreate button {
+    box-shadow: 0px 0px 0px 2px #9fb4f2;
+	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+	background-color:#7892c2;
+	border-radius:10px;
+	border:1px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:19px;
+	padding:12px 37px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #283966;
+    transition: 0.8s !important;
+}
+.boxcreate button:hover {
+    background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+	background-color:#476e9e;
+    transition: 0.8s !important;
+}
+.boxcreate button:active {
+    position:relative;
+	top:1px;
+}
+
 /* fullscreen */
 .fullscreen {
     position: fixed;

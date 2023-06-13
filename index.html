@@ -138,7 +138,7 @@
           <h2>YouTube</h2>
           <div class="items__links">
             <a href="/youtube/search.html">Subscriber Count</a>
-            <a href="/youtube/video/?0e3GPea1Tyg">Video Count</a>
+            <a href="/youtube/video/search.html">View Count</a>
           </div>
         </div>
         <div class="grid-item" id="twitter-grid-item">
@@ -208,35 +208,40 @@
       <br>
       <br>
       <div class="Counter shadow-xl w-full lg:w-[90%]" id="bbvbktriejkjn">
-        <div id="disqus_thread"><button class="ms-button" style="width: 80% !important;
-          max-width: 100%;padding:20px !important;" onclick="loadDisqus()">Load Comments</button></div>
+        <div id="disqus_thread">
+          <button class="ms-button" style="width: 80% !important; max-width: 100%; padding: 20px !important;" onclick="loadDisqus()">Load Comments</button>
+        </div>
         <script>
-          if(location.pathname != "/" && location.pathname != "" && location.pathname.split('/').length == 2) {
-            bbvbktriejkjn.style.display = "none"
+          if (location.pathname != "/" && location.pathname != "" && location.pathname.split('/').length == 2) {
+            bbvbktriejkjn.style.display = "none";
           }
-          /**
-          *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-          *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-          
-          var disqus_config = function () {
-          this.page.url = `https://superplaycounts.github.io${location.pathname}`;  // Replace PAGE_URL with your page's canonical URL variable
-          this.page.identifier = btoa(`https://superplaycounts.github.io${location.pathname}`); // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      
+          var disqus_config = function() {
+            this.page.url = `https://superplaycounts.github.io${location.pathname}`;
+            this.page.identifier = btoa(`https://superplaycounts.github.io${location.pathname}`);
           };
-          
+      
           function loadDisqus() {
-              (function () { // DON'T EDIT BELOW THIS LINE
-                var d = document, s = d.createElement('script');
-                s.src = 'https://superplaycounts.disqus.com/embed.js';
-                s.setAttribute('data-timestamp', +new Date());
-                (d.head || d.body).appendChild(s);
-              })();
+            const mixadvElement = document.createElement('div');
+            mixadvElement.id = 'MIXADV_9821';
+            mixadvElement.className = 'MIXADVERT_NET';
+      
+            var d = document,
+              s = d.createElement('script');
+            s.src = 'https://superplaycounts.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+      
+            const disqusThreadElement = document.getElementById('disqus_thread');
+            disqusThreadElement.parentNode.insertBefore(mixadvElement, disqusThreadElement);
           }
         </script>
       </div>
       <br>
       <br>
       <br>
-      <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'B0B6E1LN3');kofiwidget2.draw();</script> 
+      <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'B0B6E1LN3');kofiwidget2.draw();</script>
+      <br>
       <div id="MIXADV_9822" class="MIXADVERT_NET"></div>
       <br>
       <br>
@@ -280,31 +285,6 @@
       });
     }
   </script>
-  <!-- <script>
-    var notification = document.querySelector('.notification');
-var closeBtn = document.querySelector('.close-btn');
-var showNotification = true;
-
-if (localStorage.getItem('showNotification') !== null) {
-  showNotification = JSON.parse(localStorage.getItem('showNotification'));
-}
-
-if (showNotification) {
-  notification.classList.add('show');
-}
-
-closeBtn.addEventListener('click', function() {
-  notification.classList.remove('show');
-  showNotification = false;
-  localStorage.setItem('showNotification', JSON.stringify(showNotification));
-});
-
-setTimeout(function() {
-  showNotification = true;
-  localStorage.setItem('showNotification', JSON.stringify(showNotification));
-}, 7 * 24 * 60 * 60 * 1000);
-
-  </script> -->
   <script>
     let twitter = false;
     let tiktok = false;
@@ -358,6 +338,7 @@ setTimeout(function() {
       requestgriditem.style.display = "none";
     }
   </script>
+  <script type="text/javascript" src="https://m.mixadvert.com/show/?id=9821" async></script>
   <script type="text/javascript" src="https://m.mixadvert.com/show/?id=9822" async></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-B5TEVSVZ74"></script>
 <script>

@@ -135,6 +135,9 @@ label{
 strong{
     color: #fff;
 }
+.countdown span {
+    color: #fff;
+}
 /* description counter */
 .desc-block{
     position: relative;

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Youtube - Views Count</title>
+    <title>Youtube - Dislikes Counts</title>
     <meta name="description" content="With this site you can see various counters, subscribers, viewers in real time!" />
     <meta name="theme-color" content="#c8c8c8" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -101,31 +101,31 @@
           <center>
             <div id="count" class="odometer">0</div>
           </center>
-          <h2>Views</h2>
+          <h2>Dislikes</h2>
           <p style="display: flex; justify-content: flex-end; padding: 5px 15px; color: grey; cursor: default;">Powered by superplaycounts.github.io</p>
         </div>
         <br>
         <div class="wrapper">
-          <a id="subs-link" href="/youtube/" style="text-decoration: none; color: #000;">
+          <a id="views-link" style="text-decoration: none; color: #000;">
             <div style="cursor: pointer;" class="grid-item">
-              <span style="font-size: 0.8em;">Subscribers</span>
+              <span style="font-size: 0.8em;">Views</span>
               <br>
-              <div id="api" class="odometer">0</div>
+              <div id="likescounts" class="odometer">0</div>
             </div>
           </a>
-          <a id="api-link" href="/youtube/api/" style="text-decoration: none; color: #000;">
+          <a id="likes-link" style="text-decoration: none; color: #000;">
             <div style="cursor: pointer;" class="grid-item">
-            <span style="font-size: 0.8em;">Api</span>
+            <span style="font-size: 0.8em;">Likes</span>
             <br>
-            <div id="viewscounts" class="odometer">0</div>
+            <div id="dislikescounts" class="odometer">0</div>
           </div>
           </a>
-          <a id="videos-link" href="/youtube/videos/" style="text-decoration: none; color: #000;">
+          <a id="comments-link" style="text-decoration: none; color: #000;">
             <div style="cursor: pointer;" class="grid-item">
-            <span style="font-size: 0.8em;">Videos</span>
-            <br>
-            <div id="videoscounts" class="odometer">0</div>
-          </div>
+              <span style="font-size: 0.8em;">Comments</span>
+              <br>
+              <div id="commentscounts" class="odometer">0</div>
+            </div>
           </a>
         </div>
         <br>
@@ -134,8 +134,8 @@
         <div>
           <div class="grid-button-yt">
             <div>
-              <a href="/youtube/search.html">
-                <button id="change-user-btn">Change User <i class="fa-solid fa-magnifying-glass"></i></button>
+              <a style="display: none;" href="/youtube/search.html">
+                <button id="change-user-btn">Change video <i class="fa-solid fa-magnifying-glass"></i></button>
               </a>
             </div>
           </div>
@@ -174,19 +174,6 @@
           <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'B0B6E1LN3');kofiwidget2.draw();</script>
         </center>
         <br>
-        <div class="desc-block" id="desc-block" style="max-width: 1020px; margin: 30px auto;">
-          <h1>About YouTube Subscriber Count</h1>
-          <p>YouTube Subscriber Count - A simple and convenient YouTube subscriber counter using the YouTube API!</p>
-          <p>Want to stay updated on your YouTube growth? YouTube Subscriber Count will help you easily track the number of subscribers on your channel. Our tool utilizes the powerful YouTube API to fetch the most up-to-date data about your subscribers and updates the information in real-time.</p>
-          <p>Key features:</p>
-          <p>Subscriber count display: A visually appealing and stylish counter that shows the current number of subscribers on your channel. You'll always know how fast your audience is growing.</p>
-          <p>View count: In addition to subscribers, you can also track the number of views.</p>
-          <p>Video count: Find out how many videos you've uploaded to your channel. Quickly view the total number of videos you've created.</p>
-          <p>Share counter: You can easily share your current subscriber or view count on various platforms and social networks. Let your friends and fans know about your success.</p>
-          <p>Note: We want to emphasize that we are not affiliated with any of the platforms, websites, or games mentioned on our site. We provide this information solely for context and ease of use.</p>
-          <br>
-          <p>Don't miss out on the growth of your YouTube channel. Use YouTube Subscriber Count to stay informed about changes in your audience and share your achievements with the world!</p>
-        </div>
         <br>
         <footer>
           <div class="cookie-block" id="cookie-banner">
@@ -217,50 +204,38 @@
 var apiData = [];
 var chart = null;
 var credits = document.querySelector('.highcharts-credits');
-var channel = window.location.href.split('?')[1] || 'UCq-Fj5jknLsUf-MWSy4_brA';
+var channel = window.location.href.split('?')[1] || '0e3GPea1Tyg';
 const iconEl = document.querySelector('.fa-check-circle');
 
-var subsLink = document.getElementById('subs-link');
-subsLink.href = `/youtube/?${channel}`;
-var apiLink = document.getElementById('api-link');
-apiLink.href = `/youtube/api/?${channel}`;
-var videoslink = document.getElementById('videos-link');
-videoslink.href = `/youtube/videos/?${channel}`;
+var viewslink = document.getElementById('views-link');
+viewslink.href = `/youtube/video/?${channel}`;
+var likesLink = document.getElementById('likes-link');
+likesLink.href = `/youtube/video/likes/?${channel}`;
+var commentslink = document.getElementById('comments-link');
+commentslink.href = `/youtube/video/comments/?${channel}`;
 
-subsLink.addEventListener('click', function(event) {
-  event.preventDefault();
-  window.location.href = subsLink.href;
-});
 
 function getData() {
-  fetch('https://api.superplaycounts.repl.co/api/youtube-channel-counter/user/' + channel)
+  fetch('https://api.superplaycounts.repl.co/api/youtube-video-counter/user/' + channel)
     .then(blob => blob.json())
     .then(data => {
-      const sub = Math.round(data.statistics[0].counts[3].count);
-      const apie = Math.round(data.statistics[0].counts[0].count);
-      const view = Math.round(data.statistics[0].counts[2].count);
-      const videos = Math.round(data.statistics[0].counts[5].count);
-      ChanName.querySelector('span').textContent = data.statistics[0].user[0].count;
-      ban.src = data.statistics[0].user[2].count;
-      pfp.src = data.statistics[0].user[1].count;
-      document.title = `${data.statistics[0].user[0].count} - Views Count`;
-      apiData.push([Date.now(), sub]);
-
+      const views = Math.round(data.counts[0].count);
+      const like = Math.round(data.counts[3].count);
+      const dislike = Math.round(data.counts[4].count);
+      const comment = Math.round(data.counts[5].count);
+      ChanName.querySelector('span').textContent = data.user[0].count;
+      document.title = `${data.user[0].count} - Dislikes Counts`;
+      pfp.src = data.user[1].count;
+      ban.src = data.user[2].count;
+      apiData.push([Date.now(), dislike]);
 
       if (chart) {
         chart.series[0].setData(apiData);
       }
-      if (apiData.length > 8) {
-        apiData.shift();
-        chart.series[0].setData(apiData);
-      } else {
-        chart.series[0].addPoint([Date.now(), sub]);
-      }
-
-      count.innerHTML = sub;
-      api.innerHTML = apie;
-      viewscounts.innerHTML = view;
-      videoscounts.innerHTML = videos;
+      count.innerHTML = dislike;
+      likescounts.innerHTML = views;
+      dislikescounts.innerHTML = like;
+      commentscounts.innerHTML = comment;
     })
 }
 
@@ -300,13 +275,14 @@ Highcharts.chart('container', {
     href: 'https://superplaycounts.github.io/',
   },
   series: [{
-    name: 'Views',
+    name: 'Dislikes',
     data: apiData,
     color: 'red'
   }]
 }, function (ch) {
   chart = ch;
 });
+
 </script>
 <script src="/js/odometer.js"></script>
 <script src="/js/cookie.js"></script>

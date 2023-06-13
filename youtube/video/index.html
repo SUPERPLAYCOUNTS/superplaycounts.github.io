@@ -106,21 +106,21 @@
         </div>
         <br>
         <div class="wrapper">
-          <a style="text-decoration: none; color: #000;">
+          <a id="likes-link" href="/youtube/video/likes/" style="text-decoration: none; color: #000;">
             <div style="cursor: pointer;" class="grid-item">
               <span style="font-size: 0.8em;">Likes</span>
               <br>
               <div id="likescounts" class="odometer">0</div>
             </div>
           </a>
-          <a style="text-decoration: none; color: #000;">
+          <a id="dislikes-link" style="text-decoration: none; color: #000;">
             <div style="cursor: pointer;" class="grid-item">
             <span style="font-size: 0.8em;">Dislikes</span>
             <br>
             <div id="dislikescounts" class="odometer">0</div>
           </div>
           </a>
-          <a style="text-decoration: none; color: #000;">
+          <a id="comments-link" href="/youtube/video/comments/" style="text-decoration: none; color: #000;">
             <div style="cursor: pointer;" class="grid-item">
               <span style="font-size: 0.8em;">Comments</span>
               <br>
@@ -207,17 +207,13 @@ var credits = document.querySelector('.highcharts-credits');
 var channel = window.location.href.split('?')[1] || '0e3GPea1Tyg';
 const iconEl = document.querySelector('.fa-check-circle');
 
-// var apiLink = document.getElementById('api-link');
-// apiLink.href = `api/?${channel}`;
-// var viewslink = document.getElementById('views-link');
-// viewslink.href = `views/?${channel}`;
-// var videoslink = document.getElementById('videos-link');
-// videoslink.href = `videos/?${channel}`;
+var likesLink = document.getElementById('likes-link');
+likesLink.href = `likes/?${channel}`;
+var dislikeslink = document.getElementById('dislikes-link');
+dislikeslink.href = `dislikes/?${channel}`;
+var commentslink = document.getElementById('comments-link');
+commentslink.href = `comments/?${channel}`;
 
-// apiLink.addEventListener('click', function(event) {
-//   event.preventDefault();
-//   window.location.href = apiLink.href;
-// });
 
 
 function getData() {
