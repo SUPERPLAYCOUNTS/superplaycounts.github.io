@@ -135,6 +135,19 @@
         </li>
         <br>
         <li>
+          <p><strong>GET /api/youtube-video-counter/user/:id</strong> - This is a request to retrieve video data for the YouTube video counter.</p>
+          <p>Available counter types are:</p>
+          <p>"views": The number of views for the video.</p>
+          <p>"apiviews": The number of views for the video obtained through the YouTube API.</p>
+          <p>"likes": The number of likes for the video.</p>
+          <p>"dislikes": The number of dislikes for the video.</p>
+          <p>"comments": The number of comments for the video.</p>
+          <p>"name": The title of the video.</p>
+          <p>"pfp": The URL address of the banner image.</p>
+          <p>"banner": The URL address of the banner image.</p>
+        </li>
+        <br>
+        <li>
           <p><strong>GET /api/requests</strong> - This request returns the number of API requests made since the server was started. The response is a JSON object with the property "totalapirequests" - the total number of requests made.</p>
         </li>
         <br>

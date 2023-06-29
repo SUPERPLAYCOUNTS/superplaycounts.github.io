@@ -141,6 +141,15 @@
           </div>
         </div>
         <br>
+        <div>
+          <div class="grid-button-share-yt">
+            <p>Share</p>
+            <div>
+              <a href="" id="twitterButton">Share on Twitter <i class="fa-brands fa-twitter" style="color: #ffffff;"></i></a>
+              <a href="" id="facebookButton">Share on Facebook <i class="fa-brands fa-facebook" style="color: #ffffff;"></i></a>
+            </div>
+          </div>
+        </div>
         <br>
         <div class="Counter shadow-xl w-full lg:w-[90%]" id="bbvbktriejkjn">
           <div id="disqus_thread"><button class="ms-button" style="width: 80% !important;
@@ -219,6 +228,31 @@ var chart = null;
 var credits = document.querySelector('.highcharts-credits');
 var channel = window.location.href.split('?')[1] || 'UCq-Fj5jknLsUf-MWSy4_brA';
 const iconEl = document.querySelector('.fa-check-circle');
+
+const shareButton = document.getElementById('twitterButton');
+const facebookButton = document.getElementById('facebookButton');
+
+const userName = 'superplaycounts';
+
+let userData = '';
+
+shareButton.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const tweetText = `Visit YouTube Live Subscriber Counter For ${userData}! https://superplaycounts.github.io/youtube/api/?${channel} @${userName}`;
+
+  const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
+
+  window.open(twitterUrl, '_blank');
+});
+
+facebookButton.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`;
+
+  window.open(shareUrl, '_blank');
+});
 
 var subsLink = document.getElementById('subs-link');
 subsLink.href = `/youtube/?${channel}`;

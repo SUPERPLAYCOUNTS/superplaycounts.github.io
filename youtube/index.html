@@ -141,6 +141,16 @@
           </div>
         </div>
         <br>
+        <div>
+          <div class="grid-button-share-yt">
+            <p>Share</p>
+            <div>
+              <a href="" id="twitterButton">Share on Twitter <i class="fa-brands fa-twitter" style="color: #ffffff;"></i></a>
+              <a href="" id="facebookButton">Share on Facebook <i class="fa-brands fa-facebook" style="color: #ffffff;"></i></a>
+            </div>
+          </div>
+        </div>
+        <br>
         <div class="embedbox" style="display: none;">
           <p>Embed</p>
           <button style="width: 100%!important; padding: 10px; border-color: rgba(0, 0, 0, 0.500); border: 0.5px solid rgba(0,0,0,.500); border-radius: 0; background-color: rgb(22, 22, 22); vertical-align: middle; color: white; font-size: 1.5vw;" class="tooltiptext" onclick="copyembed()" type="text" id="embd"></button><br><br>
@@ -224,6 +234,31 @@ var credits = document.querySelector('.highcharts-credits');
 var channel = window.location.href.split('?')[1] || 'UCq-Fj5jknLsUf-MWSy4_brA';
 const iconEl = document.querySelector('.fa-check-circle');
 
+const shareButton = document.getElementById('twitterButton');
+const facebookButton = document.getElementById('facebookButton');
+
+const userName = 'superplaycounts';
+
+let userData = '';
+
+shareButton.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const tweetText = `Visit YouTube Live Subscriber Counter For ${userData}! https://superplaycounts.github.io/youtube/?${channel} @${userName}`;
+
+  const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
+
+  window.open(twitterUrl, '_blank');
+});
+
+facebookButton.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`;
+
+  window.open(shareUrl, '_blank');
+});
+
 var apiLink = document.getElementById('api-link');
 apiLink.href = `api/?${channel}`;
 var viewslink = document.getElementById('views-link');
@@ -235,7 +270,6 @@ apiLink.addEventListener('click', function(event) {
   event.preventDefault();
   window.location.href = apiLink.href;
 });
-
 
 function getData() {
   fetch('https://api.superplaycounts.repl.co/api/youtube-channel-counter/user/' + channel)
@@ -273,6 +307,8 @@ function getData() {
       api.innerHTML = apie;
       viewscounts.innerHTML = view;
       videoscounts.innerHTML = videos;
+
+      userData = data.statistics[0].user[0].count;
     })
 }
 

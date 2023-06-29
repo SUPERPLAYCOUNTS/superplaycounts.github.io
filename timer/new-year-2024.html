@@ -168,11 +168,22 @@
 
 <script>
 const countdownItems = document.querySelectorAll('.countdown-item');
+let timerInterval;
 
 function countdown() {
   const endDate = new Date('2024-01-01 00:00:00');
   const currentDate = new Date();
   const totalSeconds = (endDate - currentDate) / 1000;
+  
+  if (totalSeconds <= 0) {
+    countdownItems[0].innerHTML = 0;
+    countdownItems[1].innerHTML = 0;
+    countdownItems[2].innerHTML = 0;
+    countdownItems[3].innerHTML = 0;
+    
+    clearInterval(timerInterval);
+    return;
+  }
   
   const days = Math.floor(totalSeconds / 3600 / 24);
   const hours = Math.floor(totalSeconds / 3600) % 24;
@@ -185,8 +196,7 @@ function countdown() {
   countdownItems[3].innerHTML = seconds;
 }
 
-setInterval(countdown, 1000);
-
+timerInterval = setInterval(countdown, 1000);
 </script>
 <script src="../js/odometer.js"></script>
 <script src="../js/cookie.js"></script>

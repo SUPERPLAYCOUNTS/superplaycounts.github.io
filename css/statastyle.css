@@ -107,3 +107,44 @@
       font-size: 8vw;
     }
   }
+
+
+  .grid-button-share-yt {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    margin: 10px auto;
+    text-align: center;
+    border-radius: 4px;
+  }
+
+
+  #twitterButton,
+  #facebookButton {
+    margin-right: 10px; /* Доданий проміжок між кнопками */
+    margin-top: 10px;
+  }
+
+  #twitterButton {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #1da1f2;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  #twitterButton:hover {
+    background-color: #0c85d0;
+  }
+
+  #facebookButton {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4267B2;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  #facebookButton:hover {
+    background-color: #304c84;
+  }
