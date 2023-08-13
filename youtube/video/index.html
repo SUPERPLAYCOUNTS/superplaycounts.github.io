@@ -73,7 +73,7 @@
                   <a href="/timer/" class="header__link">Timer</a>
               </li>
               <li>
-                <a href="https://twitter.com/@superplaycounts" class="header__link">Twitter</a>
+                <a href="https://twitter.com/@superplaycounts" class="header__link">Twitter X</a>
               </li>
               <li>
                 <a href="/api/docs.html" class="header__link">Api</a>
@@ -141,6 +141,15 @@
           </div>
         </div>
         <br>
+        <div>
+          <div class="grid-button-share-yt">
+            <p>Share</p>
+            <div>
+              <a href="" id="twitterButton">Share on Twitter <i class="fa-brands fa-twitter" style="color: #ffffff;"></i></a>
+              <a href="" id="facebookButton">Share on Facebook <i class="fa-brands fa-facebook" style="color: #ffffff;"></i></a>
+            </div>
+          </div>
+        </div>
         <br>
         <div class="Counter shadow-xl w-full lg:w-[90%]" id="bbvbktriejkjn">
           <div id="disqus_thread"><button class="ms-button" style="width: 80% !important;
@@ -174,6 +183,19 @@
           <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'B0B6E1LN3');kofiwidget2.draw();</script>
         </center>
         <br>
+        <div class="desc-block" id="desc-block" style="max-width: 1020px; margin: 30px auto;">
+          <h1>About YouTube View Count</h1>
+          <p>YouTube View Count - a source of information about YouTube video views!</p>
+          <p>Want to know how many views a video on YouTube has? YouTube View Count provides you with up-to-date and accurate information about views, likes, dislikes, and comments on videos. We use the powerful YouTube API to retrieve view data and other metrics, and we integrate the dislike counter from a reliable source - <a href="https://returnyoutubedislike.com/">Return YouTube Dislike</a>.</p>
+          <p>Key features:</p>
+          <p>View count: YouTube View Count will show you the current number of views.</p>
+          <p>Likes and dislikes count: Stay informed about viewer feedback on the video. Find out the number of likes and dislikes.</p>
+          <p>Comments count: Learn how many comments have been left on your videos.</p>
+          <p>Share counter: Want to share views, likes, and dislikes with others? Easily share the current count on various social media platforms. Let others know.</p>
+          <p>Note: We want to emphasize that we are not affiliated with any of the platforms, websites, or games mentioned on our site. We provide this information solely for context and ease of use.</p>
+          <br>
+          <p>Use YouTube View Count to stay updated on views, likes, dislikes, and comments, and share your achievements with the world!</p>
+        </div>
         <br>
         <footer>
           <div class="cookie-block" id="cookie-banner">
@@ -206,6 +228,31 @@ var chart = null;
 var credits = document.querySelector('.highcharts-credits');
 var channel = window.location.href.split('?')[1] || '0e3GPea1Tyg';
 const iconEl = document.querySelector('.fa-check-circle');
+
+const shareButton = document.getElementById('twitterButton');
+const facebookButton = document.getElementById('facebookButton');
+
+const userName = 'superplaycounts';
+
+let userData = '';
+
+shareButton.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const tweetText = `Visit YouTube Live View Counter For ${userData}! https://superplaycounts.github.io/youtube/video/?${channel} @${userName}`;
+
+  const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
+
+  window.open(twitterUrl, '_blank');
+});
+
+facebookButton.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`;
+
+  window.open(shareUrl, '_blank');
+});
 
 var likesLink = document.getElementById('likes-link');
 likesLink.href = `likes/?${channel}`;

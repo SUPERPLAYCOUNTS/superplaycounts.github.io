@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Youtube - Dislikes Counts</title>
+    <title>X - Followers Count</title>
     <meta name="description" content="With this site you can see various counters, subscribers, viewers in real time!" />
     <meta name="theme-color" content="#c8c8c8" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 
 
     <meta name="image" content="//superplaycounts.github.io/favicon.ico">
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="icon" href="/img/icon-sites.png">
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="icon" href="../img/icon-sites.png">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary" />
@@ -32,8 +32,8 @@
 
 
     <link rel="manifest" href="/manifest.json" />
-    <link rel="stylesheet" href="/css/odometer.css">
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="../css/odometer.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="/css/statastyle.css">
     <link rel="stylesheet" id="theme-stylesheet" href="/css/light.css">
     <script src="/js/blocked.js"></script>
@@ -45,7 +45,7 @@
      crossorigin="anonymous"></script>
      <script async src="https://arc.io/widget.min.js#HRejLsfT"></script>
     <script async src="https://unpkg.com/pwacompat" crossOrigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
@@ -95,47 +95,47 @@
             <img src="" alt="" id="pfp">
           </div>
           <div class="card__title">
-            <div id="ChanName"><span>Loading</span><i class="fa fa-check-circle" aria-hidden="true" style="display: none; padding: 4px; font-size: 21px; vertical-align: text-top;"></i></div>
-            <i style="color:#ff0000" class="fa-brands fa-youtube"></i>
+            <div id="ChanName"><span>Loading</span></div>
+            <i style="color:#000" class="fa-brands fa-x-twitter"></i>
           </div>
           <center>
             <div id="count" class="odometer">0</div>
           </center>
-          <h2>Dislikes</h2>
+          <h2>Followers</h2>
           <p style="display: flex; justify-content: flex-end; padding: 5px 15px; color: grey; cursor: default;">Powered by superplaycounts.github.io</p>
         </div>
         <br>
-        <div class="wrapper">
-          <a id="views-link" style="text-decoration: none; color: #000;">
+        <!-- <div class="wrapper">
+          <a id="api-link" href="api/" style="text-decoration: none; color: #000;">
             <div style="cursor: pointer;" class="grid-item">
-              <span style="font-size: 0.8em;">Views</span>
+              <span style="font-size: 0.8em;">Api</span>
               <br>
-              <div id="likescounts" class="odometer">0</div>
+              <div id="api" class="odometer">0</div>
             </div>
           </a>
-          <a id="likes-link" style="text-decoration: none; color: #000;">
+          <a id="views-link" href="views/" style="text-decoration: none; color: #000;">
             <div style="cursor: pointer;" class="grid-item">
-            <span style="font-size: 0.8em;">Likes</span>
+            <span style="font-size: 0.8em;">Views</span>
             <br>
-            <div id="dislikescounts" class="odometer">0</div>
+            <div id="viewscounts" class="odometer">0</div>
           </div>
           </a>
-          <a id="comments-link" style="text-decoration: none; color: #000;">
+          <a id="videos-link" href="videos/" style="text-decoration: none; color: #000;">
             <div style="cursor: pointer;" class="grid-item">
-              <span style="font-size: 0.8em;">Comments</span>
+              <span style="font-size: 0.8em;">Videos</span>
               <br>
-              <div id="commentscounts" class="odometer">0</div>
+              <div id="videoscounts" class="odometer">0</div>
             </div>
           </a>
-        </div>
+        </div> -->
         <br>
         <div id="container"></div>
         <br>
         <div>
           <div class="grid-button-yt">
             <div>
-              <a style="display: none;" href="/youtube/search.html">
-                <button id="change-user-btn">Change video <i class="fa-solid fa-magnifying-glass"></i></button>
+              <a href="/x/">
+                <button id="change-user-btn">Change User <i class="fa-solid fa-magnifying-glass"></i></button>
               </a>
             </div>
           </div>
@@ -149,6 +149,11 @@
               <a href="" id="facebookButton">Share on Facebook <i class="fa-brands fa-facebook" style="color: #ffffff;"></i></a>
             </div>
           </div>
+        </div>
+        <br>
+        <div class="embedbox" style="display: none;">
+          <p>Embed</p>
+          <button style="width: 100%!important; padding: 10px; border-color: rgba(0, 0, 0, 0.500); border: 0.5px solid rgba(0,0,0,.500); border-radius: 0; background-color: rgb(22, 22, 22); vertical-align: middle; color: white; font-size: 1.5vw;" class="tooltiptext" onclick="copyembed()" type="text" id="embd"></button><br><br>
         </div>
         <br>
         <div class="Counter shadow-xl w-full lg:w-[90%]" id="bbvbktriejkjn">
@@ -183,19 +188,19 @@
           <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'B0B6E1LN3');kofiwidget2.draw();</script>
         </center>
         <br>
-        <div class="desc-block" id="desc-block" style="max-width: 1020px; margin: 30px auto;">
-          <h1>About YouTube View Count</h1>
-          <p>YouTube View Count - a source of information about YouTube video views!</p>
-          <p>Want to know how many views a video on YouTube has? YouTube View Count provides you with up-to-date and accurate information about views, likes, dislikes, and comments on videos. We use the powerful YouTube API to retrieve view data and other metrics, and we integrate the dislike counter from a reliable source - <a href="https://returnyoutubedislike.com/">Return YouTube Dislike</a>.</p>
+        <!-- <div class="desc-block" id="desc-block" style="max-width: 1020px; margin: 30px auto;">
+          <h1>About YouTube Subscriber Count</h1>
+          <p>YouTube Subscriber Count - A simple and convenient YouTube subscriber counter using the YouTube API!</p>
+          <p>Want to stay updated on your YouTube growth? YouTube Subscriber Count will help you easily track the number of subscribers on your channel. Our tool utilizes the powerful YouTube API to fetch the most up-to-date data about your subscribers and updates the information in real-time.</p>
           <p>Key features:</p>
-          <p>View count: YouTube View Count will show you the current number of views.</p>
-          <p>Likes and dislikes count: Stay informed about viewer feedback on the video. Find out the number of likes and dislikes.</p>
-          <p>Comments count: Learn how many comments have been left on your videos.</p>
-          <p>Share counter: Want to share views, likes, and dislikes with others? Easily share the current count on various social media platforms. Let others know.</p>
+          <p>Subscriber count display: A visually appealing and stylish counter that shows the current number of subscribers on your channel. You'll always know how fast your audience is growing.</p>
+          <p>View count: In addition to subscribers, you can also track the number of views.</p>
+          <p>Video count: Find out how many videos you've uploaded to your channel. Quickly view the total number of videos you've created.</p>
+          <p>Share counter: You can easily share your current subscriber or view count on various platforms and social networks. Let your friends and fans know about your success.</p>
           <p>Note: We want to emphasize that we are not affiliated with any of the platforms, websites, or games mentioned on our site. We provide this information solely for context and ease of use.</p>
           <br>
-          <p>Use YouTube View Count to stay updated on views, likes, dislikes, and comments, and share your achievements with the world!</p>
-        </div>
+          <p>Don't miss out on the growth of your YouTube channel. Use YouTube Subscriber Count to stay informed about changes in your audience and share your achievements with the world!</p>
+        </div> -->
         <br>
         <footer>
           <div class="cookie-block" id="cookie-banner">
@@ -226,8 +231,7 @@
 var apiData = [];
 var chart = null;
 var credits = document.querySelector('.highcharts-credits');
-var channel = window.location.href.split('?')[1] || '0e3GPea1Tyg';
-const iconEl = document.querySelector('.fa-check-circle');
+var userid = window.location.href.split('?')[1] || 'elonmusk';
 
 const shareButton = document.getElementById('twitterButton');
 const facebookButton = document.getElementById('facebookButton');
@@ -239,7 +243,7 @@ let userData = '';
 shareButton.addEventListener('click', function(event) {
   event.preventDefault();
 
-  const tweetText = `Visit YouTube Live View Counter For ${userData}! https://superplaycounts.github.io/youtube/video/?${channel} @${userName}`;
+  const tweetText = `Visit Twitter X Live Follower Counter For ${userData}! https://superplaycounts.github.io/x/?${userid} @${userName}`;
 
   const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
 
@@ -254,35 +258,43 @@ facebookButton.addEventListener('click', function(event) {
   window.open(shareUrl, '_blank');
 });
 
-var viewslink = document.getElementById('views-link');
-viewslink.href = `/youtube/video/?${channel}`;
-var likesLink = document.getElementById('likes-link');
-likesLink.href = `/youtube/video/likes/?${channel}`;
-var commentslink = document.getElementById('comments-link');
-commentslink.href = `/youtube/video/comments/?${channel}`;
+// var apiLink = document.getElementById('api-link');
+// apiLink.href = `api/?${channel}`;
+// var viewslink = document.getElementById('views-link');
+// viewslink.href = `views/?${channel}`;
+// var videoslink = document.getElementById('videos-link');
+// videoslink.href = `videos/?${channel}`;
 
+// apiLink.addEventListener('click', function(event) {
+//   event.preventDefault();
+//   window.location.href = apiLink.href;
+// });
 
 function getData() {
-  fetch('https://api.superplaycounts.repl.co/api/youtube-video-counter/user/' + channel)
+  fetch('https://api.superplaycounts.repl.co/api/x-user-counter/user/' + userid)
     .then(blob => blob.json())
     .then(data => {
-      const views = Math.round(data.counts[0].count);
-      const like = Math.round(data.counts[3].count);
-      const dislike = Math.round(data.counts[4].count);
-      const comment = Math.round(data.counts[5].count);
+      const followrs = Math.round(data.counts[0].count);
       ChanName.querySelector('span').textContent = data.user[0].count;
-      document.title = `${data.user[0].count} - Dislikes Counts`;
-      pfp.src = data.user[1].count;
       ban.src = data.user[2].count;
-      apiData.push([Date.now(), dislike]);
+      pfp.src = data.user[1].count;
+      document.title = `${data.user[0].count} - Followers Count`;
+      apiData.push([Date.now(), followrs]);
+
 
       if (chart) {
         chart.series[0].setData(apiData);
       }
-      count.innerHTML = dislike;
-      likescounts.innerHTML = views;
-      dislikescounts.innerHTML = like;
-      commentscounts.innerHTML = comment;
+      if (apiData.length > 8) {
+        apiData.shift();
+        chart.series[0].setData(apiData);
+      } else {
+        chart.series[0].addPoint([Date.now(), sub]);
+      }
+
+      count.innerHTML = followrs;
+
+      userData = data.user[0].count;
     })
 }
 
@@ -322,18 +334,32 @@ Highcharts.chart('container', {
     href: 'https://superplaycounts.github.io/',
   },
   series: [{
-    name: 'Dislikes',
+    name: 'Followers',
     data: apiData,
-    color: 'red'
+    color: '#707B7C'
   }]
 }, function (ch) {
   chart = ch;
 });
 
+embd.innerHTML += `${ location.origin }/embed${location.pathname}${location.search}`
+function copyembed() {
+/* Get the text field */
+var copyText = document.getElementById("embd");
+
+/* Copy the text inside the text field */
+navigator.clipboard.writeText(`${location.origin}/embed${location.pathname}${location.search}`);
+
+
+copyText.innerHTML = "Copied: " + `${location.origin}/embed${location.pathname}${location.search}`;
+setTimeout(() => {
+    copyText.innerHTML = `${location.origin}/embed${location.pathname}${location.search}`;
+}, 1000)
+}
 </script>
-<script src="/js/odometer.js"></script>
-<script src="/js/cookie.js"></script>
-<script src="/js/scripts.js"></script>
+<script src="../js/odometer.js"></script>
+<script src="../js/cookie.js"></script>
+<script src="../js/scripts.js"></script>
 <script>
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", function () {

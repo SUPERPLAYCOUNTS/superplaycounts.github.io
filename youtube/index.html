@@ -73,7 +73,7 @@
                   <a href="/timer/" class="header__link">Timer</a>
               </li>
               <li>
-                <a href="https://twitter.com/@superplaycounts" class="header__link">Twitter</a>
+                <a href="https://twitter.com/@superplaycounts" class="header__link">Twitter X</a>
               </li>
               <li>
                 <a href="/api/docs.html" class="header__link">Api</a>
@@ -147,6 +147,7 @@
             <div>
               <a href="" id="twitterButton">Share on Twitter <i class="fa-brands fa-twitter" style="color: #ffffff;"></i></a>
               <a href="" id="facebookButton">Share on Facebook <i class="fa-brands fa-facebook" style="color: #ffffff;"></i></a>
+              <a href="" id="linkedInButton">Share on LinkedIn <i class="fa-brands fa-linkedin" style="color: #ffffff;"></i></a>
             </div>
           </div>
         </div>
@@ -236,6 +237,7 @@ const iconEl = document.querySelector('.fa-check-circle');
 
 const shareButton = document.getElementById('twitterButton');
 const facebookButton = document.getElementById('facebookButton');
+const linkedInButton = document.getElementById('linkedInButton');
 
 const userName = 'superplaycounts';
 
@@ -257,6 +259,14 @@ facebookButton.addEventListener('click', function(event) {
   const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`;
 
   window.open(shareUrl, '_blank');
+});
+
+linkedInButton.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const linkedInUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${location.href}&title=Visit YouTube Live Subscriber Counter For ${userData}!&summary=Visit YouTube Live Subscriber Counter For ${userData}!&source=${location.href}`;
+
+  window.open(linkedInUrl, '_blank');
 });
 
 var apiLink = document.getElementById('api-link');

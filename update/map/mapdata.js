@@ -81,8 +81,8 @@ var simplemaps_worldmap_mapdata={
     "9": {},
     AF: {
       name: "Afghanistan",
-      description: "website blocked",
-      color: "red"
+      description: "website is working",
+      color: "green"
     },
     AO: {
       name: "Angola",
@@ -181,8 +181,8 @@ var simplemaps_worldmap_mapdata={
     },
     BR: {
       name: "Brazil",
-      description: "website blocked",
-      color: "red"
+      description: "website is working",
+      color: "green"
     },
     BN: {
       name: "Brunei Darussalam",
@@ -266,8 +266,8 @@ var simplemaps_worldmap_mapdata={
     },
     DE: {
       name: "Germany",
-      description: "website blocked",
-      color: "red"
+      description: "website is working",
+      color: "green"
     },
     DJ: {
       name: "Djibouti",
@@ -711,8 +711,8 @@ var simplemaps_worldmap_mapdata={
     },
     RU: {
       name: "Russia",
-      description: "website blocked",
-      color: "red",
+      description: "website is working",
+      color: "green",
     },
     RW: {
       name: "Rwanda",
@@ -836,8 +836,8 @@ var simplemaps_worldmap_mapdata={
     },
     TZ: {
       name: "Tanzania",
-      description: "website blocked",
-      color: "red"
+      description: "website is working",
+      color: "green"
     },
     UG: {
       name: "Uganda",
@@ -871,8 +871,8 @@ var simplemaps_worldmap_mapdata={
     },
     VN: {
       name: "Vietnam",
-      description: "website blocked",
-      color: "red"
+      description: "website is working",
+      color: "green"
     },
     VU: {
       name: "Vanuatu",

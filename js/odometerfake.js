@@ -75,6 +75,9 @@ iconSelect.addEventListener('change', (event) => {
   } else if (selectedValue === 'twitter-icon') {
     icon.className = 'fa-brands fa-twitter';
     icon.style.color = '#1DA1F2';
+  } else if (selectedValue === 'twitter-x-icon') {
+    icon.className = 'fa-brands fa-x-twitter';
+    icon.style.color = '#000';
   } else if (selectedValue === 'none-icon') {
     icon.className = '';
     icon.style.color = '';

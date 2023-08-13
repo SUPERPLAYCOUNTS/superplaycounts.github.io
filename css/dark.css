@@ -34,7 +34,7 @@ nav{
     transition: 0.3s;
     border: 1px solid rgb(227, 227, 227);
     width: 90%;
-    margin: auto;
+    margin: 0 auto;
     background-color: rgb(22, 22, 22);
     padding: 5px;
     transform: scale(1, 1);
@@ -123,7 +123,6 @@ nav{
     color: white;
 }
 .highcharts-container {
-    background-color: black;
     color: white;
 }
 #channelName{
