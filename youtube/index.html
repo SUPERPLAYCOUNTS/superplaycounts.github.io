@@ -36,7 +36,6 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="/css/statastyle.css">
     <link rel="stylesheet" id="theme-stylesheet" href="/css/light.css">
-    <script src="/js/blocked.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
@@ -46,6 +45,7 @@
      <script async src="https://arc.io/widget.min.js#HRejLsfT"></script>
     <script async src="https://unpkg.com/pwacompat" crossOrigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
@@ -148,13 +148,20 @@
               <a href="" id="twitterButton">Share on Twitter <i class="fa-brands fa-twitter" style="color: #ffffff;"></i></a>
               <a href="" id="facebookButton">Share on Facebook <i class="fa-brands fa-facebook" style="color: #ffffff;"></i></a>
               <a href="" id="linkedInButton">Share on LinkedIn <i class="fa-brands fa-linkedin" style="color: #ffffff;"></i></a>
+              <a href="" id="pinterestButton">Share on Pinterest <i class="fa-brands fa-pinterest" style="color: #ffffff;"></i></a>
+              <a href="" id="emailButton">Share on Email <i class="fa-solid fa-envelope" style="color: #ffffff;"></i></a>
+              <a href="" id="tgButton">Share on Telegram <i class="fa-brands fa-telegram" style="color: #ffffff;"></i></a>
+              <a href="" id="redditButton">Share on Reddit <i class="fa-brands fa-reddit" style="color: #ffffff;"></i></a>
+              <a href="" id="whatsappButton">Share on Whatsapp <i class="fa-brands fa-whatsapp" style="color: #ffffff;"></i></a>
             </div>
           </div>
         </div>
         <br>
-        <div class="embedbox" style="display: none;">
+        <div class="embedbox">
           <p>Embed</p>
-          <button style="width: 100%!important; padding: 10px; border-color: rgba(0, 0, 0, 0.500); border: 0.5px solid rgba(0,0,0,.500); border-radius: 0; background-color: rgb(22, 22, 22); vertical-align: middle; color: white; font-size: 1.5vw;" class="tooltiptext" onclick="copyembed()" type="text" id="embd"></button><br><br>
+          <button style="width: 100%!important; padding: 10px; border-color: rgba(0, 0, 0, 0.500); border: 0.5px solid rgba(0,0,0,.500); border-radius: 0; background-color: rgb(22, 22, 22); vertical-align: middle; color: white; font-size: inherit;" class="tooltiptext" onclick="copyembed()" type="text" id="embd"></button><br><br>
+          <p>Embed on your website!</p>
+          <button style="width: 100%!important; padding: 10px; border-color: rgba(0, 0, 0, 0.500); border: 0.5px solid rgba(0,0,0,.500); border-radius: 0; background-color: rgb(22, 22, 22); vertical-align: middle; color: white; font-size: inherit;" class="tooltiptext" onclick="copyembedwebsite()" type="text" id="embd2"></button><br><br>
         </div>
         <br>
         <div class="Counter shadow-xl w-full lg:w-[90%]" id="bbvbktriejkjn">
@@ -238,6 +245,11 @@ const iconEl = document.querySelector('.fa-check-circle');
 const shareButton = document.getElementById('twitterButton');
 const facebookButton = document.getElementById('facebookButton');
 const linkedInButton = document.getElementById('linkedInButton');
+const pinterestButton = document.getElementById('pinterestButton');
+const emailButton = document.getElementById('emailButton');
+const tgButton = document.getElementById('tgButton');
+const redditButton = document.getElementById('redditButton');
+const whatsappButton = document.getElementById('whatsappButton');
 
 const userName = 'superplaycounts';
 
@@ -268,6 +280,48 @@ linkedInButton.addEventListener('click', function(event) {
 
   window.open(linkedInUrl, '_blank');
 });
+
+pinterestButton.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const pinterestUrl = `https://pinterest.com/pin/create/button/?url=${location.href}&description=Visit YouTube Live Subscriber Counter For ${userData}!`;
+
+  window.open(pinterestUrl, '_blank');
+});
+
+emailButton.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const emailUrl = `mailto:?subject=Visit YouTube Live Subscriber Counter For ${encodeURIComponent(userData)}!&body=${encodeURIComponent(location.href)}`;
+
+  window.open(emailUrl, '_blank');
+});
+
+tgButton.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const tgButtonUrl = `https://telegram.me/share/url?text=${encodeURIComponent(`Visit YouTube Live Subscriber Counter For ${userData}! ${location.href}`)}&url=https://superplaycounts.github.io/youtube/?${channel}`;
+
+  window.open(tgButtonUrl, '_blank');
+});
+
+redditButton.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const redditButtonUrl = `https://reddit.com/submit/?url=${encodeURIComponent(location.href)}&resubmit=true&title=Visit YouTube Live Subscriber Counter For ${encodeURIComponent(userData)}!`;
+
+  window.open(redditButtonUrl, '_blank');
+});
+
+whatsappButton.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const whatsappButtonUrl = `whatsapp://send?text=Visit YouTube Live Subscriber Counter For ${encodeURIComponent(userData)}! ${encodeURIComponent(location.href)}`;
+
+  window.open(whatsappButtonUrl, '_blank');
+});
+
+
 
 var apiLink = document.getElementById('api-link');
 apiLink.href = `api/?${channel}`;
@@ -366,7 +420,8 @@ Highcharts.chart('container', {
   chart = ch;
 });
 
-embd.innerHTML += `${ location.origin }/embed${location.pathname}${location.search}`
+embd.innerHTML += `${ location.origin }/embed${location.pathname}${location.search}`;
+embd2.innerText += `<iframe height="103px" width="355px" frameborder="0" src=${location.origin}/embed${location.pathname}${location.search} style="border: 0; width:355px; height:103px; overflow: hidden;" scrolling="no"></iframe>`;
 function copyembed() {
 /* Get the text field */
 var copyText = document.getElementById("embd");
@@ -379,6 +434,14 @@ copyText.innerHTML = "Copied: " + `${location.origin}/embed${location.pathname}$
 setTimeout(() => {
     copyText.innerHTML = `${location.origin}/embed${location.pathname}${location.search}`;
 }, 1000)
+}
+function copyembedwebsite() {
+  var copyTextembd2 = document.getElementById("embd2");
+  navigator.clipboard.writeText(`<iframe height="103px" width="355px" frameborder="0" src=${location.origin}/embed${location.pathname}${location.search} style="border: 0; width:355px; height:103px; overflow: hidden;" scrolling="no"></iframe>`);
+  copyTextembd2.innerText = "Copied: " + `<iframe height="103px" width="355px" frameborder="0" src=${location.origin}/embed${location.pathname}${location.search} style="border: 0; width:355px; height:103px; overflow: hidden;" scrolling="no"></iframe>`;
+  setTimeout(() => {
+    copyTextembd2.innerText = `<iframe height="103px" width="355px" frameborder="0" src=${location.origin}/embed${location.pathname}${location.search} style="border: 0; width:355px; height:103px; overflow: hidden;" scrolling="no"></iframe>`;
+  }, 1000)
 }
 </script>
 <script src="../js/odometer.js"></script>

@@ -90,8 +90,8 @@
     <div class="main__subs">
         <div class="card">
           <div class="card__banner">
-            <img src="" alt="" id="ban">
-            <img src="" alt="" id="pfp">
+            <img src="https://superplaycounts.github.io/img/icon-sites.png" alt="" id="ban">
+            <img src="https://superplaycounts.github.io/img/icon-sites.png" alt="" id="pfp">
           </div>
           <div class="card__title">
             <div id="ChanName"><span>Loading</span></div>
@@ -103,6 +103,10 @@
           <p style="display: flex; justify-content: flex-end; padding: 5px 15px; color: grey; cursor: default;">Powered by superplaycounts.github.io</p>
         </div>
         <br>
+        <div style="display: block; text-align: center; justify-content: center;">
+          <h1>Gain Rate Averages</h1>
+          <div id="countElement"></div>
+        </div>
         <br>
         <div id="container"></div>
         <br>
@@ -171,6 +175,8 @@ var apiData = [];
 var chart = null;
 var credits = document.querySelector('.highcharts-credits');
 
+// Попередня змінна для збереження попереднього значення api
+var prevApiValue = 0;
 
 function getData() {
   fetch('https://api.superplaycounts.repl.co/api/requests')
@@ -179,7 +185,7 @@ function getData() {
       const api = Math.round(data.totalapirequests);
       document.title = `SUPERPLAYCOUNTS API - Requests Count`;
       apiData.push([Date.now(), api]);
-
+      const ChanName = document.getElementById("ChanName");
 
       if (chart) {
         chart.series[0].setData(apiData);
@@ -191,12 +197,34 @@ function getData() {
         chart.series[0].addPoint([Date.now(), api]);
       }
 
+      const diff = api - prevApiValue;
+      prevApiValue = api;
+
+      const seconds = 5;
+      const minutes = seconds / 60;
+      const hours = minutes / 60;
+      const days = hours / 24;
+
+      const ratePerSecond = diff / seconds;
+      const ratePerMinute = diff / minutes;
+      const ratePerHour = diff / hours;
+      const ratePerDay = diff / days;
+
+      const text = `${ratePerSecond.toFixed(2)} Sec, ${ratePerMinute.toFixed(2)} Min, ${ratePerHour.toFixed(2)} Hour, ${ratePerDay.toFixed(2)} Day`;
+
+      const countElement = document.getElementById("countElement");
+      countElement.innerHTML = text;
+
+      ChanName.innerHTML = "SUPERPLAYCOUNTS API";
       count.innerHTML = api;
-    })
+    });
 }
 
-getData()
-setInterval(getData, 5000)
+getData();
+setInterval(getData, 5000);
+
+
+
 
 Highcharts.chart('container', {
   chart: {

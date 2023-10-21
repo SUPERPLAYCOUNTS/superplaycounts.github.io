@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Youtube - Subscriber Count</title>
+  <title>Youtube - Views Count</title>
   <meta name="description" content="With this site you can see various counters, subscribers, viewers in real time!" />
   <meta name="theme-color" content="#c8c8c8" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -78,10 +78,10 @@
       fetch('https://api.superplaycounts.repl.co/api/youtube-channel-counter/user/' + channel)
       .then(blob => blob.json())
       .then(data => {
-        document.title = `${data.statistics[0].user[0].count} - Subscriber Count`;
+        document.title = `${data.statistics[0].user[0].count} - Views Count`;
         ChanName.textContent = data.statistics[0].user[0].count;
         pfpembed.src = data.statistics[0].user[1].count;
-        count = Math.round(data.statistics[0].counts[0].count);
+        count = Math.round(data.statistics[0].counts[3].count);
 
         subscribers.innerHTML = count;
       });

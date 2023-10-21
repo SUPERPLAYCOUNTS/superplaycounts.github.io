@@ -81,7 +81,7 @@
         document.title = `${data.statistics[0].user[0].count} - Subscriber Count`;
         ChanName.textContent = data.statistics[0].user[0].count;
         pfpembed.src = data.statistics[0].user[1].count;
-        count = Math.round(data.statistics[0].counts[0].count);
+        count = Math.round(data.statistics[0].counts[2].count);
 
         subscribers.innerHTML = count;
       });

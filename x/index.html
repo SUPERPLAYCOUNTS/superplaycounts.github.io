@@ -36,7 +36,6 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="/css/statastyle.css">
     <link rel="stylesheet" id="theme-stylesheet" href="/css/light.css">
-    <script src="/js/blocked.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
@@ -147,13 +146,21 @@
             <div>
               <a href="" id="twitterButton">Share on Twitter <i class="fa-brands fa-twitter" style="color: #ffffff;"></i></a>
               <a href="" id="facebookButton">Share on Facebook <i class="fa-brands fa-facebook" style="color: #ffffff;"></i></a>
+              <a href="" id="linkedInButton">Share on LinkedIn <i class="fa-brands fa-linkedin" style="color: #ffffff;"></i></a>
+              <a href="" id="pinterestButton">Share on Pinterest <i class="fa-brands fa-pinterest" style="color: #ffffff;"></i></a>
+              <a href="" id="emailButton">Share on Email <i class="fa-solid fa-envelope" style="color: #ffffff;"></i></a>
+              <a href="" id="tgButton">Share on Telegram <i class="fa-brands fa-telegram" style="color: #ffffff;"></i></a>
+              <a href="" id="redditButton">Share on Reddit <i class="fa-brands fa-reddit" style="color: #ffffff;"></i></a>
+              <a href="" id="whatsappButton">Share on Whatsapp <i class="fa-brands fa-whatsapp" style="color: #ffffff;"></i></a>
             </div>
           </div>
         </div>
         <br>
-        <div class="embedbox" style="display: none;">
+        <div class="embedbox">
           <p>Embed</p>
-          <button style="width: 100%!important; padding: 10px; border-color: rgba(0, 0, 0, 0.500); border: 0.5px solid rgba(0,0,0,.500); border-radius: 0; background-color: rgb(22, 22, 22); vertical-align: middle; color: white; font-size: 1.5vw;" class="tooltiptext" onclick="copyembed()" type="text" id="embd"></button><br><br>
+          <button style="width: 100%!important; padding: 10px; border-color: rgba(0, 0, 0, 0.500); border: 0.5px solid rgba(0,0,0,.500); border-radius: 0; background-color: rgb(22, 22, 22); vertical-align: middle; color: white; font-size: inherit;" class="tooltiptext" onclick="copyembed()" type="text" id="embd"></button><br><br>
+          <p>Embed on your website!</p>
+          <button style="width: 100%!important; padding: 10px; border-color: rgba(0, 0, 0, 0.500); border: 0.5px solid rgba(0,0,0,.500); border-radius: 0; background-color: rgb(22, 22, 22); vertical-align: middle; color: white; font-size: inherit;" class="tooltiptext" onclick="copyembedwebsite()" type="text" id="embd2"></button><br><br>
         </div>
         <br>
         <div class="Counter shadow-xl w-full lg:w-[90%]" id="bbvbktriejkjn">
@@ -188,19 +195,20 @@
           <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'B0B6E1LN3');kofiwidget2.draw();</script>
         </center>
         <br>
-        <!-- <div class="desc-block" id="desc-block" style="max-width: 1020px; margin: 30px auto;">
-          <h1>About YouTube Subscriber Count</h1>
-          <p>YouTube Subscriber Count - A simple and convenient YouTube subscriber counter using the YouTube API!</p>
-          <p>Want to stay updated on your YouTube growth? YouTube Subscriber Count will help you easily track the number of subscribers on your channel. Our tool utilizes the powerful YouTube API to fetch the most up-to-date data about your subscribers and updates the information in real-time.</p>
-          <p>Key features:</p>
-          <p>Subscriber count display: A visually appealing and stylish counter that shows the current number of subscribers on your channel. You'll always know how fast your audience is growing.</p>
-          <p>View count: In addition to subscribers, you can also track the number of views.</p>
-          <p>Video count: Find out how many videos you've uploaded to your channel. Quickly view the total number of videos you've created.</p>
-          <p>Share counter: You can easily share your current subscriber or view count on various platforms and social networks. Let your friends and fans know about your success.</p>
-          <p>Note: We want to emphasize that we are not affiliated with any of the platforms, websites, or games mentioned on our site. We provide this information solely for context and ease of use.</p>
+        <div class="desc-block" id="desc-block" style="max-width: 1020px; margin: 30px auto;">
+          <h1>About Twitter X Followers Count</h1>
+          <p>Twitter X Followers Count - A user-friendly tool for keeping track of your Twitter account's essential metrics! Stay updated on your Twitter engagement effortlessly.</p>
+          <p>Key Metrics Tracked:</p>
+          <p>Followers Count: Know how many Twitter users are following your account. Keep an eye on your follower growth and overall reach.</p>
+          <p>Following Count: Keep track of the number of Twitter accounts you follow. Stay organized and ensure your Twitter feed remains relevant.</p>
+          <p>Likes Count: Monitor the total number of likes (or favorites) your tweets have received. Understand which of your content resonates most with your audience.</p>
+          <p>Lists Count: Discover how many Twitter lists include your account. Being featured in lists can boost your visibility and credibility.</p>
+          <p>Media Count: Find out the total number of images, videos, and media files you've shared on your Twitter account.</p>
+          <p>Tweets Count: Keep tabs on the total number of tweets you've posted. Gauge your activity and presence on the platform.</p>
           <br>
-          <p>Don't miss out on the growth of your YouTube channel. Use YouTube Subscriber Count to stay informed about changes in your audience and share your achievements with the world!</p>
-        </div> -->
+          <p>Share Your Twitter Stats: Easily share your key Twitter metrics with your followers and social network connections. Showcase your online influence.</p>
+          <p>Stay Informed: Use Twitter X Followers Count to stay informed about the growth and performance of your Twitter account. Share your milestones and connect with your audience!</p>
+        </div>        
         <br>
         <footer>
           <div class="cookie-block" id="cookie-banner">
@@ -235,6 +243,12 @@ var userid = window.location.href.split('?')[1] || 'elonmusk';
 
 const shareButton = document.getElementById('twitterButton');
 const facebookButton = document.getElementById('facebookButton');
+const linkedInButton = document.getElementById('linkedInButton');
+const pinterestButton = document.getElementById('pinterestButton');
+const emailButton = document.getElementById('emailButton');
+const tgButton = document.getElementById('tgButton');
+const redditButton = document.getElementById('redditButton');
+const whatsappButton = document.getElementById('whatsappButton');
 
 const userName = 'superplaycounts';
 
@@ -258,6 +272,54 @@ facebookButton.addEventListener('click', function(event) {
   window.open(shareUrl, '_blank');
 });
 
+linkedInButton.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const linkedInUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${location.href}&title=Visit Twitter X Live Follower Counter For ${userData}!&summary=Visit YouTube Live Subscriber Counter For ${userData}!&source=${location.href}`;
+
+  window.open(linkedInUrl, '_blank');
+});
+
+pinterestButton.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const pinterestUrl = `https://pinterest.com/pin/create/button/?url=${location.href}&description=Visit Twitter X Live Follower Counter For ${userData}!`;
+
+  window.open(pinterestUrl, '_blank');
+});
+
+emailButton.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const emailUrl = `mailto:?subject=Visit Twitter X Live Follower Counter For ${encodeURIComponent(userData)}!&body=${encodeURIComponent(location.href)}`;
+
+  window.open(emailUrl, '_blank');
+});
+
+tgButton.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const tgButtonUrl = `https://telegram.me/share/url?text=${encodeURIComponent(`Visit Twitter X Live Follower Counter For ${userData}! ${location.href}`)}&url=https://superplaycounts.github.io/youtube/?${channel}`;
+
+  window.open(tgButtonUrl, '_blank');
+});
+
+redditButton.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const redditButtonUrl = `https://reddit.com/submit/?url=${encodeURIComponent(location.href)}&resubmit=true&title=Visit Twitter X Live Follower Counter For ${encodeURIComponent(userData)}!`;
+
+  window.open(redditButtonUrl, '_blank');
+});
+
+whatsappButton.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const whatsappButtonUrl = `whatsapp://send?text=Visit Twitter X Live Follower Counter For ${encodeURIComponent(userData)}! ${encodeURIComponent(location.href)}`;
+
+  window.open(whatsappButtonUrl, '_blank');
+});
+
 // var apiLink = document.getElementById('api-link');
 // apiLink.href = `api/?${channel}`;
 // var viewslink = document.getElementById('views-link');
@@ -275,12 +337,14 @@ function getData() {
     .then(blob => blob.json())
     .then(data => {
       const followrs = Math.round(data.counts[0].count);
-      ChanName.querySelector('span').textContent = data.user[0].count;
+      count.innerHTML = followrs;
+
       ban.src = data.user[2].count;
       pfp.src = data.user[1].count;
+
+      ChanName.querySelector('span').textContent = data.user[0].count;
       document.title = `${data.user[0].count} - Followers Count`;
       apiData.push([Date.now(), followrs]);
-
 
       if (chart) {
         chart.series[0].setData(apiData);
@@ -292,14 +356,13 @@ function getData() {
         chart.series[0].addPoint([Date.now(), sub]);
       }
 
-      count.innerHTML = followrs;
-
       userData = data.user[0].count;
-    })
+    });
 }
 
-getData()
-setInterval(getData, 5000)
+getData();
+
+setInterval(getData, 5000);
 
 Highcharts.chart('container', {
   chart: {
@@ -342,7 +405,8 @@ Highcharts.chart('container', {
   chart = ch;
 });
 
-embd.innerHTML += `${ location.origin }/embed${location.pathname}${location.search}`
+embd.innerHTML += `${ location.origin }/embed${location.pathname}${location.search}`;
+embd2.innerText += `<iframe height="103px" width="355px" frameborder="0" src=${location.origin}/embed${location.pathname}${location.search} style="border: 0; width:355px; height:103px; overflow: hidden;" scrolling="no"></iframe>`;
 function copyembed() {
 /* Get the text field */
 var copyText = document.getElementById("embd");
@@ -355,6 +419,15 @@ copyText.innerHTML = "Copied: " + `${location.origin}/embed${location.pathname}$
 setTimeout(() => {
     copyText.innerHTML = `${location.origin}/embed${location.pathname}${location.search}`;
 }, 1000)
+}
+
+function copyembedwebsite() {
+  var copyTextembd2 = document.getElementById("embd2");
+  navigator.clipboard.writeText(`<iframe height="103px" width="355px" frameborder="0" src=${location.origin}/embed${location.pathname}${location.search} style="border: 0; width:355px; height:103px; overflow: hidden;" scrolling="no"></iframe>`);
+  copyTextembd2.innerText = "Copied: " + `<iframe height="103px" width="355px" frameborder="0" src=${location.origin}/embed${location.pathname}${location.search} style="border: 0; width:355px; height:103px; overflow: hidden;" scrolling="no"></iframe>`;
+  setTimeout(() => {
+    copyTextembd2.innerText = `<iframe height="103px" width="355px" frameborder="0" src=${location.origin}/embed${location.pathname}${location.search} style="border: 0; width:355px; height:103px; overflow: hidden;" scrolling="no"></iframe>`;
+  }, 1000)
 }
 </script>
 <script src="../js/odometer.js"></script>

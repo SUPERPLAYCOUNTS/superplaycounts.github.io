@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Youtube - Subscriber Count</title>
+  <title>X - Followers Count</title>
   <meta name="description" content="With this site you can see various counters, subscribers, viewers in real time!" />
   <meta name="theme-color" content="#c8c8c8" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -72,16 +72,16 @@
   <script src="/js/cookie.js"></script>
   <script src="/js/odometer.js"></script>
   <script>
-    var channel = window.location.href.split('?')[1] || 'UCq-Fj5jknLsUf-MWSy4_brA';
+    var channel = window.location.href.split('?')[1] || 'elonmusk';
 
     function getData() {
-      fetch('https://api.superplaycounts.repl.co/api/youtube-channel-counter/user/' + channel)
+      fetch('https://api.superplaycounts.repl.co/api/x-user-counter/user/' + channel)
       .then(blob => blob.json())
       .then(data => {
-        document.title = `${data.statistics[0].user[0].count} - Subscriber Count`;
-        ChanName.textContent = data.statistics[0].user[0].count;
-        pfpembed.src = data.statistics[0].user[1].count;
-        count = Math.round(data.statistics[0].counts[0].count);
+        document.title = `${data.user[0].count} - Followers Count`;
+        ChanName.textContent = data.user[0].count;
+        pfpembed.src = data.user[1].count;
+        count = Math.round(data.counts[0].count);
 
         subscribers.innerHTML = count;
       });

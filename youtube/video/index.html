@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Youtube - Views Counts</title>
+    <title>Youtube - Views Count</title>
     <meta name="description" content="With this site you can see various counters, subscribers, viewers in real time!" />
     <meta name="theme-color" content="#c8c8c8" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -36,7 +36,6 @@
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/statastyle.css">
     <link rel="stylesheet" id="theme-stylesheet" href="/css/light.css">
-    <script src="/js/blocked.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
@@ -134,7 +133,7 @@
         <div>
           <div class="grid-button-yt">
             <div>
-              <a style="display: none;" href="/youtube/search.html">
+              <a href="/youtube/video/search.html">
                 <button id="change-user-btn">Change video <i class="fa-solid fa-magnifying-glass"></i></button>
               </a>
             </div>
@@ -147,8 +146,21 @@
             <div>
               <a href="" id="twitterButton">Share on Twitter <i class="fa-brands fa-twitter" style="color: #ffffff;"></i></a>
               <a href="" id="facebookButton">Share on Facebook <i class="fa-brands fa-facebook" style="color: #ffffff;"></i></a>
+              <a href="" id="linkedInButton">Share on LinkedIn <i class="fa-brands fa-linkedin" style="color: #ffffff;"></i></a>
+              <a href="" id="pinterestButton">Share on Pinterest <i class="fa-brands fa-pinterest" style="color: #ffffff;"></i></a>
+              <a href="" id="emailButton">Share on Email <i class="fa-solid fa-envelope" style="color: #ffffff;"></i></a>
+              <a href="" id="tgButton">Share on Telegram <i class="fa-brands fa-telegram" style="color: #ffffff;"></i></a>
+              <a href="" id="redditButton">Share on Reddit <i class="fa-brands fa-reddit" style="color: #ffffff;"></i></a>
+              <a href="" id="whatsappButton">Share on Whatsapp <i class="fa-brands fa-whatsapp" style="color: #ffffff;"></i></a>
             </div>
           </div>
+        </div>
+        <br>
+        <div class="embedbox">
+          <p>Embed</p>
+          <button style="width: 100%!important; padding: 10px; border-color: rgba(0, 0, 0, 0.500); border: 0.5px solid rgba(0,0,0,.500); border-radius: 0; background-color: rgb(22, 22, 22); vertical-align: middle; color: white; font-size: inherit;" class="tooltiptext" onclick="copyembed()" type="text" id="embd"></button><br><br>
+          <p>Embed on your website!</p>
+          <button style="width: 100%!important; padding: 10px; border-color: rgba(0, 0, 0, 0.500); border: 0.5px solid rgba(0,0,0,.500); border-radius: 0; background-color: rgb(22, 22, 22); vertical-align: middle; color: white; font-size: inherit;" class="tooltiptext" onclick="copyembedwebsite()" type="text" id="embd2"></button><br><br>
         </div>
         <br>
         <div class="Counter shadow-xl w-full lg:w-[90%]" id="bbvbktriejkjn">
@@ -231,6 +243,12 @@ const iconEl = document.querySelector('.fa-check-circle');
 
 const shareButton = document.getElementById('twitterButton');
 const facebookButton = document.getElementById('facebookButton');
+const linkedInButton = document.getElementById('linkedInButton');
+const pinterestButton = document.getElementById('pinterestButton');
+const emailButton = document.getElementById('emailButton');
+const tgButton = document.getElementById('tgButton');
+const redditButton = document.getElementById('redditButton');
+const whatsappButton = document.getElementById('whatsappButton');
 
 const userName = 'superplaycounts';
 
@@ -254,6 +272,54 @@ facebookButton.addEventListener('click', function(event) {
   window.open(shareUrl, '_blank');
 });
 
+linkedInButton.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const linkedInUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${location.href}&title=Visit YouTube Live Subscriber Counter For ${userData}!&summary=Visit YouTube Live Subscriber Counter For ${userData}!&source=${location.href}`;
+
+  window.open(linkedInUrl, '_blank');
+});
+
+pinterestButton.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const pinterestUrl = `https://pinterest.com/pin/create/button/?url=${location.href}&description=Visit YouTube Live Subscriber Counter For ${userData}!`;
+
+  window.open(pinterestUrl, '_blank');
+});
+
+emailButton.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const emailUrl = `mailto:?subject=Visit YouTube Live Subscriber Counter For ${encodeURIComponent(userData)}!&body=${encodeURIComponent(location.href)}`;
+
+  window.open(emailUrl, '_blank');
+});
+
+tgButton.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const tgButtonUrl = `https://telegram.me/share/url?text=${encodeURIComponent(`Visit YouTube Live Subscriber Counter For ${userData}! ${location.href}`)}&url=https://superplaycounts.github.io/youtube/?${channel}`;
+
+  window.open(tgButtonUrl, '_blank');
+});
+
+redditButton.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const redditButtonUrl = `https://reddit.com/submit/?url=${encodeURIComponent(location.href)}&resubmit=true&title=Visit YouTube Live Subscriber Counter For ${encodeURIComponent(userData)}!`;
+
+  window.open(redditButtonUrl, '_blank');
+});
+
+whatsappButton.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const whatsappButtonUrl = `whatsapp://send?text=Visit YouTube Live Subscriber Counter For ${encodeURIComponent(userData)}! ${encodeURIComponent(location.href)}`;
+
+  window.open(whatsappButtonUrl, '_blank');
+});
+
 var likesLink = document.getElementById('likes-link');
 likesLink.href = `likes/?${channel}`;
 var dislikeslink = document.getElementById('dislikes-link');
@@ -272,7 +338,7 @@ function getData() {
       const dislike = Math.round(data.counts[4].count);
       const comment = Math.round(data.counts[5].count);
       ChanName.querySelector('span').textContent = data.user[0].count;
-      document.title = `${data.user[0].count} - Views Counts`;
+      document.title = `${data.user[0].count} - Views Count`;
       pfp.src = data.user[1].count;
       ban.src = data.user[2].count;
       apiData.push([Date.now(), views]);
@@ -330,6 +396,31 @@ Highcharts.chart('container', {
 }, function (ch) {
   chart = ch;
 });
+
+embd.innerHTML += `${ location.origin }/embed${location.pathname}${location.search}`;
+embd2.innerText += `<iframe height="103px" width="355px" frameborder="0" src=${location.origin}/embed${location.pathname}${location.search} style="border: 0; width:355px; height:103px; overflow: hidden;" scrolling="no"></iframe>`;
+
+function copyembed() {
+/* Get the text field */
+var copyText = document.getElementById("embd");
+
+/* Copy the text inside the text field */
+navigator.clipboard.writeText(`${location.origin}/embed${location.pathname}${location.search}`);
+
+
+copyText.innerHTML = "Copied: " + `${location.origin}/embed${location.pathname}${location.search}`;
+setTimeout(() => {
+    copyText.innerHTML = `${location.origin}/embed${location.pathname}${location.search}`;
+}, 1000)
+}
+function copyembedwebsite() {
+  var copyTextembd2 = document.getElementById("embd2");
+  navigator.clipboard.writeText(`<iframe height="103px" width="355px" frameborder="0" src=${location.origin}/embed${location.pathname}${location.search} style="border: 0; width:355px; height:103px; overflow: hidden;" scrolling="no"></iframe>`);
+  copyTextembd2.innerText = "Copied: " + `<iframe height="103px" width="355px" frameborder="0" src=${location.origin}/embed${location.pathname}${location.search} style="border: 0; width:355px; height:103px; overflow: hidden;" scrolling="no"></iframe>`;
+  setTimeout(() => {
+    copyTextembd2.innerText = `<iframe height="103px" width="355px" frameborder="0" src=${location.origin}/embed${location.pathname}${location.search} style="border: 0; width:355px; height:103px; overflow: hidden;" scrolling="no"></iframe>`;
+  }, 1000)
+}
 
 </script>
 <script src="/js/odometer.js"></script>

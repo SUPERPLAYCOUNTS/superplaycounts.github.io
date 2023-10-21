@@ -63,7 +63,6 @@
   <link rel="manifest" href="/manifest.json" />
   <link rel="stylesheet" href="./css/styles.css">
   <link rel="stylesheet" id="theme-stylesheet" href="/css/light.css">
-  <script src="/js/blocked.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
@@ -125,6 +124,7 @@
             <a href="/youtube/search.html" style="color:#ff0000"><i class="fa-brands fa-youtube"></i></a>
           </li>
         </ul>
+        <!-- <p>Online users: <span id="count_online">0</span></p> -->
       </div>
       <hr class="grops">
       <div id="grid">
@@ -195,7 +195,7 @@
             <a>Artist subscriber count</a>
           </div>
         </div>
-        <div class="grid-item" id="request-grid-item">
+        <div class="grid-item">
           <h2>API</h2>
           <div class="items__links">
             <a href="/api/requests/">Requests count</a>
@@ -294,7 +294,6 @@
     let spotify = false;
     let wall = false;
     let globalclicker = false;
-    let request = false;
     let twittergriditem = document.getElementById("twitter-grid-item");
     let tiktokGridItem = document.getElementById("tiktok-grid-item");
     let redditgriditem = document.getElementById("reddit-grid-item");
@@ -304,7 +303,6 @@
     let spotifygriditem = document.getElementById("spotify-grid-item");
     let wallsgriditem = document.getElementById("walls-grid-item");
     let gcgriditem = document.getElementById("gc-grid-item");
-    let requestgriditem = document.getElementById("request-grid-item");
   
     if (tiktok === false) {
 	    tiktokGridItem.style.display = "none";
@@ -329,9 +327,6 @@
     }
     if (globalclicker === false) {
       gcgriditem.style.display = "none";
-    }
-    if (request === false) {
-      requestgriditem.style.display = "none";
     }
   </script>
   <script type="text/javascript" src="https://m.mixadvert.com/show/?id=9821" async></script>

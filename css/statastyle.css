@@ -1,164 +1,242 @@
 .main__subs{
-    max-width: 1020px;
-    margin: 0 auto;
-    padding: 10px;
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 10px;
+}
+.card{
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #D7DFE3;
+  box-sizing: border-box;
+  border-radius: 4px;
+  margin-top: 50px;
+  max-height: 553px;
+}
+.card__banner{
+  width: 100%;
+  position: relative;
+}
+#ban{
+  width: 100%;
+  max-height: 197px;
+  object-fit: cover;
+  border-top-right-radius: calc(0.25rem - 1px);
+  border-top-left-radius: calc(0.25rem - 1px);
+  filter: blur(2px);
+  transition: 0.3s;
+}
+#ban:hover{
+  filter: blur(0px);
+}
+#pfp{
+  position: absolute;
+  width: 128px;
+  height: 128px;
+  background: url(https://superplaycounts.github.io/img/123.png);
+  box-shadow: 0px 0px 6px rgb(0 0 0 / 20%);
+  border-radius: 80px;
+  left: 50%;
+  margin-left: -64px;
+  top: 100%;
+  margin-top: -64px;
+  object-fit: cover;
+  transition: 0.3s;
+}
+#pfp:hover{
+  border-radius: 40px;
+}
+.card__title{
+  text-align: center;
+  margin-top: 75px;
+}
+.card__title #ChanName{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 44px;
+  color: #000000;
+}
+.odometer{
+  /* height: 136px; */
+  font-style: normal;
+  font-weight: normal;
+  font-size: 123px;
+  line-height: 125px;
+  color: #000;
+}
+.card h2 {
+  text-align: center;
+  font-size: 32px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0px;
+}
+.wrapper{
+  text-align: center;
+  font-size: 3em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-column-gap: 16px;
+  grid-row-gap: 30px;
+  margin-top: 15px;
+}
+#api, #viewscounts, #videoscounts{
+  font-size: 100%;
+}
+#likescounts, #dislikescounts, #commentscounts {
+  font-size: 100%;
+}
+.highcharts-exporting-group{
+  display: none;
+}
+@media (max-width: 900px) {
+  .card {
+    margin-top: 52px;
   }
-  .card{
-    width: 100%;
-    background: #ffffff;
-    border: 1px solid #D7DFE3;
-    box-sizing: border-box;
-    border-radius: 4px;
-    margin-top: 50px;
-    max-height: 553px;
+  .card .odometer{
+    font-size: 50px;
+    height: 60px;
   }
-  .card__banner{
-    width: 100%;
-    position: relative;
-  }
-  #ban{
-    width: 100%;
-    max-height: 197px;
-    object-fit: cover;
-    border-top-right-radius: calc(0.25rem - 1px);
-    border-top-left-radius: calc(0.25rem - 1px);
-    filter: blur(2px);
-    transition: 0.3s;
-  }
-  #ban:hover{
-    filter: blur(0px);
-  }
-  #pfp{
-    position: absolute;
-    width: 128px;
-    height: 128px;
-    background: url(https://superplaycounts.github.io/img/123.png);
-    box-shadow: 0px 0px 6px rgb(0 0 0 / 20%);
-    border-radius: 80px;
-    left: 50%;
-    margin-left: -64px;
-    top: 100%;
-    margin-top: -64px;
-    object-fit: cover;
-    transition: 0.3s;
-  }
-  #pfp:hover{
-    border-radius: 40px;
-  }
-  .card__title{
-    text-align: center;
-    margin-top: 75px;
-  }
-  .card__title #ChanName{
-    font-style: normal;
-    font-weight: normal;
-    font-size: 36px;
-    line-height: 44px;
-    color: #000000;
-  }
-  .odometer{
-    /* height: 136px; */
-    font-style: normal;
-    font-weight: normal;
-    font-size: 123px;
-    line-height: 125px;
-    color: #000;
-  }
-  .card h2 {
-    text-align: center;
-    font-size: 32px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin: 0px;
-  }
-  .wrapper{
-    text-align: center;
-    font-size: 3em;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-column-gap: 16px;
-    grid-row-gap: 30px;
-    margin-top: 15px;
+  .card h2{
+    padding: 0px 0px;
   }
   #api, #viewscounts, #videoscounts{
-    font-size: 100%;
+    font-size: 8vw;
   }
   #likescounts, #dislikescounts, #commentscounts {
-    font-size: 100%;
+    font-size: 8vw;
   }
-  .highcharts-exporting-group{
-    display: none;
-  }
-  @media (max-width: 900px) {
-    .card {
-      margin-top: 52px;
-    }
-    .card .odometer{
-      font-size: 50px;
-      height: 60px;
-    }
-    .card h2{
-      padding: 0px 0px;
-    }
-    #api, #viewscounts, #videoscounts{
-      font-size: 8vw;
-    }
-    #likescounts, #dislikescounts, #commentscounts {
-      font-size: 8vw;
-    }
-  }
+}
 
 
-  .grid-button-share-yt {
-    border: 1px solid rgba(0, 0, 0, 0.3);
-    margin: 10px auto;
-    text-align: center;
-    border-radius: 4px;
-  }
+.grid-button-share-yt {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  margin: 10px auto;
+  text-align: center;
+  border-radius: 4px;
+}
 
 
-  #twitterButton,
-  #facebookButton,
-  #linkedInButton {
-    margin-right: 10px;
-    margin-top: 10px;
-  }
+#twitterButton,
+#facebookButton,
+#linkedInButton,
+#pinterestButton,
+#emailButton,
+#tgButton,
+#redditButton,
+#whatsappButton {
+  margin-right: 10px;
+  margin-top: 10px;
+}
 
-  #twitterButton {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #1da1f2;
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 5px;
-  }
+#twitterButton {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #1da1f2;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 5px;
+}
   
-  #twitterButton:hover {
-    background-color: #0c85d0;
-  }
+#twitterButton:hover {
+  background-color: #0c85d0;
+}
 
-  #facebookButton {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #4267B2;
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 5px;
-  }
+#facebookButton {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4267B2;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 5px;
+}
   
-  #facebookButton:hover {
-    background-color: #304c84;
+#facebookButton:hover {
+  background-color: #304c84;
+}
+
+#linkedInButton {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #0A66C2;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
   }
 
-  #linkedInButton {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #0A66C2;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-  }
+#linkedInButton:hover {
+  background-color: #0A539e;
+}
+#pinterestButton {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #C8232C;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
 
-  #linkedInButton:hover {
-    background-color: #0A539e;
-  }
+#pinterestButton:hover {
+  background-color: #a91e25;
+}
+
+#emailButton {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #e600ac;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+#emailButton:hover {
+  background-color: #c10091;
+}
+  
+#tgButton {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #0088cc;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+#tgButton:hover {
+  background-color: #006699;
+}
+
+#redditButton {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #FF4500;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+#redditButton:hover {
+  background-color: #d03700;
+}
+
+#whatsappButton {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #0d9282;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+#whatsappButton:hover {
+  background-color: #075e54;
+}
+
+.embedbox {
+  text-align: center;
+  background-color: #1616161b;
+  padding: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
+
+.embedbox p {
+  font-size: 18px;
+  margin: 0;
+}
