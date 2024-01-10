@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>X - Followers Count</title>
+    <title>X - Tweets Count</title>
     <meta name="description" content="With this site you can see various counters, subscribers, viewers in real time!" />
     <meta name="theme-color" content="#c8c8c8" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 
 
     <meta name="image" content="//superplaycounts.github.io/favicon.ico">
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="icon" href="../img/icon-sites.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" href="/img/icon-sites.png">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary" />
@@ -32,8 +32,8 @@
 
 
     <link rel="manifest" href="/manifest.json" />
-    <link rel="stylesheet" href="../css/odometer.css">
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="/css/odometer.css">
+    <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/statastyle.css">
     <link rel="stylesheet" id="theme-stylesheet" href="/css/light.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -100,42 +100,42 @@
           <center>
             <div id="count" class="odometer">0</div>
           </center>
-          <h2>Followers</h2>
+          <h2>Tweets</h2>
           <p style="display: flex; justify-content: flex-end; padding: 5px 15px; color: grey; cursor: default;">Powered by superplaycounts.github.io</p>
         </div>
         <br>
         <div class="wrapper">
-          <a id="following-link" href="following/" style="text-decoration: none; color: #000;">
+          <a id="followers-link" href="/x/" style="text-decoration: none; color: #000;">
             <div style="cursor: pointer;" class="grid-item">
-              <span style="font-size: 0.8em;">Following</span>
+              <span style="font-size: 0.8em;">Followers</span>
               <br>
-              <div id="followingcounts" class="odometer">0</div>
+              <div id="followersxcounts" class="odometer">0</div>
             </div>
           </a>
-          <a id="likes-link" href="likes/" style="text-decoration: none; color: #000;">
+          <a id="likes-link" href="/x/following/" style="text-decoration: none; color: #000;">
             <div style="cursor: pointer;" class="grid-item">
-            <span style="font-size: 0.8em;">Likes</span>
+            <span style="font-size: 0.8em;">Following</span>
             <br>
             <div id="likescounts" class="odometer">0</div>
           </div>
           </a>
-          <a id="lists-link" href="lists/" style="text-decoration: none; color: #000;">
+          <a id="lists-link" href="/x/likes/" style="text-decoration: none; color: #000;">
             <div style="cursor: pointer;" class="grid-item">
-              <span style="font-size: 0.8em;">Lists</span>
+              <span style="font-size: 0.8em;">Likes</span>
               <br>
               <div id="listscounts" class="odometer">0</div>
             </div>
           </a>
-          <a id="media-link" href="media/" style="text-decoration: none; color: #000;">
+          <a id="media-link" href="/x/lists/" style="text-decoration: none; color: #000;">
             <div style="cursor: pointer;" class="grid-item">
-              <span style="font-size: 0.8em;">Media</span>
+              <span style="font-size: 0.8em;">Lists</span>
               <br>
               <div id="mediascounts" class="odometer">0</div>
             </div>
           </a>
-          <a id="tweets-link" href="tweets/" style="text-decoration: none; color: #000;">
+          <a id="tweets-link" href="/x/media/" style="text-decoration: none; color: #000;">
             <div style="cursor: pointer;" class="grid-item">
-              <span style="font-size: 0.8em;">Tweets</span>
+              <span style="font-size: 0.8em;">Media</span>
               <br>
               <div id="tweetscounts" class="odometer">0</div>
             </div>
@@ -334,47 +334,39 @@ whatsappButton.addEventListener('click', function(event) {
   window.open(whatsappButtonUrl, '_blank');
 });
 
-var followingLink = document.getElementById('following-link');
-followingLink.href = `following/?${userid}`;
+var followersLink = document.getElementById('followers-link');
+followersLink.href = `/x/?${userid}`;
 var likesLink = document.getElementById('likes-link');
-likesLink.href = `likes/?${userid}`;
+likesLink.href = `/x/following/?${userid}`;
 var listsLink = document.getElementById('lists-link');
-listsLink.href = `lists/?${userid}`;
+listsLink.href = `/x/likes/?${userid}`;
 var mediasLink = document.getElementById('media-link');
-mediasLink.href = `media/?${userid}`;
+mediasLink.href = `/x/lists/?${userid}`;
 var tweetsLink = document.getElementById('tweets-link');
-tweetsLink.href = `tweets/?${userid}`;
-
-followingLink.addEventListener('click', function(event) {
-  event.preventDefault();
-  window.location.href = followingLink.href;
-});
+tweetsLink.href = `/x/media/?${userid}`;
 
 function getData() {
   fetch('https://api-superplaycounts.onrender.com/api/x-user-counter/user/' + userid)
     .then(blob => blob.json())
     .then(data => {
-      const followrs = Math.round(data.counts[0].count);
+      const followrs = Math.round(data.counts[6].count);
       count.innerHTML = followrs;
-      const followng = Math.round(data.counts[2].count);
-      followingcounts.innerHTML = followng;
-      const likescount = Math.round(data.counts[3].count);
+      const followerxcounts = Math.round(data.counts[0].count);
+      followersxcounts.innerHTML = followerxcounts;
+      const likescount = Math.round(data.counts[2].count);
       likescounts.innerHTML = likescount;
-      const listscount = Math.round(data.counts[4].count);
+      const listscount = Math.round(data.counts[3].count);
       listscounts.innerHTML = listscount;
-      const mediacount = Math.round(data.counts[5].count);
+      const mediacount = Math.round(data.counts[4].count);
       mediascounts.innerHTML = mediacount;
-      const tweetcount = Math.round(data.counts[6].count);
+      const tweetcount = Math.round(data.counts[5].count);
       tweetscounts.innerHTML = tweetcount;
-
-      
-
 
       ban.src = data.user[2].count;
       pfp.src = data.user[1].count;
 
       ChanName.querySelector('span').textContent = data.user[0].count;
-      document.title = `${data.user[0].count} - Followers Count`;
+      document.title = `${data.user[0].count} - Tweets Count`;
       apiData.push([Date.now(), followrs]);
 
       if (chart) {
@@ -428,7 +420,7 @@ Highcharts.chart('container', {
     href: 'https://superplaycounts.github.io/',
   },
   series: [{
-    name: 'Followers',
+    name: 'Tweets',
     data: apiData,
     color: '#707B7C'
   }]
@@ -461,9 +453,9 @@ function copyembedwebsite() {
   }, 1000)
 }
 </script>
-<script src="../js/odometer.js"></script>
-<script src="../js/cookie.js"></script>
-<script src="../js/scripts.js"></script>
+<script src="/js/odometer.js"></script>
+<script src="/js/cookie.js"></script>
+<script src="/js/scripts.js"></script>
 <script>
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", function () {

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Youtube</title>
+    <title>X</title>
     <meta name="description" content="With this site you can see various counters, subscribers, viewers in real time!" />
     <meta name="theme-color" content="#c8c8c8" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -33,9 +33,8 @@
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" id="theme-stylesheet" href="/css/light.css">
     <style>
-.main__menu img{
-  width: 7rem;
-  height: 5rem;
+.main__menu .fa-x-twitter{
+  font-size: 7rem;
 }
 .search{
   max-width: 48rem;
@@ -138,7 +137,7 @@ svg:not(:root).svg-inline--fa {
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1131093589390960"
      crossorigin="anonymous"></script>
     <script async src="https://arc.io/widget.min.js#HRejLsfT"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script async src="https://unpkg.com/pwacompat" crossOrigin="anonymous"></script>
 
     <!-- Apple touch icon -->
@@ -184,8 +183,8 @@ svg:not(:root).svg-inline--fa {
     <div class="main__content">
         <div class="main__container">
             <div class="main__menu">
-                <img src="/img/youtube.png" alt="YOUTUBE">
-                <h1>YouTube Live Subscriber Count</h1>
+                <i class="fa-brands fa-x-twitter"></i>
+                <h1>Twitter X Live Followers Count</h1>
                 <div class="search">
                     <div class="search__stats">
                         <input style="transition-property: color,background-color,border-color,text-decoration-color,fill,stroke; transition-timing-function: cubic-bezier(.4,0,.2,1); transition-duration: .15s; padding-right: 2.5rem; padding-left: 0.75rem; padding-top: 0.5rem; padding-bottom: 0.5rem; --tw-border-opacity: 1; border-color: rgb(229 231 235/var(--tw-border-opacity)); border-width: 2px; border-radius: 0.75rem; width: 100%;" id="inp" placeholder="Search Query / Channel URL / Username...">
@@ -262,17 +261,18 @@ svg:not(:root).svg-inline--fa {
             <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'B0B6E1LN3');kofiwidget2.draw();</script> 
             <br>
             <div class="desc-block" id="desc-block" style="max-width: 1020px; margin: 30px auto;">
-                <h1>About YouTube Subscriber Count</h1>
-                <p>YouTube Subscriber Count - A simple and convenient YouTube subscriber counter using the YouTube API!</p>
-                <p>Want to stay updated on your YouTube growth? YouTube Subscriber Count will help you easily track the number of subscribers on your channel. Our tool utilizes the powerful YouTube API to fetch the most up-to-date data about your subscribers and updates the information in real-time.</p>
-                <p>Key features:</p>
-                <p>Subscriber count display: A visually appealing and stylish counter that shows the current number of subscribers on your channel. You'll always know how fast your audience is growing.</p>
-                <p>View count: In addition to subscribers, you can also track the number of views.</p>
-                <p>Video count: Find out how many videos you've uploaded to your channel. Quickly view the total number of videos you've created.</p>
-                <p>Share counter: You can easily share your current subscriber or view count on various platforms and social networks. Let your friends and fans know about your success.</p>
-                <p>Note: We want to emphasize that we are not affiliated with any of the platforms, websites, or games mentioned on our site. We provide this information solely for context and ease of use.</p>
+                <h1>About Twitter X Followers Count</h1>
+                <p>Twitter X Followers Count - A user-friendly tool for keeping track of your Twitter account's essential metrics! Stay updated on your Twitter engagement effortlessly.</p>
+                <p>Key Metrics Tracked:</p>
+                <p>Followers Count: Know how many Twitter users are following your account. Keep an eye on your follower growth and overall reach.</p>
+                <p>Following Count: Keep track of the number of Twitter accounts you follow. Stay organized and ensure your Twitter feed remains relevant.</p>
+                <p>Likes Count: Monitor the total number of likes (or favorites) your tweets have received. Understand which of your content resonates most with your audience.</p>
+                <p>Lists Count: Discover how many Twitter lists include your account. Being featured in lists can boost your visibility and credibility.</p>
+                <p>Media Count: Find out the total number of images, videos, and media files you've shared on your Twitter account.</p>
+                <p>Tweets Count: Keep tabs on the total number of tweets you've posted. Gauge your activity and presence on the platform.</p>
                 <br>
-                <p>Don't miss out on the growth of your YouTube channel. Use YouTube Subscriber Count to stay informed about changes in your audience and share your achievements with the world!</p>
+                <p>Share Your Twitter Stats: Easily share your key Twitter metrics with your followers and social network connections. Showcase your online influence.</p>
+                <p>Stay Informed: Use Twitter X Followers Count to stay informed about the growth and performance of your Twitter account. Share your milestones and connect with your audience!</p>
             </div>
             <br>
             <br>
@@ -307,48 +307,59 @@ svg:not(:root).svg-inline--fa {
         var input = document.getElementById("inp");
         document.querySelector(".button").addEventListener("click", () => {
             document.querySelector("#load").classList.add("loader");
-        })
-input.addEventListener("keyup", function(event) {
- 
-  if (event.keyCode === 13) {
+            search(input.value);
+        });
     
-    event.preventDefault();
-    document.querySelector(".button").click();
-  }
-});
-
-async function search(q) {
+        input.addEventListener("keyup", function (event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                document.querySelector(".button").click();
+            }
+        });
+    
+        async function search(q) {
             try {
-                if("youtube-channel-counter" == "youtube-comment-counter") {
-                    if(q.includes("&lc=")) {
-                        q = q.split("&lc=")[1]
+                if ("youtube-channel-counter" == "youtube-comment-counter") {
+                    if (q.includes("&lc=")) {
+                        q = q.split("&lc=")[1];
                     }
                 }
-                box.innerHTML = "Loading."
-                box.innerHTML = "Loading.."
-                box.innerHTML = "Loading..."
-                const searchResult = await fetch('https://api-superplaycounts.onrender.com/api/youtube-channel-counter/search/' + q).then(searchR => searchR.json());
-                
+                box.innerHTML = "Loading...";
+                const searchResult = await fetch('https://api-superplaycounts.onrender.com/api/x-user-counter/search/' + q)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! Status: ${response.status}`);
+                        }
+                        return response.json();
+                    })
+                    .catch(error => {
+                        console.error('Error fetching data:', error);
+                        throw error;
+                    });
+    
                 document.querySelector("#load").classList.remove("loader");
-                box.innerHTML = ""
+                box.innerHTML = "";
                 for (var i = 0; i < searchResult.list.length; i++) {
+                    const name = searchResult.list[i].name;
+                    const profileImage = searchResult.list[i].profileImage;
+                    const username = searchResult.list[i].username;
+    
                     box.innerHTML += `<div class="paketti">
-                <a href="/youtube/?${searchResult.list[i][2]}" style="width:100%;height:100%;text-decoration: none; color: #000;">
-                    <img alt="${searchResult.list[i][0]}'s BANNER" src="${searchResult.list[i][1]}" style="width:100%;height:125px;filter:blur(2px)" height="125">
-                    
-                    <img alt="${searchResult.list[i][0]}'s IMAGE" src="${searchResult.list[i][1]}" style="margin-top:-125px !important; margin:auto; height:125px; width:125px; display: flex; border:solid 0px red; border-radius: 50%; position:relative; z-index: 20;">
-                    <p style="margin:auto;" class="text-xl sm:text-xl md:text-2xl lg:text-3xl">${searchResult.list[i][0]}</p>
-                    <p style="margin:auto;opacity: 0.5;" class="text-md sm:text-md md:text-md lg:text-xl">@${searchResult.list[i][2]}</p>
-                </a>
-            </div>`
+                        <a href="/x/?${username}" style="width:100%;height:100%;text-decoration: none; color: #000;">
+                            <img alt="${name}'s BANNER" src="${profileImage}" style="width:100%;height:125px;filter:blur(2px)" height="125">
+                            
+                            <img alt="${name}'s IMAGE" src="${profileImage}" style="margin-top:-125px !important; margin:auto; height:125px; width:125px; display: flex; border:solid 0px red; border-radius: 50%; position:relative; z-index: 20;">
+                            <p style="margin:auto;" class="text-xl sm:text-xl md:text-2xl lg:text-3xl">${name}</p>
+                            <p style="margin:auto;opacity: 0.5;" class="text-md sm:text-md md:text-md lg:text-xl">@${username}</p>
+                        </a>
+                    </div>`;
                 }
             } catch (e) {
                 console.log(e);
-                box.innerHTML = e.stack
+                box.innerHTML = e.stack;
             }
         }
-        
-    </script>
+    </script>    
     <script>
         if ("serviceWorker" in navigator) {
             window.addEventListener("load", function () {

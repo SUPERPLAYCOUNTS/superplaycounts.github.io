@@ -75,7 +75,7 @@
     var channel = window.location.href.split('?')[1] || 'UCq-Fj5jknLsUf-MWSy4_brA';
 
     function getData() {
-      fetch('https://api.superplaycounts.repl.co/api/youtube-channel-counter/user/' + channel)
+      fetch('https://api-superplaycounts.onrender.com/api/youtube-channel-counter/user/' + channel)
       .then(blob => blob.json())
       .then(data => {
         document.title = `${data.statistics[0].user[0].count} - Videos Count`;

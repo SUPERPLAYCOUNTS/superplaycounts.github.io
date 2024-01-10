@@ -175,11 +175,10 @@ var apiData = [];
 var chart = null;
 var credits = document.querySelector('.highcharts-credits');
 
-// Попередня змінна для збереження попереднього значення api
 var prevApiValue = 0;
 
 function getData() {
-  fetch('https://api.superplaycounts.repl.co/api/requests')
+  fetch('https://api-superplaycounts.onrender.com/api/requests')
     .then(blob => blob.json())
     .then(data => {
       const api = Math.round(data.totalapirequests);

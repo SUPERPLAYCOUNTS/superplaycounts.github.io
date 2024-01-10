@@ -327,7 +327,7 @@ async function search(q) {
                 box.innerHTML = "Loading."
                 box.innerHTML = "Loading.."
                 box.innerHTML = "Loading..."
-                const searchResult = await fetch('https://api.superplaycounts.repl.co/api/youtube-video-counter/search/' + q).then(searchR => searchR.json());
+                const searchResult = await fetch('https://api-superplaycounts.onrender.com/api/youtube-video-counter/search/' + q).then(searchR => searchR.json());
                 
                 document.querySelector("#load").classList.remove("loader");
                 box.innerHTML = ""

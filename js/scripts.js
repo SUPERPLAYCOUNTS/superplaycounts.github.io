@@ -31,7 +31,7 @@ const updateYear = () => {
 	}
 }
 
-setInterval(updateYear, 15);
+setInterval(updateYear, 16);
 
 function setTheme(theme) {
     var moonIcon = document.getElementById("moon-icon");

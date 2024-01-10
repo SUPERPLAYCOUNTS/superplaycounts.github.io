@@ -334,7 +334,7 @@ viewslink.href = `/youtube/video/?${channel}`;
 
 
 function getData() {
-  fetch('https://api.superplaycounts.repl.co/api/youtube-video-counter/user/' + channel)
+  fetch('https://api-superplaycounts.onrender.com/api/youtube-video-counter/user/' + channel)
     .then(blob => blob.json())
     .then(data => {
       const views = Math.round(data.counts[0].count);

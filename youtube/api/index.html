@@ -333,7 +333,7 @@ subsLink.addEventListener('click', function(event) {
 });
 
 function getData() {
-  fetch('https://api.superplaycounts.repl.co/api/youtube-channel-counter/user/' + channel)
+  fetch('https://api-superplaycounts.onrender.com/api/youtube-channel-counter/user/' + channel)
     .then(blob => blob.json())
     .then(data => {
       let sub;

@@ -75,13 +75,18 @@
     var channel = window.location.href.split('?')[1] || 'UCq-Fj5jknLsUf-MWSy4_brA';
 
     function getData() {
-      fetch('https://api.superplaycounts.repl.co/api/youtube-channel-counter/user/' + channel)
+      fetch('https://api-superplaycounts.onrender.com/api/youtube-channel-counter/user/' + channel)
       .then(blob => blob.json())
-      .then(data => {
+      .then(data => { 
+        let count;
+        if (data.ytstudio[0].verified) {
+          count = Math.round(data.ytstudio[0].count);
+        } else {
+          count = Math.round(data.statistics[0].counts[0].count);
+        }
         document.title = `${data.statistics[0].user[0].count} - Subscriber Count`;
         ChanName.textContent = data.statistics[0].user[0].count;
         pfpembed.src = data.statistics[0].user[1].count;
-        count = Math.round(data.statistics[0].counts[0].count);
 
         subscribers.innerHTML = count;
       });

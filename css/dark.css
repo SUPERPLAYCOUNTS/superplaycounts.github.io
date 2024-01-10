@@ -137,6 +137,14 @@ strong{
 .countdown span {
     color: #fff;
 }
+.fa-x-twitter {
+    color: #fff;
+}
+
+#countElement {
+    color: #fff;
+}
+
 /* description counter */
 .desc-block{
     position: relative;

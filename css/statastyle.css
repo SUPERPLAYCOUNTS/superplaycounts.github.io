@@ -83,9 +83,11 @@
 #api, #viewscounts, #videoscounts{
   font-size: 100%;
 }
-#likescounts, #dislikescounts, #commentscounts {
+#likescounts, #dislikescounts, #commentscounts, #followingcounts, #listscounts,
+#mediascounts, #tweetscounts, #followersxcounts {
   font-size: 100%;
 }
+
 .highcharts-exporting-group{
   display: none;
 }
@@ -103,7 +105,8 @@
   #api, #viewscounts, #videoscounts{
     font-size: 8vw;
   }
-  #likescounts, #dislikescounts, #commentscounts {
+  #likescounts, #dislikescounts, #commentscounts, #followingcounts, #listscounts,
+  #mediascounts, #tweetscounts, #followersxcounts {
     font-size: 8vw;
   }
 }
