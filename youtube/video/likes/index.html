@@ -159,6 +159,8 @@
         <div class="embedbox">
           <p>Embed</p>
           <button style="width: 100%!important; padding: 10px; border-color: rgba(0, 0, 0, 0.500); border: 0.5px solid rgba(0,0,0,.500); border-radius: 0; background-color: rgb(22, 22, 22); vertical-align: middle; color: white; font-size: inherit;" class="tooltiptext" onclick="copyembed()" type="text" id="embd"></button><br><br>
+          <p>Embed black</p>
+          <button style="width: 100%!important; padding: 10px; border-color: rgba(0, 0, 0, 0.500); border: 0.5px solid rgba(0,0,0,.500); border-radius: 0; background-color: rgb(22, 22, 22); vertical-align: middle; color: white; font-size: inherit;" class="tooltiptext" onclick="copyembeddark()" type="text" id="embddark"></button><br><br>
           <p>Embed on your website!</p>
           <button style="width: 100%!important; padding: 10px; border-color: rgba(0, 0, 0, 0.500); border: 0.5px solid rgba(0,0,0,.500); border-radius: 0; background-color: rgb(22, 22, 22); vertical-align: middle; color: white; font-size: inherit;" class="tooltiptext" onclick="copyembedwebsite()" type="text" id="embd2"></button><br><br>
         </div>
@@ -392,6 +394,7 @@ Highcharts.chart('container', {
 });
 
 embd.innerHTML += `${ location.origin }/embed${location.pathname}${location.search}`;
+embddark.innerHTML += `${ location.origin }/embed/dark${location.pathname}${location.search}`;
 embd2.innerText += `<iframe height="103px" width="355px" frameborder="0" src=${location.origin}/embed${location.pathname}${location.search} style="border: 0; width:355px; height:103px; overflow: hidden;" scrolling="no"></iframe>`;
 
 function copyembed() {
@@ -405,6 +408,14 @@ navigator.clipboard.writeText(`${location.origin}/embed${location.pathname}${loc
 copyText.innerHTML = "Copied: " + `${location.origin}/embed${location.pathname}${location.search}`;
 setTimeout(() => {
     copyText.innerHTML = `${location.origin}/embed${location.pathname}${location.search}`;
+}, 1000)
+}
+function copyembeddark() {
+var copyTextdark = document.getElementById("embddark");
+navigator.clipboard.writeText(`${location.origin}/embed/dark${location.pathname}${location.search}`);
+copyTextdark.innerHTML = "Copied: " + `${location.origin}/embed/dark${location.pathname}${location.search}`;
+setTimeout(() => {
+  copyTextdark.innerHTML = `${location.origin}/embed/dark${location.pathname}${location.search}`;
 }, 1000)
 }
 function copyembedwebsite() {
