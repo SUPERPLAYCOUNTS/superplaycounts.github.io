@@ -168,6 +168,7 @@
                     <option class="optirate" value="youtube-icon" selected>Youtube icon</option>
                     <option class="optirate" value="twitter-icon">Twitter icon</option>
                     <option class="optirate" value="twitter-x-icon">Twitter X icon</option>
+                    <option class="optirate" value="tiktok-icon">Tiktok icon</option>
                     <option class="optirate" value="none-icon">none icon</option>
                 </select>
                 <br>
@@ -238,6 +239,15 @@
         }
       </script>
     <script src="../js/odometerfake.js"></script>
+    <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+    <script>
+      kofiWidgetOverlay.draw('superplaycounts', {
+        'type': 'floating-chat',
+        'floating-chat.donateButton.text': 'Support me',
+        'floating-chat.donateButton.background-color': '#323842',
+        'floating-chat.donateButton.text-color': '#fff'
+      });
+    </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-B5TEVSVZ74"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
