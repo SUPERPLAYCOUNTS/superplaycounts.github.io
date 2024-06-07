@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Loading - Clicks Count</title>
+    <meta name="description" content="With this site you can see various counters, subscribers, viewers in real time!" />
+    <meta name="theme-color" content="#c8c8c8" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+
+    <meta name="image" content="//superplaycounts.github.io/favicon.ico">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" href="/img/icon-sites.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@superplaycounts" />
+    <meta name="twitter:url" content="https://superplaycounts.github.io/" />
+    <meta name="twitter:title" content="SUPERPLAYCOUNTS" />
+    <meta name="twitter:description" content="With this site you can see various counters, subscribers, viewers in real time!" />
+    <meta name="twitter:image" content="https://superplaycounts.github.io//icon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="SUPERPLAYCOUNTS" />
+    <meta property="og:description" content="With this site you can see various counters, subscribers, viewers in real time!" />
+    <meta property="og:site_name" content="SUPERPLAYCOUNTS" />
+    <meta property="og:url" content="https://superplaycounts.github.io/" />
+    <meta property="og:image" content="https://superplaycounts.github.io//icon.png" />
+
+
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="stylesheet" href="/css/odometer.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/statastyle.css">
+    <link rel="stylesheet" id="theme-stylesheet" href="/css/light.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1131093589390960"
+     crossorigin="anonymous"></script>
+     <script async src="https://arc.io/widget.min.js#HRejLsfT"></script>
+    <script async src="https://unpkg.com/pwacompat" crossOrigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+    <!-- Apple touch icon -->
+    <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-touch-icon_120.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-touch-icon_152.png" />
+    <link rel="apple-touch-icon" sizes="167x167" href="/icons/apple-touch-icon_167.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon_180.png" />
+</head>
+<body>
+    <nav class="flex-div">
+      <div class="nav-left flex-div">
+        <a href="/">
+          <img src="/img/icon-sites.png" class="logo">
+          <h1>SUPERPLAYCOUNTS</h1>
+        </a>
+      </div>
+        <div class="header__burger">
+          <span></span>
+        </div>
+        <div class="header__menu">
+          <ul class="header__list">
+              <li>
+                  <a href="/timer/" class="header__link">Timer</a>
+              </li>
+              <li>
+                <a href="https://twitter.com/@superplaycounts" class="header__link">Twitter X</a>
+              </li>
+              <li>
+                <a href="/api/docs.html" class="header__link">Api</a>
+              </li>
+              <li>
+                  <a href="/update/" class="header__link">Update</a>
+              </li>
+              <li>
+                <i class="fa-solid fa-moon" onclick="setTheme('dark')" id="moon-icon" style="color: #000;"></i>
+                <i class="fa-solid fa-sun" onclick="setTheme('light')" id="sun-icon" style="color: #fff; display: none;"></i>
+              </li>
+          </ul>
+        </div>
+    </nav>
+    <div class="main__subs">
+        <div class="card">
+          <div class="card__banner">
+            <img src="" alt="" id="ban">
+            <img src="" alt="" id="pfp">
+          </div>
+          <div class="card__title">
+            <div id="ChanName"><span>Loading</span></div>
+          </div>
+          <center>
+            <div id="count" class="odometer">0</div>
+          </center>
+          <h2>Clicks</h2>
+          <p style="display: flex; justify-content: flex-end; padding: 5px 15px; color: grey; cursor: default;">Powered by superplaycounts.github.io</p>
+        </div>
+        <br>
+        <br>
+        <div id="container"></div>
+        <br>
+        <br>
+        <div>
+          <div class="grid-button-share-yt">
+            <p>Share</p>
+            <div>
+              <a href="" id="twitterButton">Share on Twitter <i class="fa-brands fa-twitter" style="color: #ffffff;"></i></a>
+              <a href="" id="facebookButton">Share on Facebook <i class="fa-brands fa-facebook" style="color: #ffffff;"></i></a>
+              <a href="" id="linkedInButton">Share on LinkedIn <i class="fa-brands fa-linkedin" style="color: #ffffff;"></i></a>
+              <a href="" id="pinterestButton">Share on Pinterest <i class="fa-brands fa-pinterest" style="color: #ffffff;"></i></a>
+              <a href="" id="emailButton">Share on Email <i class="fa-solid fa-envelope" style="color: #ffffff;"></i></a>
+              <a href="" id="tgButton">Share on Telegram <i class="fa-brands fa-telegram" style="color: #ffffff;"></i></a>
+              <a href="" id="redditButton">Share on Reddit <i class="fa-brands fa-reddit" style="color: #ffffff;"></i></a>
+              <a href="" id="whatsappButton">Share on Whatsapp <i class="fa-brands fa-whatsapp" style="color: #ffffff;"></i></a>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="embedbox">
+          <p>Embed</p>
+          <button style="width: 100%!important; padding: 10px; border-color: rgba(0, 0, 0, 0.500); border: 0.5px solid rgba(0,0,0,.500); border-radius: 0; background-color: rgb(22, 22, 22); vertical-align: middle; color: white; font-size: inherit;" class="tooltiptext" onclick="copyembed()" type="text" id="embd"></button><br><br>
+          <p>Embed black</p>
+          <button style="width: 100%!important; padding: 10px; border-color: rgba(0, 0, 0, 0.500); border: 0.5px solid rgba(0,0,0,.500); border-radius: 0; background-color: rgb(22, 22, 22); vertical-align: middle; color: white; font-size: inherit;" class="tooltiptext" onclick="copyembeddark()" type="text" id="embddark"></button><br><br>
+          <p>Embed on your website!</p>
+          <button style="width: 100%!important; padding: 10px; border-color: rgba(0, 0, 0, 0.500); border: 0.5px solid rgba(0,0,0,.500); border-radius: 0; background-color: rgb(22, 22, 22); vertical-align: middle; color: white; font-size: inherit;" class="tooltiptext" onclick="copyembedwebsite()" type="text" id="embd2"></button><br><br>
+        </div>
+        <br>
+        <div class="Counter shadow-xl w-full lg:w-[90%]" id="bbvbktriejkjn">
+          <div id="disqus_thread"><button class="ms-button" style="width: 80% !important;
+            max-width: 100%;padding:20px !important;" onclick="loadDisqus()">Load Comments</button></div>
+          <script>
+            if(location.pathname != "/" && location.pathname != "" && location.pathname.split('/').length == 2) {
+              bbvbktriejkjn.style.display = "none"
+            }
+            /**
+            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+            
+            var disqus_config = function () {
+            this.page.url = `https://superplaycounts.github.io${location.pathname}`;  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = btoa(`https://superplaycounts.github.io${location.pathname}`); // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+            
+            function loadDisqus() {
+                (function () { // DON'T EDIT BELOW THIS LINE
+                  var d = document, s = d.createElement('script');
+                  s.src = 'https://superplaycounts.disqus.com/embed.js';
+                  s.setAttribute('data-timestamp', +new Date());
+                  (d.head || d.body).appendChild(s);
+                })();
+            }
+          </script>
+        </div>
+        <br>
+        <br>
+        <center>
+          <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'B0B6E1LN3');kofiwidget2.draw();</script>
+        </center>
+        <br>
+        <div class="desc-block" id="desc-block" style="max-width: 1020px; margin: 30px auto;">
+            <h1>About Global Clicker v8 Clicks Count</h1>
+            <p>Global Clicker v8 Clicks Count - A user-friendly tool for keeping track of your click count and engagement! Stay updated on your click metrics effortlessly.</p>
+            <p>Key Metrics Tracked:</p>
+            <p>Click Count: Know the total number of clicks recorded. Keep an eye on your click growth and overall engagement.</p>
+            <br>
+            <p>Share Your Click Stats: Easily share your key click metrics with your followers and social network connections. Showcase your online engagement and activity.</p>
+            <p>Stay Informed: Use Global Clicker v8 Clicks Count to stay informed about the growth and performance of your click count. Share your milestones and connect with your audience!</p>            
+        </div>
+        <br>
+        <footer>
+          <div class="cookie-block" id="cookie-banner">
+            We use cookies to personalize the site and analyze site traffic. 🍪
+        
+            <button class="ok" onclick="acceptCookies()">Accept</button>
+          </div>
+          <div class="cr-1">
+          <!-- <h1>This site has been visited <span id="visits" id="count" class="odometer"></span> times.</h1> -->
+            <hr style="height:0;color:inherit;border-top-width:1px;">
+            <div>
+              <div class="textleftcr">
+                <a href="/privacy-policy.html" style="color: gray; text-decoration: none; text-align: center;">Primary Policy</a>
+              </div>
+              <p class="textrightcr">
+                &#169;
+                <!--  -->
+                <span class="year">2020</span>
+                <!--  -->
+                superplaycounts.github.io
+              </p>
+            </div>
+          </div>
+        </footer>
+    </div>
+
+<script>
+var apiData = [];
+var chart = null;
+var credits = document.querySelector('.highcharts-credits');
+
+const shareButton = document.getElementById('twitterButton');
+const facebookButton = document.getElementById('facebookButton');
+const linkedInButton = document.getElementById('linkedInButton');
+const pinterestButton = document.getElementById('pinterestButton');
+const emailButton = document.getElementById('emailButton');
+const tgButton = document.getElementById('tgButton');
+const redditButton = document.getElementById('redditButton');
+const whatsappButton = document.getElementById('whatsappButton');
+
+const userName = 'superplaycounts';
+
+let userData = '';
+
+shareButton.addEventListener('click', function(event) {
+   event.preventDefault();
+
+   const tweetText = `Visit GC Live Clicks Count https://superplaycounts.github.io/gc/v8/ @${userName}`;
+
+   const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
+
+   window.open(twitterUrl, '_blank');
+ });
+
+facebookButton.addEventListener('click', function(event) {
+    event.preventDefault();
+
+    const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`;
+
+    window.open(shareUrl, '_blank');
+});
+
+linkedInButton.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const linkedInUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${location.href}&title=Visit GC Live Clicks Count!&summary=Visit GC Live Clicks Count!&source=${location.href}`;
+
+  window.open(linkedInUrl, '_blank');
+});
+
+pinterestButton.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const pinterestUrl = `https://pinterest.com/pin/create/button/?url=${location.href}&description=Visit GC Live Clicks Count`;
+
+  window.open(pinterestUrl, '_blank');
+});
+
+emailButton.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const emailUrl = `mailto:?subject=Visit GC Live Clicks Count!&body=${encodeURIComponent(location.href)}`;
+
+  window.open(emailUrl, '_blank');
+});
+
+tgButton.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const tgButtonUrl = `https://telegram.me/share/url?text=${encodeURIComponent(`Visit GC Live Clicks Count ${location.href}`)}&url=https://superplaycounts.github.io/gc/v8/`;
+
+  window.open(tgButtonUrl, '_blank');
+});
+
+redditButton.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const redditButtonUrl = `https://reddit.com/submit/?url=${encodeURIComponent(location.href)}&resubmit=true&title=Visit GC Live Clicks Count`;
+
+  window.open(redditButtonUrl, '_blank');
+});
+
+whatsappButton.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const whatsappButtonUrl = `whatsapp://send?text=Visit GC Live Clicks Count! ${encodeURIComponent(location.href)}`;
+
+  window.open(whatsappButtonUrl, '_blank');
+});
+
+
+
+// followingLink.addEventListener('click', function(event) {
+//   event.preventDefault();
+//   window.location.href = followingLink.href;
+// });
+
+function getData() {
+  fetch('https://api.superplaycounts.pp.ua/api/gc-user-counter/v8/clicks')
+    .then(blob => blob.json())
+    .then(data => {
+      const followrs = Math.round(data.counts[0].count);
+      count.innerHTML = followrs;
+
+      ban.src = data.user[2].count;
+      pfp.src = data.user[1].count;
+
+      ChanName.querySelector('span').textContent = data.user[0].count;
+      document.title = `${data.user[0].count} - Clicks Count`;
+      apiData.push([Date.now(), followrs]);
+
+      if (chart) {
+        chart.series[0].setData(apiData);
+      }
+      if (apiData.length > 8) {
+        apiData.shift();
+        chart.series[0].setData(apiData);
+      } else {
+        chart.series[0].addPoint([Date.now(), sub]);
+      }
+
+      userData = data.user[0].count;
+    });
+}
+
+getData();
+
+setInterval(getData, 5000);
+
+Highcharts.chart('container', {
+  chart: {
+    backgroundColor: 'transparent',
+    type: 'line',
+    zoomType: 'x'
+  },
+  title: {
+    text: ''
+  },
+  xAxis: {
+    type: 'datetime',
+    tickPixelInterval: 25
+  },
+  yAxis: {
+    title: {
+      text: ''
+    },
+    type: 'linear'
+  },
+  plotOptions: {
+    series: {
+        threshold: null,
+        fillOpacity: 0.25
+    },
+    area: {
+        fillOpacity: 0.25
+    }
+  },
+  credits: {
+    text: 'superplaycounts.github.io',
+    href: 'https://superplaycounts.github.io/',
+  },
+  series: [{
+    name: 'Clicks',
+    data: apiData,
+    color: 'yellow'
+  }]
+}, function (ch) {
+  chart = ch;
+});
+
+embd.innerHTML += `${ location.origin }/embed${location.pathname}${location.search}`;
+embddark.innerHTML += `${ location.origin }/embed/dark${location.pathname}${location.search}`;
+embd2.innerText += `<iframe height="103px" width="355px" frameborder="0" src=${location.origin}/embed${location.pathname}${location.search} style="border: 0; width:355px; height:103px; overflow: hidden;" scrolling="no"></iframe>`;
+function copyembed() {
+/* Get the text field */
+var copyText = document.getElementById("embd");
+
+/* Copy the text inside the text field */
+navigator.clipboard.writeText(`${location.origin}/embed${location.pathname}${location.search}`);
+
+
+copyText.innerHTML = "Copied: " + `${location.origin}/embed${location.pathname}${location.search}`;
+setTimeout(() => {
+    copyText.innerHTML = `${location.origin}/embed${location.pathname}${location.search}`;
+}, 1000)
+}
+function copyembeddark() {
+var copyTextdark = document.getElementById("embddark");
+navigator.clipboard.writeText(`${location.origin}/embed/dark${location.pathname}${location.search}`);
+copyTextdark.innerHTML = "Copied: " + `${location.origin}/embed/dark${location.pathname}${location.search}`;
+setTimeout(() => {
+  copyTextdark.innerHTML = `${location.origin}/embed/dark${location.pathname}${location.search}`;
+}, 1000)
+}
+function copyembedwebsite() {
+  var copyTextembd2 = document.getElementById("embd2");
+  navigator.clipboard.writeText(`<iframe height="103px" width="355px" frameborder="0" src=${location.origin}/embed${location.pathname}${location.search} style="border: 0; width:355px; height:103px; overflow: hidden;" scrolling="no"></iframe>`);
+  copyTextembd2.innerText = "Copied: " + `<iframe height="103px" width="355px" frameborder="0" src=${location.origin}/embed${location.pathname}${location.search} style="border: 0; width:355px; height:103px; overflow: hidden;" scrolling="no"></iframe>`;
+  setTimeout(() => {
+    copyTextembd2.innerText = `<iframe height="103px" width="355px" frameborder="0" src=${location.origin}/embed${location.pathname}${location.search} style="border: 0; width:355px; height:103px; overflow: hidden;" scrolling="no"></iframe>`;
+  }, 1000)
+}
+</script>
+<script src="/js/odometer.js"></script>
+<script src="/js/cookie.js"></script>
+<script src="/js/scripts.js"></script>
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+      navigator.serviceWorker
+      .register("/serviceWorker.js")
+      .then((registration) => {
+        console.log("SM registration successful");
+      });
+    });
+  }
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B5TEVSVZ74"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B5TEVSVZ74');
+</script>
+</body>
+</html>

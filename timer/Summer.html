@@ -87,7 +87,7 @@
     <div class="main__subs">
         <div class="card">
           <div class="card__title">
-            <div id="ChanName"><span>How many days are left until the beginning of summer</span></div>
+            <div id="ChanName"><span>How many days are left until the end of summer</span></div>
           </div>
           <center>
             <div class="countdown">
@@ -170,7 +170,7 @@ const countdownItems = document.querySelectorAll('.countdown-item');
 let timerInterval;
 
 function countdown() {
-  const endDate = new Date('2024-06-01 00:00:00');
+  const endDate = new Date('2024-09-01 00:00:00');
   const currentDate = new Date();
   const totalSeconds = (endDate - currentDate) / 1000;
   

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loading - Clicks Count</title>
+  <meta name="description" content="With this site you can see various counters, subscribers, viewers in real time!" />
+  <meta name="theme-color" content="#c8c8c8" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+  <meta name="image" content="//superplaycounts.github.io/favicon.ico">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="icon" href="img/icon-sites.png">
+  <style>
+    .odomeetteri {
+      font-size: 50px;
+      position: absolute !important;
+      left: 105px;
+      top: 38px;
+    }
+  </style>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@superplaycounts" />
+  <meta name="twitter:url" content="https://superplaycounts.github.io/" />
+  <meta name="twitter:title" content="SUPERPLAYCOUNTS" />
+  <meta name="twitter:description" content="With this site you can see various counters, subscribers, viewers in real time!" />
+  <meta name="twitter:image" content="https://superplaycounts.github.io//icon.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="SUPERPLAYCOUNTS" />
+  <meta property="og:description" content="With this site you can see various counters, subscribers, viewers in real time!" />
+  <meta property="og:site_name" content="SUPERPLAYCOUNTS" />
+  <meta property="og:url" content="https://superplaycounts.github.io/" />
+  <meta property="og:image" content="https://superplaycounts.github.io//icon.png" />
+
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/embed.css">
+  <link rel="stylesheet" id="theme-stylesheet" href="/css/light.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1131093589390960"
+     crossorigin="anonymous"></script>
+  <script async src="https://arc.io/widget.min.js#HRejLsfT"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script async src="https://unpkg.com/pwacompat" crossOrigin="anonymous"></script>
+  <link rel="stylesheet" href="/css/odometer.css">
+
+  <!-- Apple touch icon -->
+  <link rel="apple-touch-icon" sizes="120x120" href="icons/apple-touch-icon_120.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="icons/apple-touch-icon_152.png" />
+  <link rel="apple-touch-icon" sizes="167x167" href="icons/apple-touch-icon_167.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon_180.png" />
+</head>
+<body>
+  <div class="main__content">
+    <div class="main__container">
+        <img id="pfpembed" src="" height="50">
+        <span style="position: absolute;top: 5px; left: 105px;width:500px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:25px;">
+            <span style="float: left;" id="ChanName">Loading</span>
+        </span>
+        <div class="odomeetteri odometer" id="subscribers">0</div>
+    </div>
+  </div>
+  <script src="/js/scripts.js"></script>
+  <script src="/js/cookie.js"></script>
+  <script src="/js/odometer.js"></script>
+  <script>
+    function getData() {
+      fetch('https://api.superplaycounts.pp.ua/api/gc-user-counter/v8/clicks')
+      .then(blob => blob.json())
+      .then(data => { 
+        count = Math.round(data.counts[0].count);
+        document.title = `${data.user[0].count} - Clicks Count`;
+        ChanName.textContent = data.user[0].count;
+        pfpembed.src = data.user[1].count;
+
+        subscribers.innerHTML = count;
+      });
+    }
+
+    getData()
+    setInterval(getData, 5000)
+  </script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker
+        .register("/serviceWorker.js")
+        .then((registration) => {
+          console.log("SM registration successful");
+        });
+      });
+    }
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B5TEVSVZ74"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B5TEVSVZ74');
+</script>
+</body>
+</html>

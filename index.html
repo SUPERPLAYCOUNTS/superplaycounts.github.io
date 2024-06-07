@@ -151,7 +151,8 @@
         <div class="grid-item">
           <h2>Tiktok (test)</h2>
           <div class="items__links">
-            <a href="tiktok/index.html">Followers count</a>
+            <!-- <a href="tiktok/index.html">Followers count</a> -->
+            <a href="/">Not working</a>
           </div>
         </div>
         <div class="grid-item" id="walls-grid-item">
@@ -169,8 +170,8 @@
         <div class="grid-item" id="gc-grid-item">
           <h2>Global clicker</h2>
           <div class="items__links">
-            <a>Global clicker v1 stats</a>
-            <a>Global clicker v8 stats</a>
+            <!-- <a>Global clicker v1 stats</a> -->
+            <a href="/gc/v8/">Global clicker v8 stats</a>
           </div>
         </div>
         <div class="grid-item" id="roblox-grid-item">
@@ -273,8 +274,8 @@
       </footer>
     </div>
   </div>
-  <script src="js/scripts.js"></script>
-  <script src="js/cookie.js"></script>
+  <script src="/js/scripts.js"></script>
+  <script src="/js/cookie.js"></script>
   <script src="/js/odometer.js"></script>
   <script>
     if ("serviceWorker" in navigator) {
@@ -294,14 +295,12 @@
     let Likee = false;
     let spotify = false;
     let wall = false;
-    let globalclicker = false;
     let redditgriditem = document.getElementById("reddit-grid-item");
     let robloxgriditem = document.getElementById("roblox-grid-item");
     let instagramgriditem = document.getElementById("instagram-grid-item");
     let likeegriditem = document.getElementById("likee-grid-item");
     let spotifygriditem = document.getElementById("spotify-grid-item");
     let wallsgriditem = document.getElementById("walls-grid-item");
-    let gcgriditem = document.getElementById("gc-grid-item");
   
     if (reddit === false) {
 	    redditgriditem.style.display = "none";
@@ -320,9 +319,6 @@
     }
     if (wall === false) {
       wallsgriditem.style.display = "none";
-    }
-    if (globalclicker === false) {
-      gcgriditem.style.display = "none";
     }
   </script>
   <script type="text/javascript" src="https://m.mixadvert.com/show/?id=9821" async></script>
