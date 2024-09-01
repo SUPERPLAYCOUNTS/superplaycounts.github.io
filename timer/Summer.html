@@ -20,7 +20,7 @@
     <meta name="twitter:url" content="https://superplaycounts.github.io/" />
     <meta name="twitter:title" content="SUPERPLAYCOUNTS" />
     <meta name="twitter:description" content="With this site you can see various counters, subscribers, viewers in real time!" />
-    <meta name="twitter:image" content="https://superplaycounts.github.io//icon.png" />
+    <meta name="twitter:image" content="https://api.microlink.io/?url=https://superplaycounts.github.io/timer/Summer.html&screenshot=true&meta=false&embed=screenshot.url" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -28,7 +28,7 @@
     <meta property="og:description" content="With this site you can see various counters, subscribers, viewers in real time!" />
     <meta property="og:site_name" content="SUPERPLAYCOUNTS" />
     <meta property="og:url" content="https://superplaycounts.github.io/" />
-    <meta property="og:image" content="https://superplaycounts.github.io//icon.png" />
+    <meta property="og:image" content="https://api.microlink.io/?url=https://superplaycounts.github.io/timer/Summer.html&screenshot=true&meta=false&embed=screenshot.url" />
 
 
     <link rel="manifest" href="/manifest.json" />
@@ -42,7 +42,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1131093589390960"
      crossorigin="anonymous"></script>
-     <script async src="https://arc.io/widget.min.js#HRejLsfT"></script>
     <script async src="https://unpkg.com/pwacompat" crossOrigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -87,7 +86,7 @@
     <div class="main__subs">
         <div class="card">
           <div class="card__title">
-            <div id="ChanName"><span>How many days are left until the end of summer</span></div>
+            <div id="ChanName"><span>How many days are left until summer?</span></div>
           </div>
           <center>
             <div class="countdown">
@@ -170,7 +169,7 @@ const countdownItems = document.querySelectorAll('.countdown-item');
 let timerInterval;
 
 function countdown() {
-  const endDate = new Date('2024-09-01 00:00:00');
+  const endDate = new Date('2025-06-01 00:00:00');
   const currentDate = new Date();
   const totalSeconds = (endDate - currentDate) / 1000;
   
