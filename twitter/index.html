@@ -1,1 +1,21 @@
-soon
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Redirecting...</title>
+    <script>
+        var currentPath = window.location.pathname;
+        var searchParams = window.location.search;
+
+        if (currentPath.startsWith('/twitter/')) {
+            // Заменяем "twitter" на "x"
+            var newPath = currentPath.replace('/twitter/', '/x/');
+
+            window.location.href = newPath + searchParams;
+        }
+    </script>
+</head>
+<body>
+    <p>Redirecting...</p>
+</body>
+</html>
