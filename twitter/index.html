@@ -8,7 +8,6 @@
         var searchParams = window.location.search;
 
         if (currentPath.startsWith('/twitter/')) {
-            // Заменяем "twitter" на "x"
             var newPath = currentPath.replace('/twitter/', '/x/');
 
             window.location.href = newPath + searchParams;
