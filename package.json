@@ -1,6 +1,6 @@
 {
   "name": "superplaycounts",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "api",
   "main": "arc-sw.js",
   "scripts": {
