@@ -82,6 +82,12 @@ nav{
 .search__stats input{
     background-color: #343434;
 }
+#inpUser1 {
+    background-color: #343434;
+}
+#inpUser2 {
+    background-color: #343434;
+}
 .search__stats button{
     color: #fff;
 }
@@ -113,7 +119,16 @@ nav{
     line-height: 44px;
     color: #ffffff;
 }
+.card__title #ChanName1, .card__title #ChanName2 {
+    color: white;
+}
 .odometer{
+    color: white;
+}
+#count1 {
+    color: white;
+}
+#count2 {
     color: white;
 }
 .card h2{

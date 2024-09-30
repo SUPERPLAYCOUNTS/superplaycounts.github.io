@@ -64,6 +64,20 @@
   line-height: 125px;
   color: #000;
 }
+#count-user1 {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 90px;
+  line-height: 125px;
+  color: #000;
+}
+#count-user2 {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 90px;
+  line-height: 125px;
+  color: #000;
+}
 .card h2 {
   text-align: center;
   font-size: 32px;
@@ -96,6 +110,14 @@
     margin-top: 52px;
   }
   .card .odometer{
+    font-size: 50px;
+    height: 60px;
+  }
+  #count-user1 {
+    font-size: 50px;
+    height: 60px;
+  }
+  #count-user2 {
     font-size: 50px;
     height: 60px;
   }
