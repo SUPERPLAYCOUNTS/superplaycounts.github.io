@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Youtube</title>
+    <title>Youtube Compare</title>
     <meta name="description" content="With this site you can see various counters, subscribers, viewers in real time!" />
     <meta name="theme-color" content="#c8c8c8" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -187,41 +187,30 @@ svg:not(:root).svg-inline--fa {
         <div class="main__container">
             <div class="main__menu">
                 <img src="/img/youtube.png" alt="YOUTUBE">
-                <h1>YouTube Live Subscriber Count</h1>
-                <div class="search">
-                    <div class="search__stats">
-                        <input style="transition-property: color,background-color,border-color,text-decoration-color,fill,stroke; transition-timing-function: cubic-bezier(.4,0,.2,1); transition-duration: .15s; padding-right: 2.5rem; padding-left: 0.75rem; padding-top: 0.5rem; padding-bottom: 0.5rem; --tw-border-opacity: 1; border-color: rgb(229 231 235/var(--tw-border-opacity)); border-width: 2px; border-radius: 0.75rem; width: 100%;" id="inp" placeholder="Search Query / Channel URL / Username...">
-                        <button style="transition-property: color,background-color,border-color,text-decoration-color,fill,stroke;
-                        transition-timing-function: cubic-bezier(.4,0,.2,1);
-                        transition-duration: .15s; --tw-text-opacity: 1;
-                        color: rgb(156 163 175/var(--tw-text-opacity)); font-size: 1.25rem;
-                        line-height: 1.75rem; text-align: center; width: 1.75rem; height: 1.75rem; display: block; right: 0.5rem; top: 0.35rem; position: absolute; cursor: pointer; -webkit-appearance: button;
-                        background-color: transparent;
-                        background-image: none; text-transform: none; font-family: inherit; font-weight: inherit; margin: 0;
-                        padding: 0; border: none;" onclick="search(inp.value)" type="button" class="button">
-                            <svg style="overflow: visible; " aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16 w-5 text-xl" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg>
-                        </button>
-                        <br>
-                        <br>
-                        <br>
-                        <div id="load" class=""></div>
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); grid-column-gap: 16px; grid-row-gap: 30px; max-width: 1000px; margin: auto; text-align: center; gap: 10px;" class="grid gap-1 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4" id="box"></div>
-                            <!-- <div class="paketti">
-                                <a href="/youtube/?UC-lHJZR3Gqxm24_Vd_AJ5Yw"
-                                    style="width:100%;height:100%;text-decoration: none; color:white;">
-                                    <img alt="USER BANNER"
-                                        src="https://yt3.ggpht.com/5oUY3tashyxfqsjO5SGhjT4dus8FkN9CsAHwXWISFrdPYii1FudD4ICtLfuCw6-THJsJbgoY=s800-c-k-c0x00ffffff-no-rj"
-                                        style="width:100%;height:125px;filter:blur(2px)" height="125">
-                                    <img alt="USER IMAGE"
-                                        src="https://yt3.ggpht.com/5oUY3tashyxfqsjO5SGhjT4dus8FkN9CsAHwXWISFrdPYii1FudD4ICtLfuCw6-THJsJbgoY=s800-c-k-c0x00ffffff-no-rj"
-                                        style="margin-top:-125px !important; margin:auto; height:125px; width:125px; display: flex; border:solid 0px red; border-radius: 50%; position:relative; z-index: 20;"
-                                        height="125">
-                                    <p style="margin:auto;" class="text-xl sm:text-xl md:text-2xl lg:text-3xl">PEWDIEPIE</p>
-                                    <p style="margin:auto;opacity: 0.5;" class="text-md sm:text-md md:text-md lg:text-xl">@UC-lHJZR3Gqxm24_Vd_AJ5Yw</p>
-                                </a>
-                            </div> -->
+                <h1>YouTube Live Subscriber Compare Count</h1>
+                <div id="userGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 2rem;">
+                    <!-- User 1 -->
+                    <div id="user1" class="user-box" style="border: 1px solid #ddd; padding: 20px;">
+                        <h2>User 1</h2>
+                        <input id="inpUser1" placeholder="Search Query / Channel URL / Username..." style="padding: 0.5rem; width: 100%; border: 2px solid #e5e7eb; border-radius: 0.75rem;">
+                        <button style="margin-top: 1rem; padding: 10px; background-color: #4E9CAF; color: white; border: none; border-radius: 5px;" onclick="searchUser1()">Search User 1</button>
+                        <div id="loadUser1" class=""></div>
+                        <div id="boxUser1" style="margin-top: 1rem;">No user selected.</div>
+                    </div>
+            
+                    <!-- User 2 -->
+                    <div id="user2" class="user-box" style="border: 1px solid #ddd; padding: 20px;">
+                        <h2>User 2</h2>
+                        <input id="inpUser2" placeholder="Search Query / Channel URL / Username..." style="padding: 0.5rem; width: 100%; border: 2px solid #e5e7eb; border-radius: 0.75rem;">
+                        <button style="margin-top: 1rem; padding: 10px; background-color: #4E9CAF; color: white; border: none; border-radius: 5px;" onclick="searchUser2()">Search User 2</button>
+                        <div id="loadUser2" class=""></div>
+                        <div id="boxUser2" style="margin-top: 1rem;">No user selected.</div>
                     </div>
                 </div>
+            
+                <center>
+                    <button id="compareBtn" style="display: none; height: 50px; background-color: #494949; color: #FFFFFF; width: 90%;" onclick="compare()">Compare</button>
+                </center>
             </div>
             <hr class="grops">
             <br>
@@ -306,50 +295,96 @@ svg:not(:root).svg-inline--fa {
     <script src="/js/scripts.js"></script>
     <script src="/js/cookie.js"></script>
     <script>
-        var input = document.getElementById("inp");
-        document.querySelector(".button").addEventListener("click", () => {
-            document.querySelector("#load").classList.add("loader");
-        })
-input.addEventListener("keyup", function(event) {
- 
-  if (event.keyCode === 13) {
+        let user1 = null;
+        let user2 = null;
     
-    event.preventDefault();
-    document.querySelector(".button").click();
-  }
-});
-
-async function search(q) {
+        async function searchUser1() {
+            const query = document.getElementById("inpUser1").value;
+            const box = document.getElementById('boxUser1');
+            box.innerHTML = "Loading...";
+            
             try {
-                if("youtube-channel-counter" == "youtube-comment-counter") {
-                    if(q.includes("&lc=")) {
-                        q = q.split("&lc=")[1]
-                    }
-                }
-                box.innerHTML = "Loading."
-                box.innerHTML = "Loading.."
-                box.innerHTML = "Loading..."
-                const searchResult = await fetch('https://api-superplaycounts.onrender.com/api/youtube-channel-counter/search/' + q).then(searchR => searchR.json());
-                
-                document.querySelector("#load").classList.remove("loader");
-                box.innerHTML = ""
-                for (var i = 0; i < searchResult.list.length; i++) {
-                    box.innerHTML += `<div class="paketti">
-                <a href="/youtube/?${searchResult.list[i][2]}" style="width:100%;height:100%;text-decoration: none; color: #000;">
-                    <img alt="${searchResult.list[i][0]}'s BANNER" src="${searchResult.list[i][1]}" style="width:100%;height:125px;filter:blur(2px)" height="125">
-                    
-                    <img alt="${searchResult.list[i][0]}'s IMAGE" src="${searchResult.list[i][1]}" style="margin-top:-125px !important; margin:auto; height:125px; width:125px; display: flex; border:solid 0px red; border-radius: 50%; position:relative; z-index: 20;">
-                    <p style="margin:auto;" class="text-xl sm:text-xl md:text-2xl lg:text-3xl">${searchResult.list[i][0]}</p>
-                    <p style="margin:auto;opacity: 0.5;" class="text-md sm:text-md md:text-md lg:text-xl">@${searchResult.list[i][2]}</p>
-                </a>
-            </div>`
-                }
+                const searchResult = await fetch('https://api-superplaycounts.onrender.com/api/youtube-channel-counter/search/' + query).then(searchR => searchR.json());
+                box.innerHTML = "";
+                searchResult.list.forEach((channel, index) => {
+                    const { 0: name, 1: imgUrl, 2: channelId } = channel;
+                    const channelHTML = `
+                        <div class="paketti" onclick="selectUser1('${channelId}', '${name}', '${imgUrl}', ${index})" style="cursor: pointer;">
+                            <img alt="${name}'s BANNER" src="${imgUrl}" style="width: 100%; height: 125px; filter: blur(2px);">
+                            <img alt="${name}'s IMAGE" src="${imgUrl}" style="margin-top: -125px; height: 125px; width: 125px; display: flex; border-radius: 50%; margin: auto;">
+                            <p class="text-xl">${name}</p>
+                            <p class="text-md" style="opacity: 0.5;">@${channelId}</p>
+                        </div>`;
+                    box.innerHTML += channelHTML;
+                });
             } catch (e) {
                 console.log(e);
-                box.innerHTML = e.stack
+                box.innerHTML = "Error loading channels.";
             }
         }
-        
+    
+        async function searchUser2() {
+            const query = document.getElementById("inpUser2").value;
+            const box = document.getElementById('boxUser2');
+            box.innerHTML = "Loading...";
+            
+            try {
+                const searchResult = await fetch('https://api-superplaycounts.onrender.com/api/youtube-channel-counter/search/' + query).then(searchR => searchR.json());
+                box.innerHTML = "";
+                searchResult.list.forEach((channel, index) => {
+                    const { 0: name, 1: imgUrl, 2: channelId } = channel;
+                    const channelHTML = `
+                        <div class="paketti" onclick="selectUser2('${channelId}', '${name}', '${imgUrl}', ${index})" style="cursor: pointer;">
+                            <img alt="${name}'s BANNER" src="${imgUrl}" style="width: 100%; height: 125px; filter: blur(2px);">
+                            <img alt="${name}'s IMAGE" src="${imgUrl}" style="margin-top: -125px; height: 125px; width: 125px; display: flex; border-radius: 50%; margin: auto;">
+                            <p class="text-xl">${name}</p>
+                            <p class="text-md" style="opacity: 0.5;">@${channelId}</p>
+                        </div>`;
+                    box.innerHTML += channelHTML;
+                });
+            } catch (e) {
+                console.log(e);
+                box.innerHTML = "Error loading channels.";
+            }
+        }
+    
+        function selectUser1(channelId, name, imgUrl) {
+            const selectedChannel = `
+                <div class="paketti">
+                    <img alt="${name}'s BANNER" src="${imgUrl}" style="width: 100%; height: 125px; filter: blur(2px);">
+                    <img alt="${name}'s IMAGE" src="${imgUrl}" style="margin-top: -125px; height: 125px; width: 125px; display: flex; border-radius: 50%; margin: auto;">
+                    <p class="text-xl">${name}</p>
+                    <p class="text-md" style="opacity: 0.5;">@${channelId}</p>
+                </div>`;
+            user1 = { channelId, name, imgUrl };
+            document.getElementById('boxUser1').innerHTML = selectedChannel;
+            checkCompareButton();
+        }
+    
+        function selectUser2(channelId, name, imgUrl) {
+            const selectedChannel = `
+                <div class="paketti">
+                    <img alt="${name}'s BANNER" src="${imgUrl}" style="width: 100%; height: 125px; filter: blur(2px);">
+                    <img alt="${name}'s IMAGE" src="${imgUrl}" style="margin-top: -125px; height: 125px; width: 125px; display: flex; border-radius: 50%; margin: auto;">
+                    <p class="text-xl">${name}</p>
+                    <p class="text-md" style="opacity: 0.5;">@${channelId}</p>
+                </div>`;
+            user2 = { channelId, name, imgUrl };
+            document.getElementById('boxUser2').innerHTML = selectedChannel;
+            checkCompareButton();
+        }
+    
+        function checkCompareButton() {
+            if (user1 && user2) {
+                document.getElementById("compareBtn").style.display = "block";
+            }
+        }
+    
+        function compare() {
+            if (user1 && user2) {
+                window.location.href = `/compare/youtube/?${user1.channelId}?${user2.channelId}`;
+            }
+        }
     </script>
     <script>
         if ("serviceWorker" in navigator) {

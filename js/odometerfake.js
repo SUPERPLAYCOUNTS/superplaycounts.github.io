@@ -77,6 +77,7 @@ iconSelect.addEventListener('change', (event) => {
     icon.style.color = '#1DA1F2';
   } else if (selectedValue === 'twitter-x-icon') {
     icon.className = 'fa-brands fa-x-twitter';
+    icon.style.color = '';
   } else if (selectedValue === 'tiktok-icon') {
     icon.className = 'fa-brands fa-tiktok';
     icon.style.color = '#FE2C55';

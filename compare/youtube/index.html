@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>X - Likes Count</title>
+    <title>Youtube - Subscriber Count</title>
     <meta name="description" content="With this site you can see various counters, subscribers, viewers in real time!" />
     <meta name="theme-color" content="#c8c8c8" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -20,7 +20,7 @@
     <meta name="twitter:url" content="https://superplaycounts.github.io/" />
     <meta name="twitter:title" content="SUPERPLAYCOUNTS" />
     <meta name="twitter:description" content="With this site you can see various counters, subscribers, viewers in real time!" />
-    <meta name="twitter:image" content="https://api.microlink.io/?url=https://superplaycounts.github.io/x/likes/index.html&screenshot=true&meta=false&embed=screenshot.url" />
+    <meta name="twitter:image" content="https://api.microlink.io/?url=https://superplaycounts.github.io/youtube/index.html&screenshot=true&meta=false&embed=screenshot.url" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -28,13 +28,13 @@
     <meta property="og:description" content="With this site you can see various counters, subscribers, viewers in real time!" />
     <meta property="og:site_name" content="SUPERPLAYCOUNTS" />
     <meta property="og:url" content="https://superplaycounts.github.io/" />
-    <meta property="og:image" content="https://api.microlink.io/?url=https://superplaycounts.github.io/x/likes/index.html&screenshot=true&meta=false&embed=screenshot.url" />
+    <meta property="og:image" content="https://api.microlink.io/?url=https://superplaycounts.github.io/compare/youtube/index.html&screenshot=true&meta=false&embed=screenshot.url" />
 
 
     <link rel="manifest" href="/manifest.json" />
     <link rel="stylesheet" href="/css/odometer.css">
     <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/statastyle.css">
+    <link rel="stylesheet" href="/css/comparestyle.css">
     <link rel="stylesheet" id="theme-stylesheet" href="/css/light.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,7 +43,8 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1131093589390960"
      crossorigin="anonymous"></script>
     <script async src="https://unpkg.com/pwacompat" crossOrigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
@@ -90,56 +91,50 @@
         </div>
     </nav>
     <div class="main__subs">
-        <div class="card">
-          <div class="card__banner">
-            <img src="" alt="" id="ban">
-            <img src="" alt="" id="pfp">
-          </div>
-          <div class="card__title">
-            <div id="ChanName"><span>Loading</span></div>
-            <i class="fa-brands fa-x-twitter"></i>
-          </div>
-          <center>
-            <div id="count" class="odometer">0</div>
-          </center>
-          <h2>Likes</h2>
-          <p style="display: flex; justify-content: flex-end; padding: 5px 15px; color: grey; cursor: default;">Powered by superplaycounts.github.io</p>
+        <div class="cards-wrapper">
+            <div class="card" id="card1">
+                <div class="card__banner">
+                    <img src="" alt="" id="ban1">
+                    <img src="" alt="" id="pfp1">
+                </div>
+                <div class="card__title">
+                    <div id="ChanName1">
+                        <span>Loading</span><i class="fa fa-check-circle" aria-hidden="true" style="display: none; padding: 4px; font-size: 21px; vertical-align: text-top;"></i>
+                    </div>
+                    <i style="color:#ff0000" class="fa-brands fa-youtube"></i>
+                </div>
+                <center>
+                    <div id="count1" class="odometer">0</div>
+                </center>
+                <h2>Subscribers</h2>
+                <p style="display: flex; justify-content: flex-end; padding: 5px 15px; color: grey; cursor: default;">Powered by superplaycounts.github.io</p>
+            </div>
+            
+            <div class="card" id="card2">
+                <div class="card__banner">
+                    <img src="" alt="" id="ban2">
+                    <img src="" alt="" id="pfp2">
+                </div>
+                <div class="card__title">
+                    <div id="ChanName2">
+                        <span>Loading</span><i class="fa fa-check-circle" aria-hidden="true" style="display: none; padding: 4px; font-size: 21px; vertical-align: text-top;"></i>
+                    </div>
+                    <i style="color:#ff0000" class="fa-brands fa-youtube"></i>
+                </div>
+                <center>
+                    <div id="count2" class="odometer">0</div>
+                </center>
+                <h2>Subscribers</h2>
+                <p style="display: flex; justify-content: flex-end; padding: 5px 15px; color: grey; cursor: default;">Powered by superplaycounts.github.io</p>
+            </div>
         </div>
         <br>
         <div class="wrapper">
-          <a id="followers-link" href="/x/" style="text-decoration: none; color: #000;">
+          <a id="difference-link" style="text-decoration: none; color: #000;">
             <div style="cursor: pointer;" class="grid-item">
-              <span style="font-size: 0.8em;">Followers</span>
+              <span style="font-size: 0.8em;">difference</span>
               <br>
-              <div id="followersxcounts" class="odometer">0</div>
-            </div>
-          </a>
-          <a id="likes-link" href="/x/following/" style="text-decoration: none; color: #000;">
-            <div style="cursor: pointer;" class="grid-item">
-            <span style="font-size: 0.8em;">Following</span>
-            <br>
-            <div id="likescounts" class="odometer">0</div>
-          </div>
-          </a>
-          <a id="lists-link" href="/x/lists/" style="text-decoration: none; color: #000;">
-            <div style="cursor: pointer;" class="grid-item">
-              <span style="font-size: 0.8em;">Lists</span>
-              <br>
-              <div id="listscounts" class="odometer">0</div>
-            </div>
-          </a>
-          <a id="media-link" href="/x/media/" style="text-decoration: none; color: #000;">
-            <div style="cursor: pointer;" class="grid-item">
-              <span style="font-size: 0.8em;">Media</span>
-              <br>
-              <div id="mediascounts" class="odometer">0</div>
-            </div>
-          </a>
-          <a id="tweets-link" href="/x/tweets/" style="text-decoration: none; color: #000;">
-            <div style="cursor: pointer;" class="grid-item">
-              <span style="font-size: 0.8em;">Tweets</span>
-              <br>
-              <div id="tweetscounts" class="odometer">0</div>
+              <div id="difference" class="odometer">0</div>
             </div>
           </a>
         </div>
@@ -149,7 +144,7 @@
         <div>
           <div class="grid-button-yt">
             <div>
-              <a href="/x/search.html">
+              <a href="/compare/youtube/search.html">
                 <button id="change-user-btn">Change User <i class="fa-solid fa-magnifying-glass"></i></button>
               </a>
             </div>
@@ -172,14 +167,14 @@
           </div>
         </div>
         <br>
-        <div class="embedbox">
+        <!-- <div class="embedbox">
           <p>Embed</p>
           <button style="width: 100%!important; padding: 10px; border-color: rgba(0, 0, 0, 0.500); border: 0.5px solid rgba(0,0,0,.500); border-radius: 0; background-color: rgb(22, 22, 22); vertical-align: middle; color: white; font-size: inherit;" class="tooltiptext" onclick="copyembed()" type="text" id="embd"></button><br><br>
           <p>Embed black</p>
           <button style="width: 100%!important; padding: 10px; border-color: rgba(0, 0, 0, 0.500); border: 0.5px solid rgba(0,0,0,.500); border-radius: 0; background-color: rgb(22, 22, 22); vertical-align: middle; color: white; font-size: inherit;" class="tooltiptext" onclick="copyembeddark()" type="text" id="embddark"></button><br><br>
           <p>Embed on your website!</p>
           <button style="width: 100%!important; padding: 10px; border-color: rgba(0, 0, 0, 0.500); border: 0.5px solid rgba(0,0,0,.500); border-radius: 0; background-color: rgb(22, 22, 22); vertical-align: middle; color: white; font-size: inherit;" class="tooltiptext" onclick="copyembedwebsite()" type="text" id="embd2"></button><br><br>
-        </div>
+        </div> -->
         <br>
         <div class="Counter shadow-xl w-full lg:w-[90%]" id="bbvbktriejkjn">
           <div id="disqus_thread"><button class="ms-button" style="width: 80% !important;
@@ -214,19 +209,18 @@
         </center>
         <br>
         <div class="desc-block" id="desc-block" style="max-width: 1020px; margin: 30px auto;">
-          <h1>About Twitter X Followers Count</h1>
-          <p>Twitter X Followers Count - A user-friendly tool for keeping track of your Twitter account's essential metrics! Stay updated on your Twitter engagement effortlessly.</p>
-          <p>Key Metrics Tracked:</p>
-          <p>Followers Count: Know how many Twitter users are following your account. Keep an eye on your follower growth and overall reach.</p>
-          <p>Following Count: Keep track of the number of Twitter accounts you follow. Stay organized and ensure your Twitter feed remains relevant.</p>
-          <p>Likes Count: Monitor the total number of likes (or favorites) your tweets have received. Understand which of your content resonates most with your audience.</p>
-          <p>Lists Count: Discover how many Twitter lists include your account. Being featured in lists can boost your visibility and credibility.</p>
-          <p>Media Count: Find out the total number of images, videos, and media files you've shared on your Twitter account.</p>
-          <p>Tweets Count: Keep tabs on the total number of tweets you've posted. Gauge your activity and presence on the platform.</p>
+          <h1>About YouTube Subscriber Count</h1>
+          <p>YouTube Subscriber Count - A simple and convenient YouTube subscriber counter using the YouTube API!</p>
+          <p>Want to stay updated on your YouTube growth? YouTube Subscriber Count will help you easily track the number of subscribers on your channel. Our tool utilizes the powerful YouTube API to fetch the most up-to-date data about your subscribers and updates the information in real-time.</p>
+          <p>Key features:</p>
+          <p>Subscriber count display: A visually appealing and stylish counter that shows the current number of subscribers on your channel. You'll always know how fast your audience is growing.</p>
+          <p>View count: In addition to subscribers, you can also track the number of views.</p>
+          <p>Video count: Find out how many videos you've uploaded to your channel. Quickly view the total number of videos you've created.</p>
+          <p>Share counter: You can easily share your current subscriber or view count on various platforms and social networks. Let your friends and fans know about your success.</p>
+          <p>Note: We want to emphasize that we are not affiliated with any of the platforms, websites, or games mentioned on our site. We provide this information solely for context and ease of use.</p>
           <br>
-          <p>Share Your Twitter Stats: Easily share your key Twitter metrics with your followers and social network connections. Showcase your online influence.</p>
-          <p>Stay Informed: Use Twitter X Followers Count to stay informed about the growth and performance of your Twitter account. Share your milestones and connect with your audience!</p>
-        </div>        
+          <p>Don't miss out on the growth of your YouTube channel. Use YouTube Subscriber Count to stay informed about changes in your audience and share your achievements with the world!</p>
+        </div>
         <br>
         <footer>
           <div class="cookie-block" id="cookie-banner">
@@ -254,183 +248,240 @@
     </div>
 
 <script>
-var apiData = [];
+var apiData1 = [];
+var apiData2 = [];
 var chart = null;
 var credits = document.querySelector('.highcharts-credits');
-var userid = window.location.href.split('?')[1] || 'elonmusk';
+var channels = window.location.href.split('?').slice(1);
+const iconEl = document.querySelector('.fa-check-circle');
 
-const shareButton = document.getElementById('twitterButton');
-const facebookButton = document.getElementById('facebookButton');
-const linkedInButton = document.getElementById('linkedInButton');
-const pinterestButton = document.getElementById('pinterestButton');
-const emailButton = document.getElementById('emailButton');
-const tgButton = document.getElementById('tgButton');
-const redditButton = document.getElementById('redditButton');
-const whatsappButton = document.getElementById('whatsappButton');
+var channel1 = channels[0] || 'UCX6OQ3DkcsbYNE6H8uQQuVA';
+var channel2 = channels[1] || 'UC-lHJZR3Gqxm24_Vd_AJ5Yw';
 
-const userName = 'superplaycounts';
+const shareButton = document.getElementById('twitterButton'); 
+  const facebookButton = document.getElementById('facebookButton');
+  const linkedInButton = document.getElementById('linkedInButton');
+  const pinterestButton = document.getElementById('pinterestButton');
+  const emailButton = document.getElementById('emailButton');
+  const tgButton = document.getElementById('tgButton');
+  const redditButton = document.getElementById('redditButton');
+  const whatsappButton = document.getElementById('whatsappButton');
 
-let userData = '';
+  const userName = 'superplaycounts';
+  let userData1 = '';
+  let userData2 = '';
 
-shareButton.addEventListener('click', function(event) {
-  event.preventDefault();
+  function updateTitle() {
+    document.title = `${userData1} vs ${userData2} - Youtube Subscriber Count`;
+  }
 
-  const tweetText = `Visit Twitter X Live Follower Counter For ${userData}! https://superplaycounts.github.io/x/?${userid} @${userName}`;
+  shareButton.addEventListener('click', function(event) {
+    event.preventDefault();
 
-  const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
+    const tweetText = `Visit YouTube Live Battle Subscriber Counter ${userData1} vs ${userData2}! ${location.href} @${userName}`;
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
+    window.open(twitterUrl, '_blank');
+  });
 
-  window.open(twitterUrl, '_blank');
-});
+  facebookButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`;
+    window.open(shareUrl, '_blank');
+  });
 
-facebookButton.addEventListener('click', function(event) {
-  event.preventDefault();
+  linkedInButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    const linkedInUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${location.href}&title=Visit YouTube Live Battle Subscriber Counter ${userData1} vs ${userData2}!&summary=Visit YouTube Live Battle Subscriber Counter ${userData1} vs ${userData2}!&source=${location.href}`;
+    window.open(linkedInUrl, '_blank');
+  });
 
-  const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`;
+  pinterestButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    const pinterestUrl = `https://pinterest.com/pin/create/button/?url=${location.href}&description=Visit YouTube Live Battle Subscriber Counter ${userData1} vs ${userData2}!`;
+    window.open(pinterestUrl, '_blank');
+  });
 
-  window.open(shareUrl, '_blank');
-});
+  emailButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    const emailUrl = `mailto:?subject=Visit YouTube Live Battle Subscriber Counter ${encodeURIComponent(userData1)} vs ${encodeURIComponent(userData2)}!&body=${encodeURIComponent(location.href)}`;
+    window.open(emailUrl, '_blank');
+  });
 
-linkedInButton.addEventListener('click', function(event) {
-  event.preventDefault();
+  tgButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    const tgButtonUrl = `https://telegram.me/share/url?text=${encodeURIComponent(`Visit YouTube Live Battle Subscriber Counter ${userData1} vs ${userData2}! ${location.href}`)}&url=https://superplaycounts.github.io/youtube/?${channel}`;
+    window.open(tgButtonUrl, '_blank');
+  });
 
-  const linkedInUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${location.href}&title=Visit Twitter X Live Follower Counter For ${userData}!&summary=Visit YouTube Live Subscriber Counter For ${userData}!&source=${location.href}`;
+  redditButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    const redditButtonUrl = `https://reddit.com/submit/?url=${encodeURIComponent(location.href)}&resubmit=true&title=Visit YouTube Live Battle Subscriber Counter ${encodeURIComponent(userData1)} vs ${encodeURIComponent(userData2)}!`;
+    window.open(redditButtonUrl, '_blank');
+  });
 
-  window.open(linkedInUrl, '_blank');
-});
+  whatsappButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    const whatsappButtonUrl = `whatsapp://send?text=Visit YouTube Live Battle Subscriber Counter ${encodeURIComponent(userData1)} vs ${encodeURIComponent(userData2)}! ${encodeURIComponent(location.href)}`;
+    window.open(whatsappButtonUrl, '_blank');
+  });
 
-pinterestButton.addEventListener('click', function(event) {
-  event.preventDefault();
+const iconEl1 = document.querySelector('#ChanName1 .fa-check-circle');
+const ban1 = document.getElementById('ban1');
+const pfp1 = document.getElementById('pfp1');
+const count1 = document.getElementById('count1');
 
-  const pinterestUrl = `https://pinterest.com/pin/create/button/?url=${location.href}&description=Visit Twitter X Live Follower Counter For ${userData}!`;
+const iconEl2 = document.querySelector('#ChanName2 .fa-check-circle');
+const ban2 = document.getElementById('ban2');
+const pfp2 = document.getElementById('pfp2');
+const count2 = document.getElementById('count2');
 
-  window.open(pinterestUrl, '_blank');
-});
 
-emailButton.addEventListener('click', function(event) {
-  event.preventDefault();
 
-  const emailUrl = `mailto:?subject=Visit Twitter X Live Follower Counter For ${encodeURIComponent(userData)}!&body=${encodeURIComponent(location.href)}`;
+// var apiLink = document.getElementById('api-link');
+// apiLink.href = `api/?${channel}`;
+// var viewslink = document.getElementById('views-link');
+// viewslink.href = `views/?${channel}`;
+// var videoslink = document.getElementById('videos-link');
+// videoslink.href = `videos/?${channel}`;
 
-  window.open(emailUrl, '_blank');
-});
+// apiLink.addEventListener('click', function(event) {
+//   event.preventDefault();
+//   window.location.href = apiLink.href;
+// });
 
-tgButton.addEventListener('click', function(event) {
-  event.preventDefault();
 
-  const tgButtonUrl = `https://telegram.me/share/url?text=${encodeURIComponent(`Visit Twitter X Live Follower Counter For ${userData}! ${location.href}`)}&url=https://superplaycounts.github.io/youtube/?${channel}`;
+function getDataForChannel1() {
+    return fetch('https://api-superplaycounts.onrender.com/api/youtube-channel-counter/user/' + channel1)
+      .then(blob => blob.json())
+      .then(data => {
+        let sub;
+        if (data.ytstudio[0].verified) {
+          sub = Math.round(data.ytstudio[0].count);
+          iconEl1.style.display = 'inline-block';
+        } else {
+          sub = Math.round(data.statistics[0].counts[0].count);
+          iconEl1.style.display = 'none';
+        }
 
-  window.open(tgButtonUrl, '_blank');
-});
+        const bannerUrl = data.statistics[0].user[2].count;
+        const profileUrl = data.statistics[0].user[1].count;
+        userData1 = data.statistics[0].user[0].count;
 
-redditButton.addEventListener('click', function(event) {
-  event.preventDefault();
+        document.querySelector('#ChanName1 span').textContent = userData1;
+        ban1.src = bannerUrl;
+        pfp1.src = profileUrl;
+        count1.innerHTML = sub;
+        apiData1.push([Date.now(), sub]);
 
-  const redditButtonUrl = `https://reddit.com/submit/?url=${encodeURIComponent(location.href)}&resubmit=true&title=Visit Twitter X Live Follower Counter For ${encodeURIComponent(userData)}!`;
+        if (chart) {
+          chart.series[0].setData(apiData1);
+        }
 
-  window.open(redditButtonUrl, '_blank');
-});
+        if (apiData1.length > 8) {
+          apiData1.shift();
+        } else {
+          chart.series[0].addPoint([Date.now(), sub]);
+        }
 
-whatsappButton.addEventListener('click', function(event) {
-  event.preventDefault();
+        updateTitle();
+        return sub;
+      });
+  }
 
-  const whatsappButtonUrl = `whatsapp://send?text=Visit Twitter X Live Follower Counter For ${encodeURIComponent(userData)}! ${encodeURIComponent(location.href)}`;
+  function getDataForChannel2() {
+    return fetch('https://api-superplaycounts.onrender.com/api/youtube-channel-counter/user/' + channel2)
+      .then(blob => blob.json())
+      .then(data => {
+        let sub;
+        if (data.ytstudio[0].verified) {
+          sub = Math.round(data.ytstudio[0].count);
+          iconEl2.style.display = 'inline-block';
+        } else {
+          sub = Math.round(data.statistics[0].counts[0].count);
+          iconEl2.style.display = 'none';
+        }
 
-  window.open(whatsappButtonUrl, '_blank');
-});
+        const bannerUrl = data.statistics[0].user[2].count;
+        const profileUrl = data.statistics[0].user[1].count;
+        userData2 = data.statistics[0].user[0].count;
 
-var followersLink = document.getElementById('followers-link');
-followersLink.href = `/x/?${userid}`;
-var likesLink = document.getElementById('likes-link');
-likesLink.href = `/x/following/?${userid}`;
-var listsLink = document.getElementById('lists-link');
-listsLink.href = `/x/lists/?${userid}`;
-var mediasLink = document.getElementById('media-link');
-mediasLink.href = `/x/media/?${userid}`;
-var tweetsLink = document.getElementById('tweets-link');
-tweetsLink.href = `/x/tweets/?${userid}`;
+        document.querySelector('#ChanName2 span').textContent = userData2;
+        ban2.src = bannerUrl;
+        pfp2.src = profileUrl;
+        count2.innerHTML = sub;
+        apiData2.push([Date.now(), sub]);
 
-function getData() {
-  fetch('https://api-superplaycounts.onrender.com/api/x-user-counter/user/' + userid)
-    .then(blob => blob.json())
-    .then(data => {
-      const followrs = Math.round(data.counts[3].count);
-      count.innerHTML = followrs;
-      const followerxcounts = Math.round(data.counts[0].count);
-      followersxcounts.innerHTML = followerxcounts;
-      const likescount = Math.round(data.counts[2].count);
-      likescounts.innerHTML = likescount;
-      const listscount = Math.round(data.counts[4].count);
-      listscounts.innerHTML = listscount;
-      const mediacount = Math.round(data.counts[5].count);
-      mediascounts.innerHTML = mediacount;
-      const tweetcount = Math.round(data.counts[6].count);
-      tweetscounts.innerHTML = tweetcount;
+        if (chart) {
+          chart.series[1].setData(apiData2);
+        }
 
-      ban.src = data.user[2].count;
-      pfp.src = data.user[1].count;
+        if (apiData2.length > 8) {
+          apiData2.shift();
+        } else {
+          chart.series[1].addPoint([Date.now(), sub]);
+        }
 
-      ChanName.querySelector('span').textContent = data.user[0].count;
-      document.title = `${data.user[0].count} - Likes Count`;
-      apiData.push([Date.now(), followrs]);
+        updateTitle();
+        return sub;
+      });
+  }
 
-      if (chart) {
-        chart.series[0].setData(apiData);
-      }
-      if (apiData.length > 8) {
-        apiData.shift();
-        chart.series[0].setData(apiData);
-      } else {
-        chart.series[0].addPoint([Date.now(), sub]);
-      }
-
-      userData = data.user[0].count;
-    });
+function updateDifference(sub1, sub2) {
+    const difference = sub1 - sub2;
+    document.getElementById('difference').innerHTML = difference;
 }
 
-getData();
+function updateData() {
+    Promise.all([getDataForChannel1(), getDataForChannel2()])
+        .then(([sub1, sub2]) => {
+            updateDifference(sub1, sub2);
+        })
+        .catch(error => console.error('Error fetching data:', error));
+}
 
-setInterval(getData, 5000);
+updateData();
+setInterval(updateData, 5000);
 
 Highcharts.chart('container', {
-  chart: {
-    backgroundColor: 'transparent',
-    type: 'line',
-    zoomType: 'x'
-  },
-  title: {
-    text: ''
-  },
-  xAxis: {
-    type: 'datetime',
-    tickPixelInterval: 25
-  },
-  yAxis: {
+    chart: {
+        backgroundColor: 'transparent',
+        type: 'line',
+        zoomType: 'x'
+    },
     title: {
-      text: ''
+        text: 'Comparison of Subscribers'
     },
-    type: 'linear'
-  },
-  plotOptions: {
-    series: {
-        threshold: null,
-        fillOpacity: 0.25
+    xAxis: {
+        type: 'datetime',
+        tickPixelInterval: 25
     },
-    area: {
-        fillOpacity: 0.25
-    }
-  },
-  credits: {
-    text: 'superplaycounts.github.io',
-    href: 'https://superplaycounts.github.io/',
-  },
-  series: [{
-    name: 'Likes',
-    data: apiData,
-    color: '#707B7C'
-  }]
+    yAxis: {
+        title: {
+            text: 'Subscribers'
+        },
+        type: 'linear'
+    },
+    credits: {
+        text: 'superplaycounts.github.io',
+        href: 'https://superplaycounts.github.io/'
+    },
+    series: [
+        {
+            name: 'Channel 1 Subscribers',
+            data: apiData1,
+            color: 'red'
+        },
+        {
+            name: 'Channel 2 Subscribers',
+            data: apiData2,
+            color: 'blue'
+        }
+    ]
 }, function (ch) {
-  chart = ch;
+    chart = ch;
 });
+
+
 
 embd.innerHTML += `${ location.origin }/embed${location.pathname}${location.search}`;
 embddark.innerHTML += `${ location.origin }/embed/dark${location.pathname}${location.search}`;
@@ -448,6 +499,7 @@ setTimeout(() => {
     copyText.innerHTML = `${location.origin}/embed${location.pathname}${location.search}`;
 }, 1000)
 }
+
 function copyembeddark() {
 var copyTextdark = document.getElementById("embddark");
 navigator.clipboard.writeText(`${location.origin}/embed/dark${location.pathname}${location.search}`);
@@ -456,6 +508,7 @@ setTimeout(() => {
   copyTextdark.innerHTML = `${location.origin}/embed/dark${location.pathname}${location.search}`;
 }, 1000)
 }
+
 function copyembedwebsite() {
   var copyTextembd2 = document.getElementById("embd2");
   navigator.clipboard.writeText(`<iframe height="103px" width="355px" frameborder="0" src=${location.origin}/embed${location.pathname}${location.search} style="border: 0; width:355px; height:103px; overflow: hidden;" scrolling="no"></iframe>`);

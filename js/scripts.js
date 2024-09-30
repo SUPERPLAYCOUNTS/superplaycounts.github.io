@@ -1,23 +1,5 @@
 let header__burger = document.querySelector('.header__burger');
 let header__menu = document.querySelector('.header__menu');
-// const countElement = document.getElementById('count_online');
-
-// const socket = new WebSocket('wss://testnodejs.superplaycounts.repl.co/');
-
-// socket.addEventListener('message', function(event) {
-//   const count_online = event.data;
-//   countElement.innerText = count_online;
-// });
-
-// window.addEventListener('beforeunload', function() {
-//   socket.close();
-// });
-
-// setInterval(function() {
-//   socket.send('getCount');
-// }, 5000);
-
-
 
 header__burger.addEventListener('click', function(){
 	header__burger.classList.toggle('active');
