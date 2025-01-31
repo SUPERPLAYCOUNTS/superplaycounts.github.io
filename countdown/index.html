@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SUPERPLAYCOUNTS - LIVE COUNTS COMPARE</title>
+  <title>SUPERPLAYCOUNTS Countdown</title>
   <meta name="description" content="With this site you can see various counters, subscribers, viewers in real time!" />
   <meta name="theme-color" content="#c8c8c8" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 
   <meta name="image" content="//superplaycounts.github.io/favicon.ico">
-  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="shortcut icon" href="/favicon.ico">
   <link rel="icon" href="/img/icon-sites.png">
   <style>
     .notification {
@@ -39,9 +39,6 @@
   background-color: transparent;
   cursor: pointer;
 }
-.MIXADVERT_NET {
-  z-index: 0;
-}
   </style>
 
   <!-- Twitter Card -->
@@ -50,7 +47,7 @@
   <meta name="twitter:url" content="https://superplaycounts.github.io/" />
   <meta name="twitter:title" content="SUPERPLAYCOUNTS" />
   <meta name="twitter:description" content="With this site you can see various counters, subscribers, viewers in real time!" />
-  <meta name="twitter:image" content="https://api.microlink.io/?url=https://superplaycounts.github.io/compare/&screenshot=true&meta=false&embed=screenshot.url" />
+  <meta name="twitter:image" content="https://api.microlink.io/?url=https://superplaycounts.github.io/countdown/index.html&screenshot=true&meta=false&embed=screenshot.url" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -58,7 +55,7 @@
   <meta property="og:description" content="With this site you can see various counters, subscribers, viewers in real time!" />
   <meta property="og:site_name" content="SUPERPLAYCOUNTS" />
   <meta property="og:url" content="https://superplaycounts.github.io/" />
-  <meta property="og:image" content="https://api.microlink.io/?url=https://superplaycounts.github.io/compare/&screenshot=true&meta=false&embed=screenshot.url" />
+  <meta property="og:image" content="https://api.microlink.io/?url=https://superplaycounts.github.io/countdown/index.html&screenshot=true&meta=false&embed=screenshot.url" />
 
   <link rel="manifest" href="/manifest.json" />
   <link rel="stylesheet" href="/css/styles.css">
@@ -69,7 +66,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1131093589390960"
      crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script async src="https://unpkg.com/pwacompat" crossOrigin="anonymous"></script>
   <link rel="stylesheet" href="/css/odometer.css">
 
@@ -94,7 +91,7 @@
     <div class="header__menu">
       <ul class="header__list">
         <li>
-            <a href="/countdown/" class="header__link">Countdown</a>
+            <a href="/timer/" class="header__link">Countdown</a>
         </li>
         <li>
           <a href="/compare/" class="header__link">Compare (beta)</a>
@@ -119,33 +116,31 @@
     <div class="main__container">
       <div class="main__menu">
         <img src="/img/icon-sites.png">
-        <h1>SUPERPLAYCOUNTS</h1>
-        <p>With this site you can see various counters, subscribers, viewers in real time!</p>
-        <br>
-        <h3>Platforms</h3>
-        <p>These work in compare.</p>
-        <ul>
-          <li>
-            <a href="/youtube/search.html" style="color:#ff0000"><i class="fa-brands fa-youtube"></i></a>
-            <!-- <a href="/x/search.html"><i class="fa-brands fa-x-twitter"></i></a> -->
-          </li>
-        </ul>
+        <h1>SUPERPLAYCOUNTS Countdown</h1>
+        <p>You can watch the countdown!</p>
       </div>
       <hr class="grops">
       <div id="grid">
         <div class="grid-item">
-          <h2>YouTube</h2>
           <div class="items__links">
-            <a href="/compare/youtube/search.html">Subscriber Count</a>
-            <!-- <a href="/youtube/video/search.html">View Count</a> -->
+            <a href="birthday-superplay.html">Birthday SUPER PLAY</a>
           </div>
         </div>
-        <!-- <div class="grid-item">
-          <h2>Twitter X</h2>
+        <div class="grid-item">
           <div class="items__links">
-            <a href="/x/search.html">Followers Count</a>
+            <a href="new-year-2026.html">Иew year</a>
           </div>
-        </div> -->
+        </div>
+        <div class="grid-item">
+          <div class="items__links">
+            <a href="Summer.html">Summer</a>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="items__links">
+            <a href="/countdown/create/">Create</a>
+          </div>
+        </div>
       </div>
       <br>
       <br>
@@ -153,42 +148,37 @@
       <br>
       <br>
       <div class="Counter shadow-xl w-full lg:w-[90%]" id="bbvbktriejkjn">
-        <div id="disqus_thread">
-          <button class="ms-button" style="width: 80% !important; max-width: 100%; padding: 20px !important;" onclick="loadDisqus()">Load Comments</button>
-        </div>
+        <div id="disqus_thread"><button class="ms-button" style="width: 80% !important;
+          max-width: 100%;padding:20px !important;" onclick="loadDisqus()">Load Comments</button></div>
         <script>
-          if (location.pathname != "/" && location.pathname != "" && location.pathname.split('/').length == 2) {
-            bbvbktriejkjn.style.display = "none";
+          if(location.pathname != "/" && location.pathname != "" && location.pathname.split('/').length == 2) {
+            bbvbktriejkjn.style.display = "none"
           }
-      
-          var disqus_config = function() {
-            this.page.url = `https://superplaycounts.github.io${location.pathname}`;
-            this.page.identifier = btoa(`https://superplaycounts.github.io${location.pathname}`);
+          /**
+          *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+          *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+          
+          var disqus_config = function () {
+          this.page.url = `https://superplaycounts.github.io${location.pathname}`;  // Replace PAGE_URL with your page's canonical URL variable
+          this.page.identifier = btoa(`https://superplaycounts.github.io${location.pathname}`); // Replace PAGE_IDENTIFIER with your page's unique identifier variable
           };
-      
+          
           function loadDisqus() {
-            const mixadvElement = document.createElement('div');
-            mixadvElement.id = 'MIXADV_9821';
-            mixadvElement.className = 'MIXADVERT_NET';
-      
-            var d = document,
-              s = d.createElement('script');
-            s.src = 'https://superplaycounts.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-      
-            const disqusThreadElement = document.getElementById('disqus_thread');
-            disqusThreadElement.parentNode.insertBefore(mixadvElement, disqusThreadElement);
+              (function () { // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+                s.src = 'https://superplaycounts.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+              })();
           }
         </script>
       </div>
       <br>
       <br>
       <br>
-      <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'B0B6E1LN3');kofiwidget2.draw();</script>
+      <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'B0B6E1LN3');kofiwidget2.draw();</script> 
       <br>
       <div id="MIXADV_9822" class="MIXADVERT_NET"></div>
-      <br>
       <br>
       <br>
       <footer>
@@ -202,7 +192,7 @@
           <hr style="height:0;color:inherit;border-top-width:1px;">
           <div>
             <div class="textleftcr">
-              <a href="privacy-policy.html" style="color: gray; text-decoration: none; text-align: center;">Primary Policy</a>
+              <a href="/privacy-policy.html" style="color: gray; text-decoration: none; text-align: center;">Primary Policy</a>
             </div>
             <p class="textrightcr">
               &#169;
@@ -230,40 +220,6 @@
       });
     }
   </script>
-  <script>
-    let reddit = false;
-    let roblox = false;
-    let instagram = false;
-    let Likee = false;
-    let spotify = false;
-    let wall = false;
-    let redditgriditem = document.getElementById("reddit-grid-item");
-    let robloxgriditem = document.getElementById("roblox-grid-item");
-    let instagramgriditem = document.getElementById("instagram-grid-item");
-    let likeegriditem = document.getElementById("likee-grid-item");
-    let spotifygriditem = document.getElementById("spotify-grid-item");
-    let wallsgriditem = document.getElementById("walls-grid-item");
-  
-    if (reddit === false) {
-	    redditgriditem.style.display = "none";
-    }
-    if (roblox === false) {
-	    robloxgriditem.style.display = "none";
-    }
-    if (instagram === false) {
-	    instagramgriditem.style.display = "none";
-    }
-    if (Likee === false) {
-	    likeegriditem.style.display = "none";
-    }
-    if (spotify === false) {
-	    spotifygriditem.style.display = "none";
-    }
-    if (wall === false) {
-      wallsgriditem.style.display = "none";
-    }
-  </script>
-  <script type="text/javascript" src="https://m.mixadvert.com/show/?id=9821" async></script>
   <script type="text/javascript" src="https://m.mixadvert.com/show/?id=9822" async></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-B5TEVSVZ74"></script>
 <script>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>SUPERPLAYCOUNTS API - Requests Count</title>
+    <title>Countdown</title>
     <meta name="description" content="With this site you can see various counters, subscribers, viewers in real time!" />
     <meta name="theme-color" content="#c8c8c8" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -20,7 +20,7 @@
     <meta name="twitter:url" content="https://superplaycounts.github.io/" />
     <meta name="twitter:title" content="SUPERPLAYCOUNTS" />
     <meta name="twitter:description" content="With this site you can see various counters, subscribers, viewers in real time!" />
-    <meta name="twitter:image" content="https://api.microlink.io/?url=https://superplaycounts.github.io/api/requests&screenshot=true&meta=false&embed=screenshot.url" />
+    <meta name="twitter:image" content="https://api.microlink.io/?url=https://superplaycounts.github.io/countdown/create/index.html&screenshot=true&meta=false&embed=screenshot.url" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -28,11 +28,11 @@
     <meta property="og:description" content="With this site you can see various counters, subscribers, viewers in real time!" />
     <meta property="og:site_name" content="SUPERPLAYCOUNTS" />
     <meta property="og:url" content="https://superplaycounts.github.io/" />
-    <meta property="og:image" content="https://api.microlink.io/?url=https://superplaycounts.github.io/api/requests&screenshot=true&meta=false&embed=screenshot.url" />
+    <meta property="og:image" content="https://api.microlink.io/?url=https://superplaycounts.github.io/countdown/create/index.html&screenshot=true&meta=false&embed=screenshot.url" />
 
 
     <link rel="manifest" href="/manifest.json" />
-    <link rel="stylesheet" href="/css/odometer.css">
+    <link rel="stylesheet" href="/css/odometer-timer.css">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/statastyle.css">
     <link rel="stylesheet" id="theme-stylesheet" href="/css/light.css">
@@ -44,9 +44,6 @@
      crossorigin="anonymous"></script>
     <script async src="https://unpkg.com/pwacompat" crossOrigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
 
     <!-- Apple touch icon -->
     <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-touch-icon_120.png" />
@@ -91,27 +88,37 @@
     </nav>
     <div class="main__subs">
         <div class="card">
-          <div class="card__banner">
-            <img src="https://superplaycounts.github.io/img/icon-sites.png" alt="" id="ban">
-            <img src="https://superplaycounts.github.io/img/icon-sites.png" alt="" id="pfp">
-          </div>
           <div class="card__title">
-            <div id="ChanName"><span>Loading</span></div>
+            <div id="ChanName"><span>Title..</span></div>
           </div>
           <center>
-            <div id="count" class="odometer">0</div>
+            <div class="countdown">
+                <div id="days" class="countdown-item odometer"></div>
+                <span>:</span>
+                <div id="hours" class="countdown-item odometer"></div>
+                <span>:</span>
+                <div id="minutes" class="countdown-item odometer"></div>
+                <span>:</span>
+                <div id="seconds" class="countdown-item odometer"></div>
+              </div>
           </center>
-          <h2>Requests</h2>
           <p style="display: flex; justify-content: flex-end; padding: 5px 15px; color: grey; cursor: default;">Powered by superplaycounts.github.io</p>
         </div>
         <br>
-        <div style="display: block; text-align: center; justify-content: center;">
-          <h1>Gain Rate Averages</h1>
-          <div id="countElement"></div>
+        <br>
+        <br>
+        <div class="boxcreate">
+          <form>
+            <center>
+              <input type="text" id="timername" placeholder="Countdown name" value="Title..">
+              <br>
+              <input id="party" type="datetime-local" name="partydate" />
+              <br>
+              <button type="button" id="createcd" class="cd-btn" onclick="startCountdown()">Go</button><br><br>
+              <button style="width: 100%!important; padding: 10px; border-color: rgba(0, 0, 0, 0.500); border: 0.5px solid rgba(0,0,0,.500); border-radius: 0; background-color: rgb(22, 22, 22); vertical-align: middle; color: white; font-size: inherit;" class="tooltiptext" onclick="copyEmbed()" type="button" id="embd">Copy Link</button>
+            </center>
+          </form>
         </div>
-        <br>
-        <div id="container"></div>
-        <br>
         <br>
         <br>
         <div class="Counter shadow-xl w-full lg:w-[90%]" id="bbvbktriejkjn">
@@ -173,101 +180,95 @@
     </div>
 
 <script>
-var apiData = [];
-var chart = null;
-var credits = document.querySelector('.highcharts-credits');
+const countdownItems = document.querySelectorAll('.countdown-item');
+let countdownInterval;
+let endDate;
 
-var prevApiValue = 0;
+function countdown() {
+  const currentDate = new Date();
+  const totalSeconds = (endDate - currentDate) / 1000;
 
-function getData() {
-  fetch('https://api-superplaycounts.onrender.com/api/requests')
-    .then(blob => blob.json())
-    .then(data => {
-      const api = Math.round(data.totalapirequests);
-      document.title = `SUPERPLAYCOUNTS API - Requests Count`;
-      apiData.push([Date.now(), api]);
-      const ChanName = document.getElementById("ChanName");
+  if (totalSeconds <= 0) {
+    clearInterval(countdownInterval);
+    countdownItems[0].innerHTML = 0;
+    countdownItems[1].innerHTML = 0;
+    countdownItems[2].innerHTML = 0;
+    countdownItems[3].innerHTML = 0;
+    return;
+  }
 
-      if (chart) {
-        chart.series[0].setData(apiData);
-      }
-      if (apiData.length > 8) {
-        apiData.shift();
-        chart.series[0].setData(apiData);
-      } else {
-        chart.series[0].addPoint([Date.now(), api]);
-      }
+  const days = Math.floor(totalSeconds / 3600 / 24);
+  const hours = Math.floor(totalSeconds / 3600) % 24;
+  const minutes = Math.floor(totalSeconds / 60) % 60;
+  const seconds = Math.floor(totalSeconds) % 60;
 
-      const diff = api - prevApiValue;
-      prevApiValue = api;
-
-      const seconds = 5;
-      const minutes = seconds / 60;
-      const hours = minutes / 60;
-      const days = hours / 24;
-
-      const ratePerSecond = diff / seconds;
-      const ratePerMinute = diff / minutes;
-      const ratePerHour = diff / hours;
-      const ratePerDay = diff / days;
-
-      const text = `${ratePerSecond.toFixed(2)} Sec, ${ratePerMinute.toFixed(2)} Min, ${ratePerHour.toFixed(2)} Hour, ${ratePerDay.toFixed(2)} Day`;
-
-      const countElement = document.getElementById("countElement");
-      countElement.innerHTML = text;
-
-      ChanName.innerHTML = "SUPERPLAYCOUNTS API";
-      count.innerHTML = api;
-    });
+  countdownItems[0].innerHTML = days;
+  countdownItems[1].innerHTML = hours;
+  countdownItems[2].innerHTML = minutes;
+  countdownItems[3].innerHTML = seconds;
 }
 
-getData();
-setInterval(getData, 5000);
+function startCountdown() {
+  clearInterval(countdownInterval);
+  const partyDateInput = document.getElementById('party').value;
+  const selectedDate = new Date(partyDateInput);
+  const timerNameInput = document.getElementById('timername').value.trim();
 
+  if (timerNameInput === '') {
+    alert('Enter a name for the timer.');
+    return;
+  }
 
+  if (selectedDate <= new Date()) {
+    alert('The entered date must be in the future.');
+    return;
+  }
 
+  endDate = selectedDate;
+  countdown();
+  countdownInterval = setInterval(countdown, 1000);
+  document.getElementById('ChanName').innerHTML = '<span>' + timerNameInput + '</span>';
 
-Highcharts.chart('container', {
-  chart: {
-    backgroundColor: 'transparent',
-    type: 'line',
-    zoomType: 'x'
-  },
-  title: {
-    text: ''
-  },
-  xAxis: {
-    type: 'datetime',
-    tickPixelInterval: 25
-  },
-  yAxis: {
-    title: {
-      text: ''
-    },
-    type: 'linear'
-  },
-  plotOptions: {
-    series: {
-        threshold: null,
-        fillOpacity: 0.25
-    },
-    area: {
-        fillOpacity: 0.25
-    }
-  },
-  credits: {
-    text: 'superplaycounts.github.io',
-    href: 'https://superplaycounts.github.io/',
-  },
-  series: [{
-    name: 'Requests',
-    data: apiData,
-    color: 'yellow'
-  }]
-}, function (ch) {
-  chart = ch;
-});
+  const newUrl = `${window.location.origin}/countdown/create/?timername=${encodeURIComponent(timerNameInput)}&party=${encodeURIComponent(partyDateInput)}`;
+  history.pushState(null, '', newUrl);
+  updateEmbedLink(newUrl);
+}
+
+function copyEmbed() {
+  const embedLink = document.getElementById('embd').textContent;
+  navigator.clipboard.writeText(embedLink).then(() => {
+    const button = document.getElementById('embd');
+    const originalText = button.textContent;
+    button.textContent = `Copied: ${embedLink}`;
+    setTimeout(() => {
+      button.textContent = originalText;
+    }, 2000);
+  });
+}
+
+function updateEmbedLink(url) {
+  document.getElementById('embd').textContent = url;
+}
+
+function initCountdownFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  const timerName = params.get('timername');
+  const partyDate = params.get('party');
+
+  if (timerName && partyDate) {
+    document.getElementById('timername').value = timerName;
+    document.getElementById('party').value = partyDate;
+    endDate = new Date(partyDate);
+    document.getElementById('ChanName').innerHTML = '<span>' + timerName + '</span>';
+    countdown();
+    countdownInterval = setInterval(countdown, 1000);
+    updateEmbedLink(window.location.href);
+  }
+}
+
+window.onload = initCountdownFromUrl;
 </script>
+
 <script src="/js/odometer.js"></script>
 <script src="/js/cookie.js"></script>
 <script src="/js/scripts.js"></script>

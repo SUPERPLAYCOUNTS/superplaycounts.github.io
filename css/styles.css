@@ -289,7 +289,7 @@ h2
     width: 90%;
     display: block;
 }
-.boxcreate button {
+.boxcreate .cd-btn {
     box-shadow: 0px 0px 0px 2px #9fb4f2;
 	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
 	background-color:#7892c2;
@@ -304,12 +304,12 @@ h2
 	text-shadow:0px 1px 0px #283966;
     transition: 0.8s !important;
 }
-.boxcreate button:hover {
+.boxcreate .cd-btn:hover {
     background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
 	background-color:#476e9e;
     transition: 0.8s !important;
 }
-.boxcreate button:active {
+.boxcreate .cd-btn:active {
     position:relative;
 	top:1px;
 }
