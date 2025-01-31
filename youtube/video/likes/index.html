@@ -68,7 +68,7 @@
         <div class="header__menu">
           <ul class="header__list">
               <li>
-                  <a href="/timer/" class="header__link">Timer</a>
+                  <a href="/countdown/" class="header__link">Countdown</a>
               </li>
               <li>
                 <a href="/compare/" class="header__link">Compare (beta)</a>
@@ -255,7 +255,7 @@ let userData = '';
 shareButton.addEventListener('click', function(event) {
   event.preventDefault();
 
-  const tweetText = `Visit YouTube Live View Counter For ${userData}! https://superplaycounts.github.io/youtube/video/?${channel} @${userName}`;
+  const tweetText = `Visit YouTube Live View Counter ${userData}! https://superplaycounts.github.io/youtube/video/?${channel} @${userName}`;
 
   const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
 
@@ -273,7 +273,7 @@ facebookButton.addEventListener('click', function(event) {
 linkedInButton.addEventListener('click', function(event) {
   event.preventDefault();
 
-  const linkedInUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${location.href}&title=Visit YouTube Live Subscriber Counter For ${userData}!&summary=Visit YouTube Live Subscriber Counter For ${userData}!&source=${location.href}`;
+  const linkedInUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${location.href}&title=Visit YouTube Live Subscriber Counter ${userData}!&summary=Visit YouTube Live Subscriber Counter ${userData}!&source=${location.href}`;
 
   window.open(linkedInUrl, '_blank');
 });
@@ -281,7 +281,7 @@ linkedInButton.addEventListener('click', function(event) {
 pinterestButton.addEventListener('click', function(event) {
   event.preventDefault();
 
-  const pinterestUrl = `https://pinterest.com/pin/create/button/?url=${location.href}&description=Visit YouTube Live Subscriber Counter For ${userData}!`;
+  const pinterestUrl = `https://pinterest.com/pin/create/button/?url=${location.href}&description=Visit YouTube Live Subscriber Counter ${userData}!`;
 
   window.open(pinterestUrl, '_blank');
 });
@@ -289,7 +289,7 @@ pinterestButton.addEventListener('click', function(event) {
 emailButton.addEventListener('click', function(event) {
   event.preventDefault();
 
-  const emailUrl = `mailto:?subject=Visit YouTube Live Subscriber Counter For ${encodeURIComponent(userData)}!&body=${encodeURIComponent(location.href)}`;
+  const emailUrl = `mailto:?subject=Visit YouTube Live Subscriber Counter ${encodeURIComponent(userData)}!&body=${encodeURIComponent(location.href)}`;
 
   window.open(emailUrl, '_blank');
 });
@@ -297,7 +297,7 @@ emailButton.addEventListener('click', function(event) {
 tgButton.addEventListener('click', function(event) {
   event.preventDefault();
 
-  const tgButtonUrl = `https://telegram.me/share/url?text=${encodeURIComponent(`Visit YouTube Live Subscriber Counter For ${userData}! ${location.href}`)}&url=https://superplaycounts.github.io/youtube/?${channel}`;
+  const tgButtonUrl = `https://telegram.me/share/url?text=${encodeURIComponent(`Visit YouTube Live Subscriber Counter ${userData}! ${location.href}`)}&url=https://superplaycounts.github.io/youtube/?${channel}`;
 
   window.open(tgButtonUrl, '_blank');
 });
@@ -305,7 +305,7 @@ tgButton.addEventListener('click', function(event) {
 redditButton.addEventListener('click', function(event) {
   event.preventDefault();
 
-  const redditButtonUrl = `https://reddit.com/submit/?url=${encodeURIComponent(location.href)}&resubmit=true&title=Visit YouTube Live Subscriber Counter For ${encodeURIComponent(userData)}!`;
+  const redditButtonUrl = `https://reddit.com/submit/?url=${encodeURIComponent(location.href)}&resubmit=true&title=Visit YouTube Live Subscriber Counter ${encodeURIComponent(userData)}!`;
 
   window.open(redditButtonUrl, '_blank');
 });
@@ -313,7 +313,7 @@ redditButton.addEventListener('click', function(event) {
 whatsappButton.addEventListener('click', function(event) {
   event.preventDefault();
 
-  const whatsappButtonUrl = `whatsapp://send?text=Visit YouTube Live Subscriber Counter For ${encodeURIComponent(userData)}! ${encodeURIComponent(location.href)}`;
+  const whatsappButtonUrl = `whatsapp://send?text=Visit YouTube Live Subscriber Counter ${encodeURIComponent(userData)}! ${encodeURIComponent(location.href)}`;
 
   window.open(whatsappButtonUrl, '_blank');
 });
@@ -348,6 +348,8 @@ function getData() {
       likescounts.innerHTML = views;
       dislikescounts.innerHTML = dislike;
       commentscounts.innerHTML = comment;
+
+      userData = data.user[0].count;
     })
 }
 

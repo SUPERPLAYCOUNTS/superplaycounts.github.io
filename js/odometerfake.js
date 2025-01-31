@@ -24,9 +24,9 @@ function submit() {
   if (typeof count === "undefined") {
     return alert("Count must be a number.");
   }
-  if (count < -1e12 || count > 1e12) {
+  if (count < -1e15 || count > 1e15) {
     return alert(
-      "Count must be between -1 000 000 000 000 and 1 000 000 000 000."
+      "Count must be between -1 000 000 000 000 000 and 1 000 000 000 000 000."
     );
   }
 
@@ -42,27 +42,27 @@ function submit() {
     rate = rate / 3600; // convert rate from subs/hour to subs/second
   }
 
-  if (rate > 1e12 || rate < -1e12) {
+  if (rate > 1e15 || rate < -1e15) {
     return alert(
-      "Rate must be between -1 000 000 000 000 and 1 000 000 000 000."
+      "Rate must be between -1 000 000 000 000 000 and 1 000 000 000 000 000."
     );
   }
 
-  if (rateOption.value == "mins" && (rate > 1e9 / 60 || rate < -1e9 / 60)) {
+  if (rateOption.value == "mins" && (rate > 1e12 / 60 || rate < -1e12 / 60)) {
     return alert(
-      "Rate must be between -1 000 000 000 and 1 000 000 000 subscribers per minute."
+      "Rate must be between -1 000 000 000 000 and 1 000 000 000 000 subscribers per minute."
     );
   }
 
-  if (rateOption.value == "secs" && (rate > 1e9 || rate < -1e9)) {
+  if (rateOption.value == "secs" && (rate > 1e12 || rate < -1e12)) {
     return alert(
-      "Rate must be between -1 000 000 000 and 1 000 000 000 subscribers per second."
+      "Rate must be between -1 000 000 000 000 and 1 000 000 000 000 subscribers per second."
     );
   }
 
-  if (rateOption.value == "hrs" && (rate > 1e9 / 3600 || rate < -1e9 / 3600)) {
+  if (rateOption.value == "hrs" && (rate > 1e12 / 3600 || rate < -1e12 / 3600)) {
     return alert(
-      "Rate must be between -1 000 000 000 and 1 000 000 000 subscribers per hour."
+      "Rate must be between -1 000 000 000 000 and 1 000 000 000 000 subscribers per hour."
     );
   }
 }
