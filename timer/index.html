@@ -5,12 +5,12 @@
     <title>Redirecting...</title>
     <script>
         var currentPath = window.location.pathname;
-        var searchParams = window.location.search;
+        var baseUrl = "https://superplaycounts.github.io";
 
-        if (currentPath.startsWith('/timer/')) {
-            var newPath = currentPath.replace('/timer/', '/countdown/');
+        if (currentPath.includes('/timer/')) {
+            var newPath = currentPath.replace(/\/timer\//, '/countdown/');
 
-            window.location.href = newPath + searchParams;
+            window.location.href = baseUrl + newPath + window.location.search;
         }
     </script>
 </head>
