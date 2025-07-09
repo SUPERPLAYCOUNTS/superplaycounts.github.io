@@ -112,7 +112,7 @@
             <center>
                 <div id="count" class="odometer">0</div>
             </center>
-            <h2>Clicks</h2>
+            <h2>Followers</h2>
             <p style="display: flex; justify-content: flex-end; padding: 5px 15px; color: grey; cursor: default;">
                 Powered by superplaycounts.github.io</p>
         </div>
@@ -262,37 +262,37 @@
 
         linkedInButton.addEventListener('click', function (event) {
             event.preventDefault();
-            const linkedInUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(location.href)}&title=${encodeURIComponent('Visit GC Live Clicks Count for ' + userDataName)}&summary=${encodeURIComponent('Real-time click counts on SUPERPLAYCOUNTS for ' + userDataName)}&source=${encodeURIComponent(location.href)}`;
+            const linkedInUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(location.href)}&title=${encodeURIComponent('Visit Tiktok Live Followers Count for ' + userDataName)}&summary=${encodeURIComponent('Real-time Tiktok Followers counts on SUPERPLAYCOUNTS for ' + userDataName)}&source=${encodeURIComponent(location.href)}`;
             window.open(linkedInUrl, '_blank');
         });
 
         pinterestButton.addEventListener('click', function (event) {
             event.preventDefault();
-            const pinterestUrl = `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(location.href)}&description=${encodeURIComponent('Visit GC Live Clicks Count for ' + userDataName)}`;
+            const pinterestUrl = `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(location.href)}&description=${encodeURIComponent('Visit Tiktok Live Followers Count for ' + userDataName)}`;
             window.open(pinterestUrl, '_blank');
         });
 
         emailButton.addEventListener('click', function (event) {
             event.preventDefault();
-            const emailUrl = `mailto:?subject=${encodeURIComponent('Visit GC Live Clicks Count for ' + userDataName)}&body=${encodeURIComponent('Check out the real-time click count: ' + location.href)}`;
+            const emailUrl = `mailto:?subject=${encodeURIComponent('Visit Tiktok Live Followers Count for ' + userDataName)}&body=${encodeURIComponent('Check out the real-time click count: ' + location.href)}`;
             window.open(emailUrl, '_blank');
         });
 
         tgButton.addEventListener('click', function (event) {
             event.preventDefault();
-            const tgButtonUrl = `https://telegram.me/share/url?url=${encodeURIComponent(location.href)}&text=${encodeURIComponent('Visit GC Live Clicks Count for ' + userDataName + '!')}`;
+            const tgButtonUrl = `https://telegram.me/share/url?url=${encodeURIComponent(location.href)}&text=${encodeURIComponent('Visit Tiktok Live Followers Count for ' + userDataName + '!')}`;
             window.open(tgButtonUrl, '_blank');
         });
 
         redditButton.addEventListener('click', function (event) {
             event.preventDefault();
-            const redditButtonUrl = `https://reddit.com/submit/?url=${encodeURIComponent(location.href)}&title=${encodeURIComponent('Visit GC Live Clicks Count for ' + userDataName)}`;
+            const redditButtonUrl = `https://reddit.com/submit/?url=${encodeURIComponent(location.href)}&title=${encodeURIComponent('Visit Tiktok Live Followers Count for ' + userDataName)}`;
             window.open(redditButtonUrl, '_blank');
         });
 
         whatsappButton.addEventListener('click', function (event) {
             event.preventDefault();
-            const whatsappButtonUrl = `whatsapp://send?text=${encodeURIComponent('Visit GC Live Clicks Count for ' + userDataName + '! ' + location.href)}`;
+            const whatsappButtonUrl = `whatsapp://send?text=${encodeURIComponent('Visit Tiktok Live Followers Count for ' + userDataName + '! ' + location.href)}`;
             window.open(whatsappButtonUrl, '_blank');
         });
 
@@ -325,6 +325,9 @@
                     apiData.push(newPoint);
                     if (apiData.length > 8) {
                         apiData.shift();
+                        chart.series[0].setData(apiData);
+                    } else {
+                        chart.series[0].addPoint([Date.now(), followers]);
                     }
                     
                     if (chart) {
@@ -332,11 +335,12 @@
                         const shouldShift = series.data.length >= 8;
                         series.addPoint(newPoint, true, shouldShift, true);
                     }
+
                 })
                 .catch(error => {
                     console.error("Error fetching data:", error);
-                    chanNameElement.textContent = 'Error';
-                    countElement.innerHTML = 'N/A';
+                    // chanNameElement.textContent = 'Error';
+                    // countElement.innerHTML = 'N/A';
                 });
         }
 
@@ -347,7 +351,7 @@
         Highcharts.chart('container', {
             chart: {
                 backgroundColor: 'transparent',
-                type: 'line',
+                type: 'spline',
                 zoomType: 'x'
             },
             title: {
@@ -361,7 +365,7 @@
                 title: {
                     text: ''
                 },
-                type: 'linear'
+                type: 'spline'
             },
             plotOptions: {
                 series: {
