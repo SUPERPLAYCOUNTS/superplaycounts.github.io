@@ -41,43 +41,80 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script async src="https://unpkg.com/pwacompat" crossOrigin="anonymous"></script>
   <style>
-.question
-{
-  display: block;
-  background-color: #515462;
-  color: #fff;
-  padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 4vh;
-  margin-top: 5px;
-  transition: 0.3s;
-}
-.question:hover, .tab-links button:hover
-{
-  background-color: #393939;
-}
-.answer
-{
-  padding: 0 18px;
-  display: block;
-  overflow: hidden;
-  background-color: #212121;
-  color: white;
-  max-height: 0;
-  transition: max-height 0.2s ease-out;
-}
-.questions
-{
-  max-height: 60%;
-  overflow-y: scroll;
-  margin: 10px 8%;
-}
-.MIXADVERT_NET {
-  z-index: 0;
-}
+    .questions {
+      overflow-y: auto;
+      margin: 10px 8%;
+    }
+
+    .question {
+      position: relative;
+      display: block;
+      background-color: #515462;
+      color: #fff;
+      padding: 18px 50px 18px 18px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 1.5rem;
+      margin-top: 8px;
+      transition: background-color 0.3s ease, border-radius 0.3s ease;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+
+    .question:hover, .question.active {
+      background-color: #393939;
+    }
+
+    .question.active {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .question::after {
+      content: '+';
+      font-family: monospace;
+      font-size: 2rem;
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-56%);
+      transition: transform 0.3s ease;
+    }
+
+    .question.active::after {
+      content: '\00d7';
+      transform: translateY(-50%) rotate(90deg);
+    }
+
+    .answer {
+      padding: 0 24px;
+      display: block;
+      overflow: hidden;
+      background-color: #2e3039;
+      color: white;
+      max-height: 0;
+      transition: max-height 0.4s ease-out, padding 0.3s ease-out;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+
+    .answer p {
+      padding: 10px 0;
+    }
+
+    .answer p:first-child {
+      padding-top: 20px;
+    }
+
+    .answer p:last-child {
+      padding-bottom: 20px;
+    }
+
+    .MIXADVERT_NET {
+      z-index: 0;
+    }
   </style>
   <!-- Apple touch icon -->
   <link rel="apple-touch-icon" sizes="120x120" href="icons/apple-touch-icon_120.png" />
@@ -127,7 +164,20 @@
       </div>
       <div class="questions">
         <div>
-          <button type="button" class="question">New Update v2.7</button>
+          <button type="button" class="question">New Update v2.7.7</button>
+          <div class="answer">
+            <p>v2.7.7</p>
+            <p>&bull; I updated Fake Subscriber Counts, now you can save or load your settings via json, don't worry, your settings are now automatically saved, or you can also reset settings.</p>
+            <p>&bull; Now you can see that I updated the dropdown list.</p>
+            <p>&bull; Starting from August 8 to 9, 2025, the Privacy Policy will no longer be updated except in extreme cases.</p>
+            <p>&bull; Tiktok Live Followers Count is now in Pre-Release. Wait for the full release.</p>
+            <p>&bull; For the Tiktok Live Followers Count, there is a search function, but I warn you that in some cases it may take a long time to search or may even stop working altogether.</p>
+            <p>&bull; For Tiktok Live Followers Count, added a counter for Following, Videos, and Likes.</p>
+            <p>&bull; For Tiktok Live Followers Count, added a description and an embed, and for the counters of Following, Videos, and Likes, you can view the counter separately, for example, <a style="color: #fff; text-decoration: underline;" href="https://superplaycounts.github.io/tiktok/videos/?khaby.lame">https://superplaycounts.github.io/tiktok/videos/?khaby.lame</a></p>
+          </div>
+        </div>
+        <div>
+          <button type="button" class="question">Update v2.7</button>
           <div class="answer">
             <p>v2.7.0: Fixed bugs in the TikTok counter, improved YouTube search, and updated the main page.</p>
             <p>&bull; On the main page of the site, in the Global clicker card, instead of Global clicker v8 stats, you will see Soon, as Global clicker v8 is currently unavailable.</p>
@@ -493,19 +543,19 @@
   <script src="/js/scripts.js"></script>
   <script src="/js/cookie.js"></script>
   <script>
-    var q = document.getElementsByClassName("question")
-        for (i = 0; i < q.length; i++) {
-            q[i].addEventListener("click", function () {
-                this.classList.toggle("active");
-                var n = this.nextElementSibling;
-                if (n.style.maxHeight) {
-                    n.style.maxHeight = null;
-                } else {
-                    n.style.maxHeight = n.scrollHeight + "px";
-                    console.log(n.scrollHeight)
-                }
-            });
+    var q = document.getElementsByClassName("question");
+    for (let i = 0; i < q.length; i++) {
+      q[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+
+        var n = this.nextElementSibling;
+        if (n.style.maxHeight) {
+          n.style.maxHeight = null;
+        } else {
+          n.style.maxHeight = n.scrollHeight + "px";
         }
+      });
+    }
   </script>
   <script>
     if ("serviceWorker" in navigator) {

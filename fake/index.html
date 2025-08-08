@@ -56,6 +56,39 @@
             .optionrate:checked {
                 background-color: #f1f1f1;
             }
+            .settings-io-buttons {
+                margin-top: 20px;
+                margin-bottom: 20px;
+                padding: 15px;
+                border: 1px dashed #ccc;
+                border-radius: 8px;
+            }
+            .settings-io-buttons h2 {
+                margin-bottom: 15px;
+            }
+            .io-btn {
+                background-color: #5a8dee;
+                color: white;
+                border: none;
+                padding: 10px 15px;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+                margin: 5px;
+                width: auto;
+                display: inline-block;
+                transition: background-color 0.2s;
+            }
+            .io-btn:hover {
+                background-color: #4a7bdc;
+            }
+            .reset-btn {
+                background-color: #e74c3c;
+            }
+            .reset-btn:hover {
+                background-color: #c0392b;
+            }
+
             @media (max-width: 900px) {
                 #push {
                     display: block;
@@ -135,7 +168,7 @@
         <br>
         <center>
             <div id="settings">
-                <input type="submit" value="Set values" ONCLICK="submit(); updateSubs(); setImage()">
+                <input type="submit" value="Set values" ONCLICK="submit(); setImage(); saveAllSettings();">
                 <br>
                 <br>
                 <br>
@@ -173,8 +206,15 @@
                     <option class="optirate" value="tiktok-icon">Tiktok icon</option>
                     <option class="optirate" value="none-icon">none icon</option>
                 </select>
-                <br>
-                <br>
+                
+                <div class="settings-io-buttons">
+                    <h2>Save / Load Settings</h2>
+                    <button id="export-button" class="io-btn">Save to File</button>
+                    <button id="import-button" class="io-btn">Load from File</button>
+                    <button id="reset-settings-button" class="io-btn reset-btn">Reset Settings</button>
+                    <input type="file" id="import-file-input" accept="application/json" style="display: none;">
+                </div>
+
                 <input type="button" id="hideSettings" onclick="changeHotkey()"
                     value="Change Hotkey To Hide Settings"><label id="setting">Current: q</label>
                 <br>
@@ -184,7 +224,7 @@
                 <p>To hide via mobile device, click on the three bars, scroll down a little and you will see the 'hide settings' button</p>
                 <br>
                 <br>
-                <h6 style="color: #fff; display: none;">fake v3.1.1</h6>
+                <h6 style="color: #fff; display: none;">fake v3.2.1</h6>
             </div>
         </center>
         <div class="desc-block" id="desc-block">
@@ -224,7 +264,6 @@
         const odometer = new Odometer({
             el: subsOdometer,
         })
-        // odometer.update(1426);
         subsOdometer.innerHTML = 0;
     </script>
     <script src="/js/scripts.js"></script>

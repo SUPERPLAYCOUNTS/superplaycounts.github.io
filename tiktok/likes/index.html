@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tiktok - Followers Count</title>
+    <title>Tiktok - Likes Count</title>
     <meta name="description"
         content="With this site you can see various counters, subscribers, viewers in real time!" />
     <meta name="theme-color" content="#c8c8c8" />
@@ -24,7 +24,7 @@
     <meta name="twitter:description"
         content="With this site you can see various counters, subscribers, viewers in real time!" />
     <meta name="twitter:image"
-        content="https://api.microlink.io/?url=https://superplaycounts.github.io/tiktok/&screenshot=true&meta=false&embed=screenshot.url" />
+        content="https://api.microlink.io/?url=https://superplaycounts.github.io/tiktok/likes/&screenshot=true&meta=false&embed=screenshot.url" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -34,7 +34,7 @@
     <meta property="og:site_name" content="SUPERPLAYCOUNTS" />
     <meta property="og:url" content="https://superplaycounts.github.io/" />
     <meta property="og:image"
-        content="https://api.microlink.io/?url=https://superplaycounts.github.io/tiktok/&screenshot=true&meta=false&embed=screenshot.url" />
+        content="https://api.microlink.io/?url=https://superplaycounts.github.io/tiktok/likes/&screenshot=true&meta=false&embed=screenshot.url" />
 
 
     <link rel="manifest" href="/manifest.json" />
@@ -112,7 +112,7 @@
             <center>
                 <div id="count" class="odometer">0</div>
             </center>
-            <h2>Followers</h2>
+            <h2>Likes</h2>
             <p style="display: flex; justify-content: flex-end; padding: 5px 15px; color: grey; cursor: default;">
                 Powered by superplaycounts.github.io</p>
         </div>
@@ -132,9 +132,9 @@
               <div id="videoscounts" class="odometer">0</div>
             </div>
           </a>
-          <a id="likes-link" href="likes/" style="text-decoration: none; color: #000;">
+          <a id="likes-link" href="/tiktok/" style="text-decoration: none; color: #000;">
             <div style="cursor: pointer;" class="grid-item">
-            <span style="font-size: 0.8em;">Likes</span>
+            <span style="font-size: 0.8em;">Followers</span>
             <br>
             <div id="likescounts" class="odometer">0</div>
           </div>
@@ -340,11 +340,11 @@
         });
 
         var followingLink = document.getElementById('following-link');
-        followingLink.href = `following/?${usertiktok}`;
+        followingLink.href = `/tiktok/following/?${usertiktok}`;
         var listsLink = document.getElementById('videos-link');
-        listsLink.href = `videos/?${usertiktok}`;
+        listsLink.href = `/tiktok/videos/?${usertiktok}`;
         var likesLink = document.getElementById('likes-link');
-        likesLink.href = `likes/?${usertiktok}`;
+        likesLink.href = `/tiktok/?${usertiktok}`;
 
         followingLink.addEventListener('click', function(event) {
           event.preventDefault();
@@ -360,10 +360,10 @@
                     return response.json();
                 })
                 .then(data => {
-                    const followers = Math.round(data.counts[0].count);
+                    const followers = Math.round(data.counts[4].count);
                     const following = Math.round(data.counts[2].count);
                     const videos = Math.round(data.counts[3].count);
-                    const likes = Math.round(data.counts[4].count);
+                    const likes = Math.round(data.counts[0].count);
                     countElement.innerHTML = followers;
                     followingcounts.innerHTML = following;
                     videoscounts.innerHTML = videos;
@@ -379,7 +379,7 @@
                     pfpImage.alt = `${channelName} profile picture`;
 
                     chanNameElement.textContent = channelName;
-                    document.title = `${channelName} - Followers Count`;
+                    document.title = `${channelName} - Likes Count`;
 
                     const currentTime = Date.now();
                     const newPoint = [currentTime, followers];
