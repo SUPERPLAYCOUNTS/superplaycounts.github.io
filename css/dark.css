@@ -192,6 +192,11 @@ strong{
     line-height: inherit;
     margin: 0;
 }
+
+.settings-io-buttons h2 {
+    color: white;
+}
+
 @media (max-width:767px){
     .header__burger {
         display: block;
