@@ -41,7 +41,7 @@ function submit() {
     );
   }
 
-  channelSubs.innerHTML = abbreviateCount(count); // Убрал второй аргумент, т.к. abbreviate - глобальная переменная
+  channelSubs.innerHTML = abbreviateCount(count);
   footertext.innerHTML = footertxt;
 
   rate = parseInt(subsPerMinute.value, 10) || 0;
@@ -52,7 +52,6 @@ function submit() {
     rate = rate / 3600;
   }
 
-  // ... (остальные проверки без изменений)
 }
 
 iconSelect.addEventListener('change', (event) => {
@@ -92,7 +91,6 @@ function updateSubs() {
   channelSubs.innerHTML = abbreviateCount(Math.floor(count));
 }
 
-// ВАША ОРИГИНАЛЬНАЯ ФУНКЦИЯ ВОЗВРАЩЕНА
 function abbreviateCount(count) {
   if (!abbreviate) {
     return Math.round(count);
@@ -151,7 +149,6 @@ function setImage() {
       }
     }
 }
-// --- КОД ДЛЯ СОХРАНЕНИЯ/ЗАГРУЗКИ ---
 
 function saveAllSettings() {
     const settings = {
@@ -205,7 +202,7 @@ function loadAllSettings() {
 }
 
 function exportSettingsToFile() {
-    saveAllSettings(); // Убедимся, что сохраняем самые свежие данные
+    saveAllSettings();
     const settings = localStorage.getItem('fakeCounterSettings') || '{}';
     const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(JSON.parse(settings), null, 2));
     const downloadAnchorNode = document.createElement('a');
@@ -216,14 +213,11 @@ function exportSettingsToFile() {
     downloadAnchorNode.remove();
 }
 
-// НОВАЯ ФУНКЦИЯ ДЛЯ СБРОСА НАСТРОЕК
 function resetAllSettings() {
-    // Спрашиваем подтверждение у пользователя
     if (confirm("Are you sure you want to reset all settings? This action cannot be undone.")) {
         try {
             localStorage.removeItem('fakeCounterSettings');
             alert('Settings have been reset.');
-            // Перезагружаем страницу, чтобы очистить все поля и счетчик
             location.reload();
         } catch (e) {
             console.error('Error resetting settings:', e);
@@ -232,7 +226,6 @@ function resetAllSettings() {
     }
 }
 
-// --- ОБРАБОТЧИКИ СОБЫТИЙ ---
 
 document.addEventListener('DOMContentLoaded', loadAllSettings);
 document.getElementById('export-button').addEventListener('click', exportSettingsToFile);
@@ -259,10 +252,8 @@ fileInput.addEventListener('change', (event) => {
     event.target.value = '';
 });
 
-// НОВЫЙ ОБРАБОТЧИК ДЛЯ КНОПКИ СБРОСА
 document.getElementById('reset-settings-button').addEventListener('click', resetAllSettings);
 
-// --- СТАРЫЙ КОД ---
 
 var knopka = document.getElementById("push");
 knopka.addEventListener("click", func1);
