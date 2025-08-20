@@ -93,13 +93,13 @@
           </div>
           <center>
             <div class="countdown">
-                <div id="days" class="countdown-item odometer"></div>
+                <div id="days" class="countdown-item odometer">0</div>
                 <span>:</span>
-                <div id="hours" class="countdown-item odometer"></div>
+                <div id="hours" class="countdown-item odometer">0</div>
                 <span>:</span>
-                <div id="minutes" class="countdown-item odometer"></div>
+                <div id="minutes" class="countdown-item odometer">0</div>
                 <span>:</span>
-                <div id="seconds" class="countdown-item odometer"></div>
+                <div id="seconds" class="countdown-item odometer">0</div>
               </div>
           </center>
           <p style="display: flex; justify-content: flex-end; padding: 5px 15px; color: grey; cursor: default;">Powered by superplaycounts.github.io</p>
@@ -108,7 +108,7 @@
         <br>
         <br>
         <div class="boxcreate">
-          <form>
+          <form onsubmit="return false;">
             <center>
               <input type="text" id="timername" placeholder="Countdown name" value="Title..">
               <br>
@@ -179,91 +179,137 @@
         </footer>
     </div>
 
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 <script>
-const countdownItems = document.querySelectorAll('.countdown-item');
+const countdownItems = {
+    days: document.getElementById('days'),
+    hours: document.getElementById('hours'),
+    minutes: document.getElementById('minutes'),
+    seconds: document.getElementById('seconds'),
+};
 let countdownInterval;
 let endDate;
+let isCountdownFinished = false;
+
+function triggerConfetti() {
+    confetti({
+        particleCount: 200,
+        spread: 100,
+        origin: { y: 0.6 }
+    });
+}
 
 function countdown() {
-  const currentDate = new Date();
-  const totalSeconds = (endDate - currentDate) / 1000;
+    const currentDate = new Date();
+    const totalSeconds = (endDate - currentDate) / 1000;
 
-  if (totalSeconds <= 0) {
-    clearInterval(countdownInterval);
-    countdownItems[0].innerHTML = 0;
-    countdownItems[1].innerHTML = 0;
-    countdownItems[2].innerHTML = 0;
-    countdownItems[3].innerHTML = 0;
-    return;
-  }
+    if (totalSeconds <= 0) {
+        clearInterval(countdownInterval);
+        countdownItems.days.innerHTML = 0;
+        countdownItems.hours.innerHTML = 0;
+        countdownItems.minutes.innerHTML = 0;
+        countdownItems.seconds.innerHTML = 0;
+        
+        if (!isCountdownFinished) {
+            triggerConfetti();
+            isCountdownFinished = true;
+        }
+        return;
+    }
 
-  const days = Math.floor(totalSeconds / 3600 / 24);
-  const hours = Math.floor(totalSeconds / 3600) % 24;
-  const minutes = Math.floor(totalSeconds / 60) % 60;
-  const seconds = Math.floor(totalSeconds) % 60;
+    isCountdownFinished = false;
 
-  countdownItems[0].innerHTML = days;
-  countdownItems[1].innerHTML = hours;
-  countdownItems[2].innerHTML = minutes;
-  countdownItems[3].innerHTML = seconds;
+    const days = Math.floor(totalSeconds / 3600 / 24);
+    const hours = Math.floor(totalSeconds / 3600) % 24;
+    const minutes = Math.floor(totalSeconds / 60) % 60;
+    const seconds = Math.floor(totalSeconds) % 60;
+
+    countdownItems.days.innerHTML = days;
+    countdownItems.hours.innerHTML = hours;
+    countdownItems.minutes.innerHTML = minutes;
+    countdownItems.seconds.innerHTML = seconds;
 }
 
 function startCountdown() {
-  clearInterval(countdownInterval);
-  const partyDateInput = document.getElementById('party').value;
-  const selectedDate = new Date(partyDateInput);
-  const timerNameInput = document.getElementById('timername').value.trim();
+    clearInterval(countdownInterval);
+    const partyDateInput = document.getElementById('party').value;
+    const selectedDate = new Date(partyDateInput);
+    const timerNameInput = document.getElementById('timername').value.trim();
 
-  if (timerNameInput === '') {
-    alert('Enter a name for the timer.');
-    return;
-  }
+    if (timerNameInput === '') {
+        alert('Enter a name for the timer.');
+        return;
+    }
+    
+    if (isNaN(selectedDate.getTime())) {
+        alert('Invalid date format. Please select a valid date and time.');
+        return;
+    }
 
-  if (selectedDate <= new Date()) {
-    alert('The entered date must be in the future.');
-    return;
-  }
+    if (selectedDate <= new Date()) {
+        alert('The entered date must be in the future.');
+        return;
+    }
 
-  endDate = selectedDate;
-  countdown();
-  countdownInterval = setInterval(countdown, 1000);
-  document.getElementById('ChanName').innerHTML = '<span>' + timerNameInput + '</span>';
+    endDate = selectedDate;
+    document.getElementById('ChanName').innerHTML = '<span>' + timerNameInput + '</span>';
+    
+    countdown();
+    countdownInterval = setInterval(countdown, 1000);
 
-  const newUrl = `${window.location.origin}/countdown/create/?timername=${encodeURIComponent(timerNameInput)}&party=${encodeURIComponent(partyDateInput)}`;
-  history.pushState(null, '', newUrl);
-  updateEmbedLink(newUrl);
+    const newUrl = `${window.location.origin}${window.location.pathname}?timername=${encodeURIComponent(timerNameInput)}&party=${encodeURIComponent(partyDateInput)}`;
+    history.pushState(null, '', newUrl);
+    updateEmbedLink(newUrl);
 }
 
 function copyEmbed() {
-  const embedLink = document.getElementById('embd').textContent;
-  navigator.clipboard.writeText(embedLink).then(() => {
     const button = document.getElementById('embd');
-    const originalText = button.textContent;
-    button.textContent = `Copied: ${embedLink}`;
-    setTimeout(() => {
-      button.textContent = originalText;
-    }, 2000);
-  });
+    const embedLink = button.textContent;
+    
+    if (embedLink === 'Copy Link' || !embedLink.startsWith('http')) {
+        alert("First, create a countdown to get a link to copy!");
+        return;
+    }
+
+    navigator.clipboard.writeText(embedLink).then(() => {
+        const originalText = button.textContent;
+        button.textContent = 'Copied!';
+        setTimeout(() => {
+            button.textContent = originalText;
+        }, 2000);
+    }).catch(err => {
+        console.error('Failed to copy: ', err);
+        alert('Failed to copy the link.');
+    });
 }
 
 function updateEmbedLink(url) {
-  document.getElementById('embd').textContent = url;
+    document.getElementById('embd').textContent = url;
 }
 
 function initCountdownFromUrl() {
-  const params = new URLSearchParams(window.location.search);
-  const timerName = params.get('timername');
-  const partyDate = params.get('party');
+    const params = new URLSearchParams(window.location.search);
+    const timerName = params.get('timername');
+    const partyDate = params.get('party');
 
-  if (timerName && partyDate) {
-    document.getElementById('timername').value = timerName;
-    document.getElementById('party').value = partyDate;
-    endDate = new Date(partyDate);
-    document.getElementById('ChanName').innerHTML = '<span>' + timerName + '</span>';
-    countdown();
-    countdownInterval = setInterval(countdown, 1000);
-    updateEmbedLink(window.location.href);
-  }
+    if (timerName && partyDate) {
+        const decodedPartyDate = decodeURIComponent(partyDate);
+        const dateFromUrl = new Date(decodedPartyDate);
+
+        if (isNaN(dateFromUrl.getTime())) {
+            return;
+        }
+
+        document.getElementById('timername').value = decodeURIComponent(timerName);
+        document.getElementById('party').value = decodedPartyDate;
+        
+        endDate = dateFromUrl;
+        document.getElementById('ChanName').innerHTML = '<span>' + decodeURIComponent(timerName) + '</span>';
+        
+        countdown();
+        countdownInterval = setInterval(countdown, 1000);
+        updateEmbedLink(window.location.href);
+    }
 }
 
 window.onload = initCountdownFromUrl;

@@ -93,13 +93,13 @@
           </div>
           <center>
             <div class="countdown">
-                <div id="days" class="countdown-item odometer"></div>
+                <div id="days" class="countdown-item odometer">0</div>
                 <span>:</span>
-                <div id="hours" class="countdown-item odometer"></div>
+                <div id="hours" class="countdown-item odometer">0</div>
                 <span>:</span>
-                <div id="minutes" class="countdown-item odometer"></div>
+                <div id="minutes" class="countdown-item odometer">0</div>
                 <span>:</span>
-                <div id="seconds" class="countdown-item odometer"></div>
+                <div id="seconds" class="countdown-item odometer">0</div>
               </div>
           </center>
           <p style="display: flex; justify-content: flex-end; padding: 5px 15px; color: grey; cursor: default;">Powered by superplaycounts.github.io</p>
@@ -167,9 +167,33 @@
         </footer>
     </div>
 
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 <script>
 const countdownItems = document.querySelectorAll('.countdown-item');
 let timerInterval;
+let isCountdownFinished = false;
+
+function triggerConfetti() {
+    const duration = 5 * 1000;
+    const animationEnd = Date.now() + duration;
+    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+    function randomInRange(min, max) {
+        return Math.random() * (max - min) + min;
+    }
+
+    const interval = setInterval(function() {
+        const timeLeft = animationEnd - Date.now();
+
+        if (timeLeft <= 0) {
+            return clearInterval(interval);
+        }
+
+        const particleCount = 50 * (timeLeft / duration);
+        confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+        confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+    }, 250);
+}
 
 function countdown() {
   const endDate = new Date('2026-01-01 00:00:00');
@@ -181,6 +205,12 @@ function countdown() {
     countdownItems[1].innerHTML = 0;
     countdownItems[2].innerHTML = 0;
     countdownItems[3].innerHTML = 0;
+    
+    if (!isCountdownFinished) {
+        document.getElementById('ChanName').innerHTML = '<span>Happy New Year 2026! 🎉</span>';
+        triggerConfetti();
+        isCountdownFinished = true;
+    }
     
     clearInterval(timerInterval);
     return;
@@ -197,6 +227,7 @@ function countdown() {
   countdownItems[3].innerHTML = seconds;
 }
 
+countdown();
 timerInterval = setInterval(countdown, 1000);
 </script>
 <script src="../js/odometer.js"></script>

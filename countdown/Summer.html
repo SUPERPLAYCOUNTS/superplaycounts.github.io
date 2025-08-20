@@ -93,13 +93,13 @@
           </div>
           <center>
             <div class="countdown">
-                <div id="days" class="countdown-item odometer"></div>
+                <div id="days" class="countdown-item odometer">0</div>
                 <span>:</span>
-                <div id="hours" class="countdown-item odometer"></div>
+                <div id="hours" class="countdown-item odometer">0</div>
                 <span>:</span>
-                <div id="minutes" class="countdown-item odometer"></div>
+                <div id="minutes" class="countdown-item odometer">0</div>
                 <span>:</span>
-                <div id="seconds" class="countdown-item odometer"></div>
+                <div id="seconds" class="countdown-item odometer">0</div>
               </div>
           </center>
           <p style="display: flex; justify-content: flex-end; padding: 5px 15px; color: grey; cursor: default;">Powered by superplaycounts.github.io</p>
@@ -167,12 +167,22 @@
         </footer>
     </div>
 
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 <script>
 const countdownItems = document.querySelectorAll('.countdown-item');
 let timerInterval;
+let isCountdownFinished = false;
+
+function triggerConfetti() {
+    confetti({
+        particleCount: 200,
+        spread: 100,
+        origin: { y: 0.6 }
+    });
+}
 
 function countdown() {
-  const endDate = new Date('2025-06-01 00:00:00');
+  const endDate = new Date('2026-06-01 00:00:00');
   const currentDate = new Date();
   const totalSeconds = (endDate - currentDate) / 1000;
   
@@ -181,6 +191,12 @@ function countdown() {
     countdownItems[1].innerHTML = 0;
     countdownItems[2].innerHTML = 0;
     countdownItems[3].innerHTML = 0;
+    
+    if (!isCountdownFinished) {
+        document.getElementById('ChanName').innerHTML = '<span>Summer is here! ☀️</span>';
+        triggerConfetti();
+        isCountdownFinished = true;
+    }
     
     clearInterval(timerInterval);
     return;
@@ -197,6 +213,7 @@ function countdown() {
   countdownItems[3].innerHTML = seconds;
 }
 
+countdown();
 timerInterval = setInterval(countdown, 1000);
 
 </script>
