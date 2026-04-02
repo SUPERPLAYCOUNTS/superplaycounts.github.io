@@ -1,0 +1,130 @@
+#container{
+    background-color: rgb(255, 255, 255);
+}
+.fa-x-twitter {
+    color: #000;
+}
+
+.settings-io-buttons h2 {
+    color: #333;
+}
+
+.main__menu {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.menu-documentation {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+.doc-card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 25px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+}
+.doc-card:hover {
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.doc-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+.method-badge {
+  background-color: #28a745;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+.endpoint-url {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #333;
+  word-break: break-all;
+}
+.doc-desc {
+  font-family: sans-serif;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+.doc-desc strong {
+  color: #000;
+}
+pre {
+  border-radius: 6px;
+  margin: 0;
+  background: #282c34;
+}
+code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.base-url-box {
+  background: #f0f8ff;
+  border: 1px solid #cce5ff;
+  color: #004085;
+  padding: 15px;
+  border-radius: 6px;
+  text-align: center;
+  margin-bottom: 30px;
+  font-family: monospace;
+  font-size: 1.2em;
+}
+.base-url-box a {
+  text-decoration: none;
+  color: #004085;
+  font-weight: bold;
+}
+
+/* youtube search */
+.pinned-channels-container {
+  border: 1px solid #e0e0e0;
+  background-color: #f9f9f9;
+}
+
+.pinned-channel-item {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  color: #333;
+}
+
+.pinned-channel-item:hover {
+  background-color: #f1f1f1;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#pin-channel-btn {
+  border: 2px solid #6c757d;
+}
+
+#pin-channel-btn:hover {
+  background-color: #f8f9fa;
+}
+
+#pin-channel-btn.pinned {
+  background-color: #ffc107;
+  border-color: #e0a800;
+  color: #000;
+}
+
+#pin-channel-btn.pinned:hover {
+  background-color: #e0a800;
+}

@@ -1,0 +1,108 @@
+.main__fakesubs
+{
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 10px;
+}
+.card
+{
+  width: 100%;
+  background: #FFFFFF;
+  border: 1px solid #D7DFE3;
+  box-sizing: border-box;
+  border-radius: 4px;
+  margin-top: 50px;
+  max-height: 553px;
+}
+.card__banner
+{
+  width: 100%;
+  position: relative;
+}
+.banner-top 
+{
+  width: 100%;
+  max-height: 197px;
+  object-fit: cover;
+  border-top-right-radius: calc(0.25rem - 1px);
+  border-top-left-radius: calc(0.25rem - 1px);
+  filter: blur(2px);
+  transition: 0.3s;
+}
+.banner-top:hover{
+  filter: blur(0px);
+}
+.profile-picture
+{
+  position: absolute;
+  width: 128px;
+  height: 128px;
+  background: url(https://superplaycounts.github.io/img/123.png);
+  box-shadow: 0px 0px 6px rgb(0 0 0 / 20%);
+  border-radius: 80px;
+  left: 50%;
+  margin-left: -64px;
+  top: 100%;
+  margin-top: -64px;
+  object-fit: cover;
+  transition: 0.3s;
+}
+.profile-picture:hover{
+  border-radius: 40px;
+}
+.card__title
+{
+  text-align: center;
+  margin-top: 75px;
+}
+.card__title h1
+{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 44px;
+  color: #272E39;
+}
+.subs-odometer
+{
+  height: 136px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 123px;
+  line-height: 125px;
+  color: #000;
+}
+.card h2 
+{
+  text-align: center;
+  font-size: 32px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0px;
+}
+.main__fakesubs input {
+  height: 50px;
+  background-color: #494949;
+  color: #FFFFFF;
+  width: 90%;
+  display: block;
+}
+#channelName
+{
+  color: #000;
+}
+
+@media (max-width: 900px) {
+.card {
+    margin-top: 52px;
+  }
+  .card .subs-odometer
+  {
+    font-size: 50px;
+    height: 60px;
+  }
+  .card h2
+  {
+    padding: 0px 0px;
+  }
+}

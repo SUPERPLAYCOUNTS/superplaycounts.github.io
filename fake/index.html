@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fake Subscriber Count</title>
+    <meta name="description" content="With this site you can see various counters, subscribers, viewers in real time!" />
+    <meta name="theme-color" content="#c8c8c8" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+
+    <meta name="image" content="//superplaycounts.github.io/favicon.ico">
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="icon" href="../img/icon-sites.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@superplaycounts" />
+    <meta name="twitter:url" content="https://superplaycounts.github.io/" />
+    <meta name="twitter:title" content="SUPERPLAYCOUNTS" />
+    <meta name="twitter:description" content="With this site you can see various counters, subscribers, viewers in real time!" />
+    <meta name="twitter:image" content="https://api.microlink.io/?url=https://superplaycounts.github.io/fake/&screenshot=true&meta=false&embed=screenshot.url" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="SUPERPLAYCOUNTS" />
+    <meta property="og:description" content="With this site you can see various counters, subscribers, viewers in real time!" />
+    <meta property="og:site_name" content="SUPERPLAYCOUNTS" />
+    <meta property="og:url" content="https://superplaycounts.github.io/" />
+    <meta property="og:image" content="https://api.microlink.io/?url=https://superplaycounts.github.io/fake/&screenshot=true&meta=false&embed=screenshot.url" />
+
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="stylesheet" href="../css/odometer.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/stylefakeweb.css">
+    <link rel="stylesheet" id="theme-stylesheet" href="/css/light.css">
+    <style>
+            #push {
+                display: none;
+            }
+            .optionrate{
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                font-size: 20px;
+                color: #333;
+                background-color: #fff;
+            }
+            .optirate{
+                font-size: 20px;
+                color: #333;
+                background-color: #fff;
+            }
+            .optionrate:checked {
+                background-color: #f1f1f1;
+            }
+            .settings-io-buttons {
+                margin-top: 20px;
+                margin-bottom: 20px;
+                padding: 15px;
+                border: 1px dashed #ccc;
+                border-radius: 8px;
+            }
+            .settings-io-buttons h2 {
+                margin-bottom: 15px;
+            }
+            .io-btn {
+                background-color: #5a8dee;
+                color: white;
+                border: none;
+                padding: 10px 15px;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+                margin: 5px;
+                width: auto;
+                display: inline-block;
+                transition: background-color 0.2s;
+            }
+            .io-btn:hover {
+                background-color: #4a7bdc;
+            }
+            .reset-btn {
+                background-color: #e74c3c;
+            }
+            .reset-btn:hover {
+                background-color: #c0392b;
+            }
+
+            @media (max-width: 900px) {
+                #push {
+                    display: block;
+                }
+            }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1131093589390960"
+     crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script async src="https://unpkg.com/pwacompat" crossOrigin="anonymous"></script>
+
+    <!-- Apple touch icon -->
+    <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-touch-icon_120.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-touch-icon_152.png" />
+    <link rel="apple-touch-icon" sizes="167x167" href="/icons/apple-touch-icon_167.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon_180.png" />
+</head>
+
+<body>
+    <nav class="flex-div">
+        <div class="nav-left flex-div">
+            <a href="/">
+              <img src="/img/icon-sites.png" class="logo">
+              <h1>SUPERPLAYCOUNTS</h1>
+            </a>
+        </div>
+        <div class="header__burger">
+            <span></span>
+        </div>
+        <div class="header__menu">
+            <ul class="header__list">
+                <li>
+                    <a href="/countdown/" class="header__link">Countdown</a>
+                </li>
+                <li>
+                    <a href="/compare/" class="header__link">Compare (beta)</a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/@superplaycounts" class="header__link">Twitter X</a>
+                </li>
+                <li>
+                    <a href="/api/docs.html" class="header__link">Api</a>
+                </li>
+                <li>
+                    <a href="/update" class="header__link">Update</a>
+                </li>
+                <li>
+                    <i class="fa-solid fa-moon" onclick="setTheme('dark')" id="moon-icon" style="color: #000;"></i>
+                    <i class="fa-solid fa-sun" onclick="setTheme('light')" id="sun-icon" style="color: #fff; display: none;"></i>
+                </li>
+                <input id="push" type="button" value="hide setting">
+            </ul>
+        </div>
+    </nav>
+    <div class="main__fakesubs">
+        <div class="card">
+            <div class="card__banner">
+                <img class="banner-top" id="chosen-banner" src="">
+                <img class="profile-picture" id="chosen-image" id="chosen-img" src="">
+            </div>
+            <div class="card__title">
+                <h1 id="channelName">Channel name</h1>
+                <i id="icon" style="color:#ff0000" class="fa-brands fa-youtube"></i>
+            </div>
+            <center>
+                <div class="subs-odometer" id="channelSubs">0</div>
+            </center>
+            <h2 id="footertext">Subscribers</h2>
+            <p style="display: flex; justify-content: flex-end; padding: 5px 15px; color: grey; cursor: default;">Powered by superplaycounts.github.io</p>
+        </div>
+        <br>
+        <br>
+        <br>
+        <center>
+            <div id="settings">
+                <input type="submit" value="Set values" ONCLICK="submit(); setImage(); saveAllSettings();">
+                <br>
+                <br>
+                <br>
+                <input type="text" id="channelSubmitName" name="channelSubmitName" placeholder="Channel Name">
+                <br>
+                <input type="number" id="countSubmit" name="countSubmit" placeholder="Channel subs">
+                <br>
+                <label for="">Channel Image</label>
+                <input type="text" id="upload-img-url" placeholder="Url Image"><p>or</p>
+                <input type="file" id="upload-button" accept="image/*">
+                <br>
+                <label for="">Channel Banner</label for="options.counter.banner.url">
+                <input type="text" id="upload-banner-url" placeholder="Url Banner"><p>or</p>
+                <input type="file" id="upload-banner" accept="image/*">
+                <br>
+                <input type="number" id="subsPerMinute" name="subsPerMinute" placeholder="Subs gain rate (optional)"><br>
+                <input type="text" id="footerSubmittext" name="footerSubmittext" value="SUBSCRIBERS" placeholder="Followers, Subscribers, etc"><br>
+                <br>
+                <h1>Global Settings:</h1><br>
+                <input type="checkbox" id="abbreviate"><label>Abbreviate Counts</label>
+                <br>
+                <br>
+                <br>
+                <select class="optionrate" id="rateOption">
+                    <option class="optirate" value="secs">Rate in subs/second</option>
+                    <option class="optirate" value="mins">Rate in subs/minute</option>
+                    <option class="optirate" value="hrs">Rate in subs/hour</option>
+                </select>
+                <br>
+                <br>
+                <select class="optionrate" id="icon-select">
+                    <option class="optirate" value="youtube-icon" selected>Youtube icon</option>
+                    <option class="optirate" value="twitter-icon">Twitter icon</option>
+                    <option class="optirate" value="twitter-x-icon">Twitter X icon</option>
+                    <option class="optirate" value="tiktok-icon">Tiktok icon</option>
+                    <option class="optirate" value="none-icon">none icon</option>
+                </select>
+                
+                <div class="settings-io-buttons">
+                    <h2>Save / Load Settings</h2>
+                    <button id="export-button" class="io-btn">Save to File</button>
+                    <button id="import-button" class="io-btn">Load from File</button>
+                    <button id="reset-settings-button" class="io-btn reset-btn">Reset Settings</button>
+                    <input type="file" id="import-file-input" style="display: none;">
+                </div>
+
+                <input type="button" id="hideSettings" onclick="changeHotkey()"
+                    value="Change Hotkey To Hide Settings"><label id="setting">Current: q</label>
+                <br>
+                <h1>Note</h1>
+                <p>To hide settings press 'q' key</p>
+                <br>
+                <p>To hide via mobile device, click on the three bars, scroll down a little and you will see the 'hide settings' button</p>
+                <br>
+                <br>
+                <h6 style="color: #fff; display: none;">fake v3.2.1</h6>
+            </div>
+        </center>
+        <div class="desc-block" id="desc-block">
+            <h1>About Fake Subscriber Counts</h1>
+            <p>Fake subs count this is a false counter that allows users to create and display fake subscriber counts. The provides a customizable interface where users can enter the name of their channel, set the subscriber count, upload an image and banner, and choose a variety of display options. Users can also set a subs gain rate, choose whether to abbreviate counts, and select an icon to display alongside the channel name. Making it perfect for pranks, jokes, or just having fun.</p>
+        </div>
+        <br>
+        <footer>
+            <div class="cookie-block" id="cookie-banner">
+              We use cookies to personalize the site and analyze site traffic. 🍪
+          
+              <button class="ok" onclick="acceptCookies()">Accept</button>
+            </div>
+            <div class="cr-1">
+            <!-- <h1>This site has been visited <span id="visits" id="count" class="odometer"></span> times.</h1> -->
+              <hr style="height:0;color:inherit;border-top-width:1px;">
+              <div>
+                <div class="textleftcr">
+                  <a href="/privacy-policy.html" style="color: gray; text-decoration: none; text-align: center;">Privacy Policy</a>
+                </div>
+                <p class="textrightcr">
+                  &#169;
+                  <!--  -->
+                  <span class="year">2020</span>
+                  <!--  -->
+                  superplaycounts.github.io
+                </p>
+              </div>
+            </div>
+          </footer>
+    </div>
+
+
+    <script src="/js/odometer.js"></script>
+    <script>
+        const subsOdometer = document.querySelector(".subs-odometer");
+        const odometer = new Odometer({
+            el: subsOdometer,
+        })
+        subsOdometer.innerHTML = 0;
+    </script>
+    <script src="/js/scripts.js"></script>
+    <script src="/js/cookie.js"></script>
+    <script>
+        if ("serviceWorker" in navigator) {
+          window.addEventListener("load", function () {
+            navigator.serviceWorker
+            .register("/serviceWorker.js")
+            .then((registration) => {
+              console.log("SM registration successful");
+            });
+          });
+        }
+      </script>
+    <script src="/js/odometerfake.js"></script>
+    <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+    <script>
+      kofiWidgetOverlay.draw('superplaycounts', {
+        'type': 'floating-chat',
+        'floating-chat.donateButton.text': 'Support me',
+        'floating-chat.donateButton.background-color': '#323842',
+        'floating-chat.donateButton.text-color': '#fff'
+      });
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B5TEVSVZ74"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-B5TEVSVZ74');
+    </script>
+</body>
+
+</html>

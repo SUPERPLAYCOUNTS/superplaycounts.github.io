@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SUPERPLAYCOUNTS</title>
+  <meta name="description" content="With this site you can see various counters, subscribers, viewers in real time!" />
+  <meta name="theme-color" content="#c8c8c8" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+  <meta name="image" content="//superplaycounts.github.io/favicon.ico">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="icon" href="../img/icon-sites.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@superplaycounts" />
+  <meta name="twitter:url" content="https://superplaycounts.github.io/" />
+  <meta name="twitter:title" content="SUPERPLAYCOUNTS" />
+  <meta name="twitter:description" content="With this site you can see various counters, subscribers, viewers in real time!" />
+  <meta name="twitter:image" content="https://api.microlink.io/?url=https://superplaycounts.github.io/update/&screenshot=true&meta=false&embed=screenshot.url" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="SUPERPLAYCOUNTS" />
+  <meta property="og:description" content="With this site you can see various counters, subscribers, viewers in real time!" />
+  <meta property="og:site_name" content="SUPERPLAYCOUNTS" />
+  <meta property="og:url" content="https://superplaycounts.github.io/" />
+  <meta property="og:image" content="https://api.microlink.io/?url=https://superplaycounts.github.io/update/&screenshot=true&meta=false&embed=screenshot.url" />
+
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" id="theme-stylesheet" href="/css/light.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1131093589390960"
+     crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script async src="https://unpkg.com/pwacompat" crossOrigin="anonymous"></script>
+  <style>
+    .questions {
+      overflow-y: auto;
+      margin: 10px 8%;
+    }
+
+    .question {
+      position: relative;
+      display: block;
+      background-color: #515462;
+      color: #fff;
+      padding: 18px 50px 18px 18px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 1.5rem;
+      margin-top: 8px;
+      transition: background-color 0.3s ease, border-radius 0.3s ease;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+
+    .question:hover, .question.active {
+      background-color: #393939;
+    }
+
+    .question.active {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .question::after {
+      content: '+';
+      font-family: monospace;
+      font-size: 2rem;
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-56%);
+      transition: transform 0.3s ease;
+    }
+
+    .question.active::after {
+      content: '\00d7';
+      transform: translateY(-50%) rotate(90deg);
+    }
+
+    .answer {
+      padding: 0 24px;
+      display: block;
+      overflow: hidden;
+      background-color: #2e3039;
+      color: white;
+      max-height: 0;
+      transition: max-height 0.4s ease-out, padding 0.3s ease-out;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+
+    .answer p {
+      padding: 10px 0;
+    }
+
+    .answer p:first-child {
+      padding-top: 20px;
+    }
+
+    .answer p:last-child {
+      padding-bottom: 20px;
+    }
+
+    .MIXADVERT_NET {
+      z-index: 0;
+    }
+  </style>
+  <!-- Apple touch icon -->
+  <link rel="apple-touch-icon" sizes="120x120" href="icons/apple-touch-icon_120.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="icons/apple-touch-icon_152.png" />
+  <link rel="apple-touch-icon" sizes="167x167" href="icons/apple-touch-icon_167.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon_180.png" />
+</head>
+<body>
+  <nav class="flex-div">
+    <div class="nav-left flex-div">
+      <a href="/">
+        <img src="/img/icon-sites.png" class="logo">
+        <h1>SUPERPLAYCOUNTS</h1>
+      </a>
+    </div>
+    <div class="header__burger">
+      <span></span>
+    </div>
+    <div class="header__menu">
+      <ul class="header__list">
+        <li>
+            <a href="/countdown/" class="header__link">Countdown</a>
+        </li>
+        <li>
+          <a href="/compare/" class="header__link">Compare (beta)</a>
+        </li>
+        <li>
+          <a href="https://twitter.com/@superplaycounts" class="header__link">Twitter X</a>
+        </li>
+        <li>
+          <a href="/api/docs.html" class="header__link">Api</a>
+        </li>
+        <li>
+            <a href="../update/" class="header__link">Update</a>
+        </li>
+        <li>
+          <i class="fa-solid fa-moon" onclick="setTheme('dark')" id="moon-icon" style="color: #000;"></i>
+          <i class="fa-solid fa-sun" onclick="setTheme('light')" id="sun-icon" style="color: #fff; display: none;"></i>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="main__content">
+    <div class="main__container">
+      <div class="main__menu">
+        <h1>Update</h1>
+      </div>
+      <div class="questions">
+        <div>
+          <button type="button" class="question">New Update v3.0.5</button>
+          <div class="answer">
+            <p>v3.0.5</p>
+            <p>&bull; April Fools update has been completely removed from the website.</p>
+            <p>&bull; On the site, TikTok Live Followers Count is now released!</p>
+            <p>&bull; The icon on the main site, displaying TikTok, means that the counter is fully functional</p>
+            <p>&bull; Added AlesClicker Clicks Count, now you can track the click counter live</p>
+            <p>&bull; Fixed minor unfinished issues and bugs, also related to the API</p>
+            <p>&bull; Updated countdowns</p>
+            <p>&bull; Updated the 404 page and the offline page when you have no internet connection</p>
+          </div>
+        </div>
+        <div>
+          <button type="button" class="question">April Fools Update v2.9.8.2</button>
+          <div class="answer">
+            <p>Happy April Fools Day! This is ONLY meant to be an April Fools update and should NOT be taken seriously.</p>
+            <p>&bull; Added a new counter: "World's Biggest Counter". It combines large values from multiple counters and is available at <a href="/world/" style="color: #fff;">/world/</a>.</p>
+            <p>&bull; Updated the main page "World" card: now it opens the new counter instead of showing "Not working".</p>
+            <p>&bull; Added random voice comments when hovering over counters, including fun April Fools phrases.</p>
+            <p>&bull; Added auto-random modes: Mute, Cat Mode, and Dance Mode</p>
+            <p>&bull; Added Cat Mode directly inside odometer digits: numbers are replaced with cat emoji combinations.</p>
+            <p>&bull; Added fake predictions when interacting with counters, including the +500 subscribers pizza prediction.</p>
+            <p>&bull; Added YouTube fake news event with rocket animation: "Your subscribers are leaving for Mars right now!"</p>
+            <p>&bull; Performance fixes: reduced Cat Mode lag/freezing on pages with dynamic counters.</p>
+          </div>
+        </div>
+        <div>
+          <button type="button" class="question">Update v2.8.8</button>
+          <div class="answer">
+            <p>v2.8.8</p>
+            <p>&bull; For the counter SUPERPLAYCOUNTS API - Requests Count, images are now loaded through the API.</p>
+            <p>&bull; Updated API documentation and changed documentation style.</p>
+            <p>&bull; Now the website has an EXPERIMENTS section where I will publish my test tasks, small projects, and experiments. Important: the content in this section may not relate to the SUPERPLAYCOUNTS theme.</p>
+            <p>&bull; The logic and style of search in EXPERIMENTS have been slightly changed.</p>
+            <p>&bull; In EXPERIMENTS, a password generator has been added.</p>
+            <p>&bull; When you tap the three-line (hamburger) icon, you'll see the new design.</p>
+            <p>&bull; Made a new feature so now you don't have to constantly enter the channel name, now you just enter the channel and there will be a Pin button, and you can pin channels. For now, this is in testing, but I hope everyone will like this feature.</p>
+            <p>&bull; I fixed the error that prevented you from uploading a JSON file in Fake Subscriber Count, now you can upload it without any problems.</p>
+          </div>
+        </div>
+        <div>
+          <button type="button" class="question">Update v2.8</button>
+          <div class="answer">
+            <p>v2.8.0</p>
+            <p>&bull; I corrected a small mistake in the Countdown: in the 'New Year' tab, one letter was wrong — it was 'И' instead of 'N'</p>
+            <p>&bull; Now the countdown to Summer 2026 has started: <a href="https://superplaycounts.github.io/countdown/Summer.html" style="color: #fff;">https://superplaycounts.github.io/countdown/Summer.html</a></p>
+            <p>&bull; I added confetti to the Countdown when the timer ends. If you don’t like it, you can let me know on my YouTube channel: <a style="color: #fff;" href="https://www.youtube.com/@DevAlesX">https://www.youtube.com/@DevAlesX</a></p>
+          </div>
+        </div>
+        <div>
+          <button type="button" class="question">Update v2.7.7</button>
+          <div class="answer">
+            <p>v2.7.7</p>
+            <p>&bull; I updated Fake Subscriber Counts, now you can save or load your settings via json, don't worry, your settings are now automatically saved, or you can also reset settings.</p>
+            <p>&bull; Now you can see that I updated the dropdown list.</p>
+            <p>&bull; Starting from August 8 to 9, 2025, the Privacy Policy will no longer be updated except in extreme cases.</p>
+            <p>&bull; Tiktok Live Followers Count is now in Pre-Release. Wait for the full release.</p>
+            <p>&bull; For the Tiktok Live Followers Count, there is a search function, but I warn you that in some cases it may take a long time to search or may even stop working altogether.</p>
+            <p>&bull; For Tiktok Live Followers Count, added a counter for Following, Videos, and Likes.</p>
+            <p>&bull; For Tiktok Live Followers Count, added a description and an embed, and for the counters of Following, Videos, and Likes, you can view the counter separately, for example, <a style="color: #fff; text-decoration: underline;" href="https://superplaycounts.github.io/tiktok/videos/?khaby.lame">https://superplaycounts.github.io/tiktok/videos/?khaby.lame</a></p>
+          </div>
+        </div>
+        <div>
+          <button type="button" class="question">Update v2.7</button>
+          <div class="answer">
+            <p>v2.7.0: Fixed bugs in the TikTok counter, improved YouTube search, and updated the main page.</p>
+            <p>&bull; On the main page of the site, in the Global clicker card, instead of Global clicker v8 stats, you will see Soon, as Global clicker v8 is currently unavailable.</p>
+            <p>&bull; In Tiktok Followers count Corrected the text, where the counter is shown under it there was the text Сlicks now you will see Followers.</p>
+            <p>&bull; In Tiktok Subscriber Counter, I fixed the buttons to share the counter, now the text is written correctly when you share the counter.</p>
+            <p>&bull; I've fixed a bug in the TikTok Subscriber Counter. The intended logic was that if the site fails to get new data from the API, it should keep displaying the last known data point. However, I foolishly wrote the function to show 'Error' or 'N/A' in the text and counter fields whenever an error occurred.</p>
+            <p>&bull; In the TikTok Followers Counter, I corrected the display of the line in the graph.</p>
+            <p>&bull; I've made some fixes and improvements to the channel search in the YouTube Live Subscriber Compare Count. The problem was that, in some cases, the search wouldn't work.</p>
+          </div>
+        </div>
+        <div>
+          <button type="button" class="question">Update v2.6.4</button>
+          <div class="answer">
+            <p>v2.6.4</p>
+            <p>&bull; On the website, the Privacy Policy was mistakenly labeled as "Primary Policy" for a long time. This error has now been corrected.</p>
+            <p>&bull; A new counter is being tested — a world population counter. However, it will not be added to the website yet, as the counter is currently very unstable.</p>
+            <p>&bull; Tiktok Follower Counter Launched on the website as a beta. If it runs smoothly and without issues, it will officially go live on the site</p>
+            <p>Please contact me with suggestions, for example: something to add or a bug to fix, please contact me on <a style="color: #fff; text-decoration: underline;" href="https://x.com/@superplaycounts">twitter X</a> or by e-mail <a style="color: #fff; text-decoration: underline;" href="mailto:alechenkodima2007@gmail.com">alechenkodima2007@gmail.com</a></p>
+          </div>
+        </div>
+        <div>
+          <button type="button" class="question">Update v2.6.1</button>
+          <div class="answer">
+            <p>v2.6.1</p>
+            <p>&bull; The "Timer" tab has been renamed to "Countdown".</p>
+            <p>&bull; New feature, if you try to go to <a href="https://superplaycounts.github.io/timer/" style="color: #fff;">https://superplaycounts.github.io/timer/</a> you will be redirected to <a href="https://superplaycounts.github.io/countdown/" style="color: #fff;">https://superplaycounts.github.io/countdown/</a></p>
+            <p>&bull; If you've ever dreamed of sharing a link to your own timer after creating it, now it's possible. <a href="/countdown/create/" style="color: #fff;">Click on the text to try it</a></p>
+            <p>&bull; In the YouTube Live Subscriber Count API, I removed the exact subscriber count because <a href="https://studio.nia-statistics.com/" style="color: #fff;">https://studio.nia-statistics.com/</a> is having issues. The exact subscriber count will be restored as soon as <a href="https://studio.nia-statistics.com/" style="color: #fff;">https://studio.nia-statistics.com/</a> is working again</p>
+            <p>&bull; I've slightly increased the limit in Fake Subscriber Count. Now you can specify the number of subscribers from -1,000,000,000,000,000 to 1,000,000,000,000,000, and in Subs gain rate (optional) you can specify -1,000,000,000,000 to 1,000,000,000,000. I warn you right away, if you specify more, it's likely to freeze computer or phone (don't check!)</p>
+            <p>&bull; Fixed all the share buttons, for example, the view counter. When you clicked share on Reddit, either the text was displayed incorrectly or the button simply didn't work</p>
+          </div>
+        </div>
+        <div>
+          <button type="button" class="question">Update v2.5.5</button>
+          <div class="answer">
+            <p>v2.5.5</p>
+            <p>&bull; You can now compare YouTube channels by going to Compare (beta) or by visiting <a href="https://superplaycounts.github.io/compare/" style="color: #fff;">https://superplaycounts.github.io/compare/</a> and selecting the platform (currently only YouTube is available). You can then compare different channels</p>
+            <p>&bull; Prior to update 2.5.5, numerous bugs related to the Compare (beta) feature were fixed.</p>
+            <p>&bull; All styles on the site have been recoded.</p>
+            <p>&bull; All JavaScript files on the site have been recoded.</p>
+            <p>&bull; A few minor errors were fixed in the fake subscriber counter.</p>
+          </div>
+        </div>
+        <div>
+          <button type="button" class="question">Update v2.5.0</button>
+          <div class="answer">
+            <p>v2.5.0</p>
+            <p>&bull; The API and its website integration are now functioning correctly.</p>
+            <p>&bull; The Summer Timer has been updated, and now you can see how long is left until summer.</p>
+            <p>&bull; When sharing a link to a counter or website, you can now view a screenshot of the site</p>
+          </div>
+        </div>
+        <div>
+          <button type="button" class="question">Update v2.4.7</button>
+          <div class="answer">
+            <p>v2.4.7</p>
+            <p>&bull; For the Summer timer you will now see how many days are left until the end of Summer</p>
+            <p>&bull; You won’t see a tiktok counter on the website for now. He passes the full test. When it finishes and works as it should, it will appear on the website</p>
+            <p>&bull; Now on the site you can see the number of global clickers, but for now you can see Global clicker v8</p>
+          </div>
+        </div>
+        <div>
+          <button type="button" class="question">Update v2.4.4</button>
+          <div class="answer">
+            <p>v2.4.4</p>
+            <p>&bull; The text in the Privacy Policy has been slightly modified.</p>
+            <p>&bull; In <a href="/fake/" style="color: #fff;">Fake Subscriber count</a>, I added a Support me button in the bottom corner of the screen. I'm not sure why, but for now, this button will be in <a href="/fake/" style="color: #fff;">Fake Subscriber count</a>.</p>
+            <p>&bull; For Fake Subscriber count, you can now change the icon parameter to the TikTok icon.</p>
+            <p>&bull; I didn't notice that in Tiktok live followers count, I didn't change the icon, and the Twitter X icon was there all the time. Now it has been fixed.</p>
+            <p>Update for the SUPERPLAYCOUNTS API, which also fits into this list.</p>
+            <p>&bull; It turns out there has been a long-standing issue with the YouTube Live View Count, where some may receive null upon a GET request, related to video search. This has been partially fixed.</p>
+          </div>
+        </div>
+        <div>
+          <button type="button" class="question">Update v2.4</button>
+          <div class="answer">
+            <p>v2.4</p>
+            <p>The bugs are fixed and a TikTok counter has been added. (TEST!)</p>
+            <p>&bull; On Twitter X Live Followers Count, when clicking 'Change User,' it redirected to /x/ but now it's fixed.</p>
+            <p>&bull; Now, a test for the TikTok followers counter is being conducted on the website.</p>
+            <p>&bull; Now the TikTok counter is working, but it's through the API on nextcounts.com.</p>
+            <p>&bull; To test the TikTok counter, you need to go to https://superplaycounts.github.io/tiktok/test/, then add your ID.
+              The ID is the username preceded by "@".</p>
+            <p>&bull; The bugs in Twitter X Live Followers Count have been fixed, but it's not possible to get a clear picture of the avatar through the X API, I don't understand why myself.</p>
+            <p>Please contact me with suggestions, for example: something to add or a bug to fix, please contact me on <a style="color: #fff; text-decoration: underline;" href="https://x.com/@superplaycounts">twitter X</a> or by e-mail <a style="color: #fff; text-decoration: underline;" href="mailto:alechenkodima2007@gmail.com">alechenkodima2007@gmail.com</a></p>
+          </div>
+        </div>
+        <div>
+          <button type="button" class="question">Update v2.3.5</button>
+          <div class="answer">
+            <p>v2.3.5</p>
+            <p>&bull; Dark theme for the embed is now available. Simply add '/dark/' after /embed/, for example, <a href="https://superplaycounts.github.io/embed/dark/youtube/?UCX6OQ3DkcsbYNE6H8uQQuVA" style="color: white;">https://superplaycounts.github.io/embed/dark/youtube/?UCX6OQ3DkcsbYNE6H8uQQuVA</a></p>
+            <p>&bull; The search for YouTube Live View Count videos has been slightly fixed.</p>
+            <p>&bull; For Twitter X Live Followers Count, errors have been fixed.</p>
+          </div>
+        </div>
+        <div>
+          <button type="button" class="question">Update v2.3.2</button>
+          <div class="answer">
+            <p>v2.3</p>
+            <p>&bull; The timers have all been updated now.</p>
+            <p>&bull; Some people noticed that if you switch to the black theme and go to the Twitter X followers count, the icon did not change to white, it was still black, but it has been fixed!</p>
+            <p>&bull; For the Twitter X followers count counter, a counter for Following count has been added.</p>
+            <p>&bull; For the Twitter X followers count counter, a counter for Likes count has been added.</p>
+            <p>&bull; For the Twitter X followers count counter, a counter for Lists count has been added.</p>
+            <p>&bull; For the Twitter X followers count counter, a counter for Media count has been added.</p>
+            <p>&bull; For the Twitter X followers count counter, a counter for Tweets count has been added.</p>
+            <p>&bull; For the Twitter X followers count, a fully implemented embed has been created, similar to those for following, likes, lists, media, and tweets.</p>
+            <p>&bull; The counters and searches were not working, so it has been fixed.</p>
+            <p>&bull; Now, for Twitter X Live Followers Count, user search has been implemented, thanks to mixerno.space.</p>
+            <p>&bull; Now, Twitter X Live Followers Count works officially and correctly, so you may notice the X icon on the main page of the website.</p>
+            <p>&bull; Small and strange bugs were fixed.</p>
+            <p>Please contact me with suggestions, for example: something to add or a bug to fix, please contact me on <a style="color: #fff; text-decoration: underline;" href="https://x.com/@superplaycounts">twitter X</a> or by e-mail <a style="color: #fff; text-decoration: underline;" href="mailto:alechenkodima2007@gmail.com">alechenkodima2007@gmail.com</a></p>
+          </div>
+        </div>
+        <div>
+          <button type="button" class="question">Update v2.2</button>
+          <div class="answer">
+            <p>v2.2</p>
+            <p>&bull; The timers have all been updated now.</p>
+            <p>&bull; Now you can share the counter on LinkedIn, Pinterest, email, Telegram, Reddit, WhatsApp.</p>
+            <p>&bull; For those who might be interested, you can see how many API requests have been made in total.</p>
+            <p>&bull; The Twitter X counter is working steadily.</p>
+            <p>&bull; Now there is a description 'About Twitter X Followers Count.</p>
+            <p>&bull; Added an embed for YouTube and for Twitter X.</p>
+          </div>
+        </div>
+        <div>
+          <button type="button" class="question">Update v2.1.4</button>
+          <div class="answer">
+            <p>v2.1</p>
+            <p>&bull; On the website, all fonts have been changed, except for the advertising banners.</p>
+            <p>&bull; Since Twitter has been renamed to X, it will be referred to as Twitter X on the website.</p>
+            <p>&bull; The <a href="/fake/" style="color: #fff;">fake Subscriber counter</a> has undergone minor changes.</p>
+            <p>&bull; The Twitter X follower counter is currently in testing, but you can try it out. Just don't forget to write the user ID in the URL after the '?'. For example, if the URL is <a href="https://twitter.com/superplaycounts">'https://twitter.com/superplaycounts'</a>, then it becomes <a href="https://superplaycounts.github.io/x/?superplaycounts">'https://superplaycounts.github.io/x/?superplaycounts'</a></p>
+            <p>&bull; Now you can easily share counters on LinkedIn.</p>
+            <p>&bull; The website style has slightly changed.</p>
+            <p>&bull; The graphics are now properly adapted to the dark style of the website.</p>
+          </div>
+        </div>
+        <div>
+          <button type="button" class="question">Update v2.0.6</button>
+          <div class="answer">
+            <p>v2.0.6</p>
+            <p>&bull; You can always support SUPERPLAYCOUNTS on Ko-fi at <a href="https://ko-fi.com/superplaycounts." style="color: #fff;">https://ko-fi.com/superplaycounts.</a></p>
+            <p>&bull; <a href="/update/map/" style="color: #fff;">If you click on the text, you will be redirected to a world map where the availability of the website is indicated by red (website blocked) and green (website is working).</a></p>
+            <p>&bull; Updated documentation for the SUPERPLAYCOUNTS API</p>
+            <p>&bull; The countdown has been fixed.</p>
+            <p>&bull; Now you can share the subscriber count with just one click! Currently available Twitter and Facebook.</p>
+            <p>&bull; The website is now available in the following countries: Italy, Canada, Spain, Australia.</p>
+          </div>
+        </div>
+        <div>
+          <button type="button" class="question">Update v2.0</button>
+          <div class="answer">
+            <p>v2.0.0</p>
+            <p>&bull; Now an description has been added to the YouTube subscriber counter.</p>
+            <p>&bull; Now, for YouTube video counter. You can separately view the view count, likes, dislikes, and comments.</p>
+            <p>&bull; for Youtube video count, search added, you can write the name of the video or insert the video id</p>
+            <p>&bull; in the <a href="/" style="color: #fff;">main page</a> of the site, when you click on Load Comments, a teaser ad appears and comments are loaded</p>
+            <p>&bull; Embed is currently in development</p>
+            <p>&bull; Now you can create your own timer on the website.</p>
+            <p>&bull; The website is now available in the following countries: Mauritania, Haiti, Uganda, Slovenia, Eswatini, Tonga, Syria.</p>
+          </div>
+        </div>
+        <div>
+          <button type="button" class="question">Update v1.9.4</button>
+          <div class="answer">
+            <p>v1.9.4</p>
+            <p>&bull; Now in the <a href="/fake/" style="color: #fff;">fake subscriber counter</a>, the "Set Values" button is located at the top.</p>
+            <p>&bull; the Twitter counter is hidden, the reasons that it is not being developed yet</p>
+            <p>&bull; Now you can watch the likes and dislikes counter for videos. search under development!</p>
+            <p>&bull; The website is now available in the following countries: Cook Islands, Estonia, Gibraltar, Laos, and Seychelles.</p>
+          </div>
+        </div>
+        <div>
+          <button type="button" class="question">Update v1.9.0</button>
+          <div class="answer">
+            <p>v1.9</p>
+            <p>&bull; Now the Privacy Policy is being updated every day!</p>
+            <p>&bull; Currently, ads in /youtube/?id, youtube/api/?id, /youtube/views/?id, /youtube/videos/?id are not displayed. In the future, when I fix the error with displaying ads, they will appear</p>
+            <p>&bull; The website is not available in all countries except Ukraine, USA, and the United Kingdom. Soon, the website will be accessible to everyone!</p>
+            <p>&bull; If you are looking at the view counter, the updated graphics will show "Views: 26,754,583,353".</p>
+            <p>&bull; I made some minor code improvements in the API, and now the API is working slightly faster.</p>
+          </div>
+        </div>
+        <div>
+          <button type="button" class="question">Update v1.8.5</button>
+          <div class="answer">
+            <p>v1.8.5</p>
+            <p>&bull; Slightly fixed the card where the description is written.</p>
+            <p>&bull; Corrected graphics and added zoom functionality.</p>
+            <p>&bull; Added a Change User button just in case so that you can quickly switch and change users.</p>
+            <p>&bull; Added teaser ads to some parts of the website.</p>
+            <p>&bull; The timers page has been completely redesigned.</p>
+          </div>
+        </div>
+        <div>
+          <button type="button" class="question">Update v1.8</button>
+          <div class="answer">
+            <p>v1.8</p>
+            <p>&bull; Cards are now more versatile.</p>
+            <p>&bull; The main menu of the website now includes other counters, but they are currently hidden.</p>
+            <p>&bull; There is a description for the fake subscriber counter.</p>
+            <p>&bull; For the fake subscriber count, when you enter the channel name, it will be displayed in the tab. For example, if you enter "test", it will appear as "test - Subscriber Count".</p>
+            <p>&bull; Fixed bugs when changing themes, when searching for a channel, the card did not change style as it should.</p>
+            <p>&bull; Now the counter for YouTube displays the number of videos.</p>
+            <p>&bull; Now you can leave reactions and comments on subscriber counters.</p>
+            <p>&bull; Now you can view YouTube API subscriber count using this link: https://superplaycounts.github.io/youtube/api/?id</p>
+          </div>
+        </div>
+        <div>
+          <button type="button" class="question">Update v1.7.2</button>
+          <div class="answer">
+            <p>v1.7, Correction, new, documentation.</p>
+            <p>&bull; Abbreviate Counts fake subscriber counter works correctly.</p>
+            <p>&bull; Fixed a bug in the fake subscriber counter where selecting an image file and then pressing "set value" would cause the image to disappear.</p>
+            <p>&bull; For the fake subscriber counter, the ability to change the text in SUBSCRIBERS or followers or other text has been added.</p>
+            <p>&bull; For the fake subscriber counter, it is now possible to change the icon to, for example, YouTube, Twitter, or completely remove the icon.</p>
+            <p>&bull; Fixed graphics, now the graphics will be cleared when there are too many data points about subscribers.</p>
+            <p>&bull; Now you can change the theme to dark on the website.</p>
+            <p>&bull; API documentation is ready, but there is only one caveat - all GET requests work correctly, but, for example, Twitter is still in development.</p>
+          </div>
+        </div>
+        <div>
+          <button type="button" class="question">Update v1.6.5</button>
+          <div class="answer">
+            <p>v1.6, Modification, alteration, and deletion.</p>
+            <p>&bull; April Fools update has been completely removed from the website.</p>
+            <p>&bull; The page with the <a href="https://superplaycounts.github.io/timer/" style="color: #fff;">timer</a> has been slightly improved, now the style is closer to the familiar website.</p>
+            <p>&bull; Fixed the issue with the 404 page, which was sometimes displaying without any styling.</p>
+            <p>&bull; Nav bar has been slightly fixed.</p>
+            <p>&bull; For developers, API documentation will be ready soon, despite the fact that the YouTube, Twitter, and TikTok counters are not working correctly, but this will be fixed. I will provide complete information in the near future.</p>
+            <p>&bull; Added the ability to hide the graphics.</p>
+            <p>&bull; Added the ability for the fake subscriber counter to change the hotkey for hiding settings.</p>
+          </div>
+        </div>
+        <div>
+          <button type="button" class="question">April Fools Update v1.5.8.6</button>
+          <div class="answer">
+            <p>Happy April Fools Day! This is ONLY meant to be an April Fools update and should NOT be taken seriously.</p>
+            <p>&bull; New counters have been added: TikTok, Twitter, Reddit, Roblox, Instagram, Likee, and Spotify.</p>
+            <p>&bull; For the YouTube subscribers counter, a game has been added.</p>
+            <p>&bull; When clicking on the April Fools Update v1.5.8.6 button located in the Update section, a funny sound is played.</p>
+            <p>&bull; In the fake subscriber counter, a message from the police appears.</p>
+          </div>
+        </div>
+        <div>
+          <button type="button" class="question">Update v1.5.3</button>
+          <div class="answer">
+            <p>v1.5 Updates and corrections.</p>
+            <p>&bull; On the <a href="/" style="color: #fff;">main website</a>, the cards now look more beautiful.</p>
+            <p>&bull; The website style is more responsive on mobile devices now.</p>
+            <p>&bull; When comments are loading, they no longer touch the edges of the screen.</p>
+            <p>&bull; For <a href="/fake/" style="color: #fff;">fake subscriber counters</a>, a rate for subscribers per second, per minute, and per hour has been added.</p>
+            <p>&bull; Fixed a strange bug with the odometer.</p>
+            <p>&bull; A subscribers graph has been added for YouTube subscriber counters.</p>
+            <p>&bull; A <a href="/api/docs.html" style="color: #fff;">documentation page for Api</a> has been created, but the documentation is not yet ready.</p>
+          </div>
+        </div>
+        <div>
+          <button type="button" class="question">Update v1.4.6</button>
+          <div class="answer">
+            <p>v1.4.6, Correction, modification.</p>
+            <p>&bull; Now in the <a href="/fake/" style="color: #fff;">Fake Subscriber Count</a>, you can add an image and banner using a url.</p>
+            <p>&bull; The banner regarding the use of cookies has been corrected.</p>
+            <p>&bull; All colors under the body tag will be in white color. This is to easily add a future website theme change to a dark mode.</p>
+            <p>&bull; I fixed the loading animation. When you requested a search, the loading animation was not centered, but was located on the left side during the loading process.</p>
+            <p>&bull; Now the website font is displayed properly for different languages.</p>
+            <p>&bull; For <a href="/youtube/search.html" style="color: #fff;">YouTube, the subscriber counter</a> now displays the channel view count under the card!</p>
+            <p>&bull; A new section has been added to the <a href="/" style="color: #fff;">website homepage</a> which is Twitter. Currently, there is no counter for Twitter yet.</p>
+            <p>&bull; Of course, a <a href="/privacy-policy.html" style="color: #fff;">privacy policy</a> is essential. Now the website has one located at the bottom of the page.</p>
+          </div>
+        </div>
+        <div>
+          <button type="button" class="question">Update v1.4</button>
+          <div class="answer">
+            <p>v1.4, change, correction</p>
+            <p>&bull; Youtube subscriber counter is stable</p>
+            <p>&bull; Now when you hover over the avatar, the radius of the avatar will be 40%</p>
+            <p>&bull; Now when you hover over the banner, the blur will be 0px</p>
+            <p>&bull; For YouTube subscriber counter, api subscriber count was added under the card</p>
+          </div>
+        </div>
+        <div>
+          <button type="button" class="question">Update v1.3.4</button>
+          <div class="answer">
+            <p>v1.3, Corrections, bug fixes, Interesting</p>
+            <p>&bull; Now website → Web application, you can download app on phone and on pc</p>
+            <p>&bull; Now the <a href="/youtube/search.html" style="color: #fff;"> YouTube counter</a> is working right</p>
+            <p>&bull; Logos are displayed on the main page of the site, which means that if the YouTube logo is present, then on the site you can watch the subscriber counter or something else in real time!</p>
+            <p>&bull; Now at the moment the YOUTUBE subscriber counter is in pre-release!</p>
+            <p>&bull; Added channel search so you can easily find channels for your convenience :)</p>
+            <p>&bull; When adding a search, I ran into big problems, but they are fixed!</p>
+            <p>&bull; For Fake, the subscriber counter is written at the bottom Note</p>
+            <p>&bull; Now in the fake counter of subscribers. you can hide settings, on PC it's very easy with the 'q' key.</p>
+            <p> To hide settings on a mobile device, just go to the menu, these are three bars. click and swipe a little and you will see a button to hide settings.</p>
+          </div>
+        </div>
+        <div>
+          <button type="button" class="question">Update v1.2.6</button>
+          <div class="answer">
+              <p>v1.2.6, Site changes, bugs, and so on.</p>
+              <p>&bull; You can support me through ko-fi, on the <a href="/" style="color: #fff;">home page</a></p>
+              <p>&bull; YouTube subscriber counter sent for recycling</p>
+              <p>&bull; Function abbreviate counts Removed</p>
+              <p>&bull; Fixed bug in YouTube subscriber counter
+                Channel banner, channel avatar and channel name</p>
+                <p>&bull; Counter animation is now normal</p>
+                <p>&bull; added <a href="https://superplaycounts.github.io/timer/summer-timer" style="color: #fff;">countdown to summer</a></p>
+                <p>Happy New Year 2023!</p>
+          </div>
+      </div>
+        <div>
+            <button type="button" class="question">Update v1.2</button>
+            <div class="answer">
+                <p>v1.2, Changes that have occurred on the site</p>
+                <p>&bull; As you have already noticed. now the site is not beta but release.</p>
+                <p>&bull; The secret menu no longer exists</p>
+                <p>&bull; An alternative timer was made for the tab.</p>
+                <p>&bull; You can now track the <a href="/youtube/" style="color: #fff;"> YouTube subscriber counter.</a> "Note: This counter is crooked, we'll fix it in the future."</p>
+                <p>&bull; for <a href="/fake/index.html" style="color: #fff;">fake subscriber counter</a> added ability to Abbreviate counts</p>
+            </div>
+        </div>
+        <div>
+          <button type="button" class="question">Update v1.1 Beta</button>
+          <div class="answer">
+              <p>v1.1 beta, there were some changes on the site</p>
+              <p>&bull; The site font has been changed, Bebas Neue.</p>
+              <p>&bull; Fixed site adaptation for mobile devices!</p>
+              <p>&bull; don't click this, doesn't exist anymore.</p>
+              <p>&bull; You can access Twitter just by tapping "Twitter" at the top or from your phone, just go to the menu and scroll down and will be Twitter</p>
+          </div>
+      </div>
+      </div>
+      <div id="MIXADV_9822" class="MIXADVERT_NET"></div>
+      <br>
+      <footer>
+        <div class="cookie-block" id="cookie-banner">
+          We use cookies to personalize the site and analyze site traffic. 🍪
+      
+          <button class="ok" onclick="acceptCookies()">Accept</button>
+        </div>
+        <div class="cr-1">
+        <!-- <h1>This site has been visited <span id="visits" id="count" class="odometer"></span> times.</h1> -->
+          <hr style="height:0;color:inherit;border-top-width:1px;">
+          <div>
+            <div class="textleftcr">
+              <a href="/privacy-policy.html" style="color: gray; text-decoration: none; text-align: center;">Privacy Policy</a>
+            </div>
+            <p class="textrightcr">
+              &#169;
+              <!--  -->
+              <span class="year">2020</span>
+              <!--  -->
+              superplaycounts.github.io
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <script src="/js/scripts.js"></script>
+  <script src="/js/cookie.js"></script>
+  <script>
+    var q = document.getElementsByClassName("question");
+    for (let i = 0; i < q.length; i++) {
+      q[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+
+        var n = this.nextElementSibling;
+        if (n.style.maxHeight) {
+          n.style.maxHeight = null;
+        } else {
+          n.style.maxHeight = n.scrollHeight + "px";
+        }
+      });
+    }
+  </script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker
+        .register("/serviceWorker.js")
+        .then((registration) => {
+          console.log("SM registration successful");
+        });
+      });
+    }
+  </script>
+  <script type="text/javascript" src="https://m.mixadvert.com/show/?id=9822" async></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B5TEVSVZ74"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-B5TEVSVZ74');
+  </script>
+</body>
+</html>
