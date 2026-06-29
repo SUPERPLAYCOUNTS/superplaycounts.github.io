@@ -9,6 +9,67 @@
     color: #333;
 }
 
+#settings {
+    background: #ffffff;
+    border: 1px solid #dde3ea;
+    box-shadow: 0 10px 24px rgba(17, 24, 39, 0.08);
+}
+
+#settings .settings-label {
+    color: #2f3a45;
+}
+
+#settings .settings-help {
+    color: #687583;
+}
+
+#settings input[type="text"],
+#settings input[type="number"],
+#settings input[type="file"],
+#settings .optionrate {
+    background-color: #f8fafc;
+    border-color: #d4dce5;
+    color: #1f2933;
+}
+
+#settings input::placeholder {
+    color: #7d8996;
+}
+
+#settings input:focus,
+#settings .optionrate:focus {
+    border-color: #5a8dee;
+    box-shadow: 0 0 0 3px rgba(90, 141, 238, 0.18);
+    outline: none;
+}
+
+#settings #uniformGainFields,
+#settings #gaussianGainFields,
+#settings #legacyGainFields,
+#settings .settings-io-buttons {
+    background: #f6f8fb;
+    border: 1px solid #e1e7ef;
+}
+
+#settings > input[type="submit"],
+#settings .io-btn {
+    background-color: #3f7fe8;
+    color: #fff;
+}
+
+#settings > input[type="submit"]:hover,
+#settings .io-btn:hover {
+    background-color: #316ed0;
+}
+
+#settings .reset-btn {
+    background-color: #e74c3c;
+}
+
+#settings .reset-btn:hover {
+    background-color: #c0392b;
+}
+
 .main__menu {
   text-align: center;
   margin-bottom: 40px;

@@ -39,9 +39,6 @@
   background-color: transparent;
   cursor: pointer;
 }
-.MIXADVERT_NET {
-  z-index: 0;
-}
   </style>
 
   <!-- Twitter Card -->
@@ -166,11 +163,7 @@
             this.page.identifier = btoa(`https://superplaycounts.github.io${location.pathname}`);
           };
       
-          function loadDisqus() {
-            const mixadvElement = document.createElement('div');
-            mixadvElement.id = 'MIXADV_9821';
-            mixadvElement.className = 'MIXADVERT_NET';
-      
+          function loadDisqus() {      
             var d = document,
               s = d.createElement('script');
             s.src = 'https://superplaycounts.disqus.com/embed.js';
@@ -178,7 +171,7 @@
             (d.head || d.body).appendChild(s);
       
             const disqusThreadElement = document.getElementById('disqus_thread');
-            disqusThreadElement.parentNode.insertBefore(mixadvElement, disqusThreadElement);
+            disqusThreadElement.parentNode.insertBefore(disqusThreadElement);
           }
         </script>
       </div>
@@ -187,7 +180,6 @@
       <br>
       <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'B0B6E1LN3');kofiwidget2.draw();</script>
       <br>
-      <div id="MIXADV_9822" class="MIXADVERT_NET"></div>
       <br>
       <br>
       <br>
@@ -263,8 +255,6 @@
       wallsgriditem.style.display = "none";
     }
   </script>
-  <script type="text/javascript" src="https://m.mixadvert.com/show/?id=9821" async></script>
-  <script type="text/javascript" src="https://m.mixadvert.com/show/?id=9822" async></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-B5TEVSVZ74"></script>
 <script>
   window.dataLayer = window.dataLayer || [];

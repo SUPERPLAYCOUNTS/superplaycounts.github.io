@@ -88,6 +88,24 @@
             .reset-btn:hover {
                 background-color: #c0392b;
             }
+            .settings-section {
+                width: 90%;
+                max-width: 760px;
+                margin: 14px auto;
+                text-align: left;
+            }
+            .settings-label {
+                display: block;
+                margin: 12px 0 6px;
+                font-size: 18px;
+                font-weight: 600;
+            }
+            .settings-help {
+                margin: 6px 0 12px;
+                color: #777;
+                font-size: 14px;
+                line-height: 1.4;
+            }
 
             @media (max-width: 900px) {
                 #push {
@@ -172,31 +190,84 @@
                 <br>
                 <br>
                 <br>
+                <div class="settings-section">
+                    <p class="settings-help">Fill in the channel details, choose how the counter should grow, then click Set values to apply and save your setup.</p>
+                </div>
+                <label class="settings-label" for="channelSubmitName">Channel name</label>
                 <input type="text" id="channelSubmitName" name="channelSubmitName" placeholder="Channel Name">
                 <br>
+                <label class="settings-label" for="countSubmit">Channel subscribers</label>
                 <input type="number" id="countSubmit" name="countSubmit" placeholder="Channel subs">
+                <select class="optionrate" id="countSyncMode" title="Channel subs synchronization">
+                    <option class="optirate" value="manual" selected>Manual channel subs</option>
+                    <option class="optirate" value="sync">Sync with live count</option>
+                </select>
+                <div class="settings-section">
+                    <p class="settings-help">Manual lets you type the starting count. Sync with live count keeps this field updated with the current counter value.</p>
+                </div>
                 <br>
-                <label for="">Channel Image</label>
+                <label class="settings-label" for="upload-img-url">Channel image</label>
                 <input type="text" id="upload-img-url" placeholder="Url Image"><p>or</p>
                 <input type="file" id="upload-button" accept="image/*">
                 <br>
-                <label for="">Channel Banner</label for="options.counter.banner.url">
+                <label class="settings-label" for="upload-banner-url">Channel banner</label>
                 <input type="text" id="upload-banner-url" placeholder="Url Banner"><p>or</p>
                 <input type="file" id="upload-banner" accept="image/*">
                 <br>
-                <input type="number" id="subsPerMinute" name="subsPerMinute" placeholder="Subs gain rate (optional)"><br>
+                <label class="settings-label" for="gainType">Gain type</label>
+                <select class="optionrate" id="gainType">
+                    <option class="optirate" value="uniform" selected>Uniform (Default)</option>
+                    <option class="optirate" value="gaussian">Gaussian</option>
+                    <option class="optirate" value="legacy">Legacy rate</option>
+                </select>
+                <div class="settings-section">
+                    <p class="settings-help">Uniform picks a random gain between minimum and maximum. Gaussian makes gains cluster around the mean. Legacy uses the old fixed rate system.</p>
+                </div>
+                <br>
+                <div id="uniformGainFields">
+                    <label class="settings-label" for="uniformMinRate">Uniform gain settings</label>
+                    <input type="number" id="uniformMinRate" placeholder="Minimum rate">
+                    <input type="number" id="uniformMaxRate" placeholder="Maximum rate">
+                    <input type="number" id="uniformGainPer" value="60" min="1" placeholder="Gain per (seconds)" title="The amount of time in seconds that the gain rates are calculated per. Use 60 for per minute and 3600 for per hour.">
+                    <div class="settings-section">
+                        <p class="settings-help">Example: min 5, max 15, gain per 60 means the counter gains between 5 and 15 subscribers per minute.</p>
+                    </div>
+                </div>
+                <div id="gaussianGainFields" style="display: none;">
+                    <label class="settings-label" for="gaussianMeanRate">Gaussian gain settings</label>
+                    <input type="number" id="gaussianMeanRate" placeholder="Mean rate">
+                    <input type="number" id="gaussianStandardDeviation" min="0" placeholder="Standard deviation" title="The expected distance from the mean the rate will be.">
+                    <input type="number" id="gaussianGainPer" value="60" min="1" placeholder="Gain per (seconds)" title="The amount of time in seconds that the gain rates are calculated per. Use 60 for per minute and 3600 for per hour.">
+                    <div class="settings-section">
+                        <p class="settings-help">Mean is the average gain. Standard deviation controls how much the gain can move away from that average.</p>
+                    </div>
+                </div>
+                <div id="legacyGainFields" style="display: none;">
+                    <label class="settings-label" for="subsPerMinute">Legacy gain settings</label>
+                    <input type="number" id="subsPerMinute" name="subsPerMinute" placeholder="Subs gain rate (optional)">
+                    <select class="optionrate" id="rateOption">
+                        <option class="optirate" value="secs">Rate in subs/second</option>
+                        <option class="optirate" value="mins">Rate in subs/minute</option>
+                        <option class="optirate" value="hrs">Rate in subs/hour</option>
+                    </select>
+                    <div class="settings-section">
+                        <p class="settings-help">Use this if you want the same behavior as the old fake counter rate option.</p>
+                    </div>
+                </div>
+                <br>
+                <button type="button" id="countPlaybackButton" class="io-btn" aria-pressed="false">
+                    <i class="fa-solid fa-pause"></i> Pause count
+                </button>
+                <div class="settings-section">
+                    <p class="settings-help">Pause stops automatic gain. Play resumes it without changing your saved values.</p>
+                </div>
+                <br>
+                <label class="settings-label" for="footerSubmittext">Counter label</label>
                 <input type="text" id="footerSubmittext" name="footerSubmittext" value="SUBSCRIBERS" placeholder="Followers, Subscribers, etc"><br>
                 <br>
                 <h1>Global Settings:</h1><br>
                 <input type="checkbox" id="abbreviate"><label>Abbreviate Counts</label>
                 <br>
-                <br>
-                <br>
-                <select class="optionrate" id="rateOption">
-                    <option class="optirate" value="secs">Rate in subs/second</option>
-                    <option class="optirate" value="mins">Rate in subs/minute</option>
-                    <option class="optirate" value="hrs">Rate in subs/hour</option>
-                </select>
                 <br>
                 <br>
                 <select class="optionrate" id="icon-select">

@@ -181,6 +181,67 @@ strong {
     color: white;
 }
 
+#settings {
+    background: #242424;
+    border: 1px solid #454545;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+}
+
+#settings .settings-label {
+    color: #f2f2f2;
+}
+
+#settings .settings-help {
+    color: #b8b8b8;
+}
+
+#settings input[type="text"],
+#settings input[type="number"],
+#settings input[type="file"],
+#settings .optionrate {
+    background-color: #303030;
+    border-color: #555;
+    color: #ffffff;
+}
+
+#settings input::placeholder {
+    color: #a8a8a8;
+}
+
+#settings input:focus,
+#settings .optionrate:focus {
+    border-color: #7aa2ff;
+    box-shadow: 0 0 0 3px rgba(122, 162, 255, 0.22);
+    outline: none;
+}
+
+#settings #uniformGainFields,
+#settings #gaussianGainFields,
+#settings #legacyGainFields,
+#settings .settings-io-buttons {
+    background: #1f1f1f;
+    border: 1px solid #444;
+}
+
+#settings > input[type="submit"],
+#settings .io-btn {
+    background-color: #4d7fe0;
+    color: #fff;
+}
+
+#settings > input[type="submit"]:hover,
+#settings .io-btn:hover {
+    background-color: #3d6ec8;
+}
+
+#settings .reset-btn {
+    background-color: #b83d32;
+}
+
+#settings .reset-btn:hover {
+    background-color: #9f3028;
+}
+
 .doc-card {
     background: #2a2a2a;
     border: 1px solid #444;

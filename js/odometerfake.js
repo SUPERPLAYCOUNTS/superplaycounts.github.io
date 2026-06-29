@@ -6,11 +6,24 @@ const channelName = document.getElementById("channelName");
 const footertext = document.getElementById("footertext");
 const subsPerMinute = document.getElementById("subsPerMinute");
 const rateOption = document.getElementById("rateOption");
+const gainType = document.getElementById("gainType");
+const uniformGainFields = document.getElementById("uniformGainFields");
+const gaussianGainFields = document.getElementById("gaussianGainFields");
+const legacyGainFields = document.getElementById("legacyGainFields");
+const uniformMinRate = document.getElementById("uniformMinRate");
+const uniformMaxRate = document.getElementById("uniformMaxRate");
+const uniformGainPer = document.getElementById("uniformGainPer");
+const gaussianMeanRate = document.getElementById("gaussianMeanRate");
+const gaussianStandardDeviation = document.getElementById("gaussianStandardDeviation");
+const gaussianGainPer = document.getElementById("gaussianGainPer");
+const countSyncMode = document.getElementById("countSyncMode");
+const countPlaybackButton = document.getElementById("countPlaybackButton");
 
 let count = 0;
 let rate = 0;
 let hotkey = "KeyQ";
 let abbreviate = false;
+let isCountPaused = false;
 const checkbox = document.getElementById("abbreviate");
 const iconSelect = document.getElementById('icon-select');
 const icon = document.getElementById('icon');
@@ -19,10 +32,85 @@ checkbox.addEventListener("change", function () {
   abbreviate = this.checked;
 });
 
+function isCountSyncEnabled() {
+  return countSyncMode && countSyncMode.value === "sync";
+}
+
+function syncCountInput() {
+  if (!isCountSyncEnabled()) return;
+  countSubmit.value = Math.floor(count);
+}
+
+function updateCountSyncMode() {
+  if (!countSyncMode) return;
+  countSubmit.readOnly = isCountSyncEnabled();
+  countSubmit.placeholder = isCountSyncEnabled()
+    ? "Synced with live count"
+    : "Channel subs";
+  syncCountInput();
+}
+
+function updatePlaybackButton() {
+  if (!countPlaybackButton) return;
+  countPlaybackButton.setAttribute("aria-pressed", isCountPaused);
+  countPlaybackButton.innerHTML = isCountPaused
+    ? '<i class="fa-solid fa-play"></i> Play count'
+    : '<i class="fa-solid fa-pause"></i> Pause count';
+}
+
+function toggleCountPlayback() {
+  isCountPaused = !isCountPaused;
+  updatePlaybackButton();
+  saveAllSettings();
+}
+
+function getNumberInputValue(input, fallback = 0) {
+  if (!input) return fallback;
+  const value = parseFloat(input.value);
+  return Number.isFinite(value) ? value : fallback;
+}
+
+function getPositiveInputValue(input, fallback) {
+  const value = getNumberInputValue(input, fallback);
+  return value > 0 ? value : fallback;
+}
+
+function getUniformRate() {
+  const minimumRate = getNumberInputValue(uniformMinRate);
+  const maximumRate = getNumberInputValue(uniformMaxRate);
+  const min = Math.min(minimumRate, maximumRate);
+  const max = Math.max(minimumRate, maximumRate);
+  return min + Math.random() * (max - min);
+}
+
+function getGaussianRate() {
+  const mean = getNumberInputValue(gaussianMeanRate);
+  const standardDeviation = Math.max(0, getNumberInputValue(gaussianStandardDeviation));
+  const randomA = Math.random() || Number.EPSILON;
+  const randomB = Math.random();
+  const normalSample = Math.sqrt(-2 * Math.log(randomA)) * Math.cos(2 * Math.PI * randomB);
+  return mean + normalSample * standardDeviation;
+}
+
+function updateGainTypeFields() {
+  if (!gainType) return;
+  const selectedType = gainType.value;
+  if (uniformGainFields) {
+    uniformGainFields.style.display = selectedType === "uniform" ? "block" : "none";
+  }
+  if (gaussianGainFields) {
+    gaussianGainFields.style.display = selectedType === "gaussian" ? "block" : "none";
+  }
+  if (legacyGainFields) {
+    legacyGainFields.style.display = selectedType === "legacy" ? "block" : "none";
+  }
+}
+
 function submit() {
   const channel = channelSubmitName.value;
   const footertxt = footerSubmittext.value;
-  count = parseInt(countSubmit.value, 10) || 0;
+  const submittedCount = parseFloat(countSubmit.value);
+  count = Number.isFinite(submittedCount) ? submittedCount : count;
   document.title = `${channel || "Fake Counter"} - Subscriber Count`;
 
   if (!channel) {
@@ -42,6 +130,7 @@ function submit() {
   }
 
   channelSubs.innerHTML = abbreviateCount(count);
+  syncCountInput();
   footertext.innerHTML = footertxt;
 
   rate = parseInt(subsPerMinute.value, 10) || 0;
@@ -75,6 +164,29 @@ iconSelect.addEventListener('change', (event) => {
 });
 
 function updateSubs() {
+  if (isCountPaused) return;
+  const selectedGainType = gainType ? gainType.value : "legacy";
+
+  if (selectedGainType === "uniform") {
+    const currentRate = getUniformRate();
+    const gainPer = getPositiveInputValue(uniformGainPer, 60);
+    if (currentRate > 1e9 || currentRate < -1e9) return;
+    count += currentRate * (5 / gainPer);
+    channelSubs.innerHTML = abbreviateCount(Math.floor(count));
+    syncCountInput();
+    return;
+  }
+
+  if (selectedGainType === "gaussian") {
+    const currentRate = getGaussianRate();
+    const gainPer = getPositiveInputValue(gaussianGainPer, 60);
+    if (currentRate > 1e9 || currentRate < -1e9) return;
+    count += currentRate * (5 / gainPer);
+    channelSubs.innerHTML = abbreviateCount(Math.floor(count));
+    syncCountInput();
+    return;
+  }
+
   if (isNaN(rate) || rate === 0) return;
 
   let updateInterval = 5000;
@@ -89,6 +201,7 @@ function updateSubs() {
 
   count += rate * (updateInterval / 1000);
   channelSubs.innerHTML = abbreviateCount(Math.floor(count));
+  syncCountInput();
 }
 
 function abbreviateCount(count) {
@@ -154,6 +267,15 @@ function saveAllSettings() {
     const settings = {
         channelName: channelSubmitName.value,
         count: countSubmit.value,
+        countSyncMode: countSyncMode ? countSyncMode.value : 'manual',
+        isCountPaused: isCountPaused,
+        gainType: gainType ? gainType.value : 'uniform',
+        uniformMinRate: uniformMinRate ? uniformMinRate.value : '',
+        uniformMaxRate: uniformMaxRate ? uniformMaxRate.value : '',
+        uniformGainPer: uniformGainPer ? uniformGainPer.value : '60',
+        gaussianMeanRate: gaussianMeanRate ? gaussianMeanRate.value : '',
+        gaussianStandardDeviation: gaussianStandardDeviation ? gaussianStandardDeviation.value : '',
+        gaussianGainPer: gaussianGainPer ? gaussianGainPer.value : '60',
         footerText: footerSubmittext.value,
         rate: subsPerMinute.value,
         rateOption: rateOption.value,
@@ -174,6 +296,19 @@ function saveAllSettings() {
 function applySettings(settings) {
     channelSubmitName.value = settings.channelName || '';
     countSubmit.value = settings.count || 0;
+    if (countSyncMode) {
+        countSyncMode.value = settings.countSyncMode || 'manual';
+    }
+    isCountPaused = settings.isCountPaused || false;
+    if (gainType) {
+        gainType.value = settings.gainType || (settings.rate ? 'legacy' : 'uniform');
+    }
+    if (uniformMinRate) uniformMinRate.value = settings.uniformMinRate || '';
+    if (uniformMaxRate) uniformMaxRate.value = settings.uniformMaxRate || '';
+    if (uniformGainPer) uniformGainPer.value = settings.uniformGainPer || '60';
+    if (gaussianMeanRate) gaussianMeanRate.value = settings.gaussianMeanRate || '';
+    if (gaussianStandardDeviation) gaussianStandardDeviation.value = settings.gaussianStandardDeviation || '';
+    if (gaussianGainPer) gaussianGainPer.value = settings.gaussianGainPer || '60';
     footerSubmittext.value = settings.footerText || 'SUBSCRIBERS';
     subsPerMinute.value = settings.rate || '';
     rateOption.value = settings.rateOption || 'secs';
@@ -186,6 +321,9 @@ function applySettings(settings) {
     chosenImage.src = settings.imageDataUrl || settings.imageUrl || '';
     chosenBanner.src = settings.bannerDataUrl || settings.bannerUrl || '';
     submit();
+    updateCountSyncMode();
+    updatePlaybackButton();
+    updateGainTypeFields();
     setImage();
 }
 
@@ -228,6 +366,20 @@ function resetAllSettings() {
 
 
 document.addEventListener('DOMContentLoaded', loadAllSettings);
+updatePlaybackButton();
+updateGainTypeFields();
+if (gainType) {
+    gainType.addEventListener('change', () => {
+        updateGainTypeFields();
+        saveAllSettings();
+    });
+}
+if (countSyncMode) {
+    countSyncMode.addEventListener('change', updateCountSyncMode);
+}
+if (countPlaybackButton) {
+    countPlaybackButton.addEventListener('click', toggleCountPlayback);
+}
 document.getElementById('export-button').addEventListener('click', exportSettingsToFile);
 
 const importBtn = document.getElementById('import-button');

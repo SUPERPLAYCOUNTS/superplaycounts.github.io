@@ -92,6 +92,180 @@
   color: #000;
 }
 
+#settings {
+  width: min(94%, 820px);
+  margin: 0 auto 36px;
+  padding: 24px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+#settings > input[type="submit"],
+#settings > input[type="button"] {
+  width: auto;
+  min-width: 180px;
+  margin: 0 auto 18px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+#settings .settings-section {
+  width: 100%;
+  max-width: none;
+  margin: 8px 0 16px;
+  text-align: center;
+}
+
+#settings .settings-label {
+  width: 90%;
+  margin: 16px auto 7px;
+  font-size: 15px;
+  line-height: 1.3;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+#settings .settings-help {
+  width: 90%;
+  margin: 7px auto 14px;
+  font-size: 14px;
+  line-height: 1.45;
+  text-align: left;
+}
+
+#settings input,
+#settings select {
+  box-sizing: border-box;
+}
+
+#settings input[type="text"],
+#settings input[type="number"],
+#settings input[type="file"],
+#settings input[type="button"],
+#settings .optionrate {
+  width: 90%;
+  min-height: 48px;
+  margin: 7px auto;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+#settings input[type="text"],
+#settings input[type="number"],
+#settings input[type="button"] {
+  padding: 0 14px;
+  border: 1px solid transparent;
+}
+
+#settings input[type="file"] {
+  height: auto;
+  padding: 12px;
+  border: 1px dashed transparent;
+}
+
+#settings .optionrate {
+  display: block;
+  padding: 0 12px;
+}
+
+#settings #uniformGainFields,
+#settings #gaussianGainFields,
+#settings #legacyGainFields,
+#settings .settings-io-buttons {
+  width: 90%;
+  margin: 14px auto;
+  padding: 14px;
+  border-radius: 8px;
+  text-align: left;
+}
+
+#settings #uniformGainFields .settings-label,
+#settings #gaussianGainFields .settings-label,
+#settings #legacyGainFields .settings-label,
+#settings #uniformGainFields .settings-help,
+#settings #gaussianGainFields .settings-help,
+#settings #legacyGainFields .settings-help {
+  width: 100%;
+}
+
+#settings #countPlaybackButton,
+#settings .io-btn {
+  min-height: 42px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+#settings #countPlaybackButton {
+  display: block;
+  margin: 12px auto 4px;
+}
+
+#settings h1 {
+  width: 90%;
+  margin: 20px auto 12px;
+  text-align: center;
+}
+
+#settings > p {
+  width: 90%;
+  margin: 10px auto;
+  text-align: center;
+}
+
+#settings #hideSettings {
+  display: block;
+  margin: 16px auto 6px;
+}
+
+#settings #setting {
+  display: block;
+  width: 90%;
+  margin: 0 auto 12px;
+  text-align: center;
+}
+
+#settings input[type="checkbox"] {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  margin: 0 8px 0 0;
+}
+
+#settings input[type="checkbox"] + label {
+  display: inline-block;
+  margin: 0 auto;
+  vertical-align: middle;
+}
+
+@media (max-width: 900px) {
+  #settings {
+    width: 100%;
+    padding: 18px 10px;
+  }
+
+  #settings input[type="text"],
+  #settings input[type="number"],
+  #settings input[type="file"],
+  #settings input[type="button"],
+  #settings .optionrate,
+  #settings .settings-label,
+  #settings .settings-help,
+  #settings h1,
+  #settings > p,
+  #settings #setting,
+  #settings #uniformGainFields,
+  #settings #gaussianGainFields,
+  #settings #legacyGainFields,
+  #settings .settings-io-buttons {
+    width: 100%;
+  }
+}
+
 @media (max-width: 900px) {
 .card {
     margin-top: 52px;
